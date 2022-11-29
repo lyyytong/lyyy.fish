@@ -6,7 +6,7 @@ const screenHeight = window.innerHeight
 
 drawList()
 async function drawList() {
-    const data = await d3.csv('./data/articles.csv')
+    const data = await d3.csv('data/articles.csv')
     // data.sort((a,b)=>d3.descending(a.date,b.date))
     const listHeight = data.length * largeLineHeight
     const margin = screenHeight * .12

@@ -240,7 +240,7 @@ function drawSunBar() {
 //----------------------------------------------------------
 drawFloors();
 async function drawFloors() {
-    const data = await d3.csv('./../data/sun-and-swiss-dwellings/floors.csv', d3.autoType)
+    const data = await d3.csv('../data/sun-and-swiss-dwellings/floors.csv', d3.autoType)
 
     const yFloorAccessor = d => d.floor_number
     const xCountAccessor = d => d.apartment_count
@@ -406,7 +406,7 @@ async function drawFloors() {
 //----------------------------------------------------------
 drawRooms()
 async function drawRooms() {
-    const data = await d3.csv('./../data/sun-and-swiss-dwellings/rooms.csv', d3.autoType)
+    const data = await d3.csv('../data/sun-and-swiss-dwellings/rooms.csv', d3.autoType)
     data.sort((a, b) => d3.descending(a.median, b.median))
     const rooms = d3.map(data, d => d.room)
 
