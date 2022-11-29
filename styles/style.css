@@ -8,10 +8,12 @@
     --text-color: #1c1c1c;
     --accent-color: #33ff00;
     --main-font: 'Public Sans', sans-serif;
+    --main-font-size: clamp(14px, 3vw, 20px);
+    --main-font-weight: 450;
+    --thin-font-weight: 400;
 }
 
 html {
-    font-size: clamp(14px, 3vw, 20px);
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) var(--base-color);
     margin: 0;
@@ -19,7 +21,9 @@ html {
 }
 
 body {
+    font-size: var(--main-font-size);
     font-family: var(--main-font);
+    font-weight: var(--main-font-weight);
     color: var(--text-color);
     background-color: var(--base-color);
     line-height: 1.4;
@@ -41,7 +45,7 @@ a:visited {
 a:hover,
 a:active {
     color: var(--accent-color);
-    font-weight: 300;
+    font-weight: var(--thin-font-weight);
     letter-spacing: .1em;
     transition: all 150ms ease;
 }
@@ -49,17 +53,15 @@ a:active {
 a.email:hover,
 a.email:active {
     color: var(--main-color);
-    font-weight: normal;
+    font-weight: --var(--main-font-weight);
     letter-spacing: normal;
     text-decoration: underline 1.5px;
 }
 
 #name {
     position: fixed;
-    top: 15px;
-    left: 4px;
-    writing-mode: sideways-lr;
-    text-orientation: upright;
+    top: 12px;
+    left: 12px;
 }
 
 #menu {
@@ -78,7 +80,7 @@ a.email:active {
 #about:hover,
 #about:active {
     color: var(--accent-color);
-    font-weight: 300;
+    font-weight: var(--thin-font-weight);
     letter-spacing: .1em;
     transition: all 150ms ease;
     cursor: pointer;
@@ -128,7 +130,7 @@ a.email:active {
 
 #about-back:hover,
 #about-back:active {
-    font-weight: normal;
+    font-weight: var(--main-font-weight);
     letter-spacing: .1em;
     transition: all 150ms ease;
     cursor: pointer;
