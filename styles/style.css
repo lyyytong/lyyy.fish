@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 'Public Sans';
+    src: url('./../fonts/PublicSans.ttf');
+}
+
+:root {
+    --base-color: #ababab;
+    --text-color: #1c1c1c;
+    --accent-color: #33ff00;
+    --main-font: 'Public Sans', sans-serif;
+}
+
+html {
+    font-size: clamp(14px, 3vw, 20px);
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--base-color);
+    margin: 0;
+    font-feature-settings: 'tnum' 1;
+}
+
+body {
+    font-family: var(--main-font);
+    color: var(--text-color);
+    background-color: var(--base-color);
+    line-height: 1.4;
+    position: relative;
+}
+
+body,
+p {
+    margin: 0;
+}
+
+a,
+a:visited {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 150ms ease;
+}
+
+a:hover,
+a:active {
+    color: var(--accent-color);
+    font-weight: 300;
+    letter-spacing: .1em;
+    transition: all 150ms ease;
+}
+
+a.email:hover,
+a.email:active {
+    color: var(--main-color);
+    font-weight: normal;
+    letter-spacing: normal;
+    text-decoration: underline 1.5px;
+}
+
+#name {
+    position: fixed;
+    top: 15px;
+    left: 4px;
+    writing-mode: sideways-lr;
+    text-orientation: upright;
+}
+
+#menu {
+    position: fixed;
+    right: 15px;
+    bottom: 12px;
+    display: flex;
+    gap: 12px;
+}
+
+#about {
+    z-index: 1000;
+    transition: all 150ms ease;
+}
+
+#about:hover,
+#about:active {
+    color: var(--accent-color);
+    font-weight: 300;
+    letter-spacing: .1em;
+    transition: all 150ms ease;
+    cursor: pointer;
+}
+
+#about-bg {
+    height: 2000px;
+    width: 2000px;
+    background-image: radial-gradient(var(--accent-color), transparent, transparent);
+    border-radius: 100%;
+    position: absolute;
+    bottom: -12px;
+    right: -15px;
+    transform: translate(40%, 43%);
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+}
+
+@media (max-width:600px){
+    #about-bg {
+        height: 1400px;
+        width: 1200px;
+        transform: translate(39%, 42%);
+    }
+}
+
+#about-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: end;
+    gap: 20px;
+    width: clamp(250px,70vw,400px);
+    opacity: 0;
+}
+
+#about-details {
+    text-align: end;
+}
+
+#about-back {
+    transition: all 150ms ease;
+}
+
+#about-back:hover,
+#about-back:active {
+    font-weight: normal;
+    letter-spacing: .1em;
+    transition: all 150ms ease;
+    cursor: pointer;
+}
+
+.article {
+    fill: var(--text-color);
+    transition: all 150ms ease;
+    dominant-baseline: middle;
+}
+
+.article:hover,
+.article:active {
+    fill: var(--accent-color);
+    cursor: pointer;
+}
+
+#articles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.article-axis {
+    stroke: var(--accent-color);
+}

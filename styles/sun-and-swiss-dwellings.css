@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'Public Sans';
+    src: url('./../fonts/PublicSans.ttf');
+}
+
+:root {
+    --bg-color: white;
+    --main-color: #4032d7;
+    --sun-color: lightcoral;
+    --main-font: 'Public Sans',sans-serif;
+    --main-text-size: clamp(12px, 1.6vw, 15px);
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+html {
+    font-family: var(--main-font);
+    font-size: var(--main-text-size);
+    color: var(--main-color);
+    fill: var(--main-color);
+    line-height: 1.2;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+body {
+    margin: 0;
+    position: relative;
+    background-color: var(--bg-color);
+    animation: ease appear 200ms;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 16px);
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 8px;
+}
+
+nav>* {
+    background-color: var(--bg-color);
+    padding: 5px 8px 5px 8px;
+    border: var(--main-color) 1px solid;
+    box-shadow: 3px 3px var(--main-color);
+    text-align: center;
+    transition: all ease 80ms;
+    cursor: pointer;
+}
+
+nav #home {
+    width: 50px;
+}
+
+nav #see-more {
+    width: 90px;
+}
+
+nav *:active {
+    opacity: 1;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px var(--main-color);
+    transition: all ease 80ms;
+}
+
+main {
+    margin: 45px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+main>* {
+    display: flex;
+    justify-content: center;
+}
+
+svg {
+    overflow: visible;
+}
+
+text {
+    font-family: var(--main-font);
+}
+
+.axis {
+    opacity: 0;
+}
+
+.bg-color {
+    fill: white;
+}
+
+
+.bg-gradient {
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+
+.big-circle {
+    opacity: .8;
+    background-color: var(--bg-color);
+}
+
+.big-circle-percent {
+    fill: var(--bg-color);
+    font-size: clamp(100px, 20vw, 160px);
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.big-circle-percent-sign {
+    font-size: 50%;
+    font-weight: 700;
+    dominant-baseline:ideographic;
+}
+
+#big-circle-path,
+#small-circle-path {
+    fill: none;
+}
+
+.big-circle-border {
+    fill: none;
+    stroke: var(--bg-color);
+    stroke-width: 3px;
+}
+
+.count-bar {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.circle-bg {
+    font-size: 17%;
+    border-radius: 100%;
+    line-break: anywhere;
+    line-height: 1.7;
+    word-spacing: .15em;
+    letter-spacing: .1em;
+    text-align: center;
+}
+
+.faint {
+    opacity: .6;
+}
+
+.floor-number {
+    dominant-baseline: middle;
+    font-size: var(--main-text-size);
+    text-anchor: end;
+}
+
+.lux-level-line {
+    stroke-dasharray: 1px 1px;
+}
+
+.axis-label {
+    font-size: 70%;
+    font-feature-settings: 'tnum'1;
+}
+
+.sun-axis text {
+    font-family: var(--axis-font);
+    fill: var(--sun-color);
+}
+
+.count-axis text {
+    font-family: var(--axis-font);
+}
+
+.sun-axis line {
+    stroke: var(--sun-color);
+}
+
+.count-axis line {
+    stroke: var(--main-color);
+}
+
+.room-text {
+    text-anchor: end;
+    dominant-baseline: middle;
+}
+
+.sun-bar {
+    color: gray;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.sun-note {
+    fill: gainsboro;
+    dominant-baseline: hanging;
+}
+
+.tick text {
+    font-size: 60%;
+    font-feature-settings: 'tnum' 1;
+    text-anchor: middle;
+}
+
+.visible {
+    opacity: 1;
+}
