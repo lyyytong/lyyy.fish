@@ -1,13 +1,10 @@
-@font-face {
-    font-family: 'Public Sans';
-    src: url('../fonts/PublicSans.ttf');
-}
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
     --bg-color: #f3f3f3;
     --main-color: #4032d7;
     --sun-color: #E683AF;
-    --main-font: 'Public Sans',sans-serif;
+    --main-font: 'Public Sans', sans-serif;
     --main-text-size: clamp(11px, 1.6vw, 14px);
 }
 
@@ -42,7 +39,7 @@ body {
     position: relative;
     background-color: var(--bg-color);
     animation: ease appear 200ms;
-    font-weight: 450;
+    font-weight: 500;
 }
 
 nav {
@@ -118,7 +115,7 @@ text {
 
 .big-circle-percent-sign {
     font-size: 50%;
-    font-weight:bold;
+    font-weight:700;
     dominant-baseline: ideographic;
     alignment-baseline: mathematical;
 }
