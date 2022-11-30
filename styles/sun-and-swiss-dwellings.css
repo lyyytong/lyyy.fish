@@ -1,16 +1,14 @@
-@font-face {
-    font-family: 'Inter var';
-    src: url('../fonts/Inter.var.woff2');
-}
-
 :root {
     --bg-color: #f3f3f3;
     --main-color: #4032d7;
     --sun-color: #E683AF;
-    --main-font: 'Inter var', sans-serif;
+    --main-font: 'Inter', sans-serif;
     --main-font-size: clamp(11px, 1.6vw, 14px);
-    --main-font-weight: 450;
+    --main-font-weight: 420;
 }
+@supports (font-variation-settings: normal) {
+    :root { --main-font: 'Inter var', sans-serif; }
+  }
 
 @keyframes appear {
     0% {
@@ -118,8 +116,9 @@ text {
 }
 
 .big-circle-percent-sign {
-    font-size: 45%;
-    font-weight:600;
+    /* font-size: 65%; */
+    /* font-weight:600;
+    font-variation-settings: 'wght'600; */
 }
 
 #big-circle-path,
