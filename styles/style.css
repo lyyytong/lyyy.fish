@@ -1,21 +1,12 @@
-@font-face {
-    font-family: 'Public Sans', sans-serif;
-    src: url('../fonts/PublicSans.ttf') format('truetype-variations');
-    font-weight: 100 1000;
-}
-
 :root {
     --base-color: #ababab;
     --text-color: #1c1c1c;
     --accent-color: #33ff00;
-    /* --main-font: 'Inter', sans-serif; */
-    --main-font: 'Public Sans',sans-serif;
-    --main-font-size: clamp(14px, 3vw, 20px);
-    --main-font-weight: 400;
+    --main-font: 'Inter', sans-serif;
+    --main-font-size: clamp(14px, 3vw, 18px);
+    --main-font-weight: 450;
+    --thin-font-weight: 400;
 }
-/* @supports (font-variation-settings: normal) {
-  :root { --main-font: 'Inter var', sans-serif; }
-} */
 
 html {
     scrollbar-width: thin;
@@ -28,7 +19,6 @@ body {
     font-size: var(--main-font-size);
     font-family: var(--main-font);
     font-weight: var(--main-font-weight);
-    font-variation-settings: 'wght' var(--main-font-weight);
     color: var(--text-color);
     background-color: var(--base-color);
     line-height: 1.4;
@@ -50,6 +40,7 @@ a:visited {
 a:hover,
 a:active {
     color: var(--accent-color);
+    font-weight: var(--thin-font-weight);
     letter-spacing: .1em;
     transition: all 150ms ease;
 }
@@ -76,6 +67,7 @@ a:active {
 #about:hover,
 #about:active {
     color: var(--accent-color);
+    font-weight: var(--thin-font-weight);
     letter-spacing: .1em;
     transition: all 150ms ease;
     cursor: pointer;

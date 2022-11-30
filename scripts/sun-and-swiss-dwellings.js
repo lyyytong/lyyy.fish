@@ -319,6 +319,7 @@ async function drawFloors() {
         .attr('height', thinBarH)
         .style('fill', dotTexture.url())
     countBars.append('text').html('\\')
+        .attr('class','count-mark')
         .attr('x', d => xCountScale(xCountA(d)) - 2)
         .attr('y', 1)
 
