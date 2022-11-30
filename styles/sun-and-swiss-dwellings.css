@@ -46,7 +46,7 @@ body {
 
 nav {
     position: fixed;
-    bottom: 0;
+    bottom: 8px;
     margin: 8px 8px;
     width: calc(100% - 16px);
     display: flex;
@@ -116,7 +116,7 @@ text {
 
 .big-circle-percent-sign {
     font-size: 50%;
-    font-weight: 800;
+    font-weight: 600;
     dominant-baseline: ideographic;
     alignment-baseline: mathematical;
 }
@@ -149,8 +149,8 @@ text {
 }
 
 .low-floor-highlight {
-    background-image: linear-gradient(to right, #d7daf7,transparent);
-    opacity: .35;
+    background-image: linear-gradient(to right, #d2d6fc,transparent);
+    opacity: .5;
 }
 
 .note text {

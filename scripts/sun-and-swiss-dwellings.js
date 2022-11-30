@@ -235,7 +235,7 @@ async function drawFloors() {
         width: width,
         height: d3.min([width,450]),
         margin: {
-            top: 10,
+            top: 0,
             right: 0,
             bottom: 0,
             left: 0
@@ -301,8 +301,6 @@ async function drawFloors() {
         .attr('width',d=>dim.boundedWidth-xCountScale(xCountA(d)))
         .attr('height',thinBarH)
     
-    const notes = bounds.append('g')
-        .attr('class','note')
     const countBars = bounds.append('g')
         .selectAll('.count-bar')
         .data(data).join('g').attr('class','count-bar')
@@ -326,6 +324,8 @@ async function drawFloors() {
     const countSum = d3.sum(data, xCountA)
     const lowFloorPct = d3.format('.0%')(d3.sum(lowFloorCount) / countSum)
 
+    const notes = bounds.append('g')
+        .attr('class','note')
     notes.append('text')
         .html(`${lowFloorPct} of Swiss apartments are on the 5 lowest floors.`)
         .attr('x',8)
@@ -335,11 +335,11 @@ async function drawFloors() {
         .attr('x',8)
         .attr('y',yScale(-4)+halfBandH)
 
-    const rectX = yScale(4)+halfBandH-thinBarH/2-2
-    const rectHeight = yScale(0)+bandH-rectX+2
+    const rectY = yScale(4)
+    const rectHeight = yScale(0)+bandH-rectY
     const rectWidth = dim.boundedWidth*.3
     notes.append('foreignObject')
-        .attr('y',rectX)
+        .attr('y',rectY)
         .attr('height',rectHeight)
         .attr('width',rectWidth)
         .append('xhtml:div')
@@ -421,7 +421,7 @@ async function drawRooms() {
         margin: {
             top: 0,
             right: 0,
-            bottom: 95,
+            bottom: 110,
             left: 0
         }
     }
