@@ -78,6 +78,7 @@ function drawCircles() {
         .style('fill', dotTexture.url())
     const bigText = bigCircleGroup.append('text').html(82)
         .attr('class', 'big-circle-percent')
+        // .attr('y',5)
 
     const bigTextH = parseFloat(
         getComputedStyle(bigText.node()).lineHeight.split('px')[0]
@@ -94,7 +95,7 @@ function drawCircles() {
 
     const bigCircleText = bigCircleGroup.append('g')
     bigCircleText.append('path').attr('d', () => {
-        radialLineGen.radius(above500R + 3)
+        radialLineGen.radius(above500R + 2)
         return radialLineGen(circlePoints)
     })
         .attr('id', 'big-circle-path')
@@ -104,10 +105,10 @@ function drawCircles() {
     })
         .attr('class', 'big-circle-border')
     bigCircleText.append('text')
-        .style('transform', 'rotate(-75deg)')
+        .style('transform', 'rotate(-65deg)')
         .append('textPath')
         .attr('xlink:href', `#big-circle-path`)
-        .html('Swiss apartments with at least 500 lux of sun (averaged across rooms)')
+        .html('Percentage of Swiss apartments with at least 500 lux of sun')
 
     const smallCircleText = smallCircleGroup.append('g')
     smallCircleText.append('path').attr('d', () => {

@@ -113,12 +113,14 @@ text {
     fill: var(--bg-color);
     font-size: clamp(100px, 20vw, 160px);
     text-anchor: middle;
+    /* dominant-baseline: middle; */
+    letter-spacing: -0.03em;
 }
 
 .big-circle-percent-sign {
-    /* font-size: 65%; */
-    /* font-weight:600;
-    font-variation-settings: 'wght'600; */
+    font-size: 60%;
+    font-weight:600;
+    font-variation-settings: 'wght'600;
 }
 
 #big-circle-path,
@@ -129,7 +131,7 @@ text {
 .big-circle-border {
     fill: none;
     stroke: var(--bg-color);
-    stroke-width: 3px;
+    stroke-width: 2px;
 }
 
 .count-bar text {
