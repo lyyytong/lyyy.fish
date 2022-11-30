@@ -42,6 +42,7 @@ body {
     position: relative;
     background-color: var(--bg-color);
     animation: ease appear 200ms;
+    font-weight: 450;
 }
 
 nav {
@@ -51,6 +52,7 @@ nav {
     width: calc(100% - 16px);
     display: flex;
     justify-content: space-between;
+    z-index: 99;
 }
 
 nav>* {
@@ -116,7 +118,7 @@ text {
 
 .big-circle-percent-sign {
     font-size: 50%;
-    font-weight: 600;
+    font-weight:bold;
     dominant-baseline: ideographic;
     alignment-baseline: mathematical;
 }

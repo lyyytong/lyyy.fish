@@ -328,11 +328,11 @@ async function drawFloors() {
         .attr('class','note')
     notes.append('text')
         .html(`${lowFloorPct} of Swiss apartments are on the 5 lowest floors.`)
-        .attr('x',8)
+        .attr('x',5)
         .attr('y',yScale(-4)+halfBandH-lineH)
     notes.append('text')
         .html(`Units rising from this density tend to get more sun.`)
-        .attr('x',8)
+        .attr('x',5)
         .attr('y',yScale(-4)+halfBandH)
 
     const rectY = yScale(4)
@@ -421,7 +421,7 @@ async function drawRooms() {
         margin: {
             top: 0,
             right: 0,
-            bottom: 110,
+            bottom: 120,
             left: 0
         }
     }
