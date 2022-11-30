@@ -12,7 +12,7 @@ const colorWarm = '#feb0c0'
 const colorLight = '#fcebd7'
 
 const lineTexture = textures.lines().size(5.5).strokeWidth(3).stroke('var(--bg-color)')
-const dotTexture = textures.circles().size(3).radius(.5).fill('var(--main-color')
+const dotTexture = textures.circles().size(2.6).radius(.4).fill('var(--main-color')
 
 drawCircles();
 function drawCircles() {
@@ -320,7 +320,7 @@ async function drawFloors() {
         .attr('height', thinBarH)
         .style('fill', dotTexture.url())
     countBars.append('text').html('\\')
-        .attr('x', d => xCountScale(xCountA(d)) - 3)
+        .attr('x', d => xCountScale(xCountA(d)) - 2)
         .attr('y', 1)
 
     const lowFloorCount = d3.filter(

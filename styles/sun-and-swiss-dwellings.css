@@ -56,9 +56,9 @@ nav {
 }
 
 nav>* {
-    background-color: var(--bg-color);
+    background-image: radial-gradient(var(--bg-color),transparent);
     padding: 5px 8px 5px 8px;
-    border: var(--main-color) 1px dotted;
+    border-bottom: var(--main-color) .5px solid;
     box-shadow: 3px 3px var(--main-color);
     text-align: center;
     transition: all ease 100ms;
@@ -101,8 +101,8 @@ text {
 }
 
 .annotation-line {
-    stroke-dasharray: 1px 1px;
     stroke: var(--main-color);
+    stroke-width: .5px;
 }
 
 .axis {
@@ -113,14 +113,13 @@ text {
     fill: var(--bg-color);
     font-size: clamp(100px, 20vw, 160px);
     text-anchor: middle;
-    /* dominant-baseline: middle; */
     letter-spacing: -0.03em;
 }
 
 .big-circle-percent-sign {
-    font-size: 60%;
-    font-weight:600;
-    font-variation-settings: 'wght'600;
+    font-size: 50%;
+    font-weight:700;
+    font-variation-settings: 'wght'700;
 }
 
 #big-circle-path,
