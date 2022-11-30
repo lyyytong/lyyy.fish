@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@font-face {
+    font-family: 'Inter var';
+    src: url('../fonts/Inter.var.woff2');
+}
 :root {
     --base-color: #ababab;
     --text-color: #1c1c1c;
     --accent-color: #33ff00;
-    --main-font: 'Public Sans', sans-serif;
+    --main-font: 'Inter var', sans-serif;
     --main-font-size: clamp(14px, 3vw, 20px);
-    --main-font-weight: 500;
-    --thin-font-weight: 400;
+    --main-font-weight: 400;
 }
 
 html {
@@ -42,7 +44,6 @@ a:visited {
 a:hover,
 a:active {
     color: var(--accent-color);
-    font-weight: var(--thin-font-weight);
     letter-spacing: .1em;
     transition: all 150ms ease;
 }
@@ -69,7 +70,6 @@ a:active {
 #about:hover,
 #about:active {
     color: var(--accent-color);
-    font-weight: var(--thin-font-weight);
     letter-spacing: .1em;
     transition: all 150ms ease;
     cursor: pointer;

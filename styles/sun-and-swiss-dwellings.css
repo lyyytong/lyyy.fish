@@ -1,10 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+    font-family: 'Inter var';
+    src: url('../fonts/Inter.var.woff2');
+}
 
 :root {
     --bg-color: #f3f3f3;
     --main-color: #4032d7;
     --sun-color: #E683AF;
-    --main-font: 'Public Sans', sans-serif;
+    --main-font: 'Inter var', sans-serif;
     --main-text-size: clamp(11px, 1.6vw, 14px);
 }
 
@@ -39,7 +42,7 @@ body {
     position: relative;
     background-color: var(--bg-color);
     animation: ease appear 200ms;
-    font-weight: 500;
+    font-weight: 450;
 }
 
 nav {
@@ -110,14 +113,11 @@ text {
     fill: var(--bg-color);
     font-size: clamp(100px, 20vw, 160px);
     text-anchor: middle;
-    dominant-baseline: middle;
 }
 
 .big-circle-percent-sign {
-    font-size: 50%;
-    font-weight:700;
-    dominant-baseline: ideographic;
-    alignment-baseline: mathematical;
+    font-size: 45%;
+    font-weight:600;
 }
 
 #big-circle-path,
