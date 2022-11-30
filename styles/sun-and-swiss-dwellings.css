@@ -4,11 +4,11 @@
 }
 
 :root {
-    --bg-color: white;
+    --bg-color: #f3f3f3;
     --main-color: #4032d7;
-    --sun-color: lightcoral;
+    --sun-color: #E683AF;
     --main-font: 'Public Sans',sans-serif;
-    --main-text-size: clamp(12px, 1.6vw, 15px);
+    --main-text-size: clamp(11px, 1.6vw, 14px);
 }
 
 @keyframes appear {
@@ -26,7 +26,7 @@ html {
     font-size: var(--main-text-size);
     color: var(--main-color);
     fill: var(--main-color);
-    line-height: 1.2;
+    line-height: 1.3;
 }
 
 a,
@@ -47,20 +47,27 @@ body {
 nav {
     position: fixed;
     bottom: 0;
+    margin: 8px 8px;
     width: calc(100% - 16px);
     display: flex;
     justify-content: space-between;
-    margin: 8px 8px;
 }
 
 nav>* {
     background-color: var(--bg-color);
     padding: 5px 8px 5px 8px;
-    border: var(--main-color) 1px solid;
+    border: var(--main-color) 1px dotted;
     box-shadow: 3px 3px var(--main-color);
     text-align: center;
-    transition: all ease 80ms;
+    transition: all ease 100ms;
     cursor: pointer;
+}
+
+nav >*:active {
+    opacity: 1;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px var(--main-color);
+    transition: all ease 100ms;
 }
 
 nav #home {
@@ -68,21 +75,14 @@ nav #home {
 }
 
 nav #see-more {
-    width: 90px;
-}
-
-nav *:active {
-    opacity: 1;
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px var(--main-color);
-    transition: all ease 80ms;
+    width: 70px;
 }
 
 main {
-    margin: 45px 8px;
+    margin: 55px 8px;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: clamp(70px,15vh,80px);
 }
 
 main>* {
@@ -98,23 +98,13 @@ text {
     font-family: var(--main-font);
 }
 
+.annotation-line {
+    stroke-dasharray: 1px 1px;
+    stroke: var(--main-color);
+}
+
 .axis {
     opacity: 0;
-}
-
-.bg-color {
-    fill: white;
-}
-
-
-.bg-gradient {
-    mix-blend-mode: overlay;
-    pointer-events: none;
-}
-
-.big-circle {
-    opacity: .8;
-    background-color: var(--bg-color);
 }
 
 .big-circle-percent {
@@ -126,8 +116,9 @@ text {
 
 .big-circle-percent-sign {
     font-size: 50%;
-    font-weight: 700;
-    dominant-baseline:ideographic;
+    font-weight: 800;
+    dominant-baseline: ideographic;
+    alignment-baseline: mathematical;
 }
 
 #big-circle-path,
@@ -141,24 +132,14 @@ text {
     stroke-width: 3px;
 }
 
-.count-bar {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
+.count-bar text {
+    dominant-baseline: middle;
+    font-size: 110%;
 }
 
-.circle-bg {
-    font-size: 20%;
-    border-radius: 100%;
-    line-break: anywhere;
-    line-height: 1.7;
-    word-spacing: .15em;
-    letter-spacing: .1em;
-    text-align: center;
-}
-
-.faint {
-    opacity: .6;
+.count-bar-bg {
+    fill: var(--bg-color);
+    opacity: .8;
 }
 
 .floor-number {
@@ -167,18 +148,28 @@ text {
     text-anchor: end;
 }
 
-.lux-level-line {
-    stroke-dasharray: 1px 1px;
+.low-floor-highlight {
+    background-image: linear-gradient(to right, #d7daf7,transparent);
+    opacity: .35;
+}
+
+.note text {
+    dominant-baseline: middle;
 }
 
 .axis-label {
-    font-size: 70%;
+    font-size: 85%;
     font-feature-settings: 'tnum'1;
 }
 
 .sun-axis text {
     font-family: var(--axis-font);
     fill: var(--sun-color);
+}
+
+.count-axis .axis-label {
+    dominant-baseline: hanging;
+    text-anchor: end;
 }
 
 .count-axis text {
@@ -198,20 +189,8 @@ text {
     dominant-baseline: middle;
 }
 
-.sun-bar {
-    color: gray;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-}
-
-.sun-note {
-    fill: gainsboro;
-    dominant-baseline: hanging;
-}
-
 .tick text {
-    font-size: 60%;
+    font-size: 70%;
     font-feature-settings: 'tnum' 1;
     text-anchor: middle;
 }

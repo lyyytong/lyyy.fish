@@ -1,25 +1,25 @@
-const sunFiller = '//////////'.repeat(100)
-const countFiller = '~~~~~~~~~~'.repeat(10)
-const descFiller = "Swiss Dwellings: A large dataset of apartment models including aggregated geolocation-based simulation results covering viewshed, natural light, traffic noise, centrality and geometric analysis. Authors: Matthias Standfest; Michael Franzen; Yvonne Schröder; Luis Gonzalez Medina; Yarilo Villanueva Hernandez; Jan Hendrik Buck; Yen-Ling Tan; Milena Niedzwiecka; Rachele Colmegna. This dataset contains detailed data on over 42,500 apartments (250,000 rooms) in ~3,100 buildings including their geometries, room typology as well as their visual, acoustical, topological and daylight characteristics. The data is sourced from commercial clients of Archilyse AG specializing on the digitization and analysis of buildings. The existing building plans of clients are converted into a geo-referenced, semantically annotated representation and undergo a manual Q/A process to ensure accuracy of the data and to ensure a maximum 5%-deviation in the apartments' areas (validated with a median deviation of 1.2 %). The dataset contains a file geometries.csv which contains the geometries of all areas, walls, railings, columns, windows, doors and features(sinks, bathtubs, etc.) of an apartment. In total the datasets contains the 2D geometry of ~1.5 million separators(walls, railings), ~670, 000 openings(windows, doors), ca. 400, 000 areas(rooms, bathrooms, kitchens, etc.) and ~290, 000 features(sinks, toilets, bathtubs, etc.).Beside the geometrical model, we also provide simulation data on the visual, acoustic, solar, layout and connectivity - related characteristics of the apartments. The file simulations.csv contains the simulation data aggregated on a per - area basis.Each row contains the identifier columns area_id, unit_id, apartment_id, floor_id, building_id, site_id as defined above as well as 367 simulation columns.The layout features represent simple features based on the geometry and composition of a room, the dataset provides the following information in an unaggregated form. The views from an object help to understand the impact of the surroundings on the object. The view simulation calculates the visible amount of buildings, greenery, water etc.on each individual hexagon from the analyzed object. The values are expressed in steradians(sr) and represent the amount a certain object category occupies in the spherical field of view. Each of the following dimension is provided using the room - wise aggregations min, max, mean, std, median, p20 and p80.For instance, the column view_greenery_p20 describes the amount of greenery that can be seen from at least 20 % of the positions in the area.Sun simulations help to understand the impact of the solar radiation on the object. The outcome of the sun simulations helps to identify surfaces that have great solar potential. Sun simulations are defined by the amount of sun radiation on each individual hexagon from the analyzed object.The sun simulation not only includes direct sun but also considers scattered light. The sun simulation values are given in Kilolux(klx). Simulations are performed for the days of summer solstice, winter solstice and vernal equinox. Noise level and the distribution of elements from an area helps to understand how an object is exposed to the acoustics of this area.The acoustic simulation calculates the noise intensity on each individual hexagon from the analyzed object considering traffic and train noise datasets.Adjacent buildings are considered as noise blocking elements.The values are expressed in dBA(decibels).Centrality simulations help to analyze a floor plan, whether it's a shopping mall and you want to identify prominent areas in order to select the most prominent spot or it's an interior design circulation path and you want to determine open floor plan areas.Centrality simulations are done using topological measures that score grid cells by their importance as a part of a gridcell network.Matthias Standfest, Michael Franzen, Yvonne Schröder, Luis Gonzalez Medina, Yarilo Villanueva Hernandez, Jan Hendrik Buck, Yen - Ling Tan, Milena Niedzwiecka, & Rachele Colmegna. (2022).Swiss Dwellings: A large dataset of apartment models including aggregated geolocation - based simulation results covering viewshed, natural light, traffic noise, centrality and geometric analysis(2.0.0)[Data set].Zenodo.https://doi.org/10.5281/zenodo.7215005".repeat(10)
-
 const html = document.getElementsByTagName('html')[0]
-const lineHeight = parseFloat(getComputedStyle(html).lineHeight.split('px')[0])
+const lineH = parseFloat(getComputedStyle(html).lineHeight.split('px')[0])
 
-const sunBarHeight = 20
+const barH = 20
+const thinBarH = lineH*.7
 
 const numGradientStops = 5
 const stops = d3.range(numGradientStops).map(i => i / (numGradientStops - 1))
 
-const colorHot = '#d10000'
-const colorWarm = '#f08080'
-const colorLight = '#ffdab9'
+const colorHot = '#E15A97'
+const colorWarm = '#feb0c0'
+const colorLight = '#fcebd7'
+
+const lineTexture = textures.lines().size(5.5).strokeWidth(3).stroke('var(--bg-color)')
+const dotTexture = textures.circles().size(3).radius(.5).fill('var(--main-color')
 
 drawCircles();
 function drawCircles() {
     const width = d3.min([d3.select("#wrapper1").node().clientWidth, 600]);
     let dim = {
         width: width,
-        height: width*.95,
+        height: width*.9,
         margin: {
             top: 0,
             right: 0,
@@ -30,13 +30,11 @@ function drawCircles() {
     dim.boundedWidth = dim.width - dim.margin.left - dim.margin.right;
     dim.boundedHeight = dim.height - dim.margin.top - dim.margin.bottom;
 
-    const wrapper = d3
-        .select("#wrapper1").append("svg")
+    const wrapper = d3.select("#wrapper1").append("svg")
         .attr("width", dim.width)
         .attr("height", dim.height);
     const bounds = wrapper.append("g").style(
-        "transform",
-        `translate(
+        "transform",`translate(
             ${dim.margin.left}px,
             ${dim.margin.top}px
         )`
@@ -45,48 +43,50 @@ function drawCircles() {
     const above500R = dim.boundedWidth*1.1 / (2 + 2 * Math.sqrt(18 / 82))
     const under500R = dim.boundedWidth*1.1 / 2 - above500R
 
+    wrapper.call(dotTexture)
+
+    const defs = wrapper.select('defs')
+    const sunGradientId = 'sun-gradient'
+    defs.append('linearGradient')
+        .attr('id', sunGradientId)
+        .selectAll('stop').data(stops)
+        .join('stop')
+        .attr('stop-color', d => d3.interpolateRgb(colorHot, colorLight)(d))
+        .attr('offset', d => `${d * 100}%`)
+    
     const smallCircleGroup = bounds.append('g')
         .style('transform', `translate(
-            ${dim.boundedWidth*.5 + under500R * .6}px,
-            ${dim.boundedHeight*.5 + under500R *.6}px
+            ${dim.boundedWidth*.5 + under500R*1.7}px,
+            ${dim.boundedHeight*.5 + under500R*1.7}px
         )`)
-    smallCircleGroup.append('foreignObject')
-        .attr('width', under500R * 2)
-        .attr('height', under500R * 2)
-        .attr('class', 'circle-bg')
-        .append('xhtml:div')
-            .style('width', `${under500R * 2}px`)
-            .style('height', `${under500R * 2}px`)
-            .html(descFiller)
+    smallCircleGroup.append('circle')
+            .attr('r',under500R)
+            .style('fill',dotTexture.url())
 
     const bigCircleGroup = bounds.append('g')
         .style('transform', `translate(
-            ${dim.boundedWidth*.5 - above500R * 1.22}px,
-            ${dim.boundedHeight*.45 - above500R}px
+            ${dim.boundedWidth*.42}px,
+            ${dim.boundedHeight*.5}px
         )`)
-    bigCircleGroup.append('foreignObject')
-        .attr('width', above500R * 2).attr('height', above500R * 2)
-        .attr('class', 'circle-bg')
-        .append('xhtml:div')
-            .attr('class','big-circle')
-            .style('width', `${above500R * 2}px`)
-            .style('height', `${above500R * 2}px`)
-            .html(descFiller)
+    bigCircleGroup.append('circle')
+        .attr('r',above500R)
+        .style('fill',`url(#${sunGradientId})`)
+        .style('opacity',.2)
+        .style('transform','rotate(20deg)')
+    bigCircleGroup.append('circle')
+        .attr('r',above500R)
+        .style('fill',dotTexture.url())
     bigCircleGroup.append('text').html(82)
-        .style('transform', `translate(
-            ${above500R + 8}px,
-            ${above500R + 6}px
-        )`)
+        .style('transform', `translate(10px, 5px)`)
         .attr('class','big-circle-percent')
         .append('tspan')
-            .html('%').attr('class','big-circle-percent-sign')
-
-    let circlePoints = d3.range(90)
-    circlePoints = circlePoints.map(d => d * (Math.PI * 2) / circlePoints.slice(-1)[0])
+            .attr('class','big-circle-percent-sign')
+            .html('%')
+    
+    const circlePoints = d3.range(0,Math.PI*2,.07).concat(Math.PI*2)
     const radialLineGen = d3.lineRadial().angle(d => d)
-
+    
     const bigCircleText = bigCircleGroup.append('g')
-        .style('transform', `translate(${above500R}px,${above500R}px)`)
     bigCircleText.append('path').attr('d', () => {
             radialLineGen.radius(above500R + 3)
             return radialLineGen(circlePoints)
@@ -98,20 +98,18 @@ function drawCircles() {
         })
         .attr('class', 'big-circle-border')
     bigCircleText.append('text')
-        .style('transform', 'rotate(-85deg)')
+        .style('transform', 'rotate(-75deg)')
         .append('textPath')
             .attr('xlink:href', `#big-circle-path`)
             .html('Swiss apartments with at least 500 lux of sun (averaged across rooms)')
 
     const smallCircleText = smallCircleGroup.append('g')
-        .style('transform', `translate(${under500R}px,${under500R}px)`)
     smallCircleText.append('path').attr('d', () => {
-            radialLineGen.radius(under500R + 4)
+            radialLineGen.radius(under500R+2)
             return radialLineGen(circlePoints)
         })
         .attr('id', 'small-circle-path')
     smallCircleText.append('text')
-        // .style('transform', 'rotate(0deg)')
         .append('textPath')
             .attr('xlink:href', `#small-circle-path`)
             .html('vs. units less illuminated')
@@ -124,20 +122,19 @@ function drawSunBar() {
     const width = d3.min([d3.select("#wrapper2").node().clientWidth, 600]);
     let dim = {
         width: width,
-        height: width * .4+35,
+        height: d3.min([width*.4,170]),
         margin: {
             top: 0,
-            right: 5,
-            bottom: 30,
-            left: 5,
+            right: 0,
+            bottom: 10,
+            left: 0,
         },
     };
     dim.boundedWidth = dim.width - dim.margin.left - dim.margin.right;
     dim.boundedHeight = dim.height - dim.margin.top - dim.margin.bottom;
 
     const wrapper = d3
-        .select("#wrapper2")
-        .append("svg")
+        .select("#wrapper2").append("svg")
         .attr("width", dim.width)
         .attr("height", dim.height);
     
@@ -148,34 +145,23 @@ function drawSunBar() {
             ${dim.margin.top}px
         )`
     )
-    bounds.append('rect')
-        .attr('width', dim.boundedWidth)
-        .attr('height', dim.boundedHeight)
-        .attr('class','bg-color')
 
-    const sunBarY = dim.boundedHeight * .75
+    const sunBarY = dim.boundedHeight * .7
     bounds.append('text')
         .attr('class','sun-note')
-        .attr('x',1).attr('y', sunBarY * .01)
+        .attr('x',0).attr('y', sunBarY * .01)
         .html('Illuminance (lux):')
         .append('tspan').html('the amount of light hitting a surface.')
-        .attr('x',1).attr('y', sunBarY * .01 + lineHeight)
+        .attr('x',0).attr('y', sunBarY * .01 + lineH)
         .append('tspan').html('1 lux is equivalent to the amount of')
-        .attr('x',1).attr('y', sunBarY * .01 + lineHeight * 2)
+        .attr('x',0).attr('y', sunBarY * .01 + lineH * 2)
         .append('tspan').html('light hitting 1m² of surface from a')
-        .attr('x',1).attr('y', sunBarY * .01 + lineHeight * 3)
+        .attr('x',0).attr('y', sunBarY * .01 + lineH * 3)
         .append('tspan').html('candle placed 1 meter away.')
-        .attr('x',1).attr('y', sunBarY * .01 + lineHeight * 4)
-    bounds.append('foreignObject')
-        .attr('x',1)
-        .attr('y', sunBarY - sunBarHeight/2)
-        .attr('height', sunBarHeight).attr('width', dim.boundedWidth-2)
-        .append('xhtml:div')
-            .attr('class','sun-bar')
-            .html(sunFiller)
-            .style('height', `${sunBarHeight}px`)
+        .attr('x',0).attr('y', sunBarY * .01 + lineH * 4)
     
-    const defs = wrapper.append('defs')
+    wrapper.call(lineTexture)
+    const defs = wrapper.select('defs')
     const strongSunGradientId = 'strong-sun-gradient'
     defs.append('linearGradient')
         .attr('id', strongSunGradientId)
@@ -184,20 +170,18 @@ function drawSunBar() {
         .attr('stop-color', d => d3.interpolateRgb(colorHot, colorLight)(d))
         .attr('offset', d => `${d * 100}%`)
     bounds.append('rect')
-        .attr('class','bg-gradient')
-        .attr('x',1).attr('y',1)
-        .attr('height', dim.boundedHeight-2)
-        .attr('width', dim.boundedWidth-2)
-        .style('fill', `url(#${strongSunGradientId})`)
+        .attr('y', sunBarY - barH/2)
+        .attr('height', barH).attr('width', dim.boundedWidth)
+        .style('fill',`url(#${strongSunGradientId})`)
+    bounds.append('rect')
+        .attr('y', sunBarY - barH/2-1)
+        .attr('height', barH+2).attr('width', dim.boundedWidth)
+        .style('fill',lineTexture.url())
 
     const xSunScale = d3.scalePow()
-        .exponent(.4)
+        .exponent(.6)
         .domain([0, 100])
-        .range([dim.boundedWidth-2, 1])
-    const colorSunScale = d3.scalePow()
-        .exponent(.4)
-        .domain([0, 100])
-        .range([colorLight, colorHot])
+        .range([dim.boundedWidth, 0])
 
     const luxLevels = [.5, 1, 10, 100]
     const luxLevelsGroup = bounds.selectAll('.lux-level').data(luxLevels)
@@ -206,22 +190,22 @@ function drawSunBar() {
             : d == 1 ? '1 kilolux'
                 : d == 10 ? '10 kilolux'
                     : '100 kilolux')
-        .attr('x', d => d == .5 ? xSunScale(d) - 5 : xSunScale(d) + 5)
+        .attr('x', d => d == 100 ? xSunScale(d) + 5 : xSunScale(d) - 5)
         .attr('y', d => d == .5 ? sunBarY * .01 : sunBarY + 30)
-        .style('text-anchor', d => d == .5 ? 'end' : 'start')
+        .style('text-anchor', d => d == 100 ? 'start' : 'end')
         .style('dominant-baseline', d => d == .5 ? 'hanging' : 'middle')
         .append('tspan')
-            .attr('x', d => d == .5 ? xSunScale(d) - 5 : xSunScale(d) + 5)
-            .attr('y', d => d == .5 ? sunBarY * .01 + lineHeight : sunBarY + 30 + lineHeight)
+            .attr('x', d => d == 100 ? xSunScale(d) + 5 : xSunScale(d) - 5)
+            .attr('y', d => d == .5 ? sunBarY * .01 + lineH : sunBarY + 30 + lineH)
             .html(d => d == .5 ? 'library, study'
                 : d == 1 ? 'cloudy day'
                 : d == 10 ? 'sunny day'
                 : 'strong, direct sunlight')
-    luxLevelsGroup.join('line').attr('class','lux-level-line')
+            .style('dominant-baseline', d => d == .5 ? 'hanging' : 'middle')
+    luxLevelsGroup.join('line').attr('class','annotation-line')
         .attr('y1', d => d == .5 ? sunBarY - 10 : sunBarY + 10)
-        .attr('y2', d => d == .5 ? sunBarY * .01 : sunBarY + 30 + lineHeight * 1.3)
-        .style('transform', d => `translateX(${xSunScale(d)}px)`)
-        .style('stroke', d => colorSunScale(d))
+        .attr('y2', d => d == .5 ? sunBarY * .01 : sunBarY + 30 + lineH * 1.35)
+        .style('transform', d =>d==100 ? `translateX(${xSunScale(d)+1}px)` : `translateX(${xSunScale(d)}px)`)
 
     const sunTicks = d3.range(0,100,10)
     const xAxis = bounds.append('g').attr('class','sun-axis axis')
@@ -242,19 +226,19 @@ drawFloors();
 async function drawFloors() {
     const data = await d3.csv('../data/sun-and-swiss-dwellings/floors.csv', d3.autoType)
 
-    const yFloorAccessor = d => d.floor_number
-    const xCountAccessor = d => d.apartment_count
-    const xSunAccessor = d => d.sun_spring_10am_klx
+    const yFloorA = d => d.floor_number
+    const xCountA = d => d.apartment_count
+    const xSunA = d => d.sun_spring_10am_klx
 
     const width = d3.min([d3.select('#wrapper3').node().clientWidth, 600])
     let dim = {
         width: width,
-        height: width,
+        height: d3.min([width,450]),
         margin: {
-            top: 0,
+            top: 10,
             right: 0,
             bottom: 0,
-            left: 5
+            left: 0
         }
     }
     dim.margin.right = d3.median([20,width*.04,25])
@@ -268,92 +252,112 @@ async function drawFloors() {
             ${dim.margin.left}px,
             ${dim.margin.top}px
         )`)
-
-    bounds.append('rect')
-        .attr('width', dim.boundedWidth).attr('height', dim.boundedHeight)
-        .attr('class','bg-color')
-
-    const defs = wrapper.append('defs')
-    const sunGradientId = 'sun-gradient'
+    
+    wrapper.call(lineTexture)
+    const defs = wrapper.select('defs')
+    const lightSunGradientId = 'light-sun-gradient'
     defs.append('linearGradient')
-        .attr('id', sunGradientId)
+        .attr('id', lightSunGradientId)
         .selectAll('stop').data(stops)
         .join('stop')
         .attr('stop-color', d => d3.interpolateRgb(colorWarm, colorLight)(d))
         .attr('offset', d => `${d * 100}%`)
 
     const yScale = d3.scaleBand()
-        .domain(data.map(d => yFloorAccessor(d)))
+        .domain(data.map(d => yFloorA(d)))
         .range([dim.boundedHeight, 0])
-        // .paddingOuter(.3)
+        .paddingOuter(.2)
+    const bandH = yScale.bandwidth()
+    const halfBandH = bandH/2
     const xCountScale = d3.scaleLinear()
-        .domain(d3.extent(data, xCountAccessor))
-        .range([dim.boundedWidth-1, 1])
+        .domain(d3.extent(data, xCountA))
+        .range([dim.boundedWidth, 0])
         .nice()
     const xSunScale = d3.scaleLinear()
-        .domain(d3.extent(data, xSunAccessor))
-        .range([dim.boundedWidth-1, 1])
-        .nice()
+        .domain([0,d3.max(data, xSunA)])
+        .range([dim.boundedWidth, 0])
 
     const sunBars = bounds.append('g')
         .selectAll('.sun-bar')
-        .data(data).join('foreignObject')
-        .attr('y', d => yScale(yFloorAccessor(d)))
-        .attr('x', d => xSunScale(xSunAccessor(d)))
-        .attr('width', d => dim.boundedWidth-2 - xSunScale(xSunAccessor(d)))
-        .attr('height', yScale.bandwidth())
-    sunBars.append('xhtml:div')
-        .attr('class', 'sun-bar faint')
-        .html(d=>yFloorAccessor(d)==6 ? sunFiller+' Units /////////////////////'
-            : yFloorAccessor(d)==7 ? sunFiller+' rising /////////////'
-            : yFloorAccessor(d)==8 ? sunFiller+' from this //////'
-            : yFloorAccessor(d)==9 ? sunFiller+' low-floored //////'
-            : yFloorAccessor(d)==10 ? sunFiller+' density ////'
-            : yFloorAccessor(d)==11 ? sunFiller+' tend to ///'
-            : yFloorAccessor(d)==12 ? sunFiller+' get ///////'
-            : yFloorAccessor(d)==13 ? sunFiller+' more //'
-            : yFloorAccessor(d)==14 ? sunFiller+' sun. /////'
-            : sunFiller
-        )
-        .style('height', yScale.bandwidth() + 'px')
-        .style('justify-content','end')
-
-    bounds.append('rect')
-        .attr('class','bg-gradient')
-        .attr('x',1).attr('y',1)
-        .attr('width', dim.boundedWidth-2).attr('height', dim.boundedHeight-2)
-        .style('fill', `url(#${sunGradientId})`)
-
+        .data(data).join('g').attr('class','sun-bar')
+        .style('transform',d=>`translateY(${
+            yScale(yFloorA(d))+halfBandH-thinBarH/2}px
+        )`)
+    sunBars.append('rect')
+        .attr('x', d => xSunScale(xSunA(d)))
+        .attr('width', d => dim.boundedWidth - xSunScale(xSunA(d)))
+        .attr('height',thinBarH)
+        .style('fill',`url(#${lightSunGradientId})`)
+    sunBars.append('rect')
+        .attr('x', d => xSunScale(xSunA(d)))
+        .attr('width', d => xCountScale(xCountA(d)) - xSunScale(xSunA(d)) >=0
+            ? xCountScale(xCountA(d)) - xSunScale(xSunA(d))
+            : 0)
+        .attr('height',thinBarH)
+        .style('fill',lineTexture.url())
+    sunBars.append('rect')
+        .attr('class','count-bar-bg')
+        .attr('x', d => xCountScale(xCountA(d)))
+        .attr('width',d=>dim.boundedWidth-xCountScale(xCountA(d)))
+        .attr('height',thinBarH)
+    
+    const notes = bounds.append('g')
+        .attr('class','note')
     const countBars = bounds.append('g')
         .selectAll('.count-bar')
-        .data(data).join('foreignObject')
-        .attr('x', d => xCountScale(xCountAccessor(d)))
-        .attr('y', d => yScale(yFloorAccessor(d)))
-        .attr('width', d => dim.boundedWidth - xCountScale(xCountAccessor(d)))
-        .attr('height', yScale.bandwidth())
+        .data(data).join('g').attr('class','count-bar')
+        .style('transform',d=>`translateY(${
+            yScale(yFloorA(d))+halfBandH}px
+        )`)
+
+    countBars.append('rect')
+        .attr('x',d=>xCountScale(xCountA(d)))
+        .attr('y',-thinBarH/2)
+        .attr('width',d=>dim.boundedWidth-xCountScale(xCountA(d)))
+        .attr('height',thinBarH)
+        .style('fill',dotTexture.url())
+    countBars.append('text').html('\\')
+        .attr('x',d=>xCountScale(xCountA(d))-3)
+        .attr('y',1)
 
     const lowFloorCount = d3.filter(
-        data, d => yFloorAccessor(d) >= 0 && yFloorAccessor(d) <= 4
-    ).map(xCountAccessor)
-    const countSum = d3.sum(data, xCountAccessor)
-    const lowFloorPercent = d3.sum(lowFloorCount) / countSum
-    const lowFloorPctString = d3.format('.0%')(lowFloorPercent)
-    countBars.append('xhtml:div')
-        .attr('class', 'count-bar')
-        .html(d => yFloorAccessor(d) == 1
-            ? `~~~ ${lowFloorPctString} of Swiss apartments are located `+countFiller
-            : yFloorAccessor(d) == 0 ? '~~ on the 5 lowest floors, from ground level '+countFiller
-            : yFloorAccessor(d) == 4 ? '~~~~~~~~~~ up to the 4th '+countFiller
-            : countFiller
-        )
-        .style('height', yScale.bandwidth() + 'px')
+        data, d => yFloorA(d) >= 0 && yFloorA(d) <= 4
+    ).map(xCountA)
+    const countSum = d3.sum(data, xCountA)
+    const lowFloorPct = d3.format('.0%')(d3.sum(lowFloorCount) / countSum)
+
+    notes.append('text')
+        .html(`${lowFloorPct} of Swiss apartments are on the 5 lowest floors.`)
+        .attr('x',8)
+        .attr('y',yScale(-4)+halfBandH-lineH)
+    notes.append('text')
+        .html(`Units rising from this density tend to get more sun.`)
+        .attr('x',8)
+        .attr('y',yScale(-4)+halfBandH)
+
+    const rectX = yScale(4)+halfBandH-thinBarH/2-2
+    const rectHeight = yScale(0)+bandH-rectX+2
+    const rectWidth = dim.boundedWidth*.3
+    notes.append('foreignObject')
+        .attr('y',rectX)
+        .attr('height',rectHeight)
+        .attr('width',rectWidth)
+        .append('xhtml:div')
+            .style('width',rectWidth+'px')
+            .style('height',rectHeight+'px')
+        .attr('class','low-floor-highlight')
+    notes.append('line')
+        .attr('y1',yScale(-1)+2)
+        .attr('y2',dim.boundedHeight-5)
+        .style('transform',`translateX(1px)`)
+        .attr('class','annotation-line')
 
     bounds.append('g')
         .selectAll('.floor-number')
         .data(yScale.domain())
         .join('text').attr('class', 'floor-number')
         .attr('x', dim.boundedWidth + dim.margin.right)
-        .attr('y', d => yScale(d) + yScale.bandwidth() / 2)
+        .attr('y', d => yScale(d) + halfBandH)
         .html(d => d == 0 ? '0F'
             : d < 0 ? String(d).replace('-', 'B')
                 : String(d).length == 1 ? String(d) + 'F'
@@ -375,9 +379,8 @@ async function drawFloors() {
     xSunAxis.append('text').html('Median Sunlight (Kilolux)')
         .attr('class','axis-label')
         .attr('x',dim.boundedWidth+5)
-        .attr('y',-11-lineHeight)
+        .attr('y',-11-lineH)
         .style('text-anchor','end')
-        // .style('dominant-baseline','hanging')
     xSunAxis.append('line')
         .attr('x1',1).attr('x2',dim.boundedWidth)
         .style('transform',`translateY(-3px)`)
@@ -393,11 +396,9 @@ async function drawFloors() {
     xCountAxisTicks.append('line')
         .attr('y1',0).attr('y2',-5)
         .style('transform',d=>`translateX(${xCountScale(d)}px)`)
-    xCountAxis.append('text').html('Units per Floor')
+    xCountAxis.append('text').html('Apartments per Floor')
         .attr('class','axis-label')
         .attr('y', 6).attr('x',dim.boundedWidth)
-        .style('dominant-baseline','hanging')
-        .style('text-anchor','end')
     xCountAxis.append('line')
         .attr('x1',1).attr('x2',dim.boundedWidth)
 }
@@ -416,22 +417,21 @@ async function drawRooms() {
     ])
     let dim = {
         width: width,
-        height: 0,
+        height: d3.min([width*.9,350]),
         margin: {
             top: 0,
-            right: 5,
-            bottom: 130,
-            left: 5
+            right: 0,
+            bottom: 95,
+            left: 0
         }
     }
-    dim.height = d3.min([width*.95,500])
     dim.boundedWidth = dim.width - dim.margin.left - dim.margin.right
     dim.boundedHeight = dim.height - dim.margin.top - dim.margin.bottom
 
-    const yRoomAccessor = d => d.room
-    const x25Accessor = d => d['25']
-    const x75Accessor = d => d['75']
-    const xMedianAccessor = d => d.median
+    const yRoomA = d => d.room
+    const x25A = d => d['25']
+    const x75A = d => d['75']
+    const xMedianA = d => d.median
 
     const yScale = d3.scaleBand()
         .domain(rooms)
@@ -442,13 +442,11 @@ async function drawRooms() {
     const xSunScale = d3.scalePow()
         .exponent(.8)
         .domain([sunMin,sunMax])
-        .range([dim.boundedWidth-1,1])
+        .range([dim.boundedWidth,0])
         .clamp(true)
-        // .nice()
     const colorScale = d3.scaleLinear()
-        .domain(d3.extent(data, xMedianAccessor))
+        .domain(d3.extent(data, xMedianA))
         .range([colorLight, colorHot])
-
 
     const wrapper = d3.select('#wrapper4').append('svg')
         .attr('width', dim.width).attr('height', dim.height)
@@ -460,45 +458,53 @@ async function drawRooms() {
 
     const bars = bounds.append('g')
         .selectAll('.room-bar')
-        .data(data).join('g')
-    bars.append('foreignObject')
-        .attr('x', d => xSunScale(x75Accessor(d)))
-        .attr('y', d => yScale(yRoomAccessor(d)))
-        .attr('height', yScale.bandwidth())
-        .attr('width', d => xSunScale(x25Accessor(d)) - xSunScale(x75Accessor(d)))
-        .append('xhtml:div')
-            .attr('class', 'sun-bar')
-            .style('height', yScale.bandwidth() + 'px')
-            .style('color', d => colorScale(xMedianAccessor(d)))
-            .html(sunFiller)
+        .data(data).join('g').attr('class','room-bar')
+        .style('transform',d=>`translateY(
+            ${yScale(yRoomA(d))+yScale.bandwidth()/2}px
+        )`)
+    bars.append('rect')
+        .attr('x', d => xSunScale(x75A(d)))
+        .attr('y', d => -thinBarH/2)
+        .attr('height', thinBarH)
+        .attr('width', d => xSunScale(x25A(d)) - xSunScale(x75A(d)))
+        .style('fill',d=>colorScale(xMedianA(d)))
+    wrapper.call(lineTexture)
+    bars.append('rect')
+        .attr('x', d => xSunScale(x75A(d)))
+        .attr('y', d => -thinBarH/2-1)
+        .attr('height', thinBarH+2)
+        .attr('width', d => xSunScale(x25A(d)) - xSunScale(x75A(d)))
+        .style('fill',lineTexture.url())
     bars.append('text')
         .attr('class', 'room-text')
-        .attr('x', d => yRoomAccessor(d) == 'Balcony' ? xSunScale(x75Accessor(d)) : xSunScale(x75Accessor(d)) - 4)
-        .attr('y', d => yRoomAccessor(d) == 'Balcony' ? yScale(yRoomAccessor(d))+yScale.bandwidth()/2-lineHeight*.6 : yScale(yRoomAccessor(d)) + yScale.bandwidth() / 2)
-        .style('text-anchor', d => yRoomAccessor(d) == 'Balcony' ? 'start' : 'end')
-        .style('dominant-baseline', d => yRoomAccessor(d) == 'Balcony' ? 'auto' : 'middle')
-        .html(d => yRoomAccessor(d))
+        .attr('x', d => yRoomA(d) == 'Balcony' ? xSunScale(x75A(d)) : xSunScale(x75A(d)) - 4)
+        .attr('y', d => yRoomA(d) == 'Balcony' ? -lineH*.6 : 0)
+        .style('text-anchor', d => yRoomA(d) == 'Balcony' ? 'start' : 'end')
+        .style('dominant-baseline', d => yRoomA(d) == 'Balcony' ? 'auto' : 'middle')
+        .html(d => yRoomA(d))
 
-    bounds.append('foreignObject')
+    const notes = bounds.append('foreignObject')
         .attr('width', dim.boundedWidth)
         .attr('height', dim.margin.bottom)
         .attr('y', dim.boundedHeight)
         .append('xhtml:div')
         .html('The strongest correlation with illuminance is sky view. The average balcony with a wide view receives 10,000 times more light per square meter than the average bathroom. The amount of windows and skylights, though impressive on paper, only matter insofar as they allow maximum sky view.')
-        .style('height', `${dim.margin.bottom}px`)
+    
+    const axisY = notes.node().getBoundingClientRect().height
+        + dim.boundedHeight + 22
 
     const sunTicks = d3.range(0,xSunScale.domain()[1],1)
     const xAxis = bounds.append('g').attr('class','sun-axis axis')
-        .style('transform',`translateY(${dim.boundedHeight+dim.margin.bottom*.75}px)`)
+        .style('transform',`translateY(${axisY}px)`)
     const xAxisTicks = xAxis.selectAll('.tick')
         .data(sunTicks).join('g').attr('class','tick')
     xAxisTicks.append('text').html(d=>d)
         .attr('x',d=>xSunScale(d))
         .attr('y',-8)
     xAxisTicks.append('line')
-        .attr('y1',0).attr('y2',-5)
+        .attr('y2',-5)
         .style('transform',d=>`translateX(${xSunScale(d)}px)`)
-    xAxis.append('line').attr('x1',1).attr('x2',dim.boundedWidth-1)
+    xAxis.append('line').attr('x2',dim.boundedWidth)
     xAxis.append('text').html('Sunlight Interquartile Range (Kilolux)')
         .attr('class','axis-label')
         .attr('y',6)
@@ -507,15 +513,18 @@ async function drawRooms() {
 
 const seeMoreButton = d3.select('#see-more')
     .on('click', clicked)
-function clicked(event,d) {
+function clicked() {
     const button = d3.select(this)
     const axes = d3.selectAll('.axis')
+    const notes = d3.selectAll('.note')
     if (axes.style('opacity')==0) {
-        axes.transition().duration(90).style('opacity',1)
+        axes.transition().duration(100).style('opacity',1)
         button.html('hide axes')
+        notes.transition().duration(100).style('opacity',0)
     } 
     else {
-        axes.transition().duration(90).style('opacity',0)
+        axes.transition().duration(100).style('opacity',0)
         button.html('show axes')
+        notes.transition().duration(100).style('opacity',1)
     } 
 }

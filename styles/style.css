@@ -50,17 +50,9 @@ a:active {
     transition: all 150ms ease;
 }
 
-a.email:hover,
-a.email:active {
-    color: var(--main-color);
-    font-weight: --var(--main-font-weight);
-    letter-spacing: normal;
-    text-decoration: underline 1.5px;
-}
-
 #name {
     position: fixed;
-    top: 12px;
+    top: 8px;
     left: 12px;
 }
 
@@ -87,24 +79,24 @@ a.email:active {
 }
 
 #about-bg {
-    height: 2000px;
-    width: 2000px;
+    height: 1900px;
+    width: 1900px;
     background-image: radial-gradient(var(--accent-color), transparent, transparent);
     border-radius: 100%;
     position: absolute;
     bottom: -12px;
     right: -15px;
-    transform: translate(40%, 43%);
+    transform: translate(40%, 44%);
     opacity: 0;
     cursor: auto;
     pointer-events: none;
 }
 
-@media (max-width:600px){
+@media (max-width:500px){
     #about-bg {
         height: 1400px;
-        width: 1200px;
-        transform: translate(39%, 42%);
+        width: 1400px;
+        transform: translate(41%, 43%);
     }
 }
 
@@ -116,7 +108,7 @@ a.email:active {
     flex-direction: column;
     align-items: end;
     gap: 20px;
-    width: clamp(250px,70vw,400px);
+    width: clamp(280px,65vw,400px);
     opacity: 0;
 }
 

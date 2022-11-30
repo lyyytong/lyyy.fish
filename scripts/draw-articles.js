@@ -1,24 +1,20 @@
 const styles = getComputedStyle(document.querySelector('body'))
-const lineHeight = parseFloat(styles.lineHeight.split('px')[0])
-const largeLineHeight = lineHeight * 1.2
-const screenWidth = window.innerWidth
+const largeLineHeight = parseFloat(styles.lineHeight.split('px')[0]) * 1.2
 const screenHeight = window.innerHeight
 
 drawList()
 async function drawList() {
     const data = await d3.csv('data/articles.csv')
-    // data.sort((a,b)=>d3.descending(a.date,b.date))
+    data.sort((a,b)=>d3.descending(a.date,b.date))
     const listHeight = data.length * largeLineHeight
-    const margin = screenHeight * .12
+    const margin = screenHeight * .1
     const height = listHeight + margin * 2
     let dim = {
-        width: screenWidth,
+        width: window.innerWidth,
         height: d3.max([height, screenHeight]),
         margin: {
             top: margin,
-            right: 0,
             bottom: margin,
-            left: 0
         }
     }
     dim.margin.left = dim.width * .1
@@ -38,13 +34,11 @@ async function drawList() {
     const getRandomXLeft = d3.randomUniform(dim.boundedWidth * .3)
     const getRandomXRight = d3.randomUniform(dim.boundedWidth * .7, dim.boundedWidth)
     const randomX1 = getRandomX()
-    let randomX2
-    if (randomX1 >= dim.boundedWidth / 2) randomX2 = getRandomXLeft()
-    else randomX2 = getRandomXRight()
+    const randomX2 = randomX1 >= dim.boundedWidth / 2 ? getRandomXLeft() : getRandomXRight()
     const randomWidth = Math.abs(randomX1 - randomX2)
     const alpha = Math.atan(randomWidth / dim.height)
 
-    const articleAxis = bounds.append('line').attr('class', 'article-axis')
+    bounds.append('line').attr('class', 'article-axis')
         .attr('x1', randomX1).attr('x2', randomX2)
         .attr('y2', dim.height)
 
@@ -55,8 +49,8 @@ async function drawList() {
         .join('a').attr('class', 'article')
         .attr('href', d => d.name != '(coming soon)' ? 'pages/' + d.name.replaceAll(' ', '-') + '.html' : '')
         .append('text')
-        .html(d => d.name)
-        .attr('y', (d, i) => largeLineHeight * i + largeLineHeight / 2)
+            .html(d => d.name)
+            .attr('y', (d, i) => largeLineHeight * i + largeLineHeight / 2)
 
     if (height < screenHeight) {
         textBounds.style('transform', `translateY(
@@ -71,7 +65,7 @@ async function drawList() {
 
     let xCoords = []
     articles.nodes().forEach((d, i) => {
-        const triangleHeight = d.getBoundingClientRect().y
+        const triangleHeight = d.getBoundingClientRect().y+d.getBoundingClientRect().height/2
         const triangleBase = Math.tan(alpha) * triangleHeight
         const x = randomX1 > randomX2 ? randomX1 - triangleBase : randomX1 + triangleBase
         const textWidth = d.getBoundingClientRect().width
