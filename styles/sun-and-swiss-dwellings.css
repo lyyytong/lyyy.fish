@@ -1,14 +1,21 @@
+@font-face {
+    font-family: 'Public Sans', sans-serif;
+    src: url('../fonts/PublicSans.ttf') format('truetype-variations');
+    font-weight: 100 1000;
+}
+
 :root {
     --bg-color: #f3f3f3;
     --main-color: #4032d7;
     --sun-color: #E683AF;
-    --main-font: 'Inter', sans-serif;
+    /* --main-font: 'Inter', sans-serif; */
+    --main-font: 'Public Sans', sans-serif;
     --main-font-size: clamp(11px, 1.6vw, 14px);
     --main-font-weight: 420;
 }
-@supports (font-variation-settings: normal) {
+/* @supports (font-variation-settings: normal) {
     :root { --main-font: 'Inter var', sans-serif; }
-  }
+  } */
 
 @keyframes appear {
     0% {
@@ -47,7 +54,7 @@ body {
 
 nav {
     position: fixed;
-    bottom: 8px;
+    bottom: 12px;
     margin: 8px 8px;
     width: calc(100% - 16px);
     display: flex;
@@ -57,9 +64,10 @@ nav {
 
 nav>* {
     background-image: radial-gradient(var(--bg-color),transparent);
-    padding: 5px 8px 5px 8px;
+    border-radius: 5px;
+    padding: 6px 8px 6px 8px;
     border-bottom: var(--main-color) .5px solid;
-    box-shadow: 3px 3px var(--main-color);
+    box-shadow: 2px 2px 1px var(--main-color);
     text-align: center;
     transition: all ease 100ms;
     cursor: pointer;
@@ -68,7 +76,7 @@ nav>* {
 nav >*:active {
     opacity: 1;
     transform: translate(2px, 2px);
-    box-shadow: 1px 1px var(--main-color);
+    box-shadow: 0px 0px var(--main-color);
     transition: all ease 100ms;
 }
 
@@ -81,7 +89,7 @@ nav #see-more {
 }
 
 main {
-    margin: 55px 8px;
+    margin: 70px 8px;
     display: flex;
     flex-direction: column;
     gap: clamp(70px,15vh,80px);
@@ -113,7 +121,6 @@ text {
     fill: var(--bg-color);
     font-size: clamp(100px, 20vw, 160px);
     text-anchor: middle;
-    letter-spacing: -0.03em;
 }
 
 .big-circle-percent-sign {
@@ -188,6 +195,11 @@ text {
 .room-text {
     text-anchor: end;
     dominant-baseline: middle;
+}
+
+.sun-note,
+.sun-note tspan {
+    dominant-baseline: hanging;
 }
 
 .tick text {

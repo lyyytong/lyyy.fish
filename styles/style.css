@@ -1,14 +1,21 @@
+@font-face {
+    font-family: 'Public Sans', sans-serif;
+    src: url('../fonts/PublicSans.ttf') format('truetype-variations');
+    font-weight: 100 1000;
+}
+
 :root {
     --base-color: #ababab;
     --text-color: #1c1c1c;
     --accent-color: #33ff00;
-    --main-font: 'Inter', sans-serif;
+    /* --main-font: 'Inter', sans-serif; */
+    --main-font: 'Public Sans',sans-serif;
     --main-font-size: clamp(14px, 3vw, 20px);
-    --main-font-weight: 420;
+    --main-font-weight: 400;
 }
-@supports (font-variation-settings: normal) {
+/* @supports (font-variation-settings: normal) {
   :root { --main-font: 'Inter var', sans-serif; }
-}
+} */
 
 html {
     scrollbar-width: thin;

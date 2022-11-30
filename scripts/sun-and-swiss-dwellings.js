@@ -11,7 +11,7 @@ const colorHot = '#E15A97'
 const colorWarm = '#feb0c0'
 const colorLight = '#fcebd7'
 
-const lineTexture = textures.lines().size(5.5).strokeWidth(3).stroke('var(--bg-color)')
+const lineTexture = textures.lines().size(4).strokeWidth(2.2).stroke('var(--bg-color)')
 const dotTexture = textures.circles().size(2.6).radius(.4).fill('var(--main-color')
 
 drawCircles();
@@ -56,7 +56,7 @@ function drawCircles() {
 
     const smallCircleGroup = bounds.append('g')
         .style('transform', `translate(
-            ${dim.boundedWidth * .5 + under500R * 1.7}px,
+            ${dim.boundedWidth * .5 + under500R * 1.5}px,
             ${dim.boundedHeight * .5 + under500R * 1.7}px
         )`)
     smallCircleGroup.append('circle')
@@ -66,7 +66,7 @@ function drawCircles() {
     const bigCircleGroup = bounds.append('g')
         .style('transform', `translate(
             ${dim.boundedWidth * .42}px,
-            ${dim.boundedHeight * .5}px
+            ${dim.boundedHeight * .45}px
         )`)
     bigCircleGroup.append('circle')
         .attr('r', above500R)
@@ -78,13 +78,12 @@ function drawCircles() {
         .style('fill', dotTexture.url())
     const bigText = bigCircleGroup.append('text').html(82)
         .attr('class', 'big-circle-percent')
-        // .attr('y',5)
 
     const bigTextH = parseFloat(
         getComputedStyle(bigText.node()).lineHeight.split('px')[0]
         )
     bigText.style('transform', `translate(
-            8px,${bigTextH / 4}px
+            10px,${bigTextH / 4}px
         )`)
         .append('tspan')
         .attr('class', 'big-circle-percent-sign')
@@ -105,10 +104,10 @@ function drawCircles() {
     })
         .attr('class', 'big-circle-border')
     bigCircleText.append('text')
-        .style('transform', 'rotate(-65deg)')
+        .style('transform', 'rotate(-55deg)')
         .append('textPath')
         .attr('xlink:href', `#big-circle-path`)
-        .html('Percentage of Swiss apartments with at least 500 lux of sun')
+        .html('Swiss apartments with at least 500 lux of sun (averaged across rooms)')
 
     const smallCircleText = smallCircleGroup.append('g')
     smallCircleText.append('path').attr('d', () => {
@@ -119,7 +118,7 @@ function drawCircles() {
     smallCircleText.append('text')
         .append('textPath')
         .attr('xlink:href', `#small-circle-path`)
-        .html('vs. units less illuminated')
+        .html('versus units less illuminated')
 }
 //----------------------------------------------------------
 //----------------------------------------------------------
@@ -129,7 +128,7 @@ function drawSunBar() {
     const width = d3.min([d3.select("#wrapper2").node().clientWidth, 600]);
     let dim = {
         width: width,
-        height: d3.min([width * .4, 170]),
+        height: d3.min([width * .5, 200]),
         margin: {
             top: 0,
             right: 0,
@@ -153,7 +152,7 @@ function drawSunBar() {
         )`
     )
 
-    const sunBarY = dim.boundedHeight * .7
+    const sunBarY = dim.boundedHeight * .65
     bounds.append('text')
         .attr('class', 'sun-note')
         .attr('x', 0).attr('y', sunBarY * .01)
@@ -333,11 +332,11 @@ async function drawFloors() {
         .attr('class', 'note')
     notes.append('text')
         .html(`${lowFloorPct} of Swiss apartments are on the 5 lowest floors.`)
-        .attr('x', 5)
+        .attr('x', 7)
         .attr('y', yScale(-4) + halfBandH - lineH)
     notes.append('text')
         .html(`Units rising from this density tend to get more sun.`)
-        .attr('x', 5)
+        .attr('x', 7)
         .attr('y', yScale(-4) + halfBandH)
 
     const rectY = yScale(4)
@@ -355,7 +354,7 @@ async function drawFloors() {
     notes.append('line')
         .attr('y1', yScale(-1))
         .attr('y2', dim.boundedHeight - 5)
-        .style('transform', `translateX(1px)`)
+        .style('transform', `translateX(2px)`)
         .attr('class', 'annotation-line')
 
     bounds.append('g')
