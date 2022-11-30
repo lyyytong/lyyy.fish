@@ -9,7 +9,7 @@
     --accent-color: #33ff00;
     --main-font: 'Inter var', sans-serif;
     --main-font-size: clamp(14px, 3vw, 20px);
-    --main-font-weight: 400;
+    --main-font-weight: 450;
 }
 
 html {
@@ -23,6 +23,7 @@ body {
     font-size: var(--main-font-size);
     font-family: var(--main-font);
     font-weight: var(--main-font-weight);
+    font-variation-settings: 'wght' var(--main-font-weight);
     color: var(--text-color);
     background-color: var(--base-color);
     line-height: 1.4;
