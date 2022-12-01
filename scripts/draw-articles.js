@@ -57,7 +57,7 @@ async function drawList() {
     }
     function updateDimensions(){
         styles = getComputedStyle(document.querySelector('body'))
-        lineHeight = parseFloat(styles.lineHeight.split('px')[0])
+        lineHeight = parseFloat(styles.lineHeight.split('px')[0])*1.2
 
         listHeight = data.length * lineHeight
         marginTopBot = window.innerHeight * .1
@@ -70,8 +70,8 @@ async function drawList() {
         dim.height = d3.max([height, window.innerHeight])
         dim.margin.top = marginTopBot
         dim.margin.bottom = marginTopBot
-        dim.margin.left = window.innerWidth *.1
-        dim.margin.right = window.innerWidth *.1
+        dim.margin.left = window.innerWidth *.05
+        dim.margin.right = window.innerWidth *.05
         dim.boundedWidth = dim.width - dim.margin.left - dim.margin.right
         dim.boundedHeight = dim.height - dim.margin.top - dim.margin.bottom
 
