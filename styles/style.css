@@ -4,7 +4,7 @@
     --accent-color: #33ff00;
     --main-font: 'Inter', sans-serif;
     --main-font-size: clamp(15px, 3vw, 20px);
-    --main-font-weight: 450;
+    --main-font-weight: 420;
     --thin-font-weight: 400;
 }
 
@@ -101,7 +101,7 @@ a:hover {
     flex-direction: column;
     align-items: end;
     gap: 20px;
-    width: clamp(280px,65vw,400px);
+    width: clamp(290px,80vw,400px);
     opacity: 0;
 }
 
