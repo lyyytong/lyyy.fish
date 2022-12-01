@@ -3,7 +3,7 @@
     --text-color: #1c1c1c;
     --accent-color: #33ff00;
     --main-font: 'Inter', sans-serif;
-    --main-font-size: clamp(14px, 3vw, 18px);
+    --main-font-size: clamp(15px, 3vw, 20px);
     --main-font-weight: 450;
     --thin-font-weight: 400;
 }
@@ -37,8 +37,7 @@ a:visited {
     transition: all 150ms ease;
 }
 
-a:hover,
-a:active {
+a:hover {
     color: var(--accent-color);
     font-weight: var(--thin-font-weight);
     letter-spacing: .1em;
@@ -64,8 +63,7 @@ a:active {
     transition: all 150ms ease;
 }
 
-#about:hover,
-#about:active {
+#about:hover {
     color: var(--accent-color);
     font-weight: var(--thin-font-weight);
     letter-spacing: .1em;
@@ -115,8 +113,7 @@ a:active {
     transition: all 150ms ease;
 }
 
-#about-back:hover,
-#about-back:active {
+#about-back:hover {
     font-weight: var(--main-font-weight);
     letter-spacing: .1em;
     transition: all 150ms ease;
@@ -129,8 +126,7 @@ a:active {
     dominant-baseline: middle;
 }
 
-.article:hover,
-.article:active {
+.article:hover {
     fill: var(--accent-color);
     cursor: pointer;
 }

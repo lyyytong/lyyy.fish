@@ -13,6 +13,7 @@ async function drawList() {
 
     const wrapper = d3.select('#articles').append('svg')
     const bounds = wrapper.append('g')
+    const articleAxis = bounds.append('line').attr('class', 'article-axis')
     const textBounds = bounds.append('g')
 
     updateDimensions()
@@ -25,9 +26,8 @@ async function drawList() {
     let randomWidth = Math.abs(randomX1 - randomX2)
     let alpha = Math.atan(randomWidth / dim.height)
 
-    const articleAxis = bounds.append('line')
-        .attr('class', 'article-axis')
-        .attr('x1', randomX1).attr('x2', randomX2)
+    articleAxis.attr('x1', randomX1)
+        .attr('x2', randomX2)
         .attr('y2', dim.height)
     
     const articles = textBounds.selectAll('.article')
@@ -57,7 +57,7 @@ async function drawList() {
     }
     function updateDimensions(){
         styles = getComputedStyle(document.querySelector('body'))
-        lineHeight = parseFloat(styles.lineHeight.split('px')[0]) * 1.2
+        lineHeight = parseFloat(styles.lineHeight.split('px')[0])
 
         listHeight = data.length * lineHeight
         marginTopBot = window.innerHeight * .1

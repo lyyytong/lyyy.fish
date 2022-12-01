@@ -3,17 +3,18 @@ const lineH = parseFloat(getComputedStyle(html).lineHeight.split('px')[0])
 
 const barH = 20
 const thinBarH = lineH * .7
+const maxWidth = 550
 
 const colorDark = '#E15A97'
 const colorWarm = '#feb0c0'
 const colorLight = '#fcebd7'
 
-const lineTexture = textures.lines().size(4).strokeWidth(2.2).stroke('var(--bg-color)')
-const dotTexture = textures.circles().size(2.4).radius(.4).fill('var(--main-color')
+const lineTexture = textures.lines().size(4).strokeWidth(2).stroke('var(--bg-color)')
+const dotTexture = textures.circles().size(2.5).radius(.6).fill('var(--main-color')
 
 drawCircles();
 function drawCircles() {
-    const width = d3.min([d3.select("#wrapper1").node().clientWidth, 600]);
+    const width = d3.min([d3.select("#wrapper1").node().clientWidth, maxWidth]);
     let dim = {
         width: width,
         height: width * .6,
@@ -96,7 +97,7 @@ function drawCircles() {
     })
         .attr('class', 'big-circle-border')
     bigCircleText.append('text')
-        .style('transform', 'rotate(-68deg)')
+        .style('transform', 'rotate(-75deg)')
         .append('textPath')
         .attr('xlink:href', `#big-circle-path`)
         .html('Swiss apartments with at least 500 lux of sun (averaged across rooms)')
@@ -108,7 +109,7 @@ function drawCircles() {
     })
         .attr('id', 'small-circle-path')
     smallCircleText.append('text')
-        .style('transform', 'rotate(-12deg)')
+        .style('transform', 'rotate(-10deg)')
         .append('textPath')
         .attr('xlink:href', `#small-circle-path`)
         .html('versus units with less sun')
@@ -118,7 +119,7 @@ function drawCircles() {
 //----------------------------------------------------------
 drawSunBar()
 function drawSunBar() {
-    const width = d3.min([d3.select("#wrapper2").node().clientWidth, 600]);
+    const width = d3.min([d3.select("#wrapper2").node().clientWidth, maxWidth]);
     let dim = {
         width: width,
         height: d3.min([width * .48, 210]),
@@ -175,7 +176,7 @@ function drawSunBar() {
         .style('fill', lineTexture.url())
 
     const xSunScale = d3.scalePow()
-        .exponent(.6)
+        .exponent(.52)
         .domain([0, 100])
         .range([dim.boundedWidth, 0])
 
@@ -226,7 +227,7 @@ async function drawFloors() {
     const xCountA = d => d.apartment_count
     const xSunA = d => d.sun_spring_10am_klx
 
-    const width = d3.min([d3.select('#wrapper3').node().clientWidth, 600])
+    const width = d3.min([d3.select('#wrapper3').node().clientWidth, maxWidth])
     let dim = {
         width: width,
         height: d3.min([width, 450]),
@@ -403,7 +404,7 @@ async function drawRooms() {
 
     const width = d3.min([
         d3.select('#wrapper4').node().clientWidth,
-        600
+        maxWidth
     ])
     let dim = {
         width: width,

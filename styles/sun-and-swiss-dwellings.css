@@ -3,7 +3,7 @@
     --main-color: #4032d7;
     --sun-color: #d678a2;
     --main-font: 'Inter', sans-serif;
-    --main-font-size: clamp(11px, 1.6vw, 13px);
+    --main-font-size: clamp(11.5px, 1.6vw, 14px);
     --main-font-weight: 450;
 }
 
@@ -11,7 +11,6 @@
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
@@ -54,10 +53,10 @@ nav {
 nav>* {
     background: var(--bg-color);
     padding: 8px 8px 8px 8px;
-    border: var(--main-color) .5px solid;
+    border: var(--main-color) 1px solid;
     box-shadow: 3px 3px var(--main-color);
     text-align: center;
-    transition: all ease 100ms;
+    transition: all ease 90;
     cursor: pointer;
 }
 
@@ -65,7 +64,7 @@ nav >*:active {
     opacity: 1;
     transform: translate(2px, 2px);
     box-shadow: 1px 1px var(--main-color);
-    transition: all ease 100ms;
+    transition: all ease 90ms;
 }
 
 nav #data-source {
@@ -104,7 +103,7 @@ text {
 
 .annotation-line {
     stroke: var(--main-color);
-    stroke-width: .5px;
+    opacity: .6;
 }
 
 .axis {
@@ -183,12 +182,10 @@ text {
 
 .sun-axis line {
     stroke: var(--sun-color);
-    stroke-width: .5px;
 }
 
 .count-axis line {
     stroke: var(--main-color);
-    stroke-width: .5px;
 }
 
 .room-text {
