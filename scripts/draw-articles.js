@@ -40,6 +40,7 @@ async function drawList() {
     updateListCoords()
 
     window.addEventListener('resize',updateList)
+    screen.orientation.addEventListener('change',updateList)
     function updateList(){
         const oldBoundedWidth = dim.boundedWidth
         updateDimensions()
