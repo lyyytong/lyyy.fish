@@ -43,9 +43,9 @@ function drawCircles() {
 
     wrapper.call(dotTexture)
 
-    const defs = wrapper.select('defs')
-    const sunGradientId = 'sun-gradient'
-    getLinearGradient(defs,sunGradientId,colorDark,colorLight)
+    // const defs = wrapper.select('defs')
+    // const sunGradientId = 'sun-gradient'
+    // getLinearGradient(defs,sunGradientId,colorDark,colorLight)
 
     const smallCircleGroup = bounds.append('g')
         .style('transform', `translate(
@@ -62,10 +62,10 @@ function drawCircles() {
             ${dim.boundedHeight * .58}px
         )`)
     bigCircleGroup.append('circle')
-        .attr('r', above500R)
-        .style('fill', `url(#${sunGradientId})`)
-        .style('opacity', .2)
-        .style('transform', 'rotate(30deg)')
+        .attr('r', above500R).attr('class','big-circle-bg')
+        // .style('fill', `url(#${sunGradientId})`)
+        // .style('opacity', .2)
+        // .style('transform', 'rotate(30deg)')
     bigCircleGroup.append('circle')
         .attr('r', above500R)
         .style('fill', dotTexture.url())
@@ -306,7 +306,7 @@ async function drawFloors() {
         .style('fill', dotTexture.url())
     countBars.append('text').html('\\')
         .attr('class','count-mark')
-        .attr('x', d => xCountScale(xCountA(d)) - 3)
+        .attr('x', d => xCountScale(xCountA(d)) - 2.7)
         .attr('y', 1)
 
     const lowFloorCount = d3.filter(

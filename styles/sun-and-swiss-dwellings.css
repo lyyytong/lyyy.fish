@@ -127,6 +127,10 @@ text {
     fill: none;
 }
 
+.big-circle-bg {
+    fill: var(--bg-color);
+}
+
 .big-circle-border {
     fill: none;
     stroke: var(--bg-color);
