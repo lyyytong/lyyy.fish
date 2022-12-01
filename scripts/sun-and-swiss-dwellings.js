@@ -97,7 +97,7 @@ function drawCircles() {
     })
         .attr('class', 'big-circle-border')
     bigCircleText.append('text')
-        .style('transform', 'rotate(-75deg)')
+        .style('transform', 'rotate(-78deg)')
         .append('textPath')
         .attr('xlink:href', `#big-circle-path`)
         .html('Swiss apartments with at least 500 lux of sun (averaged across rooms)')
