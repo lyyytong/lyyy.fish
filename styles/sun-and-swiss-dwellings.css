@@ -1,7 +1,7 @@
 :root {
     --bg-color: #f3f3f3;
     --main-color: #4032d7;
-    --sun-color: #E683AF;
+    --sun-color: #d678a2;
     --main-font: 'Inter', sans-serif;
     --main-font-size: clamp(11px, 1.6vw, 14px);
     --main-font-weight: 450;
@@ -44,8 +44,8 @@ body {
 nav {
     position: fixed;
     bottom: 12px;
-    margin: 8px 8px;
-    width: calc(100% - 16px);
+    margin: 10px 10px;
+    width: calc(100% - 20px);
     display: flex;
     justify-content: space-between;
     z-index: 99;
@@ -53,8 +53,7 @@ nav {
 
 nav>* {
     background: var(--bg-color);
-    border-radius: 10px;
-    padding: 6px 8px 6px 8px;
+    padding: 8px 8px 8px 8px;
     border: var(--main-color) .5px solid;
     box-shadow: 2px 2px var(--main-color);
     text-align: center;
@@ -69,19 +68,25 @@ nav >*:active {
     transition: all ease 100ms;
 }
 
+nav #data-source {
+    position: absolute;
+    right: 105px;
+    width: 80px;
+}
+
 nav #home {
     width: 50px;
 }
 
 nav #see-more {
-    width: 70px;
+    width: 80px;
 }
 
 main {
-    margin: 70px 8px;
+    margin: 70px 10px;
     display: flex;
     flex-direction: column;
-    gap: clamp(70px,15vh,80px);
+    gap: clamp(60px,13vh,80px);
 }
 
 main>* {
@@ -150,8 +155,7 @@ text {
 }
 
 .low-floor-highlight {
-    background-image: linear-gradient(to right, #d2d6fc,transparent);
-    opacity: .5;
+    opacity: .45;
 }
 
 .note text {
@@ -179,10 +183,12 @@ text {
 
 .sun-axis line {
     stroke: var(--sun-color);
+    stroke-width: .5px;
 }
 
 .count-axis line {
     stroke: var(--main-color);
+    stroke-width: .5px;
 }
 
 .room-text {

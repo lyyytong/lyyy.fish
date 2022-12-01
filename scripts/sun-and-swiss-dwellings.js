@@ -4,9 +4,6 @@ const lineH = parseFloat(getComputedStyle(html).lineHeight.split('px')[0])
 const barH = 20
 const thinBarH = lineH * .7
 
-const numGradientStops = 5
-const stops = d3.range(numGradientStops).map(i => i / (numGradientStops - 1))
-
 const colorHot = '#E15A97'
 const colorWarm = '#feb0c0'
 const colorLight = '#fcebd7'
@@ -19,7 +16,7 @@ function drawCircles() {
     const width = d3.min([d3.select("#wrapper1").node().clientWidth, 600]);
     let dim = {
         width: width,
-        height: width * .9,
+        height: width * .6,
         margin: {
             top: 0,
             right: 0,
@@ -39,25 +36,20 @@ function drawCircles() {
             ${dim.margin.top}px
         )`
     );
-
-    const above500R = dim.boundedWidth * 1.1 / (2 + 2 * Math.sqrt(18 / 82))
-    const under500R = dim.boundedWidth * 1.1 / 2 - above500R
+    const baseWidth = d3.max([dim.boundedWidth *.9,372])
+    const above500R = baseWidth/ (2 + 2 * Math.sqrt(18 / 82))
+    const under500R = baseWidth/ 2 - above500R
 
     wrapper.call(dotTexture)
 
     const defs = wrapper.select('defs')
     const sunGradientId = 'sun-gradient'
-    defs.append('linearGradient')
-        .attr('id', sunGradientId)
-        .selectAll('stop').data(stops)
-        .join('stop')
-        .attr('stop-color', d => d3.interpolateRgb(colorHot, colorLight)(d))
-        .attr('offset', d => `${d * 100}%`)
+    getLinearGradient(defs,sunGradientId,colorHot,colorLight)
 
     const smallCircleGroup = bounds.append('g')
         .style('transform', `translate(
-            ${dim.boundedWidth * .5 + under500R * 1.5}px,
-            ${dim.boundedHeight * .5 + under500R * 1.7}px
+            ${dim.boundedWidth * .5 + under500R * 1.65}px,
+            ${dim.boundedHeight * .5 + under500R * 1.8}px
         )`)
     smallCircleGroup.append('circle')
         .attr('r', under500R)
@@ -65,8 +57,8 @@ function drawCircles() {
 
     const bigCircleGroup = bounds.append('g')
         .style('transform', `translate(
-            ${dim.boundedWidth * .42}px,
-            ${dim.boundedHeight * .45}px
+            ${dim.boundedWidth * .39}px,
+            ${dim.boundedHeight * .58}px
         )`)
     bigCircleGroup.append('circle')
         .attr('r', above500R)
@@ -104,7 +96,7 @@ function drawCircles() {
     })
         .attr('class', 'big-circle-border')
     bigCircleText.append('text')
-        .style('transform', 'rotate(-55deg)')
+        .style('transform', 'rotate(-68deg)')
         .append('textPath')
         .attr('xlink:href', `#big-circle-path`)
         .html('Swiss apartments with at least 500 lux of sun (averaged across rooms)')
@@ -116,9 +108,10 @@ function drawCircles() {
     })
         .attr('id', 'small-circle-path')
     smallCircleText.append('text')
+        .style('transform', 'rotate(-10deg)')
         .append('textPath')
         .attr('xlink:href', `#small-circle-path`)
-        .html('versus units less illuminated')
+        .html('versus units less sunlit')
 }
 //----------------------------------------------------------
 //----------------------------------------------------------
@@ -128,11 +121,11 @@ function drawSunBar() {
     const width = d3.min([d3.select("#wrapper2").node().clientWidth, 600]);
     let dim = {
         width: width,
-        height: d3.min([width * .5, 200]),
+        height: d3.min([width * .48, 210]),
         margin: {
             top: 0,
             right: 0,
-            bottom: 10,
+            bottom: 0,
             left: 0,
         },
     };
@@ -152,29 +145,26 @@ function drawSunBar() {
         )`
     )
 
-    const sunBarY = dim.boundedHeight * .65
+    const sunBarY = dim.boundedHeight * .7
+    const topTextY = sunBarY * .15
     bounds.append('text')
         .attr('class', 'sun-note')
-        .attr('x', 0).attr('y', sunBarY * .01)
+        .attr('x', 0).attr('y', topTextY)
         .html('Illuminance (lux):')
         .append('tspan').html('the amount of light hitting a surface.')
-        .attr('x', 0).attr('y', sunBarY * .01 + lineH)
+        .attr('x', 0).attr('y', topTextY + lineH)
         .append('tspan').html('1 lux is equivalent to the amount of')
-        .attr('x', 0).attr('y', sunBarY * .01 + lineH * 2)
+        .attr('x', 0).attr('y', topTextY + lineH * 2)
         .append('tspan').html('light hitting 1m² of surface from a')
-        .attr('x', 0).attr('y', sunBarY * .01 + lineH * 3)
+        .attr('x', 0).attr('y', topTextY + lineH * 3)
         .append('tspan').html('candle placed 1 meter away.')
-        .attr('x', 0).attr('y', sunBarY * .01 + lineH * 4)
+        .attr('x', 0).attr('y', topTextY + lineH * 4)
 
     wrapper.call(lineTexture)
     const defs = wrapper.select('defs')
     const strongSunGradientId = 'strong-sun-gradient'
-    defs.append('linearGradient')
-        .attr('id', strongSunGradientId)
-        .selectAll('stop').data(stops)
-        .join('stop')
-        .attr('stop-color', d => d3.interpolateRgb(colorHot, colorLight)(d))
-        .attr('offset', d => `${d * 100}%`)
+    getLinearGradient(defs,strongSunGradientId,colorHot,colorLight)
+    
     bounds.append('rect')
         .attr('y', sunBarY - barH / 2)
         .attr('height', barH).attr('width', dim.boundedWidth)
@@ -197,12 +187,12 @@ function drawSunBar() {
                 : d == 10 ? '10 kilolux'
                     : '100 kilolux')
         .attr('x', d => d == 100 ? xSunScale(d) + 5 : xSunScale(d) - 5)
-        .attr('y', d => d == .5 ? sunBarY * .01 : sunBarY + 30)
+        .attr('y', d => d == .5 ? topTextY : sunBarY + 30)
         .style('text-anchor', d => d == 100 ? 'start' : 'end')
         .style('dominant-baseline', d => d == .5 ? 'hanging' : 'middle')
         .append('tspan')
         .attr('x', d => d == 100 ? xSunScale(d) + 5 : xSunScale(d) - 5)
-        .attr('y', d => d == .5 ? sunBarY * .01 + lineH : sunBarY + 30 + lineH)
+        .attr('y', d => d == .5 ? topTextY + lineH : sunBarY + 30 + lineH)
         .html(d => d == .5 ? 'library, study'
             : d == 1 ? 'cloudy day'
                 : d == 10 ? 'sunny day'
@@ -210,7 +200,7 @@ function drawSunBar() {
         .style('dominant-baseline', d => d == .5 ? 'hanging' : 'middle')
     luxLevelsGroup.join('line').attr('class', 'annotation-line')
         .attr('y1', d => d == .5 ? sunBarY - 10 : sunBarY + 10)
-        .attr('y2', d => d == .5 ? sunBarY * .01 : sunBarY + 30 + lineH * 1.35)
+        .attr('y2', d => d == .5 ? topTextY : sunBarY + 30 + lineH * 1.35)
         .style('transform', d => d == 100 ? `translateX(${xSunScale(d) + 1}px)` : `translateX(${xSunScale(d)}px)`)
 
     const sunTicks = d3.range(0, 100, 10)
@@ -262,12 +252,7 @@ async function drawFloors() {
     wrapper.call(lineTexture)
     const defs = wrapper.select('defs')
     const lightSunGradientId = 'light-sun-gradient'
-    defs.append('linearGradient')
-        .attr('id', lightSunGradientId)
-        .selectAll('stop').data(stops)
-        .join('stop')
-        .attr('stop-color', d => d3.interpolateRgb(colorWarm, colorLight)(d))
-        .attr('offset', d => `${d * 100}%`)
+    getLinearGradient(defs,lightSunGradientId,colorWarm,colorLight)
 
     const yScale = d3.scaleBand()
         .domain(data.map(d => yFloorA(d)))
@@ -320,7 +305,7 @@ async function drawFloors() {
         .style('fill', dotTexture.url())
     countBars.append('text').html('\\')
         .attr('class','count-mark')
-        .attr('x', d => xCountScale(xCountA(d)) - 2)
+        .attr('x', d => xCountScale(xCountA(d)) - 3)
         .attr('y', 1)
 
     const lowFloorCount = d3.filter(
@@ -343,14 +328,13 @@ async function drawFloors() {
     const rectY = yScale(4)
     const rectHeight = yScale(0) + bandH - rectY
     const rectWidth = dim.boundedWidth * .3
-    notes.append('foreignObject')
+    const highlightGradientId = 'highlight-gradient'
+    getLinearGradient(defs,highlightGradientId,'#d2d6fc','transparent')
+    notes.append('rect')
         .attr('y', rectY)
         .attr('height', rectHeight)
         .attr('width', rectWidth)
-        .style('z-index',-1)
-        .append('xhtml:div')
-        .style('width', rectWidth + 'px')
-        .style('height', rectHeight + 'px')
+        .style('fill',`url(#${highlightGradientId})`)
         .attr('class', 'low-floor-highlight')
     notes.append('line')
         .attr('y1', yScale(-1))
@@ -533,4 +517,15 @@ function clicked() {
         button.html('show axes')
         notes.transition().duration(100).style('opacity', 1)
     }
+}
+
+function getLinearGradient(defs,gradientID,colorLeft,colorRight){
+    const numGradientStops = 5
+    const stops = d3.range(numGradientStops).map(i => i / (numGradientStops - 1))
+    defs.append('linearGradient')
+        .attr('id',gradientID)
+        .selectAll("stop").data(stops)
+        .join('stop')
+        .attr('stop-color',d=>d3.interpolateRgb(colorLeft,colorRight)(d))
+        .attr('offset',d=>`${d*100}%`)
 }
