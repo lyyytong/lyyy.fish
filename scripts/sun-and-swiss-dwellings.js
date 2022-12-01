@@ -4,12 +4,12 @@ const lineH = parseFloat(getComputedStyle(html).lineHeight.split('px')[0])
 const barH = 20
 const thinBarH = lineH * .7
 
-const colorHot = '#E15A97'
+const colorDark = '#E15A97'
 const colorWarm = '#feb0c0'
 const colorLight = '#fcebd7'
 
 const lineTexture = textures.lines().size(4).strokeWidth(2.2).stroke('var(--bg-color)')
-const dotTexture = textures.circles().size(2.6).radius(.4).fill('var(--main-color')
+const dotTexture = textures.circles().size(2.4).radius(.4).fill('var(--main-color')
 
 drawCircles();
 function drawCircles() {
@@ -36,7 +36,7 @@ function drawCircles() {
             ${dim.margin.top}px
         )`
     );
-    const baseWidth = d3.max([dim.boundedWidth *.9,372])
+    const baseWidth = d3.max([dim.boundedWidth*.98,372])
     const above500R = baseWidth/ (2 + 2 * Math.sqrt(18 / 82))
     const under500R = baseWidth/ 2 - above500R
 
@@ -44,7 +44,7 @@ function drawCircles() {
 
     const defs = wrapper.select('defs')
     const sunGradientId = 'sun-gradient'
-    getLinearGradient(defs,sunGradientId,colorHot,colorLight)
+    getLinearGradient(defs,sunGradientId,colorDark,colorLight)
 
     const smallCircleGroup = bounds.append('g')
         .style('transform', `translate(
@@ -64,7 +64,7 @@ function drawCircles() {
         .attr('r', above500R)
         .style('fill', `url(#${sunGradientId})`)
         .style('opacity', .2)
-        .style('transform', 'rotate(20deg)')
+        .style('transform', 'rotate(30deg)')
     bigCircleGroup.append('circle')
         .attr('r', above500R)
         .style('fill', dotTexture.url())
@@ -108,10 +108,10 @@ function drawCircles() {
     })
         .attr('id', 'small-circle-path')
     smallCircleText.append('text')
-        .style('transform', 'rotate(-10deg)')
+        .style('transform', 'rotate(-12deg)')
         .append('textPath')
         .attr('xlink:href', `#small-circle-path`)
-        .html('versus units less sunlit')
+        .html('versus units with less sun')
 }
 //----------------------------------------------------------
 //----------------------------------------------------------
@@ -163,7 +163,7 @@ function drawSunBar() {
     wrapper.call(lineTexture)
     const defs = wrapper.select('defs')
     const strongSunGradientId = 'strong-sun-gradient'
-    getLinearGradient(defs,strongSunGradientId,colorHot,colorLight)
+    getLinearGradient(defs,strongSunGradientId,colorDark,colorLight)
     
     bounds.append('rect')
         .attr('y', sunBarY - barH / 2)
@@ -407,7 +407,7 @@ async function drawRooms() {
     ])
     let dim = {
         width: width,
-        height: d3.min([width * .9, 350]),
+        height: d3.min([width * .9, 360]),
         margin: {
             top: 0,
             right: 0,
@@ -436,7 +436,7 @@ async function drawRooms() {
         .clamp(true)
     const colorScale = d3.scaleLinear()
         .domain(d3.extent(data, xMedianA))
-        .range([colorLight, colorHot])
+        .range([colorLight, colorDark])
 
     const wrapper = d3.select('#wrapper4').append('svg')
         .attr('width', dim.width).attr('height', dim.height)
@@ -478,7 +478,7 @@ async function drawRooms() {
         .attr('height', dim.margin.bottom)
         .attr('y', dim.boundedHeight)
         .append('xhtml:div')
-        .html('The strongest correlation with illuminance is sky view. The average balcony with a wide view receives 10,000 times more light per square meter than the average bathroom. The amount of windows and skylights, though impressive on paper, only matter insofar as they allow maximum sky view.')
+        .html('The strongest correlation with illuminance is sky view. The average balcony with a wide view receives 10,000 times more light per square meter than the average bathroom. The amount of windows and skylights, though impressive on paper, only matter if they maximize sky view.')
 
     const axisY = notes.node().getBoundingClientRect().height
         + dim.boundedHeight + 22

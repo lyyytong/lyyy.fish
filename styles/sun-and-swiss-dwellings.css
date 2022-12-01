@@ -1,9 +1,9 @@
 :root {
-    --bg-color: #f3f3f3;
+    --bg-color: #f7f7f7;
     --main-color: #4032d7;
     --sun-color: #d678a2;
     --main-font: 'Inter', sans-serif;
-    --main-font-size: clamp(11px, 1.6vw, 14px);
+    --main-font-size: clamp(11px, 1.6vw, 13px);
     --main-font-weight: 450;
 }
 
@@ -44,8 +44,8 @@ body {
 nav {
     position: fixed;
     bottom: 12px;
-    margin: 10px 10px;
-    width: calc(100% - 20px);
+    margin: 10px 11px 10px 10px;
+    width: calc(100% - 21px);
     display: flex;
     justify-content: space-between;
     z-index: 99;
@@ -55,7 +55,7 @@ nav>* {
     background: var(--bg-color);
     padding: 8px 8px 8px 8px;
     border: var(--main-color) .5px solid;
-    box-shadow: 2px 2px var(--main-color);
+    box-shadow: 3px 3px var(--main-color);
     text-align: center;
     transition: all ease 100ms;
     cursor: pointer;
@@ -64,7 +64,7 @@ nav>* {
 nav >*:active {
     opacity: 1;
     transform: translate(2px, 2px);
-    box-shadow: 0px 0px var(--main-color);
+    box-shadow: 1px 1px var(--main-color);
     transition: all ease 100ms;
 }
 
