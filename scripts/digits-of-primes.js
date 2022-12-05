@@ -6,9 +6,9 @@ async function drawHeatmap() {
         width: d3.min([450, window.innerWidth]),
         height: window.innerHeight * .99,
         margin: {
-            right: 25,
-            bottom: window.innerWidth < 600 ? window.innerHeight * .25 : window.innerHeight * .2,
-            left: 65
+            right: 35,
+            bottom: window.innerWidth < 600 ? window.innerHeight * .23 : window.innerHeight * .18,
+            left: 70
         }
     }
     dim.boundedWidth = dim.width - dim.margin.left - dim.margin.right
@@ -70,10 +70,10 @@ async function drawHeatmap() {
     })
 
     const yAxis = bounds.append('g').attr('class', 'y-axis')
-    const yAxisLeftX = -xBandW * 1.9
+    const yAxisLeftX = -xBandW * 1.8
     yAxis.selectAll('.tick').data(digits)
         .join('text').attr('class', d => `tick digit-${d}`)
-        .attr('x', -20)
+        .attr('x', - 15)
         .attr('y', d => yScale(d) + yBandH)
         .html(d => d)
     yAxis.append('text').html('Digit')
@@ -92,7 +92,7 @@ async function drawHeatmap() {
         9: "100 millions",
     }
 
-    const xAxisY = dim.margin.top * .38
+    const xAxisY = dim.margin.top * .35
     const xAxisH = dim.margin.top - xAxisY
     const demoW = dim.boundedWidth * .72
     const demoX = (dim.boundedWidth - demoW) * .6
@@ -162,7 +162,7 @@ async function drawHeatmap() {
         })
 
     d3.select('#footnote').style('transform', `translate(
-            ${dim.margin.left - 20}px,
+            ${dim.margin.left - 15}px,
             ${dim.height - dim.margin.bottom + yBandH * .7}px
         )`)
         .style('width', dim.boundedWidth + 20 + 'px')
@@ -181,7 +181,7 @@ async function drawHeatmap() {
 
     const cta = d3.select('#cta')
         .style('transform', `translate(
-            ${dim.margin.left + dim.boundedWidth + 7}px,
+            ${dim.margin.left + dim.boundedWidth + 8}px,
             calc(-100% + ${dim.margin.top + yScale(9) + yBandH + 3}px)
         )`)
         .html('click for details ↓')
