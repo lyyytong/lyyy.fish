@@ -4,6 +4,7 @@
     --accent-color: #33ff00;
     --main-font: 'Inter', sans-serif;
     --main-font-size: clamp(15px, 3vw, 20px);
+    --thick-font-weight: 450;
     --main-font-weight: 420;
     --thin-font-weight: 400;
 }
@@ -85,14 +86,6 @@ a:hover {
     pointer-events: none;
 }
 
-@media (max-width:500px){
-    #about-bg {
-        height: 1400px;
-        width: 1400px;
-        transform: translate(41%, 43%);
-    }
-}
-
 #about-container {
     position: absolute;
     bottom: 0;
@@ -139,4 +132,24 @@ a:hover {
 
 .article-axis {
     stroke: var(--accent-color);
+}
+
+@media (max-width:500px){
+    #about-bg {
+        height: 1400px;
+        width: 1400px;
+        transform: translate(41%, 43%);
+    }
+
+    body {
+        font-weight: var(--thick-font-weight);
+    }
+
+    a:hover {
+        font-weight: var(--main-font-weight);
+    }    
+
+    #about:hover {
+        font-weight: var(--main-font-weight);
+    }
 }
