@@ -6,7 +6,7 @@ async function drawHeatmap() {
         width: d3.min([450, window.innerWidth]),
         height: window.innerHeight * .99,
         margin: {
-            right: 35,
+            right: 25,
             bottom: window.innerWidth < 600 ? window.innerHeight * .25 : window.innerHeight * .2,
             left: 65
         }
@@ -181,7 +181,7 @@ async function drawHeatmap() {
 
     const cta = d3.select('#cta')
         .style('transform', `translate(
-            ${dim.margin.left + dim.boundedWidth + 8}px,
+            ${dim.margin.left + dim.boundedWidth + 7}px,
             calc(-100% + ${dim.margin.top + yScale(9) + yBandH + 3}px)
         )`)
         .html('click for details ↓')
