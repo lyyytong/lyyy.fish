@@ -39,6 +39,7 @@ nav {
     display: flex;
     justify-content: end;
     gap: 20px;
+    z-index: 99;
 }
 
 nav > * {
