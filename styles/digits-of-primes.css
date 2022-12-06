@@ -186,7 +186,7 @@ svg {
         padding: 0;
         width: 100vw;
         justify-content: center;
-        bottom: 4.5vh;
+        bottom: 30px;
         gap: 40px;
     }
 }
