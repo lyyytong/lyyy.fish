@@ -1,7 +1,7 @@
 :root {
     --bg-color: #1d1d1d;
     --main-color: #b9b9b9;
-    --highlight-color:#f36b50;
+    --highlight-color: #f36b50;
     --main-font: 'Inter', sans-serif;
     --main-font-size: clamp(12.5px, 3vw, 16px);
     --main-font-weight: 420;
@@ -12,6 +12,11 @@ a:hover,
 a:visited {
     color: var(--main-color);
     text-decoration: none;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #4d4d4d var(--bg-color);
 }
 
 body {
@@ -33,16 +38,16 @@ main {
 
 nav {
     position: absolute;
-    width: calc(100vw - 30px);
-    bottom: 20px;
-    padding-right: 30px;
+    width: calc(100vw - 60px);
+    bottom: 0;
+    padding: 20px 30px;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     gap: 20px;
     z-index: 99;
 }
 
-nav > * {
+nav>* {
     padding: 5px;
     border-bottom: 1px var(--main-color) solid;
     vertical-align: middle;
@@ -50,20 +55,10 @@ nav > * {
     transition: all 50ms ease;
 }
 
-nav > *:hover,
-nav > *:active {
+nav>*:hover,
+nav>*:active {
     opacity: 1;
     transition: all 50ms ease;
-}
-
-@media (max-width: 600px) {
-    nav {
-        padding: 0;
-        width: 100vw;
-        justify-content: center;
-        bottom: 28px;
-        gap: 40px;
-    }
 }
 
 svg {
@@ -73,7 +68,7 @@ svg {
 #cta {
     color: var(--highlight-color);
     position: absolute;
-    writing-mode:vertical-lr;
+    writing-mode: vertical-lr;
     font-size: .8em;
     opacity: .5;
     letter-spacing: .05em;
@@ -103,8 +98,8 @@ svg {
 
 .count {
     font-size: .8em;
-    fill:var(--main-color);
-    text-anchor:end;
+    fill: var(--main-color);
+    text-anchor: end;
     dominant-baseline: end;
     font-weight: 500;
     cursor: pointer;
@@ -164,6 +159,47 @@ svg {
 
 .x-axis .tick {
     fill: var(--main-color);
-    text-anchor:start;
+    text-anchor: start;
     transform: rotate(-90deg);
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4d4d4d;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--bg-color);
+}
+
+@media (max-width: 1000px) and (orientation:portrait) {
+    nav {
+        padding: 0;
+        width: 100vw;
+        justify-content: center;
+        bottom: 4.5vh;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1000px) and (orientation:landscape) {
+    nav {
+        flex-direction: column;
+        padding: 20px 10px;
+        align-items: start;
+        gap: 5px;
+    }
+
+    nav>* {
+        width: auto;
+    }
 }

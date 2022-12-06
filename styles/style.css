@@ -134,6 +134,24 @@ a:hover {
     stroke: var(--accent-color);
 }
 
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--base-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--base-color);
+}
+
 @media (max-width:500px){
     #about-bg {
         height: 1400px;

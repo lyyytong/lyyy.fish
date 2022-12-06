@@ -1,24 +1,23 @@
 drawHeatmap()
 async function drawHeatmap() {
     const data = await d3.csv('../data/digits-of-primes.csv', d3.autoType)
-
+    
     let dim = {
         width: d3.min([450, window.innerWidth]),
-        height: window.innerHeight * .995,
+        height: d3.max([window.innerHeight,600]),
         margin: {
             right: 30,
-            bottom: window.innerWidth < 600 ? window.innerHeight * .23 : window.innerHeight * .18,
+            bottom: window.innerWidth < 1000 ? window.innerHeight * .23 : window.innerHeight * .18,
             left: 70
         }
     }
+    dim.margin.bottom = d3.max([dim.margin.bottom,120])
     dim.boundedWidth = dim.width - dim.margin.left - dim.margin.right
-    dim.boundedHeight = dim.boundedWidth * .9
+    dim.boundedHeight = dim.boundedWidth * .85
     dim.margin.top = dim.height - dim.boundedHeight - dim.margin.bottom
-
-    const wrapper = d3.select('#digit-count')
-        .append('svg')
-        .attr('height', dim.height)
-        .attr('width', dim.width)
+    
+    const wrapper = d3.select('#digit-count').append('svg')
+        .attr('height', dim.height).attr('width', dim.width)
     const bounds = wrapper.append('g')
         .style('transform', `translate(
             ${dim.margin.left}px,
@@ -48,8 +47,9 @@ async function drawHeatmap() {
         .range([0, 1])
 
     const radiusScale = d3.scaleSqrt()
-        .domain([0, maxVal])
+        .domain([1, maxVal])
         .range([0, yBandH * 3])
+        .clamp(true)
 
     const countGroup = bounds.append('g')
     countGroup.selectAll('.row')
@@ -202,7 +202,7 @@ async function drawHeatmap() {
         const count = data.filter(d => d.digit == digit)[0][place]
 
         countDisplayText.html((digit == 2 || digit == 5) && place == 1 ? `The digit <span>${digit}</span> appears once in the ones position.`
-            : digit == 0 && place == 9 ? `0 is never in the 100 millions position here. The bigget prime included is 999,999,937.`
+            : digit == 0 && place == 9 ? `0 is never in the 100 millions position here. The biggest prime included is 999,999,937.`
                 : digit % 2 == 0 && digit != 2 && place == 1 ? `The digit <span>${digit}</span> is never found in the <span>${placeValueNames[place]}</span> position. Primes other than 2 cannot be even.`
                     : `The digit <span>${digit}</span> appears <span>${d3.format(',')(count) + ' times'}</span><br> in the <span>${placeValueNames[place]}</span> position.`)
 
