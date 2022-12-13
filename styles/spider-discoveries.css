@@ -315,12 +315,13 @@ svg {
     text-align: center;
     transition: all 200ms ease;
     position: relative;
+    border: 1px var(--bg-color) solid;
 }
 
 .genus-option .genus-image {
-    height: calc((100vw - (8px * 2) - (3px * 4)) / 5 * .7);
-    width: calc((100vw - (8px * 2) - (3px * 4)) / 5);
-    filter: saturate(90%) brightness(50%) opacity(.3);
+    height: calc((100vw - (8px * 2) - (1px * 2 * 5) - (3px * 4)) / 5 * .6);
+    width: calc((100vw - (8px * 2)  - (1px * 2 * 5) - (3px * 4)) / 5);
+    filter: brightness(50%) opacity(.25) contrast(130%);
     background-size: cover;
     background-position: center center;
 }
@@ -395,9 +396,9 @@ svg {
     position: absolute;
     color: var(--light-bg-color);
     content:'X';
-    font-size: 1.2em;
-    top: 1px;
-    right: 3px;
+    /* font-size: 1.2em; */
+    top: 0;
+    right: 3.5px;
     transform: scaleX(1.2);
 }
 
@@ -460,8 +461,8 @@ svg {
     }
 
     .genus-option .genus-image {
-        height: calc((450px - (3px * 4)) / 5 * .5);
-        width: calc((450px - (3px * 4)) / 5);
+        height: calc((450px - (8px * 2)  - (1px * 2 * 5) - (3px * 4)) / 5 * .6);
+        width: calc((450px - (8px * 2)  - (1px * 2 * 5) - (3px * 4)) / 5);
     }
     
     #genus-profile .info {

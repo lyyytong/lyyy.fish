@@ -45,8 +45,8 @@ async function drawRidgelineChart() {
         .style('opacity',1)
     let genusOptionNames = genusOptions.append('p')
         .attr('class','genus-name')
-        .html(d => d=='Troglohyphantes'
-            ? 'Troglohy-<br>phantes'
+        .html(d => d=='Troglohyphantes' ? 'Troglohy-<br>phantes'
+            : d=='Walckenaeria' ? 'Walcken-<br>aeria'
             : d)
     let genusData
 
@@ -278,8 +278,8 @@ async function drawRidgelineChart() {
 
             genusOptions.data(genera).join('div')
             genusOptionNames = genusOptions.select('.genus-name')
-                .html(d => d=='Troglohyphantes'
-                    ? 'Troglohy-<br>phantes'
+                .html(d => d=='Troglohyphantes' ? 'Troglohy-<br>phantes'
+                    : d=='Walckenaeria' ? 'Walcken-<br>aeria'
                     : d)
             genusImages = genusOptions.select('.genus-image')
                 .style('background-image',
