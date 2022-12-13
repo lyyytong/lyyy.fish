@@ -13,7 +13,7 @@ async function drawRidgelineChart() {
         sAmerica: ['Alpaida', 'Mangora', 'Chrysometa', 'Dubiaranea', 'Theridion', 'Micrathena', 'Mesabolivar', 'Scytodes', 'Tmarus', 'Orchestina'],
     }
     const minYear = d3.min(dataset,d=>d.year)-1
-    const maxYear = d3.max(dataset,d=>d.year)
+    const maxYear = d3.max(dataset,d=>d.year)+1
     const years = d3.range(minYear,maxYear+1)
 
     // CONTINENT OPTIONS
@@ -24,7 +24,7 @@ async function drawRidgelineChart() {
         .html(d => d == 'nAmerica' ? 'North America'
             : d == 'sAmerica' ? 'South America'
                 : d.charAt(0).toUpperCase() + d.slice(1,))
-    let contInit = 'asia'
+    let contInit = 'world'
     continentOptions.classed('highlight-bg', d => d == contInit)
 
     // GENUS OPTIONS & DATA
@@ -208,7 +208,7 @@ async function drawRidgelineChart() {
     const backCta = filter.select('.back')
     const nav = d3.select('nav')
     let genusView = false
-
+    
     window.addEventListener('scroll', () => {
         const wrapperTopY = wrapper.node().getBoundingClientRect().y
         const wrapperBotY = wrapper.node().getBoundingClientRect().bottom
@@ -216,7 +216,7 @@ async function drawRidgelineChart() {
 
         // UPDATE STICKY ELEMENTS
         filter.classed('filter-sticky', window.scrollY >= filterTopY) 
-        filter.select('.desc').classed('invisible',wrapperTopY < window.scrollY - filterH + 20)
+        filter.select('.desc').classed('invisible',wrapperTopY <= window.scrollY - filterH + 90)
         midLine.classed('midline-sticky', (wrapperTopY <= midLineY) && (wrapperBotY > midLineY))
         midLine.classed('midline-static', wrapperBotY <= midLineY)
         
@@ -236,11 +236,11 @@ async function drawRidgelineChart() {
         } 
 
         // UPDATE COUNT & CUMSUM DISPLAY
-        if (wrapperTopY <= midLineY && wrapperBotY > midLineY) {
+        if (wrapperTopY <= midLineY && wrapperBotY >= midLineY) {
             let year = Math.round(
                 yearScale.invert(midLineY - wrapperTopY - dim.margin.top)
             )
-            year = d3.median([minYear, year,maxYear])
+            year = d3.median([1757, year, 2019])
             yearDisplay.html(year)
             
             let count

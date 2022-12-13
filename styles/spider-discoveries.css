@@ -129,9 +129,6 @@ svg {
 }
 
 #filter #continent-genera {
-    font-size: .7em;
-    letter-spacing: var(--small-font-letter-spacing);
-    font-weight: var(--thick-font-weight);
     display: flex;
     width: calc(100vw - 16px);
     flex-wrap: wrap;
@@ -153,6 +150,7 @@ svg {
 .bottom-genera-axis {
     font-size: var(--small-font-size);
     letter-spacing: var(--small-font-letter-spacing);
+    font-weight: var(--thick-font-weight);
     opacity: .3;
 }
 
@@ -320,28 +318,30 @@ svg {
 }
 
 .genus-option .genus-image {
-    height: calc((100vw - (8px * 2) - (3px * 4)) / 5 * .5);
+    height: calc((100vw - (8px * 2) - (3px * 4)) / 5 * .7);
     width: calc((100vw - (8px * 2) - (3px * 4)) / 5);
-    filter: saturate(90%) brightness(50%) opacity(.2);
+    filter: saturate(90%) brightness(50%) opacity(.3);
     background-size: cover;
     background-position: center center;
 }
 
-.genus-option .genus-name {
+.genus-option .genus-name,
+.genus-number{
+    font-size: .75em;
+    letter-spacing: var(--small-font-letter-spacing);
+    font-weight: var(--thick-font-weight);
     position: absolute;
     transition: all 200ms ease;
+}
+
+.genus-option .genus-number {
+    top: 2px;
+    right: 2px;
 }
 
 .genus-path {
     transition: all 200ms ease;
 }
-
-.genus-number {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-}
-
 .genus-tick {
     text-anchor: middle;
     font-size: var(--small-font-size);
