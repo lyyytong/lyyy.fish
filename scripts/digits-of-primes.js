@@ -5,7 +5,6 @@ async function drawHeatmap() {
     let dim = {
         width: d3.min([450, window.innerWidth]),
         height: d3.max([window.innerHeight,650]),
-        // height: window.innerHeight,
         margin: {
             right: 30,
             bottom: window.innerWidth < 1000 ? window.innerHeight * .23 : window.innerHeight * .18,

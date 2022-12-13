@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕷</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/spider-discoveries.css">
+    <title>Spider Discoveries</title>
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html">home</a>
+        <a href="#footnote" class="footnote">footnotes</a>
+        <a href="https://wsc.nmbe.ch/" target="_blank">data source</a>
+    </nav>
+    <main>
+        <div id="continents"></div>
+        <div id="filter-bg">
+            <div id="filter">
+                <div class="cta">
+                    <p>Choose a genus</p>
+                    <p class="arrow">↓</p>
+                </div>
+                <div id="continent-genera"></div>
+                <p class="desc">The 10 largest spider genera in <span class="continent">the world</span>.</p>
+            </div>
+        </div>
+        <div id="discoveries">
+            <div id="midline">
+                <div class="cta">
+                    <p>Scroll for data</p>
+                    <p class="arrow">↓</p>
+                </div>
+                <p class="year">Year</p>
+                <div class="legend">
+                    <p><span class="continent">Total</span><br>New Discovery</p>
+                    <p><span class="continent">Total</span><br>Accumulated</p>
+                </div>
+                <div class="count-display">
+                    <p class="count"></p>
+                    <p class="cumsum"></p>
+                </div>
+            </div>
+        </div>
+        <div id="genus-profile" class="no-height">
+            <img src="" alt="">
+            <div class="info">
+                <div>
+                    <p class="name">?</p>
+                </div>
+                <div class="desc">
+                    <p>Common name: <span class="common-name">?</span></p>
+                    <p>First discovered: <span class="discovery-year">?</span></p>
+                    <p>Total species: <span class="num-species">?</span></p>
+                </div>
+            </div>
+        </div>
+        <div id="footnote">
+            <div>
+                *Grouping species by their genus is one of several ways. Below are the different levels of spider
+                grouping, sorted from more specific to more general:
+                <ul>
+                    <li>Several spider species can belong to a genus; e.g. the black widow spider and its less venomous
+                        brown
+                        relative belong to the genus Latrodectus.</li>
+                    <li>Several genera belong to a family; e.g. Latrodectus and Parasteatoda (genus of the common house
+                        spiders)
+                        both belong to the family Theridiidae.</li>
+                    <li>Several families belong to an infraorder; e.g. Theridiidae and Desidae (family to which belong
+                        marine
+                        spiders that live inbetween ocean tides) belong to the infraorder Araneomorphae.</li>
+                    <li>Several infraorders belong to a suborder; and all suborders, in turn, belong to the umbrella
+                        order
+                        Araneae — air-breathing arthropods that have eight legs, fangs generally able to inject venom,
+                        and
+                        spinnerets that extrude silk — known as spiders.</li>
+                </ul>
+                (The order Araneae itself belongs to the class Arachnid, which includes spiders, scorpions, ticks,
+                mites, vinegaroons, and others.)
+            </div>
+            <p>**Since this was mainly a visualization exercise, I took a lot of liberties in manually attributing
+                continent to discovery locations. For example, St. Helena island was grouped into Africa, even though
+                it's almost half way between South America and
+                Africa. Species with Mediterranean tags were grouped into Europe, even though
+                they very well could be found in North African port cities. Some remote locations like the South
+                Georgia and South Sandwich Islands, although closer to South America, were put together with the French
+                Southern and Antarctic Lands into the continent of Antartica (which in the end was not shown in the
+                graphs as it has too few species). Manually editing more than 47 thousand data points plus a
+                weak knowledge in geography led to some comatose decisions I'd really like to avoid in the next
+                project.</p>
+            <div>
+                <p>***Image sources:</p>
+                <ul>
+                    <li>
+                        <a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>
+                    </li>
+                    <li>
+                        <a href="https://www.researchgate.net/" target="_blank">ResearchGate</a>
+                    </li>
+                    <li>
+                        <a href="https://www.flickr.com/" target="_blank">flickr</a>
+                    </li>
+                    <li>
+                        <a href="https://eol.org/" target="_blank">Encyclopedia of Life</a>
+                    </li>
+                    <li>
+                        <a href="https://www.naturespot.org.uk/" target="_blank">NatureSpot</a>
+                    </li>
+                    <li>
+                        <a href="http://www.arachne.org.au/default.asp" target="_blank">Spiders of Australia</a>
+                    </li>
+                    <li>
+                        <a href="https://www.ecoregistros.org/site/index.php" target="_blank">EcoRegistros</a>
+                    </li>
+                    <li>
+                        <a href="https://bugguide.net/node/view/15740" target="_blank">BugGuide</a>
+                    </li>
+                    <li>
+                        <a href="https://arachnids.myspecies.info/" target="_blank">Arachnids of Central America</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../scripts/spider-discoveries.js"></script>
+</body>
+
+</html>
