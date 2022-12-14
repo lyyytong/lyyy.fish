@@ -60,7 +60,7 @@ nav {
 nav > * {
     border: var(--main-color) 1px solid;
     padding: 0 8px;
-    height: 25px;
+    height: 28px;
     width: calc((100vw - 16px - 8px * 2 * 3 - 8px * 2)/3);
     background: var(--bg-color);
     font-size: var(--small-font-size);
@@ -151,7 +151,44 @@ svg {
     font-size: var(--small-font-size);
     letter-spacing: var(--small-font-letter-spacing);
     font-weight: var(--thick-font-weight);
-    opacity: .3;
+}
+
+#filter .desc {
+    opacity: .4;
+}
+
+#filter .genus-option {
+    cursor: pointer;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 200ms ease;
+    position: relative;
+    border: 1px var(--bg-color) solid;
+}
+
+#filter .genus-option .genus-image {
+    height: calc((100vw - (8px * 2) - (1px * 2 * 5) - (3px * 4)) / 5 * .6);
+    width: calc((100vw - (8px * 2)  - (1px * 2 * 5) - (3px * 4)) / 5);
+    filter: brightness(50%) opacity(.25) contrast(130%);
+    background-size: cover;
+    background-position: center center;
+}
+
+#filter .genus-option .genus-name,
+#filter .genus-number{
+    font-size: .75em;
+    letter-spacing: var(--small-font-letter-spacing);
+    font-weight: var(--thick-font-weight);
+    position: absolute;
+    transition: all 200ms ease;
+}
+
+#filter .genus-option .genus-number {
+    top: 2px;
+    right: 2px;
 }
 
 #footnote {
@@ -281,10 +318,14 @@ svg {
     transition: all 200ms ease;
 }
 
+.bottom-genera-axis {
+    opacity: .3;
+}
+
 .bottom-genus-tick {
     text-anchor: end;
     font-size: var(--small-font-size);
-    opacity: .2;
+    opacity: .3;
     transition: all 200ms ease;
 }
 
@@ -304,40 +345,6 @@ svg {
     position: fixed !important;
     top: 8px;
     transition: all 1s ease;
-}
-
-.genus-option {
-    cursor: pointer;
-    background-color: var(--bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: all 200ms ease;
-    position: relative;
-    border: 1px var(--bg-color) solid;
-}
-
-.genus-option .genus-image {
-    height: calc((100vw - (8px * 2) - (1px * 2 * 5) - (3px * 4)) / 5 * .6);
-    width: calc((100vw - (8px * 2)  - (1px * 2 * 5) - (3px * 4)) / 5);
-    filter: brightness(50%) opacity(.25) contrast(130%);
-    background-size: cover;
-    background-position: center center;
-}
-
-.genus-option .genus-name,
-.genus-number{
-    font-size: .75em;
-    letter-spacing: var(--small-font-letter-spacing);
-    font-weight: var(--thick-font-weight);
-    position: absolute;
-    transition: all 200ms ease;
-}
-
-.genus-option .genus-number {
-    top: 2px;
-    right: 2px;
 }
 
 .genus-path {
@@ -396,7 +403,6 @@ svg {
     position: absolute;
     color: var(--light-bg-color);
     content:'X';
-    /* font-size: 1.2em; */
     top: 0;
     right: 3.5px;
     transform: scaleX(1.2);
@@ -439,8 +445,7 @@ svg {
         padding: 16px;
     }
     nav > * {
-        width: 100px !important;
-        width: auto;
+        width: 100px;
     }
 
     nav .footnote {
@@ -450,9 +455,9 @@ svg {
     }
 
     #continents,
-    #continent-genera,
+    #filter #continent-genera,
     #filter-bg {
-        width: 450px !important;
+        width: 450px;
     }
 
     #genus-profile {
@@ -460,9 +465,9 @@ svg {
         padding-bottom: 16px;
     }
 
-    .genus-option .genus-image {
-        height: calc((450px - (8px * 2)  - (1px * 2 * 5) - (3px * 4)) / 5 * .6);
-        width: calc((450px - (8px * 2)  - (1px * 2 * 5) - (3px * 4)) / 5);
+    #filter .genus-option .genus-image {
+        height: calc((450px - (1px * 2 * 5) - (3px * 4)) / 5 * .6);
+        width: calc((450px  - (1px * 2 * 5) - (3px * 4)) / 5);
     }
     
     #genus-profile .info {

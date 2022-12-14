@@ -189,9 +189,9 @@ async function drawRidgelineChart() {
     const filterStickyTopMargin = 8
     const filter = d3.select('#filter')
     const filterH = filter.node().getBoundingClientRect().height
-    document.querySelector('#discoveries').style.marginBottom = dim.bottomBoundH + 'px'
     document.querySelector('#filter-bg').style.height = filterH+'px'
-    const filterTopY = filter.node().getBoundingClientRect().top - filterStickyTopMargin
+    const filterTopY = document.querySelector('#filter-bg').getBoundingClientRect().top - filterStickyTopMargin
+    document.querySelector('#discoveries').style.marginBottom = dim.bottomBoundH + 'px'
     const midLineY = d3.min([
         wrapper.node().getBoundingClientRect().y + dim.margin.top,
         window.innerHeight/2
