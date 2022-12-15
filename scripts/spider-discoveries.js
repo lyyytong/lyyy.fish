@@ -35,19 +35,29 @@ async function drawRidgelineChart() {
     const genusOptions = d3.select('#continent-genera')
         .selectAll('.genus-option').data(genera)
         .join('div').attr('class','genus-option')
-    let genusNumbers = genusOptions.append('text')
-        .attr('class','genus-number').html((d,i)=>i+1)
     let genusImages = genusOptions.append('div')
         .attr('class', 'genus-image')
         .style('background-image',d=>`url('../images/spider-discoveries/${d}.jpeg')`)
         .style('opacity',0)
         .transition(getTransition(400))
         .style('opacity',1)
+    let genusNumbers = genusOptions.append('text')
+        .attr('class','genus-number').html((d,i)=>i+1)
+    const breakName = d => d=='Troglohyphantes' ? 'Troglohy<br>-phantes'
+        : d=='Tetragnatha' ? 'Tetragna<br>-tha'
+        : d=='Heliophanus' ? 'Heliopha<br>-nus'
+        : d=='Habronestes' ? 'Habron<br>-estes'
+        : d=='Habronattus' ? 'Habron<br>-attus'
+        : d=='Mesabolivar' ? 'Mesabo<br>-livar'
+        : d=='Draconarius' ? 'Dracona<br>-rius'
+        : d=='Micrathena' ? 'Micrath<br>-ena'
+        : d=='Dubiaranea' ? 'Dubiara<br>-nea'
+        : d=='Chrysometa' ? 'Chrysom<br>-eta'
+        : d=='Walckenaeria' ? 'Walcken<br>-aeria'
+        : d
     let genusOptionNames = genusOptions.append('p')
         .attr('class','genus-name')
-        .html(d => d=='Troglohyphantes' ? 'Troglohy-<br>phantes'
-            : d=='Walckenaeria' ? 'Walcken-<br>aeria'
-            : d)
+        .html(d => breakName(d))
     let genusData
 
     // DIMENSIONS AND SVG
@@ -123,8 +133,8 @@ async function drawRidgelineChart() {
     const defs = wrapper.append('defs')
     const areaGradientId = 'area-gradient'
     const cumsumGradientId = 'cumsum-gradient'
-    getLinearGradient(defs, areaGradientId, '#bad1af', '#6f7863')
-    getLinearGradient(defs, cumsumGradientId, '#6f7863', '#a9aaa0')
+    getLinearGradient(defs, areaGradientId, '#d7f9c7', '#7c8671')
+    getLinearGradient(defs, cumsumGradientId, '#7c8671', '#bcbdb2')
 
     // SCALES
     const yearScale = d3.scaleLinear()
@@ -278,9 +288,7 @@ async function drawRidgelineChart() {
 
             genusOptions.data(genera).join('div')
             genusOptionNames = genusOptions.select('.genus-name')
-                .html(d => d=='Troglohyphantes' ? 'Troglohy-<br>phantes'
-                    : d=='Walckenaeria' ? 'Walcken-<br>aeria'
-                    : d)
+                .html(d => breakName(d))
             genusImages = genusOptions.select('.genus-image')
                 .style('background-image',
                         d =>`url('../images/spider-discoveries/${d}.jpeg')`)
