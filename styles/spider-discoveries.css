@@ -154,11 +154,6 @@ svg {
     font-weight: var(--thick-font-weight);
 }
 
-#filter .continent {
-    border-bottom: 1px solid var(--main-color);
-    padding-bottom: 1px;
-}
-
 #filter .genus-option {
     cursor: pointer;
     background-color: var(--bg-color);
@@ -171,7 +166,7 @@ svg {
 }
 
 #filter .genus-option .genus-image {
-    height: calc((100vw - (8px * 2) - (4px * 4)) / 5 * .8);
+    height: calc((100vw - (8px * 2) - (4px * 4)) / 5 * .7);
     width: calc((100vw - (8px * 2)  - (4px * 4)) / 5);
     filter: brightness(60%) opacity(.25) contrast(70%);
     background-size: cover;
@@ -189,7 +184,8 @@ svg {
 }
 
 #filter .genus-option .genus-name {
-    margin-top: 2px;
+    margin-top: 1px;
+    line-height: 1.05em;
 }
 
 #filter .genus-option .genus-number {
@@ -471,7 +467,7 @@ svg {
     }
 
     #filter .genus-option .genus-image {
-        height: calc((450px - (4px * 4)) / 5 * .8);
+        height: calc((450px - (4px * 4)) / 5 * .7);
         width: calc((450px  - (4px * 4)) / 5);
     }
     

@@ -1,7 +1,7 @@
 :root {
-    --bg-color: #1d1d1d;
-    --main-color: #b9b9b9;
-    --highlight-color: #f36b50;
+    --bg-color: #1a1a1a;
+    --main-color: #e2e2e2;
+    --highlight-color: #ff755a;
     --main-font: 'Inter', sans-serif;
     --main-font-size: clamp(12.5px, 3vw, 16px);
     --main-font-weight: 420;
@@ -39,7 +39,7 @@ main {
 nav {
     position: absolute;
     width: calc(100% - 60px);
-    bottom: 0;
+    bottom: 10px;
     padding: 20px 30px;
     display: flex;
     justify-content: space-between;
@@ -49,7 +49,7 @@ nav {
 nav>* {
     padding: 5px;
     border-bottom: 1px var(--main-color) solid;
-    opacity: .4;
+    opacity: .6;
     transition: all 50ms ease;
 }
 
@@ -68,7 +68,7 @@ svg {
     position: absolute;
     writing-mode: vertical-lr;
     font-size: .8em;
-    opacity: .5;
+    opacity: .8;
     letter-spacing: .05em;
 }
 
@@ -78,7 +78,7 @@ svg {
     align-items: flex-end;
     justify-content: center;
     text-align: center;
-    opacity: .5;
+    opacity: .6;
     font-size: .8em;
     line-height: 1.4;
 }
@@ -87,7 +87,7 @@ svg {
     position: absolute;
     font-size: .7em;
     line-height: 1.5;
-    opacity: .4;
+    opacity: .6;
 }
 
 #digit-count {
@@ -108,14 +108,14 @@ svg {
     fill: var(--main-color);
     text-anchor: middle;
     font-size: 2.2em;
-    opacity: .4;
+    opacity: .5;
     transition: all 100ms ease;
 }
 
 .demo-line {
     stroke: var(--main-color);
     fill: none;
-    opacity: .15;
+    opacity: .25;
     transition: all 100ms ease;
 }
 
@@ -137,7 +137,7 @@ svg {
     fill: var(--highlight-color);
     stroke: var(--highlight-color);
     stroke-width: 20px;
-    opacity: .15;
+    opacity: .25;
 }
 
 .highlight-bigger {

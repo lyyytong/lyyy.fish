@@ -44,7 +44,7 @@ async function drawHeatmap() {
     const maxVal = d3.max(data.map(d => d3.max(Object.values(d))))
     const opacityScale = d3.scaleLinear()
         .domain([0, maxVal])
-        .range([0, 1])
+        .range([0.2, 1])
 
     const radiusScale = d3.scaleSqrt()
         .domain([1, maxVal])
@@ -66,7 +66,7 @@ async function drawHeatmap() {
             .attr('class', val => `count digit-${datum.digit} place-${val}`)
             .attr('x', xBandW).attr('y', yBandH)
             .html(val => d3.format(',.2f')(datum[val] / 1000000))
-            .style('opacity', val => datum[val] < 10 ? .1 : opacityScale(datum[val]))
+            .style('opacity', val => opacityScale(datum[val]))
     })
 
     const yAxis = bounds.append('g').attr('class', 'y-axis')
@@ -194,32 +194,34 @@ async function drawHeatmap() {
     d3.selectAll('.count').on('click', highlight)
     function highlight() {
         const clicked = d3.select(this)
-        const classString = clicked.attr('class').split(' ')
-        const digitClass = classString[1]
-        const digit = +digitClass.split('-')[1]
-        const placeClass = classString[2]
-        const place = +placeClass.split('-')[1]
-        const count = data.filter(d => d.digit == digit)[0][place]
-
-        countDisplayText.html((digit == 2 || digit == 5) && place == 1 ? `The digit <span>${digit}</span> appears once in the ones position.`
-            : digit == 0 && place == 9 ? `0 is never in the 100 millions position here. The biggest prime included is 999,999,937.`
-                : digit % 2 == 0 && digit != 2 && place == 1 ? `The digit <span>${digit}</span> is never found in the <span>${placeValueNames[place]}</span> position. Primes other than 2 cannot be even.`
-                    : `The digit <span>${digit}</span> appears <span>${d3.format(',')(count) + ' times'}</span><br> in the <span>${placeValueNames[place]}</span> position.`)
-
-        clearHighlights()
-        clicked.classed('highlight', true).classed('highlight-bigger', true)
-        d3.select('#count-display').style('display', 'flex')
-        d3.select(`.tick.${digitClass}`).classed('highlight', true)
-        d3.select(`.tick.${placeClass}`).classed('highlight', true)
-        d3.select(`.demo-digit.${placeClass}`).classed('highlight', true)
-        d3.select(`.demo-line.${placeClass}`).classed('highlight-path', true)
-
-        highlightBg.append('circle')
-            .attr('class', 'highlight-circle')
-            .attr('cx', xScale(place) + xBandW * .65)
-            .attr('cy', yScale(digit) + yBandH * .8)
-            .transition().duration(100)
-            .attr('r', radiusScale(count))
+        if (!clicked.classed('highlight')) {
+            const classString = clicked.attr('class').split(' ')
+            const digitClass = classString[1]
+            const digit = +digitClass.split('-')[1]
+            const placeClass = classString[2]
+            const place = +placeClass.split('-')[1]
+            const count = data.filter(d => d.digit == digit)[0][place]
+    
+            countDisplayText.html((digit == 2 || digit == 5) && place == 1 ? `The digit <span>${digit}</span> appears once in the ones position.`
+                : digit == 0 && place == 9 ? `0 is never in the 100 millions position here. The biggest prime included is 999,999,937.`
+                    : digit % 2 == 0 && digit != 2 && place == 1 ? `The digit <span>${digit}</span> is never found in the <span>${placeValueNames[place]}</span> position. Primes other than 2 cannot be even.`
+                        : `The digit <span>${digit}</span> appears <span>${d3.format(',')(count) + ' times'}</span><br> in the <span>${placeValueNames[place]}</span> position.`)
+    
+            clearHighlights()
+            clicked.classed('highlight', true).classed('highlight-bigger', true)
+            d3.select('#count-display').style('display', 'flex')
+            d3.select(`.tick.${digitClass}`).classed('highlight', true)
+            d3.select(`.tick.${placeClass}`).classed('highlight', true)
+            d3.select(`.demo-digit.${placeClass}`).classed('highlight', true)
+            d3.select(`.demo-line.${placeClass}`).classed('highlight-path', true)
+    
+            highlightBg.append('circle')
+                .attr('class', 'highlight-circle')
+                .attr('cx', xScale(place) + xBandW * .65)
+                .attr('cy', yScale(digit) + yBandH * .8)
+                .transition().duration(100)
+                .attr('r', radiusScale(count))
+        }
     }
 
     d3.selectAll('.axis-label').on('click', highlightAxis)
@@ -279,13 +281,13 @@ async function drawHeatmap() {
 }
 
 function clearHighlights() {
-    d3.select('#cta').transition().duration(100).style('opacity', .5)
+    d3.select('#cta').transition().duration(100).style('opacity', .8)
     d3.select('#count-display').style('display', 'none')
     d3.selectAll('.tick').classed('highlight', false)
     d3.selectAll('.axis-label').classed('highlight', false)
     d3.selectAll('.count').classed('highlight', false).classed('highlight-bigger', false)
     d3.selectAll('.count tspan').transition().duration(50).remove()
-    d3.selectAll('.highlight-circle').transition().duration(200).attr('r', 0).remove()
+    d3.selectAll('.highlight-circle').transition().duration(300).attr('r', 0).remove()
     d3.selectAll('.demo-digit').classed('highlight', false)
     d3.selectAll('.demo-line').classed('highlight-path', false)
 }
