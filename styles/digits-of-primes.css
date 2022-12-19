@@ -39,7 +39,7 @@ main {
 nav {
     position: absolute;
     width: calc(100% - 60px);
-    bottom: 10px;
+    bottom: 8px;
     padding: 20px 30px;
     display: flex;
     justify-content: space-between;
@@ -115,7 +115,7 @@ svg {
 .demo-line {
     stroke: var(--main-color);
     fill: none;
-    opacity: .25;
+    opacity: .2;
     transition: all 100ms ease;
 }
 
