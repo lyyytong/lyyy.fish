@@ -70,7 +70,7 @@ async function drawSimulation() {
 
     // ANIMATION TIME
     let travelDuration = 6000 // time for circle to move from top to bottom of svg
-    let addSeekersDelay = Math.round(travelDuration / 10) // add new circle after delay
+    let addSeekersDelay = Math.round(travelDuration / 120) // add new circle after delay
     let transitionTime = Math.round(travelDuration / 110) // for circle size & opacity animation
     let speedChange
 
@@ -248,13 +248,15 @@ async function drawSimulation() {
     let seekers = []
     let arrivedBarsH = { M: 0, F: 0, Unknown: 0 }
     let enslaversNum = 0
+    let count = 0
 
     // d3.interval(addSeekers, addSeekersDelay)
     // d3.timer(moveSeekers)
-    d3.interval(elapsed=>{
-        if (d3.now()%addSeekersDelay<=11) addSeekers(elapsed)
+    d3.timer(elapsed=>{
+        count++
+        if (count%addSeekersDelay==0) addSeekers(elapsed)
         moveSeekers(elapsed)
-    },10)
+    })
     function addSeekers(elapsed) {
         if (seekers.length < dataset.length) {
             const nextSeekerIndex = seekers.length
@@ -269,7 +271,6 @@ async function drawSimulation() {
                 .datum(nextSeeker).classed('seeker',true)
                 .style('opacity',0)
             newSeeker.append('circle')
-                // .attr('r',d=>d.isChild?childR:adultR)
                 // .classed('stroked', d => !d.isChild)
                 .classed('stroked',true)
                 .classed('literate', d => d.isLiterate)
@@ -277,14 +278,12 @@ async function drawSimulation() {
                 // .style('filter', d => !d.isChild ? `url(#${blurID})` : '')
                 .style('stroke-width','2px')
             newSeeker.append('text').attr('class', 'name')
-                // .attr('x',d=>d.isChild?-childR-5:-adultR-5)
                 .html(d => d.firstMiddleName && d.lastName!='Unidentified' ? `${d.firstMiddleName.replace(' (sic)', '')} ${d.lastName}`
                     : d.firstMiddleName && d.lastName == 'Unidentified' && d.alias ? `${d.firstMiddleName.replace(' (sic)', '')} aka. ${d.alias}`
                         : d.lastName == 'Unidentified' && d.alias ? `(alias) ${d.alias}`
                             : d.lastName == 'Unidentified' ? '(unknown)'
                                 : d.lastName)
             newSeeker.append('text').attr('class', 'desc')
-                // .attr('x',d=>d.isChild?childR+5:adultR+5)
                 .html(d => `${d.age ? d.age : ''}${d.age && d.isChild ? ', child' : d.isChild ? 'child' : ''}${(d.age || d.isChild) && d.isLiterate ? ', literate' : d.isLiterate ? 'literate' : ''}${(d.age || d.isChild || d.isLiterate) && d.isArmed ? ', armed' : d.isArmed ? 'armed' : ''}`)                
             
             const year = nextSeeker.year
@@ -399,7 +398,7 @@ async function drawSimulation() {
         d3.select(clicked).classed('active',true)
         const divider = +clicked.innerHTML.split(' ')[1]
         travelDuration = Math.round(6000 / divider)
-        addSeekersDelay = Math.round(travelDuration / 10)
+        addSeekersDelay = Math.round(travelDuration / 120)
         transitionTime = Math.round(travelDuration / 110)
         speedChange = true
     }

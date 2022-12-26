@@ -94,6 +94,10 @@ p {
     text-indent: 30px;
 }
 
+svg {
+    overflow: visible;
+}
+
 circle.armed {
     stroke: var(--armed-stroke-color) !important;
 }
