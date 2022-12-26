@@ -105,11 +105,11 @@ async function drawSimulation() {
     const childR = adultR * .3
 
     // ANIMATED STATS
+    const seekersGroup = bounds.append('g')
+    
     const enslavers = [...new Set(dataset.filter(d => d.enslaver).map(d => d.enslaver))]
     const enslaversGroup = bounds.append('g')
         // .style('filter', `url(#${glowID})`)
-    
-    const seekersGroup = bounds.append('g')
     
     const genderBars = bounds.append('g')
         .style('transform', `translateY(${dim.boundedH - dim.genderChartH}px)`)
