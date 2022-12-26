@@ -38,7 +38,7 @@ body {
     font-size: var(--main-font-size);
     font-weight: var(--main-weight);
     letter-spacing: var(--main-spacing);
-    margin: 30px 8px 50px 8px;
+    margin: 30px 8px 60px 8px;
     position: relative;
     line-height: 1em;
     color: var(--main-color);
@@ -66,7 +66,7 @@ main,
 nav {
     position: fixed;
     width: calc(100vw - 16px);
-    bottom: 8px;
+    bottom: 16px;
     display: flex;
     justify-content: space-evenly;
     font-size: var(--small-font-size);
@@ -92,9 +92,9 @@ p {
     text-indent: 30px;
 }
 
-svg {
+/* svg {
     overflow: visible;
-}
+} */
 
 circle.armed {
     stroke: var(--armed-stroke-color) !important;
@@ -117,7 +117,8 @@ circle.literate {
 }
 
 circle.stroked {
-    stroke: var(--stroke-color);
+    /* stroke: var(--stroke-color); */
+    stroke: var(--base-color);
 }
 
 #about {
@@ -174,7 +175,7 @@ circle.stroked {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
 }
 
 #speeds,
@@ -354,7 +355,6 @@ circle.stroked {
         width: 500px;
         left: 50vw;
         transform:translateX(-50%);
-        bottom: 16px;
     }
 
     main {
@@ -390,7 +390,6 @@ circle.stroked {
 
     main #simulation-container {
         width: 50vw;
-        gap: 16px;
     }
 
     nav {

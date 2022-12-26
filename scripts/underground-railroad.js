@@ -21,13 +21,13 @@ async function drawSimulation() {
         width: d3.min([window.innerWidth - margin * 2, 600]),
         height: d3.max([window.innerHeight * .9, 600]),
         margin: {
-            top: 5,
+            top: 0,
             right: 10,
         }
     }
     const genderLabelY = 25 // y coordinate of bar chart labels
     // dim.margin.bottom = lineH * 5.5 + genderLabelY
-    dim.margin.bottom = lineH * 4 + genderLabelY
+    dim.margin.bottom = lineH * 4.5 + genderLabelY
     dim.margin.left = d3.min([dim.width * .22, 90])
     dim.boundedW = dim.width - dim.margin.left - dim.margin.right
     dim.boundedH = dim.height - dim.margin.top - dim.margin.bottom
@@ -69,9 +69,9 @@ async function drawSimulation() {
     // glowFeMerge.append('feMergeNode').attr('in', 'SourceGraphic')
 
     // ANIMATION TIME
-    let travelDuration = 6500 // time for circle to move from top to bottom of svg
-    let addSeekersDelay = Math.round(travelDuration / 12) // add new circle after delay
-    let transitionTime = Math.round(travelDuration / 130) // for circle size & opacity animation
+    let travelDuration = 6000 // time for circle to move from top to bottom of svg
+    let addSeekersDelay = Math.round(travelDuration / 10) // add new circle after delay
+    let transitionTime = Math.round(travelDuration / 110) // for circle size & opacity animation
     let speedChange
 
     // SCALES
@@ -83,7 +83,7 @@ async function drawSimulation() {
     const genderBand = genderXScale.bandwidth()
 
     const progressXScale = d3.scaleLinear()
-        .domain([.3, .5])
+        .domain([.3, .6])
         .range([0, 1])
         .clamp(true)
 
@@ -116,12 +116,12 @@ async function drawSimulation() {
         .join('rect').attr('class', `bar`)
         .attr('x', d => genderXScale(d))
         .attr('width', genderBand)
-        .style('filter', `url(#${blurID})`)
+        // .style('filter', `url(#${blurID})`)
 
     const counts = bounds.append('g')
         .style('transform', `translateY(${dim.boundedH}px)`)
     counts.append('rect').classed('counts-bg',true) // hide circles after they reach bottom graph
-        .attr('width',dim.boundedW).attr('height',dim.margin.bottom)
+        .attr('x',-dim.margin.left).attr('width',dim.width).attr('height',dim.margin.bottom)
 
     const getGenderString = (d, a, b, c) => d == 'M' ? a : d == 'F' ? b : c
     const genderData = counts.append('g')
@@ -180,7 +180,7 @@ async function drawSimulation() {
             : d == 'isChild' ? 2.5
                 : 4.5
         )
-        .style('filter', d => d != 'isChild' ? `url(#${smallBlurID})` : '')
+        // .style('filter', d => d != 'isChild' ? `url(#${smallBlurID})` : '')
     // const enslaversLabels = labelsGroup.append('g')
     //     .style('transform', `translateY(${dim.margin.bottom - lineH}px)`)
     // enslaversLabels.append('text').classed('label', true)
@@ -202,7 +202,7 @@ async function drawSimulation() {
         .join('rect').attr('class', `bar`)
         .attr('x', d => genderXScale(d))
         .attr('width', genderBand)
-        .style('filter', `url(#${blurID})`)
+        // .style('filter', `url(#${blurID})`)
     const fullCounts = fullDataGroup.append('g')
         .style('transform', `translateY(${dim.boundedH}px)`)
     fullCounts.selectAll('.gender-label').data(genders)
@@ -252,7 +252,7 @@ async function drawSimulation() {
     d3.interval(elapsed=>{
         if (elapsed%addSeekersDelay<=11) addSeekers(elapsed)
         moveSeekers(elapsed)
-    },10)
+    },12)
     function addSeekers(elapsed) {
         if (seekers.length < dataset.length) {
             const nextSeekerIndex = seekers.length
@@ -267,11 +267,12 @@ async function drawSimulation() {
                 .datum(nextSeeker).classed('seeker',true)
                 .style('opacity',0)
             newSeeker.append('circle')
-                // .attr('r',d=>d.isChild?childR/2:adultR/2)
-                .classed('stroked', d => !d.isChild)
+                // .attr('r',d=>d.isChild?childR:adultR)
+                // .classed('stroked', d => !d.isChild)
+                .classed('stroked',true)
                 .classed('literate', d => d.isLiterate)
                 .classed('armed', d => d.isArmed)
-                .style('filter', d => !d.isChild ? `url(#${blurID})` : '')
+                // .style('filter', d => !d.isChild ? `url(#${blurID})` : '')
                 .style('stroke-width','2px')
             newSeeker.append('text').attr('class', 'name')
                 // .attr('x',d=>d.isChild?-childR-5:-adultR-5)
@@ -319,7 +320,7 @@ async function drawSimulation() {
             .style('opacity', d => {
                 const y = yPositionA(d)
                 const margin = d.isChild ? childR : adultR
-                return (y >= 10 && y <= barHeightsA(d) - margin) ? 1 : 0
+                return (y > 10 && y < barHeightsA(d) - margin) ? 1 : 0
             })
 
         seekersInView.select('circle')
@@ -370,7 +371,7 @@ async function drawSimulation() {
             })
         })
 
-        seekersGroup.selectAll('.seeker').filter(d=>d.yProgress>=1.1).remove()
+        seekersGroup.selectAll('.seeker').filter(d=>d.yProgress>=1.05).remove()
 
         // const enslaversInView = [...new Set(arrivedRaw.filter(d => d.enslaver).map(d => d.enslaver))]
         // const enslaversInViewNum = enslaversInView.length
@@ -395,9 +396,9 @@ async function drawSimulation() {
         d3.selectAll('.speed').classed('active',false)
         d3.select(clicked).classed('active',true)
         const divider = +clicked.innerHTML.split(' ')[1]
-        travelDuration = Math.round(6500 / divider)
-        addSeekersDelay = Math.round(travelDuration / 12)
-        transitionTime = Math.round(travelDuration / 130)
+        travelDuration = Math.round(6000 / divider)
+        addSeekersDelay = Math.round(travelDuration / 10)
+        transitionTime = Math.round(travelDuration / 110)
         speedChange = true
     }
 
