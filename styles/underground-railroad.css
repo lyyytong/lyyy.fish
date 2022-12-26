@@ -14,9 +14,11 @@
     --base-color: #e9ba96;
     --main-color: #b91c2f;
     --stroke-color: #ec6764;
-    --armed-stroke-color: #6447e2;
+    /* --armed-stroke-color: #6447e2; */
+    --armed-stroke-color: #8f76ff;
     --armed-2nd-color: #613eff;
-    --literate-stroke-color:#7ce478;
+    /* --literate-stroke-color:#7ce478; */
+    --literate-stroke-color:#83d480;
     --literate-2nd-color: #4fff52;
 } 
 
@@ -154,7 +156,7 @@ circle.stroked {
     height: 250px;
     border-radius: 100%;
     position: relative;
-    box-shadow: 0 0 5px var(--main-color);
+    /* box-shadow: 0 0 5px var(--main-color); */
 }
 
 #photo .overlay {
@@ -246,11 +248,12 @@ circle.stroked {
     fill: var(--main-color);
     text-anchor: middle;
     opacity: .4;
+    font-size: .5em;
 }
 
 .enslaver-icon {
     fill: var(--main-color);
-    font-size: x-large;
+    font-size: .6em;
     dominant-baseline: middle;
     opacity: .8;
     text-anchor: middle;

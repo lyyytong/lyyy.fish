@@ -21,13 +21,13 @@ async function drawSimulation() {
         width: d3.min([window.innerWidth - margin * 2, 600]),
         height: d3.max([window.innerHeight * .9, 600]),
         margin: {
-            top: 0,
+            top: 10,
             right: 10,
         }
     }
     const genderLabelY = 25 // y coordinate of bar chart labels
-    // dim.margin.bottom = lineH * 5.5 + genderLabelY
-    dim.margin.bottom = lineH * 4.5 + genderLabelY
+    dim.margin.bottom = lineH * 5.5 + genderLabelY
+    // dim.margin.bottom = lineH * 4.5 + genderLabelY
     dim.margin.left = d3.min([dim.width * .22, 90])
     dim.boundedW = dim.width - dim.margin.left - dim.margin.right
     dim.boundedH = dim.height - dim.margin.top - dim.margin.bottom
@@ -48,17 +48,17 @@ async function drawSimulation() {
             ${dim.margin.left}px,
             ${dim.margin.top}px
         )`)
-    const defs = wrapper.append('defs')
+    // const defs = wrapper.append('defs')
 
-    const blurID = 'bigObjectBlur' // blur effect for circles
-    const blurFilter = defs.append('filter').attr('id', blurID)
-    blurFilter.append('feGaussianBlur')
-        .attr('stdDeviation', 2).attr('in', 'SourceGraphic')
+    // const blurID = 'bigObjectBlur' // blur effect for circles
+    // const blurFilter = defs.append('filter').attr('id', blurID)
+    // blurFilter.append('feGaussianBlur')
+    //     .attr('stdDeviation', 2).attr('in', 'SourceGraphic')
 
-    const smallBlurID = 'smallObjectBlur' // blur effect for legend icons
-    const smallBlurFilter = defs.append('filter').attr('id', smallBlurID)
-    smallBlurFilter.append('feGaussianBlur')
-        .attr('stdDeviation', .8).attr('in', 'SourceGraphic')
+    // const smallBlurID = 'smallObjectBlur' // blur effect for legend icons
+    // const smallBlurFilter = defs.append('filter').attr('id', smallBlurID)
+    // smallBlurFilter.append('feGaussianBlur')
+    //     .attr('stdDeviation', .8).attr('in', 'SourceGraphic')
 
     // const glowID = 'smallGlow' // glow effect for enslaver triangles
     // const glowFilter = defs.append('filter').attr('id', glowID)
@@ -105,8 +105,9 @@ async function drawSimulation() {
     const childR = adultR * .3
 
     // ANIMATED STATS
-    // const enslavers = [...new Set(dataset.filter(d => d.enslaver).map(d => d.enslaver))]
-    // const enslaversGroup = bounds.append('g').style('filter', `url(#${glowID})`)
+    const enslavers = [...new Set(dataset.filter(d => d.enslaver).map(d => d.enslaver))]
+    const enslaversGroup = bounds.append('g')
+        // .style('filter', `url(#${glowID})`)
     
     const seekersGroup = bounds.append('g')
     
@@ -140,12 +141,12 @@ async function drawSimulation() {
             .attr('x', genderXScale(gender) + genderBand).attr('y', d => labelYScale(d) + labelBand)
     })
     const labelsX = -12
-    // const enslaversData = counts.append('g')
-    //     .style('transform', `translateY(${dim.margin.bottom - lineH}px)`)
-    // const enslaversCount = enslaversData.append('text').attr('class', 'count')
-    //     .attr('x', dim.boundedW).attr('y', lineH / 2 + 1)
-    // const enslaversName = enslaversData.append('text').attr('class', 'enslaver-name')
-    //     .attr('x', dim.boundedW / 2).attr('y', lineH / 2 + 1)
+    const enslaversData = counts.append('g')
+        .style('transform', `translateY(${dim.margin.bottom - lineH}px)`)
+    const enslaversCount = enslaversData.append('text').attr('class', 'count')
+        .attr('x', dim.boundedW).attr('y', lineH / 2 + 1)
+    const enslaversName = enslaversData.append('text').attr('class', 'enslaver-name')
+        .attr('x', dim.boundedW / 2).attr('y', lineH / 2 + 1)
     
     // LABELS
     const labelsGroup = bounds.append('g')
@@ -181,17 +182,18 @@ async function drawSimulation() {
                 : 4.5
         )
         // .style('filter', d => d != 'isChild' ? `url(#${smallBlurID})` : '')
-    // const enslaversLabels = labelsGroup.append('g')
-    //     .style('transform', `translateY(${dim.margin.bottom - lineH}px)`)
-    // enslaversLabels.append('text').classed('label', true)
-    //     .attr('x', labelsX - 8).attr('y', lineH / 2 + 1)
-    //     .html('Enslavers')
-    // enslaversLabels.append('text').classed('enslaver-icon', true)
-    //     .attr('x', labelsX).attr('y', lineH / 2 + 1)
-    //     .html('▴').style('filter', `url(#${glowID})`)
-    // enslaversLabels.append('rect').attr('class', 'enslavers-bg')
-    //     .attr('width', dim.boundedW + 5).attr('height', lineH)
-    //     .style('filter', `url(#${glowID})`)
+    const enslaversLabels = labelsGroup.append('g')
+        .style('transform', `translateY(${dim.margin.bottom - lineH}px)`)
+    enslaversLabels.append('text').classed('label', true)
+        .attr('x', labelsX - 8).attr('y', lineH / 2 + 1)
+        .html('Enslavers')
+    enslaversLabels.append('text').classed('enslaver-icon', true)
+        .attr('x', labelsX).attr('y', lineH / 2 + 1)
+        .html('▲')
+        // .style('filter', `url(#${glowID})`)
+    enslaversLabels.append('rect').attr('class', 'enslavers-bg')
+        .attr('width', dim.boundedW + 5).attr('height', lineH)
+        // .style('filter', `url(#${glowID})`)
     
     // FULL STATS
     const fullGenderData = d3.rollup(dataset, v => v.length, d => d.gender)
@@ -227,11 +229,11 @@ async function drawSimulation() {
                 .html(fullData.get(gender))
         })
     })
-    // fullCounts.append('text')
-    //     .style('transform', `translateY(${dim.margin.bottom - lineH}px)`)
-    //     .attr('class', 'count')
-    //     .attr('x', dim.boundedW).attr('y', lineH / 2 + 1)
-    //     .html(enslavers.length)
+    fullCounts.append('text')
+        .style('transform', `translateY(${dim.margin.bottom - lineH}px)`)
+        .attr('class', 'count')
+        .attr('x', dim.boundedW).attr('y', lineH / 2 + 1)
+        .html(enslavers.length)
 
     // YEARS
     const yearData = [...new Set(dataset.filter(d=>d.year).map(d=>d.year))]
@@ -245,14 +247,14 @@ async function drawSimulation() {
     // ANIMATION
     let seekers = []
     let arrivedBarsH = { M: 0, F: 0, Unknown: 0 }
-    // let enslaversNum = 0
+    let enslaversNum = 0
 
     // d3.interval(addSeekers, addSeekersDelay)
     // d3.timer(moveSeekers)
-    d3.interval(elapsed=>{
-        if (elapsed%addSeekersDelay<=11) addSeekers(elapsed)
+    d3.timer(elapsed=>{
+        if (d3.now()%addSeekersDelay<=11) addSeekers(elapsed)
         moveSeekers(elapsed)
-    },12)
+    })
     function addSeekers(elapsed) {
         if (seekers.length < dataset.length) {
             const nextSeekerIndex = seekers.length
@@ -373,18 +375,18 @@ async function drawSimulation() {
 
         seekersGroup.selectAll('.seeker').filter(d=>d.yProgress>=1.05).remove()
 
-        // const enslaversInView = [...new Set(arrivedRaw.filter(d => d.enslaver).map(d => d.enslaver))]
-        // const enslaversInViewNum = enslaversInView.length
-        // if (enslaversInViewNum > enslaversNum) {
-        //     enslaversGroup.append('text').attr('class', 'enslaver')
-        //         .attr('x', d3.randomUniform(dim.width-dim.margin.left)())
-        //         .attr('y', d3.randomExponential(.03, dim.enslaverScatterH)())
-        //         .html('▴')
-        //     enslaversNum++
-        // }
-        // const newest = enslaversInView.slice(-1)[0]
-        // enslaversCount.html(enslaversInViewNum ? enslaversInViewNum : '')
-        // enslaversName.html(newest ? '▲' + newest : '')
+        const enslaversInView = [...new Set(arrivedRaw.filter(d => d.enslaver).map(d => d.enslaver))]
+        const enslaversInViewNum = enslaversInView.length
+        if (enslaversInViewNum > enslaversNum) {
+            enslaversGroup.append('text').attr('class', 'enslaver')
+                .attr('x', d3.randomUniform(dim.width-dim.margin.left)())
+                .attr('y', d3.randomExponential(.03, dim.enslaverScatterH)())
+                .html('▲')
+            enslaversNum++
+        }
+        const newest = enslaversInView.slice(-1)[0]
+        enslaversCount.html(enslaversInViewNum ? enslaversInViewNum : '')
+        enslaversName.html(newest ? '▲' + newest : '')
     }
 
     const yearsH = d3.select('#years').node().getBoundingClientRect().height
@@ -407,7 +409,7 @@ async function drawSimulation() {
             if (!seeStatsButton.classed('active')) {
                 seeStatsButton.classed('active',true).html('See People')
                 seekersGroup.transition().duration(200).style('opacity',.2)
-                // enslaversGroup.transition().duration(200).style('opacity',.2)
+                enslaversGroup.transition().duration(200).style('opacity',.2)
                 counts.transition().duration(200).style('opacity',0)
                 genderBars.transition().duration(200).style('opacity',0)
                 yearsGroup.transition().duration(200).style('opacity',0.2)
@@ -420,7 +422,7 @@ async function drawSimulation() {
             } else {
                 seeStatsButton.classed('active',false).html('See Stats')
                 seekersGroup.transition().duration(200).style('opacity',1)
-                // enslaversGroup.transition().duration(200).style('opacity',1)
+                enslaversGroup.transition().duration(200).style('opacity',1)
                 counts.transition().duration(200).style('opacity',1)
                 genderBars.transition().duration(200).style('opacity',1)
                 yearsGroup.transition().duration(200).style('opacity',1)
