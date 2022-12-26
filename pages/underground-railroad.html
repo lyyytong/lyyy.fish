@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚂</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/underground-railroad.css">
+    <title>Still's Freedom Seekers</title>
+</head>
+
+<body>
+    <main>
+        <section id="about-container">
+            <header>William Still's<br>Freedom Seekers</header>
+            <section id="photo">
+                <div class="overlay"></div>
+            </section>
+            <section id="about">
+                <p>
+                    <a href="https://www.smithsonianmag.com/history/the-forgotten-father-of-the-underground-railroad-180981088/"
+                        target="_blank" rel="noopener noreferrer">William Still</a> was an American abolitionist, writer, businessman, and a prominent
+                    conductor of the <a href="https://www.history.com/news/underground-railroad-harriet-tubman-strategies"
+                        target="_blank" rel="noopener noreferrer">Underground Railroad</a>: a
+                    vast, loosely organized network of people and changing routes that guided enslaved Africans to
+                    freedom.</p>
+                    <p>He kept meticulous records, carefully hidden during the Civil
+                    War, which he later published to help family members find
+                    each other. Between 1853 and 1861, he assisted 995
+                    men, women, and children in escaping slavery. Here are their names.</p>
+            </section>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="https://docs.google.com/spreadsheets/d/1kwiUt3mO9ke96lgV9IoE9D3aq29MVgMC/edit?usp=sharing&ouid=118222460340286904122&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">Data</a>
+                <div id="see-stats">See Stats</div>
+            </nav>
+        </section>
+        <section id="simulation-container">
+            <div id="simulation">
+                <div id="speeds">
+                    <text>►►►</text>
+                    <div class="speed active">× 1</div>
+                    <div class="speed">× 2</div>
+                    <div class="speed">× 3</div>
+                    <div class="speed">× 9</div>
+                </div>
+                <div id="years">
+                </div>
+            </div>
+            <text id="data-source">Data from historian Nick Sacco's spreadsheet, based on William Still's book (1872), his biography (2021) and other records.</text>
+        </section>
+    </main>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../scripts/underground-railroad.js"></script>
+</body>
+
+</html>

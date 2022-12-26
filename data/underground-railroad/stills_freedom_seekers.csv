@@ -1,0 +1,996 @@
+lastName,firstMiddleName,alias,gender,age,year,isChild,isLiterate,isArmed,enslaver
+Unidentified,Celia,,F,,1854,0,0,0,David Baines
+Unidentified,Charles,,M,22,1856,0,0,0,Robert Dade
+Unidentified,David,,M,27,1856,0,0,0,Joshua Pusey
+Unidentified,Hannah,,F,23,1857,0,0,0,Charles Peters
+Unidentified,Hanson,,M,47,1857,0,0,0,W. Baker & Hammond Dorsey
+Unidentified,Isabella,,F,,1856,0,0,0,
+Unidentified,Isaiah,,M,,1855,0,0,0,
+Unidentified,Perry,,M,25,1856,0,0,0,Robert Dade
+Unidentified,Richard,,M,30,1857,0,0,0,Captain Tucker
+Unidentified,William,,M,25,1857,0,0,0,
+Airs,Peter,Peter Johnson,M,30,1854,0,0,0,Comfort & Betsy Airs
+Airs,Sarah,,F,25,1854,0,0,0,William Purnell
+Albert,James,,M,,1853,0,0,0,
+Aldridge,Bazil,,M,17,1857,1,0,0,Thorton Pool
+Aldridge,Caroline,,F,23,1857,0,0,0,Thorton Pool
+Alexander,John,,M,44,1857,0,0,0,George Handy
+Allen,Andrew,,M,24,1857,0,0,0,Mrs. Sarah Twyne
+Allen,Henry,,M,18,1854,0,0,0,Dr. Johnson
+Allen,William,William Parnet,M,,1853,0,0,0,Henry Chamberlin
+Alligood,George,,M,22,1858,0,0,1,George M. Davis
+Alligood,James,,M,,1858,0,0,0,William Gray
+Allison,Edenezer,,M,,1858,0,0,0,John Tilghman Foster
+Amby,Lizzy,,F,28,1857,0,0,0,
+Amby,Nat,,M,,1857,0,0,1,John Muir
+Amos,Anna Elizabeth,Anna Elizabeth Johnson,F,12,1854,1,0,0,John S. Giddings
+Amos,Ann Rebecca,Aann Rebecca Johnson,F,26,1854,0,0,0,John S. Giddings
+Amos,Harriet,Mary Jane Johnson,F,,1854,0,0,0,John S. Giddings
+Amos,Mary Ellen,Mary Ellen Johnson,F,,1854,1,0,0,John S. Giddings
+Amos,Stephen,Henry Johnson,M,,1854,0,0,0,John S. Giddings
+Amos,William H.,William H. Johnson,M,,1854,1,0,0,John S. Giddings
+Anderson,George,,M,,1856,0,0,0,
+Anderson,George,Henry Jones,M,19,1854,0,0,0,Harom Stump
+Anderson,Henry,William Anderson,M,25,,0,0,0,
+Anderson,James,,M,7,1855,1,0,0,
+Anderson,Jonas,,M,,1855,0,0,0,
+Anderson,Joshua John,,M,22,1858,0,0,0,Skelton Price
+Anderson,Thomas,Jonathan Fisher,M,19,1856,0,0,0,Anthony Rybold
+Anthony,Adam,,M,,1857,1,0,0,
+Anthony,Kit,,M,23,1857,0,1,1,
+Anthony,Leah,,F,28,1857,0,0,1,
+Anthony,Mary Ellen,,F,,1857,1,0,0,
+Anthony,Murray,,M,,1857,1,0,0,
+Archer,Sam,,M,30,1860,0,0,0,
+Armstead,Moses,,M,24,1857,0,0,0,John Halters
+Atkins,Susan,,F,40,1854,0,0,0,"Thomas Eckels, Esq"
+Atkins,William Henry,,M,28,1854,0,1,0,
+Atkinson,Anthony,,M,36,1855,0,0,0,Josiah Wells
+Atkinson,Henry,,M,,1854,0,0,0,Jesse Hendrian
+Atkinson,John,,M,31,1854,0,1,0,James Ray
+Bacon,Abe,,M,22,1857,0,0,0,Hon. L. McLane
+Baddums,Matthew,,M,23,1856,0,0,0,Samuel Simmons
+Bailey,Josiah,,M,29,1856,0,0,0,W.R. Hughlett
+Bailey,William ,,M,,1856,0,0,0,John C. Henry
+Baker,Henry,Charles Lightfoot,M,,1855,0,0,0,
+Ball,Joe,,M,34,1857,0,1,0,Miss Elizabeth Gordon
+Ball,Oscar D. ,John Delaney,M,20,1857,0,1,0,Miss Elizabeth Gordon
+Ballard,George Henry,,M,26,1858,0,1,0,William Jackson
+Banks,Elizabeth,,F,25,1855,0,0,0,James Tomlinson
+Banks,Henry,,M,19,1854,0,0,0,Dr. James
+Banks,Jim,,M,29,1858,0,0,0,John J. Richards
+Barlow,Archer,Emit Robins,M,31,1853,0,0,0,Dr. George Wilson
+Bayne,Richard,,M,23,1858,0,0,1,Rudolph Massey
+Beesly,Dick,,M,,,0,0,0,Richard Smallwood
+Bell,Anna,,F,,1856,0,0,0,
+Bell,Dianna,,F,30,1856,0,0,0,Walker Simpson
+Bell,Garret,,M,0,,1,0,0,Massey
+Bell,Harriet Ann,,F,14,1854,1,0,0,John G. Hodgson
+Bell,Harrison,,M,40,1854,0,0,0,James Snyder
+Bell,Louisa,,F,28,1855,0,0,0,L. Stasson
+Bell,Susan ,,F,4,1858,1,0,0,Mrs. Henry Harding
+Bell,Sarah Jane,,F,25,,0,0,0,Massey
+Belle,Jim,,M,26,1857,0,0,0,Zachariah Berry
+Belt,Robert,Charles Williams,M,29,1854,0,0,0,
+Benjamin,Dickinson,,M,28,1856,0,0,0,Miss Ann Blunte
+Bennett,Daniel,Henry Washington,M,32,1855,0,0,0,James Taylor
+Bennett,George,,M,1,1855,1,0,0,George Carter
+Bennett,,,F,0,1855,1,0,0,George Carter
+Bennett,John,Joseph Pant,M,27,1857,0,0,0,Mary C. Gibson
+Bennett,Martha,Martha Washington,F,27,1855,0,0,0,George Carter
+Benton,Samuel,,M,26,1857,0,0,0,William Campbell
+Bird,Charles,,M,24,1856,0,0,1,David Claggert
+Bird,Mary,,F,,1856,0,0,0,
+Bishop,Elijah,,M,28,1858,0,0,0,Campbell
+Bivans,,,F,,1857,1,0,0,William H. Hyson
+Bivans,,,F,,1857,1,0,0,William H. Hyson
+Bivans,Belinda,,F,30,1857,0,0,0,William H. Hyson
+Blackson,James Henry,,M,25,1854,0,0,0,Charles Wright
+Blockson,Jacob,,M,27,1858,0,1,0,Jesse W. Paten
+Blow,Anthony,Henry Levison,M,,1854,0,0,0,Widow Peters
+Bodams,Matthew,,M,23,1856,0,0,0,Samuel Simmons
+Boggs,Alexander,Johnson Henson,M,50,1854,0,0,0,John Emie
+Bohm,Henry,,M,25,1855,0,0,0,
+Bolice,Henry,,M,,1858,0,0,0,David Henry Houston
+Boile,Susan,,F,,1857,0,0,0,Hezekiah Masten
+Bolden,Andrew,,M,18,,0,0,0,
+Booce,Richard J.,,M,22,1857,0,0,0,Dr. Hughes
+Boon,Richmond,,M,22,1854,0,0,0,John Bodun
+Booze,Jacob Mathias,,M,20,1855,0,0,0,Richard Carmen
+Bowen,John,,M,,1853,0,0,0,
+Bow-Legs,Jim,Bill Paul,M,,1855,0,0,0,Dr. Thomas Stephens
+Bowler,,,Unknown,,1858,1,0,0,Alexander Royster
+Bowler,,,Unknown,,1858,1,0,0,Alexander Royster
+Bowler,Nancy,,F,,1858,0,0,0,Alexander Royster
+Bowler,William ,,M,41,1858,0,0,0,Alexander Royster
+Bowles,Reuben,Rebuen Cunnigan,M,,1854,0,0,0,John Sabbard
+Bowser,Nathaniel,,M,,1856,0,0,0,
+Boyce,Andrew Jackson,,M,26,1858,0,0,0,Dr. David Houston
+Boyer,Jacob Mathias,,M,20,1855,0,0,0,Richard Carman
+Bradley,Richard,,M,27,1855,0,0,0,Samuel Ball
+Branson,Randolph,,M,31,1857,0,0,0,Richard Reed
+Brister ,Nancy,,F,,1856,0,0,0,William Bears
+Briston,John,Charles Steward,M,34,1853,0,0,0,
+Brooks,Adam ,William Smith,M,,1855,0,0,0,John Phillips
+Brooks,Susan,,F,40,1854,0,0,0,"Thomas Eckles, Esq."
+Brown,Albert,,M,,1856,0,0,1,George Shaffer
+Brown,Albert,,M,27,1855,0,0,0,John & Henry Holland
+Brown,Angeline,,F,,1856,0,0,0,George Shaffer
+Brown,Anthony,,M,29,1855,0,0,0,John & Henry Holland
+Brown,Charles,,M,25,,0,0,0,William Wheeling
+Brown,Charles,,M,,1856,0,0,1,George Shaffer
+Brown,Charles Henry,,M,27,1856,0,0,0,Dr. Richard Dorsey
+Brown,Chaskey,,M,24,,0,0,0,Major James H. Gales
+Brown,George W. ,James White,M,17,1854,1,0,0,James Kinny
+Brown,Harriet,Jane Wooton,F,,1853,0,0,0,George Stewart
+Brown,Jacob,,M,20,1856,0,0,0,Lewis Brown
+Brown,James,,M,,1859,0,0,0,Henry Jones
+Brown,John,,M,,1855,0,0,0,
+Brown,John,Jacob Williams,M,,1854,0,0,0,Joseph Postly
+Brown,John,,M,,1859,0,0,0,Benjamin Thorn
+Brown,John,,M,,1859,0,0,0,James Edward Stevens
+Brown,John W.,,M,,1853,0,0,0,
+Brown,Louisa,,F,16,,1,0,0,
+Brown,Rebecca,Helen Parker,F,,1853,0,0,0,T.C. Howard
+Brown,Robert,Thomas Jones,M,25,1856,0,0,0,Col. John F. Fraic
+Brown,Solomon,,M,22,1854,0,0,0,Mary A. Ely
+Brown,Stepney,,M,34,1859,0,0,0,Julia A. Mitchell
+Brown,William,,M,,1855,0,0,0,William Elliott 
+Brown,William,,M,36,1860,0,0,0,Lynchum
+Buchanan,Jenny,,F,45,1860,0,0,0,John Bower
+Burkett,Elizabeth,,F,,1860,0,0,0,
+Burkett,Henry,,M,,1860,0,0,0,
+Burrell,James,W. Boural,M,32,1853,0,0,0,
+Burrell,Lewis,,M,,1856,0,0,0,Edward M. Clark
+Burrell,Peter,,M,,1856,0,0,0,Bejamin Johnson Hall
+Burton,Hale,,M,,1860,0,0,0,
+Burton,Handy,,M,,1858,0,0,0,Shepherd Burton
+Burton,Perry,,M,27,1857,0,0,0,John R. Burton
+Bush,Samuel,William Olebee,M,33,1853,0,0,0,William Hoyle
+Butcher,William,William T. Mitchell,M,28,1854,0,0,0,William Boyer
+Butler,James,,M,21,1857,0,0,0,Thomas Johnson
+Butler,John Alexander,,M,29,1857,0,0,0,William Ford
+Butler,Stephen,,M,22,1857,0,0,0,Thomas Johnson
+Cain,James,,M,35,1857,0,0,0,John Burnham
+Cale,,,F,,1856,0,0,0,
+Cale,David,,M,,1856,0,0,0,
+Cale,Ellen,Sarah Johnson,F,18,1854,0,0,0,
+Cale,Mary,Jane Johnson,F,16,1854,1,0,0,
+Camp,,,F,,1853,0,0,0,Dr. K. Clark
+Camp,Joseph H.,,M,20,1853,0,0,0,Dr. K. Clark
+Campbell,Frank,,M,,1858,0,0,0,Henry Campbell
+Camper,James,,M,24,1857,0,0,1,Henry Hooper
+Cannon,Ansel,,M,25,1859,0,0,0,Kitty Cannon
+Cannon,Plymouth,,M,42,1858,0,0,0,Nat Horsey
+Carlisle,William,,M,,1859,0,0,0,Aquila Cain
+Carney,William,,M,51,1857,0,0,0,Mrs. Sarah Twyne
+Carpenter,William,,M,,1858,0,0,0,Senator Mason
+Carr,Daniel,,M,38,1855,0,0,0,John C. McBole
+Carr,John Thompson,,M,,1858,0,0,0,Albert Lewis
+Carr,Robert,,M,,1857,0,1,0,Thomas J. Richardson
+Caroll,Edward,,M,21,1858,0,0,1,John Lewis
+Carroll,George,,M,24,1857,0,0,0,C.C. Hirara
+Carter,Charles,,M,30,1856,0,1,0,Daniel Delaplain
+Cary,Harrison,,M,28,,0,0,0,Jane E. Ashley
+Casting,Edward,,M,17,1860,1,0,0,Robert Moore
+Chambers,Henry,James Green,M,24,1856,0,0,0,William Rybold
+Chambers,John,David Green,M,26,1856,0,0,0,Thomas Murphy
+Chapman,Emeline,,F,25,1856,0,0,0,Mrs. Emily Thompson
+Chapman,John Henry,,M,0,1856,1,0,0,Mrs. Emily Thompson
+Chapman,Margaret Ann,,F,2,1856,1,0,0,Mrs. Emily Thompson
+Chase,John,Daniel Floyd,M,20,1854,0,0,0,John Campbell Henry
+Chiles,Lewis,,M,,1855,0,0,0,Lewis Hill 
+Chion,Emma,,F,,1860,0,0,0,Bushong Blake
+Chion,William,,M,27,1860,0,0,0,Mr. Tubman
+Christian,James H.,,M,,,0,1,0,"William H. Christian, Esq."
+Christy,Jack,,M,,1858,0,0,0,
+Clagart,John,,M,22,1857,0,0,0,George Coleman
+Clark,Emily,,F,,1855,0,0,0,
+Clayton,John,,M,20,1854,0,1,0,Mrs. Clayton
+Clayton,Levinia,,F,,1854,0,0,0,
+Clexton,Perry,,M,25,1858,0,0,0,John M. Williams
+Clinton,Thomas,,M,21,1856,0,1,0,Benjamin Walmsly
+Cobb,Lewis,,M,,1856,0,1,0,Samuel Myers
+Colburn,Jeremiah,William Cooper,M,,1857,0,0,0,Mrs. E. Williamson
+Cole,,,F,,1856,0,0,0,
+Cole,Bill,,M,37,1857,0,0,0,W. Baker & Hammond Dorsey
+Collins,Mary Ellen,,F,20,1857,0,0,0,Abrahm Wilson
+Collins,Nathaniel,,M,25,1857,0,0,0,Josiah Wilson
+Collins,Theophilus,,M,24,1858,0,0,0,Shepherd P. Houston
+Combash,John Wesley,,M,32,1858,0,0,0,Mr. Johnson
+Congo,Charles,,M,28,,0,0,0,David Stewart
+Congo,Margaret,,F,28,,0,0,0,David Stewart
+Conner,,,F,,1859,0,0,0,Kendall Major Llewis
+Conner,,,Unknown,,1859,1,0,0,Kendall Major Llewis
+Conner,Charles,,M,27,1857,0,0,0,John Chipman
+Conner,Dennis B.,,M,,1859,0,0,0,Kendall Major Llewis
+Conner,James,,M,43,1857,0,0,0,Charles Parlange
+Conner,Major Lewis,,M,,1859,0,0,0,Kendall Major Llewis
+Conner,Peter,,M,,1859,0,0,0,Kendall Major Llewis
+Conner,William J.,,M,,1859,0,0,0,Kendall Major Llewis
+Cooper,Charles Henry,,M,22,1856,0,0,0,Catherine Medine
+Cooper,Mary,,F,20,1857,0,0,0,Nathaniel Herne
+Cooper,Thomas,,M,,1856,0,0,0,
+Cope,William Thomas,,M,24,1858,0,0,0,Shepherd P. Houston
+Cornish,,,Unknown,,1857,1,0,0,Reuben E. Phillips
+Cornish,Aaron,,M,38,1857,0,0,0,Rev. Levi D. Traverse
+Cornish,Daffney,,F,,1857,0,0,0,Reuben E. Phillips
+Cornish,Delia,,F,,1855,0,0,0,
+Cornish,Edward J.,,M,,1857,1,0,0,Reuben E. Phillips
+Cornish,George A.,,M,,1857,1,0,0,Reuben E. Phillips
+Cornish,Henrietta,,F,,1855,0,0,0,
+Cornish,Joseph,,M,40,1855,0,0,0,Capt. Samuel Lecount
+Cornish,Joseph,,M,,1857,1,0,0,Reuben E. Phillips
+Cornish,Perry L.,,M,,1857,1,0,0,Reuben E. Phillips
+Cornish,Solomon,,M,,1857,1,0,0,Reuben E. Phillips
+Cornish,William,,M,,1856,0,0,0,William B. Dale
+Cotton,Henry,,M,24,1860,0,0,0,Nathaniel Dixon
+Cromwell,Henry,,M,25,1855,0,0,0,William Roberts
+Crummel,Henry,,M,25,1855,0,0,0,William Roberts
+Crummel,James,,M,,1855,0,0,0,William Hutchins
+Curtis,Mary,,F,19,1855,0,0,0,
+Dade,Henry,,M,25,1857,0,0,0,
+Dade,Jack,,M,22,1857,0,0,0,Benjamin R. Chambers
+Dade,John,,M,20,1857,0,1,0,
+Dade,Mary Ann,,F,,1857,0,0,0,Elias Rhoads
+Dalton,Charles,William Robinson,M,22,1854,0,0,0,Mrs. Mary Hurley
+Dauphus,Etna Elizabeth,,F,20,1858,0,0,0,Joshua Duvall
+David,Cole,,M,,1856,0,0,0,
+Davis,Clarissa,Mary D. Armstead,F,20,1854,0,1,0,Mrs. Brown & Mrs. Burkley
+Davis,Daniel,David Smith,M,20,1854,0,0,0,Hon. Charles J. Fortner
+Davis,Edward,,M,,1854,0,0,0,
+Davis,Enoch,,M,,1859,0,0,0,James Armstrong
+Davis,Gordon,John Canon,M,31,1854,0,0,0,William Watson
+Davis,Isaac D.,,M,,1855,0,0,0,Jesse Clark
+Davis,Jane,,F,65,1857,0,0,0,Roger McZant
+Davis,John,Adams,M,,1854,0,0,0,
+Davis,Samuel,,M,30,1856,0,0,0,James Hurst
+Davis,Samuel,Benjamin Johnson,M,35,1854,0,0,0,John Reed
+Davis,Singleton,William Snowden,M,38,1853,0,0,0,Augustus Riggs
+Davis,William,,M,31,1853,0,0,0,Joseph Reynolds
+Davis,William,,M,32,1854,0,0,0,Dr. James Shoul
+Delaney,James Henry,,M,26,1854,0,0,0,Captain Martin
+Derrickson,Peter,,M,24,1855,0,0,0,John Derrickson
+Derrix,,,F,,1857,0,0,0,
+Derrix,Townsend,,M,,1857,0,0,0,Gallipappick
+Dickerson,Benjamin,,M,28,1856,0,0,0,Miss Anna Blunt
+Dickson,John,,M,30,1854,0,0,0,Richard Kaigh
+Diggs,David,,M,37,1857,0,0,0,Dr. Josiah Harding
+Dixon,Thomas Edward,,M,18,1859,0,0,0,Thomas W.M. McCracken
+Dobson,Henrietta,,F,,1857,0,0,0,
+Dorsey,Anna,,F,22,1856,0,0,0,Eli Molesworth
+Dorsey,George,,M,,1856,0,0,1,George Shaffer
+Dorsey,Luther,,M,19,,0,0,0,Edward Schriner
+Dorsey,Maria,,F,40,1856,0,0,0,George Parker
+Dotson,Isaac,,M,19,1856,0,0,0,Thomas B. Owings
+Douglass,Thomas,,M,25,,0,0,0,Mary Howard
+Dowling,Carter,,M,,1858,0,0,1,Miss Maria Fitzhugh
+Ducket,Benjamin,,M,23,1856,0,0,0,Sicke Perry
+Dulton,Charles,William Robinson,M,22,1856,0,0,0,Mrs. Mary Hurley
+Dunagan,Sarah,Anna Elizabeth Kingslow,F,18,1855,0,0,0,George Churchman
+Duncans,Benjamin,Geroge Scott,M,25,1854,0,0,0,Thomas Jeffries
+Dungy,John William,,M,27,1860,0,0,0,Governor Gregory
+Dunmore,Henry,,M,35,1860,0,0,0,John Maldon
+Dutton,Marshall,,M,,1857,0,0,0,
+Eden,Richard,,M,25,,0,0,0,Mrs. Mary Loren
+Edmonds,David,,M,30,1855,0,0,0,John J. Slater
+Edwards,Alfred,,M,22,1859,0,0,0,John Bryant
+Edwards,David,,M,24,1860,0,0,0,Joseph Bryant
+Edwards,David,,M,30,1855,0,0,0,John Slater
+Edwards,William,,M,22,1855,0,0,0,
+Eglin,Harriet,,F,29,1856,0,1,0,John Delahay
+Elliot,Thomas,,M,23,1857,0,0,0,Richard Meredith
+Ellis,Joe,,M,23,1857,0,0,0,Bolling Ellis
+Ellis,Mary,Mary Jones,F,,1853,0,0,0,
+Ellis,William,John Jones,M,,1853,0,0,0,
+Emerson,Robert,,M,19,1857,0,1,0,William H. Wilson
+Emory,Robert,William Kemp,M,,1855,0,0,0,Edward Lloyd
+Ennells,Noah,,M,19,1857,0,0,0,Black Head Bill LeCount
+Ennets,,,Unknown,0,1860,1,0,0,Alginer Pearcy
+Ennets,Amanda,,F,4,1860,1,0,0,Alginer Pearcy
+Ennets,Harriet,,F,6,1860,1,0,0,Alginer Pearcy
+Ennets,Maria,,F,,1860,0,0,0,Alginer Pearcy
+Ennets,Stephen,,M,,1860,0,0,0,John Kaiger
+Ennis,Ephraim,,M,,1858,0,0,0,Michael Newbold
+Ennis,Louisa Caroline,Louisa Hemmin,F,3,1854,1,0,0,John Ennis 
+Ennis,Lydia Ann,Lydia Ann Hemmin,F,7,1854,1,0,0,John Ennis 
+Ennis,Mary,Licia Hemmin,F,33,1854,0,0,0,John Ennis 
+Epps,Mary,Emma Brown,F,45,1855,0,1,0,Mrs. Littleton Reeves
+Fall ,Samuel,John Henry,M,21,1856,0,0,0,William Rybold
+Fidget,Isaac,,M,30,1855,0,0,0,Henry Fidget
+Fields,Henry,,M,18,,0,0,0,Washington Glasby
+Fineer,Abe,,M,23,1856,0,0,0,George Spencer
+Fisher,Jonathan,,M,19,1856,0,0,0,A. Rybold
+Fisher,Robert,,M,30,1854,0,0,0,John Edward Jackson
+Fletcher,Benjamin R. ,,M,27,1856,0,0,0,Henry Martin
+Ford,Sheridan,,M,28,1855,0,0,0,Miss Elizabeth Brown
+Forman,Ellen,Elizabeth Young,F,30,1854,0,0,0,Mrs. Johnson
+Forman,Isaac,,M,23,1853,0,1,0,Mrs. Sanders
+Forman,Isaac,,M,50,1856,0,0,0,George Brown
+Forman,James H.,,M,23,1855,0,1,0,"James Saunders, Esq."
+Foster,Emily,Ann Wood,F,22,1855,0,0,1,Townsend McVee
+Foster,Henry,,M,,1853,0,0,0,
+Foster,James,,M,,1855,0,0,0,
+Foster,Turner,,M,21,1859,0,0,0,"A.A. Mosen, Esq."
+Fowler,Arthur,Benjamin Johnson,M,30,1854,0,0,0,Edward Fowler
+Francis,Elizabeth,Ellen Saunders,F,22,1854,0,1,0,Sarah Shepperd
+Francis,Lewis,Lewis Johnson,M,27,1855,0,0,0,Mrs. Delinas
+Freeland,George W. ,,M,25,1854,0,1,0,Capt. John Pollard
+Freeman,Mary Jane,,F,,1855,0,0,0,
+Freeman,Thomas,,M,,1855,0,0,0,
+Freeman,William Thomas,Ezekiel Chambers,M,16,1855,1,0,0,John Dwa
+Frisley,James Alfred,,M,24,,0,0,0,
+Fuller,Cornelius,,M,,1859,0,0,0,Diden
+Fuller,Harriet,,F,,1859,0,0,0,Judge Chambers
+Galloway,Abram,,M,21,,0,0,0,Milton Hawkins
+Gardener,Nathaniel,,M,,1855,0,0,0,
+Gardener,Priscilla,,F,30,1858,0,0,0,Benjamin Hilliard
+Garrett,Lucy,Julia Wood,F,19,1854,0,0,0,John Williams
+Garrison,Thomas,,M,9,1853,1,0,0,
+Garrison,William H.,,M,,1853,0,0,0,
+Gaskins,Madison,,M,,,0,0,0,William Burns
+Gassway,Caroline,,F,27,1859,0,0,0,Summersett Walters
+Gault,Phyllis,,F,30,1855,0,0,0,
+Gibbs,,,M,,1853,1,0,0,
+Gibbs,,,M,,1853,1,0,0,
+Gibbs,James,,M,,1853,0,0,0,
+Gibson,John Wesley,,M,28,1854,0,0,0,William Y. Day
+Gilbert,Charles,,M,,1854,0,0,0,Benjamin Davis
+Giles,Charlotte,,F,23,1856,0,0,0,Capt. William Applegarth
+Giles,Lewis,,M,,1855,0,0,0,Mr. Lewis Hill
+Gilliam,William H.,,M,20,1854,0,1,0,Mrs. T.E. White
+Goins,Luke,,M,,1860,0,0,0,Mrs. Carroll
+Good,Beverley,,M,24,1855,0,0,0,Richard Perry
+Gooseberry,George W. ,Isaac Stout,M,23,1856,0,0,0,Anthony Ryebold
+Gooseberry,Thomas Jervis,Ezekiel Chambers,M,17,1855,1,0,0,Sarah Maria Perkins
+Gorham,Henry,,M,34,1856,0,0,0,
+Goulden,Alfred,,M,23,,0,0,0,Fletcher Jackson
+Govan,William,,M,33,1855,0,0,0,"Mark Davis, Esq."
+Graff,Evan,,M,25,1860,0,0,0,Henry Heart
+Graham,George,Henry Washington,M,24,1856,0,0,0,Widow Beverly
+Graham,Jane,Eliza Washington,F,24,1856,0,0,0,
+Graham,Montgomery,,M,,1857,0,0,0,Elizabeth Gordon
+Grant,Joseph,,M,27,1857,0,0,0,Mary Gibson & others
+Grantham,Nancy,,F,19,1858,0,0,0,Dr. Christian
+Graves,Caroline,Julia Little,F,40,1856,0,1,0,
+Gray,Henry,,M,12,1856,1,0,0,
+Gray,Mary,,F,14,1856,1,0,0,
+Gray,Sophia,,F,33,1856,0,0,0,
+Green,Anna Maria,,F,37,1857,0,0,0,James Pipper
+Green,Christopher,,M,,1857,0,0,0,Clayton Wright
+Green,David,George Taylor,M,,1856,0,0,0,Elliott Curlett
+Green,George,,M,23,1855,0,0,0,George Chambers
+Green,Lear,,F,18,,0,0,0,James Noble
+Green,Murdoch,,M,,1856,0,0,0,William Dorsey
+Green,Nathaniel,,M,20,1857,0,0,0,James Pipper
+Green,Richard,William Smith,M,25,1855,0,0,0,George Chambers
+Green,Samuel,Wesley Kinnard,M,25,1854,0,1,0,Dr. James Muse
+Green,Samuel,,M,,1855,0,0,0,
+Green,Zebulon,Samuel Hill,M,18,1856,0,0,0,John Appleton
+Grey,John Boice,,M,19,1858,0,0,0,Daivd Henry Houston
+Griffen,William,,M,34,1857,0,0,1,"James Waters, Esq."
+Griffin,James,Thomas Brown,M,31,1855,0,0,0,Joshua Hitch
+Grigby,Barnaby,John Boyer,M,26,1855,0,0,1,William Rogers
+Grigby,Mary Elizabeth,Elizabeth Boyer,F,24,1855,0,0,1,Townsend McVee
+Grimes,Harry,,M,46,1857,0,0,0,Jesse Moore
+Grinage,John,,M,20,1859,0,0,0,William Flintham
+Gross,Albert,,M,20,1859,0,0,0,William Price
+Gross,Charles Henry,,M,,1859,0,0,0,Henry Slaughter
+Gross,Peter,,M,39,1858,0,0,0,Joseph Griffiss
+Gross,Samuel,,M,40,1858,0,0,0,Joseph Griffiss
+Hackett,Lloyd,Perry Watkins,M,55,1855,0,0,0,John Griffin
+Haines,Edward,,M,44,1857,0,1,0,Tabby & Eliza Fortlock
+Haines,Francis,,M,,1855,0,0,0,
+Haines,Joseph,,M,20,1857,0,0,0,Tabby & Eliza Fortlock
+Haley,Elizabeth,Sarah Richardson,F,21,1854,0,0,0,George C. Davis
+Haley,Harriet,Ann Richardson,F,19,1854,0,0,0,George C. Davis
+Hall,,,M,,1855,0,0,0,Sarah Ann McGough
+Hall,Charles,,M,,1856,0,0,0,Atwood Blunt
+Hall,Charles,,M,,1859,0,0,0,"James Rogers, Sr."
+Hall,Edward,,M,20,1859,0,0,0,Booth
+Hall,Henrietta,,F,,1855,1,0,0,Sarah Ann McGough
+Hall,Jacob,Henry Thomas,M,20,1855,0,0,0,Major William Hutchins
+Hall,John,,M,,1859,0,0,0,James B. Rodgers
+Hall,John,,M,31,1855,0,1,0,James Dunlap
+Hall,John,John Simpson,M,32,1854,0,0,0,Dr. Philip Mazyk
+"Hall, Jr.",Joseph,,M,,1855,0,0,0,
+Hall,Rebecca,,F,17,1855,1,0,0,Lawyer Magill
+Hall,Romulus,George Weems,M,,1857,0,0,0,John Henry Southern
+Hamlet,Mark,Thomas Goff,M,,1853,0,0,0,
+Handay,Joshua John,Hamilton Hamby,M,27,1856,0,0,0,Isaac Harris
+Handy,James Edward,Daniel Canon,M,26,1854,0,0,0,Samuel Lewis
+Harding,Louisa,Rebecca Hall,F,17,1855,1,0,0,"McGill, Esq."
+Harper,Ruth,,F,,1858,0,0,0,John McPherson
+Harper,Thomas,,M,,1857,0,0,0,John Cowling
+Harris,Abram,,M,18,1857,0,1,0,John Henry Southern
+Harris,Benjamin F.,Benjamin Franklin,M,30,1854,0,0,0,Richard Farmer
+Harris,Charlotte,,F,,1853,0,0,0,
+Harris,Darius,,M,21,1858,0,0,0,Thomas H. Hamlin
+Harris,Franklin,,M,6,1854,1,0,0,Richard Farmer
+Harris,James,,M,,1856,0,0,0,Catharine Odine
+Harris,Joseph,,M,23,1855,0,0,0,David Morris
+Harris,Nathan,,M,21,1854,0,0,0,John Edward Jackson
+Harris,Nelson,Charles Wilson,M,27,1853,0,0,0,William B. Beale
+Harris,Thomas,,M,27,1857,0,0,0,"John Hatten, Esq."
+Harris,Wesley,Robert Jackson,M,22,1853,0,0,1,Phillip Pendelton
+Heath,Charles,,M,25,1859,0,0,0,Aquila Cain
+Heines,Peter,,M,21,1856,0,0,0,"Elias Heines, Esq. "
+Henderson,Eliza,,F,28,1858,0,0,0,William Waverton
+Henry,James,,M,32,1857,0,0,0,
+Henry,John,Samuel Full (?),M,21,1856,0,0,0,Anthony Ryebold
+Henry,Joseph,,M,17,1860,1,0,0,Greenberry Parker
+Henry,Thomas,,M,26,1857,0,0,0,Josian Wilson
+Henson,James,David Caldwell,M,32,1855,0,0,0,Jacob Johnson
+Henson,James,,M,,1860,0,0,0,Mrs. Maria Thomas
+Hickman,Charles,Charles Robinson,M,,1855,0,0,0,Charles Henry Hickman
+Hill,,,F,,1857,0,0,0,
+Hill,Alice,,F,,1857,0,0,0,
+Hill,George,,M,24,1857,0,0,0,Dr. Savington
+Hill,Henry,,M,,1857,1,0,0,
+Hill,Hezekiah,,M,30,1856,0,0,0,
+Hill,James,,M,21,1861,0,0,0,
+Hill,Joe,,M,,1857,0,0,1,
+Hill,John Henry,,M,25,1853,0,1,0,James Mitchell
+Hill,Joseph Henry,,M,28,1859,0,0,0,"James Thomas, Jr."
+Hill,Simon,,M,25,1855,0,0,0,
+Hilliard,Frances,,M,29,1855,0,1,0,Beverly Blair
+Hillis,John,,M,,1859,0,0,0,Mrs. Louisa Lecount
+Hilton,Elijah,,M,27,1857,0,1,0,Major Edward Johnson
+Hines,Peter,,M,21,1856,0,0,0,Elias Hines
+Hinson,James,David Coldwell,M,32,1855,0,0,0,Jacob Johnson
+Hipkins,Wiliam Henry,,M,23,1857,0,0,0,Ephraim Swart
+Hitchens,C.,,M,22,1857,0,0,0,William Hill
+Hodges,Henry,,M,23,1855,0,0,0,Samuel Simmons
+Hodges,Henry,,M,25,1855,0,0,0,
+Hogg,William,John Smith,M,25,1854,0,0,0,Lewis Roberts
+Holden,Levin,,M,,1859,0,0,0,Jonathan Bailey
+Holladay,Charles,,M,28,1855,0,0,0,F. Smith
+Hollis,Charles Henry,,M,20,,0,0,0,John Webster
+Hollon,Alfred,,M,28,1857,0,0,0,Elijah J. Johnson
+Homer,Alfred,,M,22,1856,0,0,0,John W. Anderson
+Hooper,Henry,,M,19,1855,0,0,0,
+Hooper,Miles,,M,23,1855,0,0,0,George Montigue
+Hopkins,Sidney,,M,,1859,0,0,0,Jacob Hoag
+Houston,George,Charles Robinson,M,,1855,0,0,0,Isaac Houston
+Houston,Maria Jane,,F,21,1855,0,0,0,
+Howard,Henry,,M,27,1855,0,0,0,Phillip Garrison
+Hubert,Alfred,,M,28,1857,0,0,0,Matilda Niles
+Hudson,Ephraim,John Spy,M,22,1856,0,0,0,John Campbell Henry
+Huges,Daniel,,M,,1857,0,0,0,Richard Meredith
+Huges,William,,M,22,1856,0,0,0,Daniel Cox
+Hunt,Orlando J.,,M,29,1858,0,0,0,High Holser
+Irwin,Asbury,,M,40,1858,0,0,0,Michael Newbold
+Jackson,,,F,,1858,1,0,0,Mrs. Margaret Dick
+Jackson,Andrew,Henry Johnson,M,23,1856,0,0,0,Thomas Palmer
+Jackson,Anna Maria,,F,40,1858,0,0,0,Joseph Brown
+Jackson,Ebenezer T.,,M,,1858,1,0,0,Joseph Brown
+Jackson,Frances,,F,,1858,1,0,0,Joseph Brown
+Jackson,General Andrew,,M,27,1857,0,0,0,Shepherd Houston
+Jackson,James Henry,,M,17,1858,1,0,0,Joseph Brown
+Jackson,John E.,,M,,1858,1,0,0,Joseph Brown
+Jackson,Mary Ann,,F,,1858,1,0,0,Joseph Brown
+Jackson,Peter,Staunch Tilghman,M,,1854,0,0,0,George Wenthrop
+Jackson,Rebecca,,F,37,1858,0,0,0,Mrs. Margaret Dick
+Jackson,Robert,,M,,1858,0,0,0,Mrs. Mary Hickman
+Jackson,Wilhelmina,,F,,1858,1,0,0,Joseph Brown
+Jackson,William,,M,50,1857,0,0,0,Daniel Minne
+Jackson,William Albert,,M,,1858,1,0,0,Joseph Brown
+Jackson,William Henry,,M,,1858,1,0,0,Joseph Brown
+Janney,John,,M,22,1858,0,0,0,Joseph Griffiss
+Jasper,Elias,,M,32,1855,0,0,0,Bayham
+Jeffries,Mary,,F,,1856,0,0,0,
+Jenkins,,,Unknown,35,1855,0,0,0,
+Johns,Lydia Ann,,F,22,1858,0,0,0,Michael Newbold
+Johns,Robert,,M,,1858,0,0,0,William Casey
+Johns,Sue Ann,,F,23,1858,0,0,0,Susan Flinthrew
+Johnson,,,M,7,1855,1,0,0,Col. John H. Wheeler
+Johnson,,,M,11,1855,1,0,0,Col. John H. Wheeler
+Johnson,Anna,,F,24,1857,0,0,0,Samuel Harrington
+Johnson,Cornelius Henry,,M,26,1859,0,0,0,Mars. Mary F. Price
+Johnson,David,,M,,1855,0,0,0,
+Johnson,Eliza Jane,,F,23,1857,0,0,0,Sally Siser
+Johnson,George,,M,25,1857,0,0,0,Miss Eleanor J. Conway
+Johnson,Harriet,Harriet Gilbert,F,25,1856,0,0,0,William T. Wood
+Johnson,Helen,,F,,1853,0,0,0,
+Johnson,Henry,,M,19,1857,0,0,0,Mrs. Elizabeth Brown
+Johnson,James,William Gilbert,M,35,1856,0,0,0,Thomas Wallace
+Johnson,James,,M,,1856,0,0,0,William Raulty
+Johnson,Jane,,F,,1855,0,0,0,Col. John H. Wheeler
+Johnson,John,,M,27,1857,0,0,0,Willam Stone
+Johnson,Joseph G.,,M,23,1860,0,0,0,William Jones
+Johnson,Nelson,Jackson Hall,M,25,1854,0,0,0,Isaac Stansberry
+Johnson,Perry,,M,28,1853,0,0,0,Charles Johnson
+Johnson,Roseanna,Catherine Brice,F,,1857,0,1,0,Dr. Abraham Street
+Johnson,Samuel W.,,M,27,1854,0,1,0,James B. Fsoter
+Johnson,Sarah,,F,,1854,0,0,0,
+Johnson,Talbot,,M,35,1858,0,0,0,Duke Bond
+Johnson,William ,,M,,1855,0,0,0,Samuel Harrington
+Johnson,William,,M,19,1859,0,0,0,John Bosley
+Johnson,Wililam H.,John Wesley,M,24,1855,0,0,0,John Hall
+Joiner,Maria,,F,33,1855,0,0,0,Catharine Gordon
+Jones,Alice,,F,,1855,0,0,0,
+Jones,Arthur,,M,41,1855,0,0,0,John Jones
+Jones,Catharine,,F,24,1858,0,0,0,Joshua Duvall
+Jones,Eliza,,F,40,1855,0,0,0,Eliza H. Riche
+Jones,Fenton,,M,,1855,0,0,0,
+Jones,Henry,,M,19,1855,0,0,0,
+Jones,Henry,,M,41,1859,0,0,0,Elizabeth Mann
+Jones,Hill,,M,19,1856,0,0,0,John Cochran
+Jones,James,Henry Rider,M,32,1856,0,0,0,Dr. William Stewart
+Jones,John,Henry Clark,M,25,1854,0,0,0,Amos Lynch
+Jones,Lewis,,M,52,1857,0,0,0,Thomas Sydan
+Jones,Margaret,,F,,1855,0,0,0,
+Jones,Mary,,F,,1856,1,0,0,W.W. Davidson
+Jones,Mary,,F,,1858,0,0,0,Mrs. Henry Harding
+Jones,Rebecca,,F,28,1856,0,1,0,W.W. Davidson
+Jones,Rebecca,,F,,1856,1,0,0,W.W. Davidson
+Jones,Robert,,M,35,1855,0,1,0,Thomas N. Lee
+Jones,Samuel,,M,,1855,0,0,0,William Hutchins
+Jones,Sarah Frances,,F,,1856,1,0,0,W.W. Davidson
+Jones,Tolbert,,M,,1855,0,0,0,William Hutchins
+Jones,William,,M,,1854,0,0,0,
+Jones,William Henry,,M,2,1858,1,0,0,Joshua Duvall
+Jordan,William,William Price,M,,1854,1,0,0,Governor Badger of North Caroina
+Judah,John,,M,32,1855,0,0,0,Miss Eliza Lambert
+Kane,Jane,Catherine Kane,F,22,1854,0,0,0,Rash Jones
+Kell,James,,M,24,1859,0,0,0,Thomas Murphy
+Kelley,Henson,,M,,1860,0,0,0,Reason Hastell
+Kelly,Mary,Charlotte Spriggs,F,,1853,0,0,0,William Watkins
+King,Charles,,M,23,1854,0,0,0,Martha M. Hope
+Knight,Mary,,F,26,1856,0,0,0,
+Kneeland,Joeseph (sic),Joseph Hudson,M,26,1853,0,0,0,Jacob Kneeland
+Lambert,Elizabeth,,F,,1856,0,0,0,Andrew Peterson
+Lambert,Horace,,M,,1856,1,0,0,Andrew Peterson
+Lambert,Mary,,F,,1856,1,0,0,Andrew Peterson
+Lambert,William Henry,,M,,1856,1,0,0,Andrew Peterson
+Laminson,William H.,,M,21,1855,0,0,0,Francis Haskins
+Langhorn,Henry,William Scott,M,,1858,0,1,0,Charles L. Hobson
+Latham,Major,,M,44,1856,0,0,0,John Latham
+Laws,George,,M,,1858,0,0,0,Denny
+Lazarus,James,,M,,1859,0,0,0,Kendall Major Lewis
+Lee,Charles,Thomas Bushier,M,,1853,0,0,0,George Stewart
+Lee,John,,M,,1854,0,0,0,Luke Gaines
+Lee,John Edward,,M,,1859,0,0,0,John B. Slade
+Lee,Lewis,,M,25,1859,0,0,0,William Watkins
+Lee,Ordee,,F,35,1857,0,0,0,Elijah Thompson
+Lee,William,,M,27,1857,0,0,0,Zecharia Merica
+Levinson,William Henry,,M,21,1856,0,0,0,Frances Hawkins
+Lewey,Rebecca,,F,28,1856,0,0,0,
+Lewis,David,,M,27,1856,0,0,0,Joshua Pussey
+Lewis,Edward,William Brady,M,36,1857,0,1,0,Carter Gay
+Lewis,George,,M,40,1858,0,0,0,Samuel Laws
+Lewis,Laura,,F,25,1855,0,0,0,Widow Lewis
+Light,George,,M,,1857,0,0,0,
+Light,Solomon,,M,23,1857,0,0,0,Willis Branick
+Little,Nancy,,F,,1855,0,0,0,
+Logan,George,,M,23,1856,0,0,0,Mrs. Jane Coultson
+Logan,John W.,,M,,1856,0,0,0,Miss Cox
+Loney,Anthony,William Armstead,M,25,1857,0,0,0,Warring Talvert
+Loney,Cordelia,,F,57,1859,0,0,0,Mrs. Joseph Cahell
+Long,Silas,,M,27,1857,0,0,1,Sheriff Robert Bell
+Mackintosh,John,,M,44,1855,0,0,0,Thomas MacIntosh
+Mackey,William,,M,,1858,0,0,0,Mrs. Tunis
+Madden,Thomas,,M,22,1854,0,0,0,Ed Ray
+Maddison,Wiley,,M,19,1856,0,0,0,
+Mahoney,Matilda,,F,21,1854,0,0,0,William Reigard
+Malary,John,,M,,1854,0,0,0,Eliza Ann Anderson
+Mason,James,,M,24,1858,0,1,0,Judith Burton
+Massey,James,,M,25,1857,0,1,1,James Pittman
+Matterson,,,M,,1853,0,0,1,Philip Pendelton
+Matterson,,,M,,1853,0,0,1,Philip Pendelton
+Matterson,,,M,,1853,0,0,1,Philip Pendelton
+Matthews,Peter,Samuel Sparrows,M,35,1855,0,0,1,William S. Matthews
+Matthews,Tom,,M,25,1856,0,0,0,E.A. Jones
+Maxwell,Thomas,,M,21,1859,0,0,0,Aquila Cain
+Mayo,Harriet,,F,22,1855,0,0,0,James Cuthbert
+McCoy,Eliza,Ellen Saunders,F,38,1854,0,1,0,Andrew Ligany
+McCoy,Robert,William Donar,M,32,1854,0,1,0,The Trader Hall
+Mead,Zechariah,John Williams,M,20,1855,0,0,0,Charles C. Owens
+Melvin,Mary Frances,,F,23,1858,0,0,0,Widow Chapman
+Menia,Jane Matilda,Mary Parker,F,,1853,0,0,0,Richard Ducke
+Mercer,James,,M,19,1854,0,1,0,Mrs. T.E. White
+Mercer,Verenea,,F,41,1855,0,0,0,Thomas W. Quales
+Miles,Samuel,Robert King,M,31,1855,0,1,0,Henry Miles
+Millburn,Mary,Louisa F. Jones,F,,1858,0,1,0,Mrs. Chapman
+Mills,Cornelius,,M,27,1860,0,0,0,David Snively
+Mills,Diana,,F,57,1860,0,0,0,David Snively
+Mills,Jerry,,M,65,1860,0,0,0,David Snively
+Mills,Margaret,,F,17,1860,0,0,0,David Snively
+Mills,Sarah Ann,,F,16,1859,1,0,0,Joseph O'Neil
+Mills,Susan,,F,15,1860,1,0,0,David Snively
+Mitchell,Cyrus,John Steel,M,26,1856,0,0,0,James K. Lewis
+Mitchell,John,,M,24,1858,0,0,0,Miss Catharine Cornwell
+Mitchell,Josiah,,M,23,1858,0,0,0,Thomas J. Hodgson
+Mitchell,Lemuel,,M,35,1858,0,0,0,James R. Lewis
+Moduck,Green,,M,,1856,0,0,0,William Dorsey
+Molock,Francis,Thomas Jackson,M,21,1856,0,0,0,James A. Waddell
+Monroe,James,,M,,1856,0,0,0,
+Moody,William Henry,,M,20,1857,0,0,0,William Henry Hyson
+Moor,Henry,,M,30,1857,0,0,1,Levin Dale
+Moore,George,,M,,1853,0,0,0,
+Moore,Hannah,Aunt Hannah,F,57,1854,0,0,0,Mary Moore
+Moore,John Henry,,M,24,1857,0,0,0,David Mitchell
+Morgan,Edward,,M,21,1857,0,0,0,Mrs. Elizabeth Brown
+Morris,James,,M,27,1856,0,1,0,Ann McCourt
+Morris,John,,M,21,1855,0,0,0,Edward Bloomer
+Mountain,,,Unknown,1,1858,1,0,0,
+Mountain,Ann,,F,22,1858,0,0,0,
+Munson,Alexander,Samuel Garrett,M,18,1855,0,0,0,
+Murray ,Gracie,Sophia Sims,F,,1853,0,0,0,George Stewart
+Murray ,Robert,,M,,,0,0,0,Eliza Brooks
+Myers,John,,M,,1857,0,0,0,Dr. Joshua R. Nelson
+Naylor,William,,M,,1857,0,0,0,
+Neall,Daniel,,M,23,1856,0,0,0,George Parker
+Nelson,Peter,,M,29,1858,0,0,0,James Ford
+Nelson,Susan,Susan Bell,F,30,1855,0,0,0,Thomas Baltimore
+Nelson,William,Thomas Russell,M,40,1855,0,0,0,Turner & White
+Nelson,William Thomas,,M,,1855,0,1,0,Thomas Baltimore
+Newton,Isaac,,M,30,,0,0,0,
+Nichols,Randolph,,M,20,,0,0,0,Mrs. Caroline Brang
+Nicholson,Adam,John Wynkoop,M,,1854,0,0,0,Alexander Hill
+Nickless,Kit,,M,45,1854,0,0,0,General Washington
+Nixon,Frederick,,M,35,1855,0,0,0,Mr. Brockover
+Nixon,Isaiah,,M,22,1855,0,0,0,Samuel Simmons
+Nixon,Samuel,Dr. Thomas Bayne,M,31,1855,0,1,0,Dr. C.F. Martin
+Nixon,Thomas,,M,19,1855,0,0,0,Mr. Bockover
+Nokey,Eliza,,F,,1856,0,0,0,
+Nole,Charles,,M,,1858,0,0,0,Blooker W. Hansborough
+North,,,Unknown,,1856,1,0,0,Edward C. Dyer
+North,Harry,Lanney,M,12,1856,1,0,0,Edward C. Dyer
+Oberne,Henry,,M,21,1857,0,0,0,
+Oliver,William,,M,26,1859,0,0,0,Mrs. Marshall
+Paeden,Celia,,F,,1853,0,0,0,David Baines
+Paeden,Edward,,M,44,1853,0,0,0,Dr. Price
+Apeden,Harriet,,F,,1853,0,0,0,David Baines
+Page,Thomas,,M,18,1856,0,1,0,
+Parker,Ann,,F,,1856,0,0,0,Edward Wiley
+Parker,Henry,,M,,1856,0,0,0,Edward Wiley
+Parker,Levin,,M,22,1857,0,0,0,Lawrence G. Colson
+Parker,Lydia Ann,,F,,1856,0,0,0,Edward Wiley
+Parker,Thomas,,M,,1856,0,0,0,
+Patty,Elizabeth,,F,,1856,1,0,0,Jacob Shuster
+Patty,Winnie,,F,22,1856,0,0,0,Jacob Shuster
+Payne,Daniel,,M,,1855,0,0,0,M.M. Morris
+Payne,David,,M,,1854,0,0,0,
+Payne,Oscar,,M,30,1857,0,0,0,Mary Dade
+Peaker,Thomas,,M,,1856,0,0,0,
+Peck,Lewis,,M,,1860,0,0,0,Joseph Bryant
+Peel,William,"William ""Box"" Jones",M,23,1859,0,0,0,Robert Carr
+Pembrooke,Jacob,,M,19,1854,0,0,0,
+Pembrooke,Robert,,M,17,1854,1,0,0,
+Pembrooke,Stephen,,M,45,1854,0,0,0,
+Pennington,Bob,,M,,1854,0,0,0,David Smith & Jacob Grove
+Pennington,Jake,,M,,1854,0,0,0,William Rigard
+Pennington,Peter,,M,25,1856,0,0,0,Wright
+Pennington,Stephen,,M,,1854,0,0,0,David Smith & Jacob Grove
+Pennington,Tom,,M,25,1857,0,0,0,Hon. L. McLane
+Penwell,Elizabeth,,F,22,1854,0,0,0,Dr. Clift
+Perry,Anna,,F,19,1857,0,0,0,
+Peters,Hannah,,F,,1857,0,0,0,
+Pettifoot,John Henry,Sydney,M,26,1858,0,1,0,McHenry & McCulloch
+Petty,Peter,,M,24,1855,0,0,0,Joseph Boukley
+Pierce,William,,M,23,,0,0,0,John Hickol
+Piner,Abe,,M,23,1856,0,0,0,George Spencer
+Piney,Benjamin,,M,20,1856,0,0,0,Mary Hawkins
+Pinket,John,,M,27,1859,0,0,0,Mary Brown
+Pipkins,Jefferson,David Jones,M,,1853,0,1,0,Widow Pipkins
+Pipkins,Louisa,Elizabeth Brit,F,,1853,0,0,0,George Stewart
+Pitts,Catherine,,F,,1855,0,0,0,John Pitts
+Predo,Henry,,M,27,1857,0,0,0,
+Pry,Sauney,,M,27,1856,0,0,0,Nathan Clapton
+Pugh,Anthony,,M,,1857,0,0,0,
+Pugh,Isabella,,F,,1857,0,0,0,
+Purnell,Charles,,M,26,1855,0,0,0,John Derrickson
+Purnell,Irvin,,M,,1853,0,0,0,
+Purnell,John,,M,,1860,0,0,0,
+Purnell,Oliver,,M,26,1855,0,0,0,Moses Purnell
+Quantence,Pascal,,M,,1857,0,0,0,John Quantence
+Quinn,William,,M,22,1859,0,0,0,
+Redden,Mary ,,F,,1856,0,0,0,
+Redden,Sarah,,F,,1856,0,0,0,
+Redick,Willis,,M,32,1853,0,0,0,S.J. Wilson
+Reed,Isaac,James Reed,M,,1856,0,0,0,Benjamin Franklin Houston
+Rhoads,,,Unknown,0,1857,1,0,0,John P. Dellum
+Rhoads,George,,M,25,1857,0,0,0,John P. Dellum
+Rhoads,James,,M,23,1857,0,0,0,John P. Dellum
+Rhoads,Sarah Elizabeth,,F,17,1857,0,0,0,John P. Dellum
+Richards,John Henry,,M,24,1856,0,0,0,James Hodges
+Rickets,John H.,Ed Henry Waples,M,22,1854,0,0,0,Stephen Houston
+Ringgold,Charles,,M,18,1859,0,0,0,Dr. Jacob Preston
+Ringgold,Charles,,M,19,,0,0,0,
+Ringgold,Charles H.,,M,,1856,0,0,0,James Hodges
+Ringgold,William,,M,,,0,0,0,Henry Wallace
+Rister,Amarian Lucretia,,F,21,1857,0,0,0,Mr. Boile
+Roach,John,,M,33,1859,0,0,0,Joshua O'Bear
+Roach,Lamby,,F,,1859,0,0,0,Dr. Shipley
+Roberts,Emory,William Kemp,M,,1855,0,0,0,Edward Lloyd
+Robinson,Daniel,,M,,1856,0,0,0,
+Robinson,George,,M,21,1857,0,0,0,Samuel Smith
+Robinson,Isaiah,,M,23,1856,0,0,0,
+Robinson,John,,M,,1855,0,0,0,William Wilson
+Robinson,Joseph,,M,30,1855,0,1,0,George E. Sadler
+Robinson,Josephine,,F,,1858,0,0,0,Eliza Hambleton
+Robinson,Mary Ann,,F,19,1855,0,0,0,
+Robinson,Miles,,M,22,1859,0,0,0,Mrs. Roberts
+Robinson,Robert N.,,M,22,1855,0,0,0,Robert Slater
+Robinson,William,Thomas Harred,M,28,1853,0,0,0,"John G. Beal, Esq."
+Rogers,Charles,,M,,1857,0,0,1,Elijah J. Johnson
+Rogers,George,,M,26,1857,0,0,1,Elijah J. Johnson
+Ross,Benjamin,James Stewart,M,28,1854,0,0,0,Eliza Ann Brodins
+Ross,Benjamin,,M,,1857,0,0,0,Dr. Anthony Thompson
+Ross,Charles,,M,23,1859,0,0,0,Rodgers
+Ross,George,John Brown,M,26,1854,0,0,0,Lewis N. Wright
+Ross,Harriet,,F,,1857,0,0,0,Dr. Anthony Thompson
+Ross,Henry,Levin Stewart,M,22,1854,0,0,0,Eliza Ann Brodins
+Ross,Major,,M,,1857,0,0,0,John Jay
+Ross,Robert,John Stewart,M,35,1854,0,0,0,Eliza Ann Brodins
+Royan,William,,M,35,1857,0,0,0,Captain Cunningham
+Russell,George,,M,,1858,0,0,0,Henry Harris
+Salter,Charles Henry,,M,30,,0,0,0,Dr. B. Crain
+Saunders,Henry,,M,,1856,0,0,0,
+Saunders,Sarah,,F,,1856,0,0,0,Richard Gatewood
+Scott,,,Unknown,,1853,1,0,0,Daniel Coolby
+Scott,,,Unknown,,1853,1,0,0,Daniel Coolby
+Scott,Anna,,F,,1855,0,0,0,Mrs. Ann Elizabeth Lushy
+Scott,Bill,,M,21,1857,0,0,0,Hon. L. McLane
+Scott,Cornelius,,M,23,1857,0,0,0,Henry L. Brooke
+Scott,Godfrey,,M,,1855,0,0,0,
+Scott,Hetty,Margaret Duncans,F,,1853,0,0,0,Daniel Coolby
+Scott,Jack,,M,36,1857,0,0,0,"David B. Turner, Esq."
+Scott,Jane,,F,14,1856,1,0,0,George Shaffer
+Scott,Jim,,M,19,1857,0,0,0,Hon. L. McLane
+Scott,John,Levis Duncans,M,22,1853,0,0,0,
+Scott,John,,M,,1857,0,0,0,
+Scott,Priscilla,Priscilla Duncans,F,,1853,1,0,0,Daniel Coolby
+Scott,Sam,,M,22,1857,0,0,0,Hon. L. McLane
+Scott,Samuel,,M,,1855,0,0,0,
+Scott,William,,M,24,1857,0,0,0,Susan Fox
+Scott,Winfield,,M,,1856,0,0,0,William Taylor
+Seymour,Elijah,,M,34,1856,0,0,0,William Taylor
+Shaw,Nace,,M,23,1858,0,0,0,Dr. Ephraim Bell
+Shaw,James,,M,45,1858,0,0,0,Sarah Ann Talburtt
+Sheldon,James,,M,,1857,0,1,0,Mrs. Maria Hansford
+Shepherd,Andrew,,M,26,1856,0,0,0,
+Shepherd,Anna Maria,,F,,1855,1,0,0,
+Shepherd,Edwin,,M,,1855,1,0,0,
+Shepherd,Eliza Jane,,F,,1855,1,0,0,
+Shepherd,Harriet,,F,,1855,0,0,0,
+Shepherd,John Henry,,M,,1855,1,0,0,
+Shepherd,Mary Ann,,F,,1855,1,0,0,
+Shepherd,Perry,Richard Reed,M,,1856,0,0,0,Sarah Ann Burgess
+Shidon,James,,M,,1854,0,0,0,Thomas Young
+Sims,Samuel,,M,30,1856,0,0,0,Thomas B. Owings
+Sipple,Mary Ann,,F,,1860,0,0,0,
+Sipple,Thomas,,M,,1860,0,0,0,
+Skinner,Thomas Edward,,M,18,1858,0,0,0,George H. Carman
+Slater,Samuel,Patterson Smith,M,30,1854,0,1,0,William Martin
+Slcum,Jesse,,M,24,1856,0,0,0,
+Smallwood,Henry,,M,36,1859,0,0,0,Washington Bonafont
+Smallwood,John,,M,,1857,0,0,0,Samuel Simons
+Smith,Adam,,M,30,1857,0,0,0,Isacc Scaggs
+Smith,Betsy,Fanny Jackson,F,27,1856,0,0,1,Widow Hutchinson's daughter
+Smith,Daniel M.,,M,,1858,0,0,0,James Garnett
+Smith,Edward,,M,17,1858,1,0,0,Robert Hollan
+Smith,Henry,,M,23,1858,0,0,0,Robert Hollan
+Smith,James,,M,,1858,1,0,0,Robert Hollan
+Smith,Jesse,,M,34,1854,0,0,0,Cornelius Herman
+Smith,Jeremiah,,M,26,1854,0,0,0,James Kinard
+Smith,John,,M,19,1856,0,0,0,Dr. Abraham Street
+Smith,John,,M,,1855,0,0,0,
+Smith,John,,M,20,1857,0,0,0,George Morgan
+Smith,John Wesley,,M,26,,0,0,0,Daniel Hubert
+Smith,Josephine,,F,,,0,0,0,Anna Maria Warren
+Smith,Julia,,M,30,1854,0,0,0,A. Judson Crane
+Smith,Julius,,M,25,1858,0,0,0,Robert Hollan
+Smith,Mary,,F,,1858,0,0,0,Robert Hollan
+Smith,Nathaniel,John Hutchins,M,24,1854,0,0,0,
+Smith,Page,,F,9,1854,1,0,0,Rev. A.D. Pollock
+Smith,Robert,,M,24,1856,0,0,0,William H. Normis
+Smith,Samuel,,M,,1859,0,0,0,Aquila Cain
+Smith,Sarah,Mildred Page,F,30,1854,0,0,0,Rev. A.D. Pollock
+Smith,Stafford,,M,,1860,0,0,0,Harriet Parker
+Smith,Thomas,,M,,1857,0,0,0,William Rowe
+Smith,Vincent,John Jackson,M,23,1856,0,1,0,Nathan Skinner
+Smith,William Israel,,M,21,1856,0,0,0,John P. Cather
+Snivley,David,,M,26,1860,0,0,0,Charles Preston
+Snowden,Lewis,Lewis Williams,M,28,1854,0,0,0,A. Nayton
+Solomon,George,,M,33,1856,0,0,0,Daniel Minor
+Somlor,Washington,James Moore,M,32,1855,0,1,1,Smith
+Sparks,John,,M,,1857,0,0,0,Mary Gibson & Others
+Spence,Arthur,,M,24,1856,0,0,0,
+Spencer,John,,M,,1853,0,0,0,
+Spencer,William,,M,,1853,0,0,0,
+Sperryman,George,Thomas Johnson,M,,1856,0,0,0,Nicholas Templeman
+Spires,Valentine,Jonathan Wesley,M,,1856,0,0,0,Dr. Jesse Squires
+Stanly,,,F,,1857,0,0,0,Samuel Count
+Stanly,Caroline,,F,,1857,1,0,0,Samuel Count
+Stanly,Daniel,,M,35,1857,0,0,0,Robert Calender
+Stanly,"Daniel, Jr.",,M,,1857,1,0,0,Robert Calender
+Stanly,John,,M,,1857,1,0,0,Samuel Count
+Stanly,Josiah,,M,,1857,1,0,0,Samuel Count
+Stanly,Miller,,M,,1857,1,0,0,Samuel Count
+Stanton,Philip ,,M,22,,0,0,0,John Smith
+Stephenson,Mary,,F,20,1857,0,0,0,
+Stewart,Harriet,,F,29,1857,0,0,0,William A. Linton
+Stewart,Henry,,M,23,1855,0,0,0,James Monroe Woodhouse
+Stewart,James,William Jackson,M,21,1854,0,0,0,William Rose
+Stewart,Mary Eliza,,F,8,1857,1,0,0,William A. Linton
+Stewart,Robert,Gasberry Robinson,M,30,1856,0,1,0,Widow Hutchinson
+Stewart,Susan,,F,,,0,0,0,Henry Harley
+Stinger,John,,M,40,1857,0,0,0,Joseph Carter 
+Swan,Stebney,,M,34,1857,0,1,0,Joseph Carter 
+Tatum,Alan,,M,30,1855,0,0,0,Lovey White
+Taylor,,,F,,1856,0,0,0,
+Taylor,,,Unknown,,1856,1,0,0,
+Taylor,,,Unknown,,1856,1,0,0,
+Taylor,Benjamin,,M,20,1858,0,0,1,Meed
+Taylor,Benjamin,,M,,1856,0,0,0,Henry Fiery
+Taylor,Caroline,,F,,1856,0,0,0,"Peter March, Esq."
+Taylor,Edward,,M,,1856,1,0,0,
+Taylor,Harriet,,F,,1856,0,0,0,
+Taylor,Jacob,,M,20,1858,0,0,0,William J.B. Parlett
+Taylor,James,,M,20,1859,0,0,0,George Ailer
+Taylor,Mary,,F,9,1856,1,0,0,"Peter March, Esq."
+Taylor,Mary Ann,,F,,1856,0,0,0,
+Taylor,Nancy,,F,11,1856,1,0,0,"Peter March, Esq."
+Taylor,Otho,,M,,1856,0,0,0,Henry Fiery
+Taylor,Owen,,M,31,1856,0,0,0,Henry Fiery
+Taylor,Roberta,,F,23,1858,0,1,0,Mrs. & Mrs. McCoy
+Taylor,Stephen,,M,20,,0,0,0,James Smithen
+Taylor,William N.,,M,35,1857,0,0,0,Walter H. Tyler
+Teamour,Thomas,,M,,1855,0,0,0,
+Thomas,Alice,,F,,1853,0,0,0,James Short
+Thomas,Joseph,,M,,,0,0,0,
+Thomas,William,,M,,1855,0,0,0,
+Thompson,,,Unknown,,1853,1,0,0,
+Thompson,Charity,,F,12,1856,1,0,0,
+Thompson,Charles,,M,40,1854,0,0,0,Widow Thorton
+Thompson,Charles,,M,25,1857,0,0,0,Fleming Bibbs
+Thompson,Charles,,M,,1856,0,0,0,
+Thompson,Elizabeth,,F,,1853,0,0,0,
+Thompson,Hannah Jane,,F,,1853,0,0,0,
+Thompson,James Henry,Milton Brown,M,28,1858,0,0,0,Dennis Mannard
+Thompson,John,,M,19,1857,0,1,0,Hezekiah Thompson
+Thompson,Robert,,M,39,1858,0,0,0,John R. Laten
+Thompson,William,,M,,1854,0,0,0,Lewis N. Wright
+Thompson,William Henry,,M,24,1856,0,0,0,
+Thorton,Alfred S.,,M,22,1858,0,0,0,C.F. Shinn
+Thorton,Lawrence,,M,23,1857,0,0,0,Dr. Isaac Winslow
+Tilson,Abram,,M,,1857,0,0,0,Samuel Jarman
+Todd,,,F,,1857,0,0,0,Thorton Pool
+Todd,Isaac,,M,23,1857,0,0,0,Dr. Granberry Sappington
+Tonnell ,,,M,7,1853,1,0,0,Isaac Tom
+Tonnell ,Rose Anna,Maria Hide,F,,1853,0,0,0,Isaac Tom
+Townsend,Henry,,M,21,1857,0,0,0,E. Townsend
+Triplett,William,,M,23,1857,0,0,0,Mrs. A.B. Fairfax
+Trusty,Perry Henry,,M,31,1857,0,1,0,James Pittman
+Tubman,Harriet,,F,,1856,0,0,0,
+Tucker,Henry,,M,,1858,0,0,0,Elias Sneveley
+Tudle,Henry,,M,,1860,0,0,0,Ezra Houpt
+Turner,Edmundson,,M,25,1857,0,1,0,Ann Coley
+Turner,Isaac,,M,28,1857,0,0,0,Ann Coley
+Turner,Jackson,,M,27,1857,0,0,0,Ann Coley
+Turner,Samuel,,M,,1857,0,0,0,
+Unidentified,,,M,17,1853,1,0,0,
+Unidentified,,,M,,1853,0,0,0,
+Unidentified,,,M,,1853,0,0,0,
+Unidentified,,,M,,1853,0,0,0,Daniel Coolby
+Unidentified,,,F,,1853,0,0,0,Daniel Coolby
+Unidentified,,,F,,1854,0,0,0,Rebecca Johnson
+Unidentified,,,F,,1854,0,0,0,
+Unidentified,,,F,,1854,0,0,0,Isaac Tom
+Unidentified,,,M,,1854,0,0,0,Isaac Tom
+Unidentified,,,M,7,1854,1,0,0,
+Unidentified,,,M,,1855,0,0,0,
+Unidentified,,,M,,1855,0,0,0,
+Unidentified,,,M,,1855,0,0,0,
+Unidentified,,,M,,1855,0,0,0,
+Unidentified,,,F,,1855,0,0,0,
+Unidentified,,,F,,1855,0,0,0,
+Unidentified,,,F,,1855,0,0,0,
+Unidentified,,,M,,1856,0,0,0,
+Unidentified,,,M,,1856,0,0,0,
+Unidentified,,,M,,1856,0,0,0,
+Unidentified,,,M,,1856,0,0,0,
+Unidentified,,,F,,1856,0,0,0,
+Unidentified,,,F,10,1856,1,0,0,
+Unidentified,,,Unknown,,1856,0,0,0,
+Unidentified,,,Unknown,,1856,0,0,0,
+Unidentified,,,Unknown,,1856,0,0,0,
+Unidentified,,,Unknown,,1856,0,0,0,
+Unidentified,,,Unknown,,1857,0,0,0,William H. Hyson
+Unidentified,,,Unknown,,1857,0,0,0,William H. Hyson
+Unidentified,,,Unknown,,1857,0,0,0,William H. Hyson
+Unidentified,,,M,,1856,0,0,0,Denny
+Unidentified,,,Unknown,,1859,1,0,0,
+Unidentified,,,Unknown,2,1859,1,0,0,
+Unidentified,,,Unknown,,1860,0,0,0,
+Unidentified,,,Unknown,,1860,0,0,0,
+Unidentified,,,Unknown,,1860,0,0,0,
+Unidentified,,,Unknown,,1860,0,0,0,
+Upsher,George,,M,,1857,0,1,0,Dr. Thomas W. Upsher
+Vaughn,Michael,William Brown,M,31,1855,0,1,0,
+Viney,,,M,0,1857,1,0,0,
+Viney,,,M,8,1857,1,0,0,
+Viney,,,M,,1857,1,0,0,
+Viney,,,F,,1857,1,0,0,
+Viney,Joseph,,M,40,1857,0,0,0,Charles Bryant
+Viney,Susan,,F,35,1857,0,0,0,Samuel Pattison
+Walker,,,F,38,1856,0,0,0,
+Walker,George,Austin Valentine,M,43,1855,0,0,0,Eliza Jones
+Walker,John,,M,25,1853,0,0,0,Mr. Easley
+Walters,Mary,,F,18,1854,0,0,0,
+Wanzer,Frank,Robert Scott,M,25,1855,0,0,1,Luther Sullivan
+Waples,Hansel,,M,,1853,0,0,0,William E. Burton
+Washington,George,,M,15,1857,0,0,0,Benjamin Sylves
+Washington,George,James Williams,M,19,1854,0,0,0,William Fernandus
+Washington,George Nelson,,M,19,1858,0,0,0,Joshua Duvall
+Washington,Henry,Anthony Hanley,M,50,1855,0,0,0,Seth March
+Washington,Mark,William Wilson,M,27,1854,0,0,0,James Worthington
+Washington,Samuel,James Moore,M,35,1855,0,0,0,Benjamin Smith
+Washington,William Henry,,M,20,,0,0,0,Dr. B. Crain
+Waters,Jacob,,M,21,,0,0,0,William Dorsey
+Waters,John,,M,40,1859,0,0,0,H. Lynch
+Watson,James Henry,,M,20,1856,0,0,0,James Purnell
+Weems,,,Unknown,1,1857,1,0,0,
+Weems,Arrah,,F,,1857,0,0,0,
+Weems,John,Jack Herring,M,,1858,0,0,0,Kendall B. Herring
+Weems,Maria,Joe Wright/Ellen Capron,F,15,1855,1,0,0,Charles M. Price
+Wellington,Jane,Jane Johnson,F,,1856,0,0,0,David Beiller
+Wells,Jack,,M,,1857,0,0,0,William Knight
+Wheeler,Henry,,M,21,1859,0,0,0,Amos Barnes
+White,Albert,,M,,1860,0,0,0,William Parker
+White,Emanuel T.,,M,25,1857,0,1,0,Edward H. Hubert
+White,George,,M,,1860,0,0,0,William Parker
+White,Isaac,,M,22,1858,0,0,0,Thomas Carper
+White,Miles,,M,21,1854,0,0,0,Albert Kern
+White,Robert,,M,35,1854,0,0,0,Henry Handy
+White,Tucker,,M,,1854,0,0,0,Major Isaac Rooney
+White,William B. ,,M,36,1854,0,0,0,H.B. Dickinson
+White Lady,,,F,,,0,0,0,James Hodges
+Whiting,Ralph,,M,26,1855,0,0,0,"George W. Kemp, Esq."
+Whitney,Israel,,M,36,1857,0,0,0,Elijah Money
+Wiggins,Daniel,,M,29,1854,0,1,0,Richard Scott
+Wilkins,Charles,,M,3,1859,1,0,0,George Ford
+Wilkins,James Andy,,M,,1859,0,0,0,George Biddle
+Wilkins,Lucinda,,F,21,1859,0,0,0,George Ford
+Wilkinson,Horatio,,M,44,1858,0,0,0,Thomas J. Hodgson
+William,Mary,,F,,1860,0,0,0,Christian Thomas
+Williams,,,F,,1856,0,0,0,John Peak
+Williams,Edward,Henry Johnson,M,,1853,0,0,0,Charles Moondo
+Williams,Elizabeth,,F,20,1857,0,0,0,Samuel Ward
+Williams,George,,M,,1855,0,0,0,Isaac Hill
+Williams,Hanson,,M,40,1858,0,0,0,Levi Pumphrey
+Williams,Henderson,,M,32,1856,0,0,0,A. Briggs
+Williams,Isaac,,M,26,1854,0,0,0,D. Fitchhugh
+Williams,John,,M,25,1855,0,0,0,
+Williams,Richard,,M,,1859,0,0,0,John A. Smith
+Williams,Samuel,John Williams,M,32,1857,0,0,0,Elivina Duncans
+Williams,Wesley,,M,,1857,0,0,0,Jack Jones
+Williams,William,,M,,1856,0,0,0,John Peak
+Williamson,William,,M,24,1858,0,0,0,Rebecca Davidge
+Wilmer,George,,M,,1856,0,0,0,Eben Welch
+Wilson,Franklin,,M,18,1855,0,0,0,Dr. William Daniels
+Wilson,Lewis,,M,50,1859,0,0,0,H. Lynch
+Wilson,Ned ,,M,,1855,0,0,0,
+Wilson,Perry,Henry Wilson,M,22,1854,0,0,0,John Talbot
+Wilson,Sarah E.,,F,,1855,0,0,0,
+Wilson,Thomas,,M,,1853,0,0,0,
+Wilson,William,,M,42,1856,0,0,0,Dr. Thomas Warren
+Wilson,Willis,,M,,1855,0,0,0,
+Wines,Moses,,M,,1854,0,0,0,Abigail Wheeler
+Winston,Joe,,M,23,1857,0,0,0,Samuel Ellis
+Wise,Harry,,M,24,1857,0,0,0,Elliott Burwell
+Wood,Edward,,M,,1859,0,0,0,James White
+Wood,John,,M,28,1857,0,1,0,Judge Birch
+Wood,Moses,,M,,1857,0,0,0,General Briscoe
+Wooden,William,William Nelson,M,23,1854,0,0,0,Judge Wooden
+Wodders,Abram,,M,35,1857,0,0,0,Taylor Sewell
+Woofley,Lavina,,F,,1857,0,0,0,
+Wright,Elizabeth,,F,32,1857,0,0,0,Jane Cooper
+Wright,John ,,M,30,1857,0,0,0,William S. Phelps
+Wright Crossroads,Leeds,,M,,1857,0,0,0,Rev. John Wesley Pearson
+Young,Anna Elizabeth,,F,24,,0,0,0,Massey
+Young,Gusta,,M,21,1858,0,0,1,Levi Pumphrey
+Young,Murray,,M,21,,0,0,0,Dr. Lober
+Young,Sarah Catharine,,F,1,,1,0,0,Massey
