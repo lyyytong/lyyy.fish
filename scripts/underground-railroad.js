@@ -248,10 +248,10 @@ async function drawSimulation() {
     // let enslaversNum = 0
 
     // d3.interval(addSeekers, addSeekersDelay)
-    d3.timer(elapsed=>{
+    d3.interval(elapsed=>{
         if (d3.now()%addSeekersDelay<=11) addSeekers(elapsed)
         moveSeekers(elapsed)
-    })
+    },10)
     function addSeekers(elapsed) {
         if (seekers.length < dataset.length) {
             const nextSeekerIndex = seekers.length
@@ -266,18 +266,21 @@ async function drawSimulation() {
                 .datum(nextSeeker).classed('seeker',true)
                 .style('opacity',0)
             newSeeker.append('circle')
+                // .attr('r',d=>d.isChild?childR/2:adultR/2)
                 .classed('stroked', d => !d.isChild)
                 .classed('literate', d => d.isLiterate)
                 .classed('armed', d => d.isArmed)
                 .style('filter', d => !d.isChild ? `url(#${blurID})` : '')
                 .style('stroke-width','2px')
             newSeeker.append('text').attr('class', 'name')
+                // .attr('x',d=>d.isChild?-childR-5:-adultR-5)
                 .html(d => d.firstMiddleName && d.lastName!='Unidentified' ? `${d.firstMiddleName.replace(' (sic)', '')} ${d.lastName}`
                     : d.firstMiddleName && d.lastName == 'Unidentified' && d.alias ? `${d.firstMiddleName.replace(' (sic)', '')} aka. ${d.alias}`
                         : d.lastName == 'Unidentified' && d.alias ? `(alias) ${d.alias}`
                             : d.lastName == 'Unidentified' ? '(unknown)'
                                 : d.lastName)
             newSeeker.append('text').attr('class', 'desc')
+                // .attr('x',d=>d.isChild?childR+5:adultR+5)
                 .html(d => `${d.age ? d.age : ''}${d.age && d.isChild ? ', child' : d.isChild ? 'child' : ''}${(d.age || d.isChild) && d.isLiterate ? ', literate' : d.isLiterate ? 'literate' : ''}${(d.age || d.isChild || d.isLiterate) && d.isArmed ? ', armed' : d.isArmed ? 'armed' : ''}`)                
             
             const year = nextSeeker.year
@@ -286,7 +289,6 @@ async function drawSimulation() {
                 years.classed('active-year',d=>d==currentYear)
             }
 
-            seekersGroup.selectAll('.seeker').filter(d=>d.yProgress>=1).remove()
             if (seekers.length==dataset.length) seeStatsButton.classed('disabled',true)
         }
     }
@@ -303,7 +305,8 @@ async function drawSimulation() {
                 d.startTime = elapsed - d.yProgress * travelDuration
                 if (i==array.length-1) speedChange=false
             })
-        seekersInView.style('transform', d => {
+        seekersInView
+            .style('transform', d => {
                 d.yProgress = yProgressA(d)
                 const xChange = genderXScale(d.gender) + genderBand / 2 - startX
                 const xProgress = progressXScale(d.yProgress)
@@ -314,7 +317,8 @@ async function drawSimulation() {
             .transition().duration(transitionTime)
             .style('opacity', d => {
                 const y = yPositionA(d)
-                return (y > 20 && y <= barHeightsA(d) - 20) ? 1 : 0
+                const margin = d.isChild ? childR : adultR
+                return (y >= 10 && y <= barHeightsA(d) - margin) ? 1 : 0
             })
 
         seekersInView.select('circle')
@@ -364,6 +368,8 @@ async function drawSimulation() {
                     .html(arrivedData.get(gender) ? arrivedData.get(gender) : '-')
             })
         })
+
+        seekersGroup.selectAll('.seeker').filter(d=>d.yProgress>=1.1).remove()
 
         // const enslaversInView = [...new Set(arrivedRaw.filter(d => d.enslaver).map(d => d.enslaver))]
         // const enslaversInViewNum = enslaversInView.length
