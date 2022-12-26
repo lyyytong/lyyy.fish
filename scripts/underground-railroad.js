@@ -22,16 +22,15 @@ async function drawSimulation() {
         height: d3.max([window.innerHeight * .9, 600]),
         margin: {
             top: 10,
-            right: 10,
+            right: 15,
         }
     }
     const genderLabelY = 25 // y coordinate of bar chart labels
     dim.margin.bottom = lineH * 5.5 + genderLabelY
-    // dim.margin.bottom = lineH * 4.5 + genderLabelY
     dim.margin.left = d3.min([dim.width * .22, 90])
     dim.boundedW = dim.width - dim.margin.left - dim.margin.right
     dim.boundedH = dim.height - dim.margin.top - dim.margin.bottom
-    // dim.enslaverScatterH = dim.boundedH * .5
+    dim.enslaverScatterH = dim.boundedH * .5
     dim.genderChartH = dim.boundedH * .6
 
     // start & end positions of circles
@@ -48,6 +47,7 @@ async function drawSimulation() {
             ${dim.margin.left}px,
             ${dim.margin.top}px
         )`)
+
     // const defs = wrapper.append('defs')
 
     // const blurID = 'bigObjectBlur' // blur effect for circles
@@ -251,10 +251,10 @@ async function drawSimulation() {
 
     // d3.interval(addSeekers, addSeekersDelay)
     // d3.timer(moveSeekers)
-    d3.timer(elapsed=>{
+    d3.interval(elapsed=>{
         if (d3.now()%addSeekersDelay<=11) addSeekers(elapsed)
         moveSeekers(elapsed)
-    })
+    },10)
     function addSeekers(elapsed) {
         if (seekers.length < dataset.length) {
             const nextSeekerIndex = seekers.length

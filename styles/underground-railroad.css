@@ -13,12 +13,12 @@
     --big-font-spacing: -0.02em;
     --base-color: #e9ba96;
     --main-color: #b91c2f;
-    --stroke-color: #ec6764;
+    /* --stroke-color: #ec6764; */
     /* --armed-stroke-color: #6447e2; */
-    --armed-stroke-color: #8f76ff;
+    --armed-stroke-color: #8c77ea;
     --armed-2nd-color: #613eff;
     /* --literate-stroke-color:#7ce478; */
-    --literate-stroke-color:#83d480;
+    --literate-stroke-color:#6dd369;
     --literate-2nd-color: #4fff52;
 } 
 
@@ -31,7 +31,7 @@ a,
 a:visited,
 a:hover {
     color: var(--main-color);
-    /* text-decoration: none; */
+    /* text-decoration: underline 1px var(--main-color) solid; */
 }
 
 body {    
@@ -94,10 +94,6 @@ p {
     text-indent: 30px;
 }
 
-/* svg {
-    overflow: visible;
-} */
-
 circle.armed {
     stroke: var(--armed-stroke-color) !important;
 }
@@ -119,7 +115,6 @@ circle.literate {
 }
 
 circle.stroked {
-    /* stroke: var(--stroke-color); */
     stroke: var(--base-color);
 }
 
@@ -136,7 +131,7 @@ circle.stroked {
 /* #about :is(a,a:visited,a:hover){
     background-color: var(--main-color);
     color: var(--base-color);
-    padding: 2px 8px;
+    padding: 0 6px;
     border-radius: 20px;
 } */
 
@@ -145,7 +140,7 @@ circle.stroked {
     font-weight: var(--thick-weight);
     letter-spacing: var(--small-font-spacing);
     line-height: 1.4em;
-    opacity: .5;
+    opacity: .4;
     text-align: center;
 }
 
@@ -156,7 +151,6 @@ circle.stroked {
     height: 250px;
     border-radius: 100%;
     position: relative;
-    /* box-shadow: 0 0 5px var(--main-color); */
 }
 
 #photo .overlay {
@@ -247,7 +241,7 @@ circle.stroked {
 .enslaver {
     fill: var(--main-color);
     text-anchor: middle;
-    opacity: .4;
+    opacity: .3;
     font-size: .5em;
 }
 
