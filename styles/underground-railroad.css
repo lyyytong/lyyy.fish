@@ -4,7 +4,7 @@
     --small-font-size: .8em;
     --tiny-font-size: .7em;
     --big-font-fize: 2.3em;
-    --main-weight: 380;
+    --main-weight: 400;
     --skinny-weight: 200;
     --thick-weight: 450;
     --main-spacing: -0.005em;
@@ -29,6 +29,7 @@ a,
 a:visited,
 a:hover {
     color: var(--main-color);
+    text-decoration: none;
 }
 
 body {    
@@ -37,7 +38,7 @@ body {
     font-size: var(--main-font-size);
     font-weight: var(--main-weight);
     letter-spacing: var(--main-spacing);
-    margin: 30px 8px 60px 8px;
+    margin: 30px 8px 50px 8px;
     position: relative;
     line-height: 1em;
     color: var(--main-color);
@@ -129,12 +130,16 @@ circle.stroked {
     hyphens: auto;
 }
 
+#about :is(a,a:visited,a:hover){
+    border-bottom: 1px var(--main-color) dotted;
+}
+
 #data-source {
     font-size: var(--tiny-font-size);
     font-weight: var(--thick-weight);
     letter-spacing: var(--small-font-spacing);
-    line-height: 1.3em;
-    opacity: .6;
+    line-height: 1.4em;
+    opacity: .5;
     text-align: center;
 }
 
@@ -185,7 +190,7 @@ circle.stroked {
 }
 
 #speeds > text {
-    letter-spacing: -0.2em;
+    letter-spacing: -0.3em;
     text-align: center;
     position: relative;
     left: -1px;
@@ -382,7 +387,7 @@ circle.stroked {
 
     main #simulation-container {
         width: 50vw;
-        gap: 8px;
+        gap: 16px;
     }
 
     nav {

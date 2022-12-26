@@ -31,7 +31,7 @@ async function drawSimulation() {
     dim.margin.left = d3.min([dim.width * .22, 90])
     dim.boundedW = dim.width - dim.margin.left - dim.margin.right
     dim.boundedH = dim.height - dim.margin.top - dim.margin.bottom
-    dim.enslaverScatterH = dim.boundedH * .5
+    // dim.enslaverScatterH = dim.boundedH * .5
     dim.genderChartH = dim.boundedH * .6
 
     // start & end positions of circles
@@ -60,13 +60,13 @@ async function drawSimulation() {
     smallBlurFilter.append('feGaussianBlur')
         .attr('stdDeviation', .8).attr('in', 'SourceGraphic')
 
-    const glowID = 'smallGlow' // glow effect for enslaver triangles
-    const glowFilter = defs.append('filter').attr('id', glowID)
-    glowFilter.append('feGaussianBlur')
-        .attr('stdDeviation', 2).attr('result', 'coloredBlur')
-    const glowFeMerge = glowFilter.append('feMerge')
-    glowFeMerge.append('feMergeNode').attr('in', 'coloredBlur')
-    glowFeMerge.append('feMergeNode').attr('in', 'SourceGraphic')
+    // const glowID = 'smallGlow' // glow effect for enslaver triangles
+    // const glowFilter = defs.append('filter').attr('id', glowID)
+    // glowFilter.append('feGaussianBlur')
+    //     .attr('stdDeviation', 2).attr('result', 'coloredBlur')
+    // const glowFeMerge = glowFilter.append('feMerge')
+    // glowFeMerge.append('feMergeNode').attr('in', 'coloredBlur')
+    // glowFeMerge.append('feMergeNode').attr('in', 'SourceGraphic')
 
     // ANIMATION TIME
     let travelDuration = 5500 // time for circle to move from top to bottom of svg
@@ -245,12 +245,11 @@ async function drawSimulation() {
     // ANIMATION
     let seekers = []
     let arrivedBarsH = { M: 0, F: 0, Unknown: 0 }
-    let enslaversNum = 0
+    // let enslaversNum = 0
 
     // d3.interval(addSeekers, addSeekersDelay)
     d3.timer(elapsed=>{
-        if (d3.now()%addSeekersDelay<=11) 
-            addSeekers(elapsed)
+        if (d3.now()%addSeekersDelay<=11) addSeekers(elapsed)
         moveSeekers(elapsed)
     })
     function addSeekers(elapsed) {
@@ -271,12 +270,12 @@ async function drawSimulation() {
                 .classed('literate', d => d.isLiterate)
                 .classed('armed', d => d.isArmed)
                 .style('filter', d => !d.isChild ? `url(#${blurID})` : '')
-                .style('stroke-width','3px')
+                .style('stroke-width','2px')
             newSeeker.append('text').attr('class', 'name')
                 .html(d => d.firstMiddleName && d.lastName!='Unidentified' ? `${d.firstMiddleName.replace(' (sic)', '')} ${d.lastName}`
                     : d.firstMiddleName && d.lastName == 'Unidentified' && d.alias ? `${d.firstMiddleName.replace(' (sic)', '')} aka. ${d.alias}`
                         : d.lastName == 'Unidentified' && d.alias ? `(alias) ${d.alias}`
-                            : d.lastName == 'Unidentified' ? ''
+                            : d.lastName == 'Unidentified' ? '(unknown)'
                                 : d.lastName)
             newSeeker.append('text').attr('class', 'desc')
                 .html(d => `${d.age ? d.age : ''}${d.age && d.isChild ? ', child' : d.isChild ? 'child' : ''}${(d.age || d.isChild) && d.isLiterate ? ', literate' : d.isLiterate ? 'literate' : ''}${(d.age || d.isChild || d.isLiterate) && d.isArmed ? ', armed' : d.isArmed ? 'armed' : ''}`)                
@@ -315,8 +314,7 @@ async function drawSimulation() {
             .transition().duration(transitionTime)
             .style('opacity', d => {
                 const y = yPositionA(d)
-                const margin = d.isChild ? adultR * .7 : adultR
-                return (y > 20 && y <= barHeightsA(d) - margin) ? 1 : 0
+                return (y > 20 && y <= barHeightsA(d) - 20) ? 1 : 0
             })
 
         seekersInView.select('circle')
