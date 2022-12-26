@@ -69,9 +69,9 @@ async function drawSimulation() {
     // glowFeMerge.append('feMergeNode').attr('in', 'SourceGraphic')
 
     // ANIMATION TIME
-    let travelDuration = 5500 // time for circle to move from top to bottom of svg
-    let addSeekersDelay = Math.round(travelDuration / 10) // add new circle after delay
-    let transitionTime = Math.round(travelDuration / 100) // for circle size & opacity animation
+    let travelDuration = 6500 // time for circle to move from top to bottom of svg
+    let addSeekersDelay = Math.round(travelDuration / 12) // add new circle after delay
+    let transitionTime = Math.round(travelDuration / 130) // for circle size & opacity animation
     let speedChange
 
     // SCALES
@@ -83,7 +83,7 @@ async function drawSimulation() {
     const genderBand = genderXScale.bandwidth()
 
     const progressXScale = d3.scaleLinear()
-        .domain([.3, .6])
+        .domain([.3, .5])
         .range([0, 1])
         .clamp(true)
 
@@ -248,8 +248,9 @@ async function drawSimulation() {
     // let enslaversNum = 0
 
     // d3.interval(addSeekers, addSeekersDelay)
+    // d3.timer(moveSeekers)
     d3.interval(elapsed=>{
-        if (d3.now()%addSeekersDelay<=11) addSeekers(elapsed)
+        if (elapsed%addSeekersDelay<=11) addSeekers(elapsed)
         moveSeekers(elapsed)
     },10)
     function addSeekers(elapsed) {
@@ -394,9 +395,9 @@ async function drawSimulation() {
         d3.selectAll('.speed').classed('active',false)
         d3.select(clicked).classed('active',true)
         const divider = +clicked.innerHTML.split(' ')[1]
-        travelDuration = Math.round(5000 / divider)
-        addSeekersDelay = Math.round(travelDuration / 10)
-        transitionTime = Math.round(travelDuration / 100)
+        travelDuration = Math.round(6500 / divider)
+        addSeekersDelay = Math.round(travelDuration / 12)
+        transitionTime = Math.round(travelDuration / 130)
         speedChange = true
     }
 
