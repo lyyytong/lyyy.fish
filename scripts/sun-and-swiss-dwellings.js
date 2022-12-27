@@ -7,7 +7,7 @@ const maxWidth = 550
 
 const colorDark = '#E15A97'
 const colorWarm = '#feb0c0'
-const colorLight = '#fcebd7'
+const colorLight = '#FBE2C6'
 
 const lineTexture = textures.lines().size(4).strokeWidth(2).stroke('var(--bg-color)')
 const dotTexture = textures.circles().size(2.5).radius(.6).fill('var(--main-color')
@@ -330,7 +330,7 @@ async function drawFloors() {
     const rectHeight = yScale(0) + bandH - rectY
     const rectWidth = dim.boundedWidth * .3
     const highlightGradientId = 'highlight-gradient'
-    getLinearGradient(defs,highlightGradientId,'#d2d6fc','transparent')
+    getLinearGradient(defs,highlightGradientId,'#CECBF6','transparent')
     notes.append('rect')
         .attr('y', rectY)
         .attr('height', rectHeight)
