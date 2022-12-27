@@ -48,29 +48,9 @@ async function drawSimulation() {
             ${dim.margin.top}px
         )`)
 
-    // const defs = wrapper.append('defs')
-
-    // const blurID = 'bigObjectBlur' // blur effect for circles
-    // const blurFilter = defs.append('filter').attr('id', blurID)
-    // blurFilter.append('feGaussianBlur')
-    //     .attr('stdDeviation', 2).attr('in', 'SourceGraphic')
-
-    // const smallBlurID = 'smallObjectBlur' // blur effect for legend icons
-    // const smallBlurFilter = defs.append('filter').attr('id', smallBlurID)
-    // smallBlurFilter.append('feGaussianBlur')
-    //     .attr('stdDeviation', .8).attr('in', 'SourceGraphic')
-
-    // const glowID = 'smallGlow' // glow effect for enslaver triangles
-    // const glowFilter = defs.append('filter').attr('id', glowID)
-    // glowFilter.append('feGaussianBlur')
-    //     .attr('stdDeviation', 2).attr('result', 'coloredBlur')
-    // const glowFeMerge = glowFilter.append('feMerge')
-    // glowFeMerge.append('feMergeNode').attr('in', 'coloredBlur')
-    // glowFeMerge.append('feMergeNode').attr('in', 'SourceGraphic')
-
     // ANIMATION TIME
     let travelDuration = 6000 // time for circle to move from top to bottom of svg
-    let addSeekersDelay = Math.round(travelDuration / 120) // add new circle after delay
+    let addSeekersDelay = Math.round(travelDuration / 150) // add new circle after delay
     let transitionTime = Math.round(travelDuration / 110) // for circle size & opacity animation
     let speedChange
 
@@ -109,7 +89,6 @@ async function drawSimulation() {
     
     const enslavers = [...new Set(dataset.filter(d => d.enslaver).map(d => d.enslaver))]
     const enslaversGroup = bounds.append('g')
-        // .style('filter', `url(#${glowID})`)
     
     const genderBars = bounds.append('g')
         .style('transform', `translateY(${dim.boundedH - dim.genderChartH}px)`)
@@ -117,7 +96,6 @@ async function drawSimulation() {
         .join('rect').attr('class', `bar`)
         .attr('x', d => genderXScale(d))
         .attr('width', genderBand)
-        // .style('filter', `url(#${blurID})`)
 
     const counts = bounds.append('g')
         .style('transform', `translateY(${dim.boundedH}px)`)
@@ -181,7 +159,6 @@ async function drawSimulation() {
             : d == 'isChild' ? 2.5
                 : 4.5
         )
-        // .style('filter', d => d != 'isChild' ? `url(#${smallBlurID})` : '')
     const enslaversLabels = labelsGroup.append('g')
         .style('transform', `translateY(${dim.margin.bottom - lineH}px)`)
     enslaversLabels.append('text').classed('label', true)
@@ -190,10 +167,8 @@ async function drawSimulation() {
     enslaversLabels.append('text').classed('enslaver-icon', true)
         .attr('x', labelsX).attr('y', lineH / 2 + 1)
         .html('▲')
-        // .style('filter', `url(#${glowID})`)
     enslaversLabels.append('rect').attr('class', 'enslavers-bg')
         .attr('width', dim.boundedW + 5).attr('height', lineH)
-        // .style('filter', `url(#${glowID})`)
     
     // FULL STATS
     const fullGenderData = d3.rollup(dataset, v => v.length, d => d.gender)
@@ -204,7 +179,6 @@ async function drawSimulation() {
         .join('rect').attr('class', `bar`)
         .attr('x', d => genderXScale(d))
         .attr('width', genderBand)
-        // .style('filter', `url(#${blurID})`)
     const fullCounts = fullDataGroup.append('g')
         .style('transform', `translateY(${dim.boundedH}px)`)
     fullCounts.selectAll('.gender-label').data(genders)
@@ -250,8 +224,6 @@ async function drawSimulation() {
     let enslaversNum = 0
     let count = 0
 
-    // d3.interval(addSeekers, addSeekersDelay)
-    // d3.timer(moveSeekers)
     d3.timer(elapsed=>{
         count++
         if (count%addSeekersDelay==0) addSeekers(elapsed)
@@ -271,11 +243,8 @@ async function drawSimulation() {
                 .datum(nextSeeker).classed('seeker',true)
                 .style('opacity',0)
             newSeeker.append('circle')
-                // .classed('stroked', d => !d.isChild)
-                .classed('stroked',true)
                 .classed('literate', d => d.isLiterate)
                 .classed('armed', d => d.isArmed)
-                // .style('filter', d => !d.isChild ? `url(#${blurID})` : '')
                 .style('stroke-width','2px')
             newSeeker.append('text').attr('class', 'name')
                 .html(d => d.firstMiddleName && d.lastName!='Unidentified' ? `${d.firstMiddleName.replace(' (sic)', '')} ${d.lastName}`
@@ -398,7 +367,7 @@ async function drawSimulation() {
         d3.select(clicked).classed('active',true)
         const divider = +clicked.innerHTML.split(' ')[1]
         travelDuration = Math.round(6000 / divider)
-        addSeekersDelay = Math.round(travelDuration / 120)
+        addSeekersDelay = Math.round(travelDuration / 150)
         transitionTime = Math.round(travelDuration / 110)
         speedChange = true
     }

@@ -3,10 +3,10 @@
     --main-font-size: clamp(15px, 3vw, 17px);
     --small-font-size: .8em;
     --tiny-font-size: .7em;
-    --big-font-fize: 2.3em;
-    --main-weight: 400;
+    --big-font-fize: 2.5em;
+    --main-weight: 450;
     --skinny-weight: 200;
-    --thick-weight: 450;
+    --thick-weight: 500;
     --main-spacing: -0.005em;
     --small-font-spacing: .05em;
     --tiny-font-spacing: .09em;
@@ -14,12 +14,8 @@
     --base-color: #e9ba96;
     --main-color: #b91c2f;
     /* --stroke-color: #ec6764; */
-    /* --armed-stroke-color: #6447e2; */
-    --armed-stroke-color: #8c77ea;
-    --armed-2nd-color: #613eff;
-    /* --literate-stroke-color:#7ce478; */
-    --literate-stroke-color:#6dd369;
-    --literate-2nd-color: #4fff52;
+    --armed-stroke-color: #32021F;
+    --literate-stroke-color:#C7FFED;
 } 
 
 html {
@@ -29,9 +25,9 @@ html {
 
 a,
 a:visited,
+a:active,
 a:hover {
     color: var(--main-color);
-    /* text-decoration: underline 1px var(--main-color) solid; */
 }
 
 body {    
@@ -107,11 +103,11 @@ circle.empty {
 }
 
 circle.empty.armed {
-    stroke: var(--armed-2nd-color) !important;
+    stroke: var(--armed-stroke-color) !important;
 }
 
 circle.empty.literate {
-    stroke: var(--literate-2nd-color) !important;
+    stroke: var(--literate-stroke-color) !important;
 }
 
 circle.literate {
@@ -119,7 +115,7 @@ circle.literate {
 }
 
 circle.stroked {
-    stroke: var(--base-color);
+    stroke: var(--stroke-color);
 }
 
 #about {
@@ -326,6 +322,7 @@ circle.stroked {
 .bar,
 .seeker {
     fill: var(--main-color);
+    stroke: var(--base-color);
 }
 
 .disabled {
@@ -385,7 +382,7 @@ circle.stroked {
         padding: 0;
         position: relative;
         gap: 45px;
-        height: 100vh;
+        height: 98vh;
         justify-content: center;
     }
 
