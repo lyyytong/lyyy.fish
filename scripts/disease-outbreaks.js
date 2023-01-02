@@ -121,6 +121,8 @@ async function drawDiseases() {
                 }
             }
         })
+    mouseConstraint.mouse.element.removeEventListener('mousewheel',mouseConstraint.mouse.mousewheel)
+    mouseConstraint.mouse.element.removeEventListener('DOMMouseScroll',mouseConstraint.mouse.mousewheel)
     Composite.add(world, mouseConstraint)
 
     // keep mouse in sync with rendering
@@ -324,24 +326,55 @@ async function drawDiseases() {
             Composite.add(world, rope)
         })
 
-        const labelW = d3.min([initCountry.length * countryFontSize, width])
-        const labelH = 25
-        const countryLabel = Bodies.rectangle(width / 2, height / 2, labelW, labelH, {
-            restitution: 0.5,
-            angle: Math.PI * .04,
-            collisionFilter: {
-                mask: defaultCat
-            },
-            render: {
-                sprite: {
-                    texture: getLabel(initCountry, labelW, labelH, faintColor2, countryFontSize, 'normal'),
-                    xScale: labelScale,
-                    yScale: labelScale
+        const countryA = initCountry.replaceAll(",",'').split(' ')
+        let countryAW = 0
+        countryA.forEach(word => { countryAW += word.length * countryFontSize * .7 })
+        const leftX = (width - countryAW) / 2
+        const indent = countryAW / countryA.length
+        const bottomY = height - 50
+        countryA.forEach((word,i) => {
+            const labelW = word.length * countryFontSize * .6
+            const labelH = 25
+            const countryLabel = Bodies.rectangle(
+                leftX + indent * i + labelW/2, 
+                bottomY - 80 * i, 
+                labelW, labelH,
+                 {
+                restitution: 0.5,
+                angle: Math.PI * .03,
+                collisionFilter: {
+                    mask: defaultCat
+                },
+                render: {
+                    sprite: {
+                        texture: getLabel(word, labelW, labelH, faintColor2, countryFontSize, 'normal'),
+                        xScale: labelScale,
+                        yScale: labelScale
+                    }
                 }
-            }
+            })
+            currentBodies.push(countryLabel)
+            Composite.add(world, countryLabel)
         })
-        currentBodies.push(countryLabel)
-        Composite.add(world, countryLabel)
+        // // const labelW = d3.min([initCountry.length * countryFontSize, width])
+        // const labelW = initCountry.length * countryFontSize
+        // const labelH = 25
+        // const countryLabel = Bodies.rectangle(width / 2, height / 2, labelW, labelH, {
+        //     restitution: 0.5,
+        //     angle: Math.PI * .1,
+        //     collisionFilter: {
+        //         mask: defaultCat
+        //     },
+        //     render: {
+        //         sprite: {
+        //             texture: getLabel(initCountry, labelW, labelH, faintColor2, countryFontSize, 'normal'),
+        //             xScale: labelScale,
+        //             yScale: labelScale
+        //         }
+        //     }
+        // })
+        // currentBodies.push(countryLabel)
+        // Composite.add(world, countryLabel)
     }
 }
 
@@ -359,9 +392,9 @@ function getLabel(string, width, height, textColor, fontSize, orientation) {
     } else if (orientation == 'normal') {
         ctx.fillStyle = textColor
         ctx.font = `normal 100 ${fontSize}px ${fontFamily}`
-        ctx.textAlign = "center"
+        ctx.textAlign = "start"
         ctx.textBaseline = 'middle'
-        ctx.fillText(string, width / 2, height / 2)
+        ctx.fillText(string, 0, height / 2 + 2)
     }
     return canvas.toDataURL("image/png");
 }

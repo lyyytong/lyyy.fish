@@ -103,6 +103,12 @@ p {
     justify-content: center;
 }
 
+#visualization {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .option {
     background: var(--off-black-color);
     border-radius: 20px;
