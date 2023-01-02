@@ -136,7 +136,7 @@ async function drawDiseases() {
             const startY = touchStart.changedTouches[0].clientY
             const endY = event.changedTouches[0].clientY
             const delta = startY - endY
-            if (delta >= 50) {
+            if (delta >= 30) {
                 window.scrollTo(0, sortByY)
             }
         }
