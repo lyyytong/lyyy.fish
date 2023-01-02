@@ -129,22 +129,18 @@ async function drawDiseases() {
         if (!mouseConstraint.body) {
             touchStart = event
         }
-    });
+    })
+    const sortByY = d3.select('#sort .cta').node().getBoundingClientRect().y
     mouseConstraint.mouse.element.addEventListener('touchend', event => {
         if (!mouseConstraint.body) {
             const startY = touchStart.changedTouches[0].clientY
             const endY = event.changedTouches[0].clientY
             const delta = startY - endY
-            const currentY = window.scrollY
-            window.scrollTo(0, currentY + delta)
-            // if (delta > 80) {
-            //     window.scrollTo(0, 600);
-            // }
+            if (delta >= 50) {
+                window.scrollTo(0, sortByY)
+            }
         }
     })
-    // document.addEventListener('scroll', event => {
-    //     console.log(window.scrollY)
-    // })
     Composite.add(world, mouseConstraint)
 
     // keep mouse in sync with rendering
