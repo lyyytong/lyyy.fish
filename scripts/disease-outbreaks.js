@@ -335,46 +335,28 @@ async function drawDiseases() {
         countryA.forEach((word,i) => {
             const labelW = word.length * countryFontSize * .6
             const labelH = 25
-            const countryLabel = Bodies.rectangle(
+            const wordLabel = Bodies.rectangle(
                 leftX + indent * i + labelW/2, 
                 bottomY - 80 * i, 
                 labelW, labelH,
-                 {
-                restitution: 0.5,
-                angle: Math.PI * .03,
-                collisionFilter: {
-                    mask: defaultCat
-                },
-                render: {
-                    sprite: {
-                        texture: getLabel(word, labelW, labelH, faintColor2, countryFontSize, 'normal'),
-                        xScale: labelScale,
-                        yScale: labelScale
+                {
+                    restitution: 0.5,
+                    angle: Math.PI * .03,
+                    collisionFilter: {
+                        mask: defaultCat
+                    },
+                    render: {
+                        sprite: {
+                            texture: getLabel(word, labelW, labelH, faintColor2, countryFontSize, 'normal'),
+                            xScale: labelScale,
+                            yScale: labelScale
+                        }
                     }
                 }
-            })
-            currentBodies.push(countryLabel)
-            Composite.add(world, countryLabel)
+            )
+            currentBodies.push(wordLabel)
+            Composite.add(world, wordLabel)
         })
-        // // const labelW = d3.min([initCountry.length * countryFontSize, width])
-        // const labelW = initCountry.length * countryFontSize
-        // const labelH = 25
-        // const countryLabel = Bodies.rectangle(width / 2, height / 2, labelW, labelH, {
-        //     restitution: 0.5,
-        //     angle: Math.PI * .1,
-        //     collisionFilter: {
-        //         mask: defaultCat
-        //     },
-        //     render: {
-        //         sprite: {
-        //             texture: getLabel(initCountry, labelW, labelH, faintColor2, countryFontSize, 'normal'),
-        //             xScale: labelScale,
-        //             yScale: labelScale
-        //         }
-        //     }
-        // })
-        // currentBodies.push(countryLabel)
-        // Composite.add(world, countryLabel)
     }
 }
 
