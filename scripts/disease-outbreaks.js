@@ -350,7 +350,7 @@ async function drawDiseases() {
         const bottomY = height - 50
         countryA.forEach((word, i) => {
             const labelW = word.length * countryFontSize * .6
-            const labelH = 25
+            const labelH = 27
             const wordLabel = Bodies.rectangle(
                 leftX + indent * i + labelW / 2,
                 bottomY - 80 * i,
@@ -392,7 +392,7 @@ function getLabel(string, width, height, textColor, fontSize, orientation) {
         ctx.font = `normal 100 ${fontSize}px ${fontFamily}`
         ctx.textAlign = "start"
         ctx.textBaseline = 'middle'
-        ctx.fillText(string, 0, height / 2 + 2)
+        ctx.fillText(string, 0, height / 2)
     }
     return canvas.toDataURL("image/png");
 }
