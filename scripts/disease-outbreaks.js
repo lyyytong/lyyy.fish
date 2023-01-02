@@ -123,21 +123,19 @@ async function drawDiseases() {
         })
     mouseConstraint.mouse.element.removeEventListener('mousewheel', mouseConstraint.mouse.mousewheel)
     mouseConstraint.mouse.element.removeEventListener('DOMMouseScroll', mouseConstraint.mouse.mousewheel)
-
     let touchStart;
     mouseConstraint.mouse.element.addEventListener('touchstart', event => {
         if (!mouseConstraint.body) {
             touchStart = event
         }
     })
-    const sortByY = d3.select('#sort .cta').node().getBoundingClientRect().y
     mouseConstraint.mouse.element.addEventListener('touchend', event => {
         if (!mouseConstraint.body) {
             const startY = touchStart.changedTouches[0].clientY
             const endY = event.changedTouches[0].clientY
             const delta = startY - endY
-            if (delta >= 30) {
-                window.scrollTo(0, sortByY)
+            if (delta >= 50) {
+                window.scrollBy(0,window.innerHeight/2)
             }
         }
     })
