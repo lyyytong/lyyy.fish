@@ -127,21 +127,24 @@ async function drawDiseases() {
     let touchStart;
     mouseConstraint.mouse.element.addEventListener('touchstart', event => {
         if (!mouseConstraint.body) {
-            touchStart = event;
+            touchStart = event
         }
     });
     mouseConstraint.mouse.element.addEventListener('touchend', event => {
         if (!mouseConstraint.body) {
-            const startY = touchStart.changedTouches[0].clientY;
-            const endY = event.changedTouches[0].clientY;
-            const delta = endY - startY;
-
-            if (delta > 80) {
-                window.scrollTo(0, 600);
-            }
+            const startY = touchStart.changedTouches[0].clientY
+            const endY = event.changedTouches[0].clientY
+            const delta = startY - endY
+            const currentY = window.scrollY
+            window.scrollTo(0, currentY + delta)
+            // if (delta > 80) {
+            //     window.scrollTo(0, 600);
+            // }
         }
     })
-
+    // document.addEventListener('scroll', event => {
+    //     console.log(window.scrollY)
+    // })
     Composite.add(world, mouseConstraint)
 
     // keep mouse in sync with rendering
