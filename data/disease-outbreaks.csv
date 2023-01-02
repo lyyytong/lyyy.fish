@@ -1,0 +1,1108 @@
+region,sub-region,country,disease,outbreaks
+Asia,Southern Asia,Afghanistan,Influenza,1
+Asia,Southern Asia,Afghanistan,Acute Polio,1
+Asia,Southern Asia,Afghanistan,COVID-19,3
+Asia,Southern Asia,Afghanistan,Cholera,5
+Asia,Southern Asia,Afghanistan,Dengue,1
+Asia,Southern Asia,Afghanistan,Diphtheria,1
+Asia,Southern Asia,Afghanistan,Infection,1
+Asia,Southern Asia,Afghanistan,Infectious Gastroenteritis or Colitis,1
+Asia,Southern Asia,Afghanistan,Leishmaniasis,1
+Asia,Southern Asia,Afghanistan,Measles,1
+Asia,Southern Asia,Afghanistan,SARS,1
+Asia,Southern Asia,Afghanistan,Unspecified Viral Haemorrhagic Fever,2
+Asia,Southern Asia,Afghanistan,Whooping Cough Pertussis,1
+Europe,Southern Europe,Albania,Influenza,1
+Europe,Southern Europe,Albania,Acute Polio,1
+Europe,Southern Europe,Albania,COVID-19,3
+Europe,Southern Europe,Albania,West Nile Virus,1
+Africa,Northern Africa,Algeria,Influenza,2
+Africa,Northern Africa,Algeria,COVID-19,3
+Africa,Northern Africa,Algeria,Cholera,1
+Africa,Northern Africa,Algeria,MERS,1
+Africa,Northern Africa,Algeria,Plague,1
+Africa,Northern Africa,Algeria,Typhoid Fever,1
+Oceania,Polynesia,American Samoa,Influenza,1
+Oceania,Polynesia,American Samoa,COVID-19,2
+Oceania,Polynesia,American Samoa,Measles,1
+Europe,Southern Europe,Andorra,Influenza,1
+Europe,Southern Europe,Andorra,COVID-19,3
+Africa,Sub-Saharan Africa,Angola,Influenza,2
+Africa,Sub-Saharan Africa,Angola,Acute Polio,5
+Africa,Sub-Saharan Africa,Angola,COVID-19,3
+Africa,Sub-Saharan Africa,Angola,Cholera,1
+Africa,Sub-Saharan Africa,Angola,Infection,2
+Africa,Sub-Saharan Africa,Angola,Meningococcal Meningitis,2
+Africa,Sub-Saharan Africa,Angola,Unspecified Viral Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,Angola,Viral Meningitis,2
+Africa,Sub-Saharan Africa,Angola,Yellow Fever,1
+Americas,Latin America and the Caribbean,Anguilla,COVID-19,3
+Americas,Latin America and the Caribbean,Antigua and Barbuda,Influenza,1
+Americas,Latin America and the Caribbean,Antigua and Barbuda,COVID-19,3
+Americas,Latin America and the Caribbean,Argentina,Influenza,2
+Americas,Latin America and the Caribbean,Argentina,COVID-19,3
+Americas,Latin America and the Caribbean,Argentina,Chikungunya Virus,1
+Americas,Latin America and the Caribbean,Argentina,Cholera,1
+Americas,Latin America and the Caribbean,Argentina,Hantavirus Pulmonary Syndrome,1
+Asia,Western Asia,Armenia,Influenza,1
+Asia,Western Asia,Armenia,COVID-19,3
+Asia,Western Asia,Armenia,Cholera,1
+Americas,Latin America and the Caribbean,Aruba,Influenza,1
+Americas,Latin America and the Caribbean,Aruba,COVID-19,3
+Oceania,Australia and New Zealand,Australia,Influenza,2
+Oceania,Australia and New Zealand,Australia,COVID-19,3
+Oceania,Australia and New Zealand,Australia,Legionnaires' Disease,1
+Oceania,Australia and New Zealand,Australia,Listeriosis,1
+Oceania,Australia and New Zealand,Australia,Measles,1
+Oceania,Australia and New Zealand,Australia,SARS,1
+Europe,Western Europe,Austria,Influenza,4
+Europe,Western Europe,Austria,Acute Hepatitis A,1
+Europe,Western Europe,Austria,COVID-19,3
+Europe,Western Europe,Austria,Escherichia Coli,1
+Europe,Western Europe,Austria,MERS,2
+Asia,Western Asia,Azerbaijan,Influenza,2
+Asia,Western Asia,Azerbaijan,COVID-19,3
+Americas,Latin America and the Caribbean,Bahamas,Influenza,1
+Americas,Latin America and the Caribbean,Bahamas,COVID-19,3
+Asia,Western Asia,Bahrain,Influenza,1
+Asia,Western Asia,Bahrain,COVID-19,3
+Asia,Western Asia,Bahrain,MERS,1
+Asia,Southern Asia,Bangladesh,Influenza,5
+Asia,Southern Asia,Bangladesh,Acute Polio,1
+Asia,Southern Asia,Bangladesh,COVID-19,3
+Asia,Southern Asia,Bangladesh,Diphtheria,1
+Asia,Southern Asia,Bangladesh,Infectious Gastroenteritis or Colitis,1
+Asia,Southern Asia,Bangladesh,Measles,1
+Asia,Southern Asia,Bangladesh,Unspecified Virus,3
+Americas,Latin America and the Caribbean,Barbados,Influenza,1
+Americas,Latin America and the Caribbean,Barbados,COVID-19,3
+Americas,Latin America and the Caribbean,Barbados,Zika Virus,1
+Europe,Eastern Europe,Belarus,COVID-19,3
+Europe,Western Europe,Belgium,Influenza,2
+Europe,Western Europe,Belgium,Acute Hepatitis A,1
+Europe,Western Europe,Belgium,COVID-19,3
+Europe,Western Europe,Belgium,Legionnaires' Disease,1
+Europe,Western Europe,Belgium,SARS,1
+Europe,Western Europe,Belgium,Yellow Fever,1
+Americas,Latin America and the Caribbean,Belize,Influenza,1
+Americas,Latin America and the Caribbean,Belize,COVID-19,3
+Americas,Latin America and the Caribbean,Belize,Cholera,1
+Africa,Sub-Saharan Africa,Benin,Acute Polio,3
+Africa,Sub-Saharan Africa,Benin,COVID-19,3
+Africa,Sub-Saharan Africa,Benin,Cholera,3
+Africa,Sub-Saharan Africa,Benin,Lassa Fever,2
+Africa,Sub-Saharan Africa,Benin,Meningococcal Meningitis,4
+Africa,Sub-Saharan Africa,Benin,Viral Meningitis,3
+Africa,Sub-Saharan Africa,Benin,Yellow Fever,1
+Americas,Northern America,Bermuda,Influenza,1
+Americas,Northern America,Bermuda,COVID-19,3
+Asia,Southern Asia,Bhutan,Influenza,2
+Asia,Southern Asia,Bhutan,COVID-19,3
+Asia,Southern Asia,Bhutan,Cholera,1
+Americas,Latin America and the Caribbean,Bolivia,Influenza,2
+Americas,Latin America and the Caribbean,Bolivia,COVID-19,3
+Americas,Latin America and the Caribbean,Bolivia,Cholera,2
+Americas,Latin America and the Caribbean,Bolivia,Sylvatic Yellow Fever,1
+Americas,Latin America and the Caribbean,Bolivia,Yellow Fever,2
+Americas,Latin America and the Caribbean,Bolivia,Zika Virus,1
+Americas,Latin America and the Caribbean,"Bonaire, Sint Eustatius, and Saba",Influenza,1
+Americas,Latin America and the Caribbean,"Bonaire, Sint Eustatius, and Saba",COVID-19,9
+Europe,Southern Europe,Bosnia and Herzegovina,Influenza,1
+Europe,Southern Europe,Bosnia and Herzegovina,COVID-19,3
+Europe,Southern Europe,Bosnia and Herzegovina,Measles,1
+Europe,Southern Europe,Bosnia and Herzegovina,Unspecified Viral Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,Botswana,Influenza,1
+Africa,Sub-Saharan Africa,Botswana,COVID-19,3
+Americas,Latin America and the Caribbean,Brazil,Influenza,4
+Americas,Latin America and the Caribbean,Brazil,Acute Polio,1
+Americas,Latin America and the Caribbean,Brazil,COVID-19,3
+Americas,Latin America and the Caribbean,Brazil,Cholera,2
+Americas,Latin America and the Caribbean,Brazil,Dengue,1
+Americas,Latin America and the Caribbean,Brazil,Measles,4
+Americas,Latin America and the Caribbean,Brazil,SARS,1
+Americas,Latin America and the Caribbean,Brazil,Sylvatic Yellow Fever,1
+Americas,Latin America and the Caribbean,Brazil,Unspecified Viral Haemorrhagic Fever,2
+Americas,Latin America and the Caribbean,Brazil,Viral Meningitis,1
+Americas,Latin America and the Caribbean,Brazil,West Nile Virus,1
+Americas,Latin America and the Caribbean,Brazil,Yellow Fever,9
+Americas,Latin America and the Caribbean,Brazil,Zika Virus,1
+Asia,South-eastern Asia,Brunei Darussalam,Influenza,1
+Asia,South-eastern Asia,Brunei Darussalam,COVID-19,3
+Asia,South-eastern Asia,Brunei Darussalam,Cholera,1
+Europe,Eastern Europe,Bulgaria,Influenza,2
+Europe,Eastern Europe,Bulgaria,COVID-19,3
+Europe,Eastern Europe,Bulgaria,SARS,1
+Africa,Sub-Saharan Africa,Burkina Faso,Acute Hepatitis E,1
+Africa,Sub-Saharan Africa,Burkina Faso,Acute Polio,2
+Africa,Sub-Saharan Africa,Burkina Faso,COVID-19,3
+Africa,Sub-Saharan Africa,Burkina Faso,Cholera,3
+Africa,Sub-Saharan Africa,Burkina Faso,Dengue,2
+Africa,Sub-Saharan Africa,Burkina Faso,Lassa Fever,1
+Africa,Sub-Saharan Africa,Burkina Faso,Meningococcal Meningitis,9
+Africa,Sub-Saharan Africa,Burkina Faso,Viral Meningitis,3
+Africa,Sub-Saharan Africa,Burkina Faso,Yellow Fever,4
+Africa,Sub-Saharan Africa,Burundi,Influenza,1
+Africa,Sub-Saharan Africa,Burundi,COVID-19,3
+Africa,Sub-Saharan Africa,Burundi,Cholera,5
+Africa,Sub-Saharan Africa,Burundi,Epidemic Louse-borne Typhus Fever,1
+Africa,Sub-Saharan Africa,Burundi,Malaria,1
+Africa,Sub-Saharan Africa,Burundi,Measles,1
+Africa,Sub-Saharan Africa,Cabo Verde,Influenza,1
+Africa,Sub-Saharan Africa,Cabo Verde,COVID-19,3
+Africa,Sub-Saharan Africa,Cabo Verde,Cholera,1
+Africa,Sub-Saharan Africa,Cabo Verde,Dengue,1
+Africa,Sub-Saharan Africa,Cabo Verde,Zika Virus,1
+Asia,South-eastern Asia,Cambodia,Influenza,9
+Asia,South-eastern Asia,Cambodia,COVID-19,3
+Asia,South-eastern Asia,Cambodia,Cholera,2
+Asia,South-eastern Asia,Cambodia,Dengue,1
+Asia,South-eastern Asia,Cambodia,"Hand, Foot, and Mouth Disease",1
+Asia,South-eastern Asia,Cambodia,Infection,1
+Asia,South-eastern Asia,Cambodia,Unspecified Viral Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,Cameroon,Influenza,2
+Africa,Sub-Saharan Africa,Cameroon,Acute Polio,4
+Africa,Sub-Saharan Africa,Cameroon,COVID-19,3
+Africa,Sub-Saharan Africa,Cameroon,Cholera,5
+Africa,Sub-Saharan Africa,Cameroon,Infectious Gastroenteritis or Colitis,1
+Africa,Sub-Saharan Africa,Cameroon,Meningococcal Meningitis,1
+Africa,Sub-Saharan Africa,Cameroon,Monkeypox,1
+Africa,Sub-Saharan Africa,Cameroon,Viral Meningitis,1
+Africa,Sub-Saharan Africa,Cameroon,Yellow Fever,5
+Americas,Northern America,Canada,Influenza,6
+Americas,Northern America,Canada,Botulism,1
+Americas,Northern America,Canada,COVID-19,3
+Americas,Northern America,Canada,Coronavirus Infection,1
+Americas,Northern America,Canada,Escherichia Coli,1
+Americas,Northern America,Canada,Leptospirosis,1
+Americas,Northern America,Canada,Measles,2
+Americas,Northern America,Canada,SARS,1
+Americas,Northern America,Canada,West Nile Virus,1
+Americas,Latin America and the Caribbean,Cayman Islands,Influenza,1
+Americas,Latin America and the Caribbean,Cayman Islands,COVID-19,3
+Africa,Sub-Saharan Africa,Central African Republic,Acute Polio,2
+Africa,Sub-Saharan Africa,Central African Republic,COVID-19,3
+Africa,Sub-Saharan Africa,Central African Republic,Cholera,1
+Africa,Sub-Saharan Africa,Central African Republic,Shigella Intestinal Infections,1
+Africa,Sub-Saharan Africa,Central African Republic,Measles,1
+Africa,Sub-Saharan Africa,Central African Republic,Meningococcal Meningitis,4
+Africa,Sub-Saharan Africa,Central African Republic,Monkeypox,1
+Africa,Sub-Saharan Africa,Central African Republic,Viral Meningitis,3
+Africa,Sub-Saharan Africa,Central African Republic,Yellow Fever,3
+Africa,Sub-Saharan Africa,Chad,Influenza,1
+Africa,Sub-Saharan Africa,Chad,Acute Hepatitis E,3
+Africa,Sub-Saharan Africa,Chad,Acute Polio,6
+Africa,Sub-Saharan Africa,Chad,COVID-19,3
+Africa,Sub-Saharan Africa,Chad,Chikungunya Virus,1
+Africa,Sub-Saharan Africa,Chad,Cholera,4
+Africa,Sub-Saharan Africa,Chad,Measles,1
+Africa,Sub-Saharan Africa,Chad,Meningococcal Meningitis,7
+Africa,Sub-Saharan Africa,Chad,Viral Meningitis,3
+Africa,Sub-Saharan Africa,Chad,Yellow Fever,2
+Americas,Latin America and the Caribbean,Chile,Influenza,4
+Americas,Latin America and the Caribbean,Chile,COVID-19,3
+Americas,Latin America and the Caribbean,Chile,Cholera,1
+Americas,Latin America and the Caribbean,Chile,Dengue,1
+Americas,Latin America and the Caribbean,Chile,Measles,2
+Americas,Latin America and the Caribbean,Chile,Zika Virus,1
+Asia,Eastern Asia,China,Influenza,18
+Asia,Eastern Asia,China,Acute Polio,1
+Asia,Eastern Asia,China,COVID-19,3
+Asia,Eastern Asia,China,Enterovirus,1
+Asia,Eastern Asia,China,Measles,1
+Asia,Eastern Asia,China,MERS,1
+Asia,Eastern Asia,China,Rift Valley Fever,1
+Asia,Eastern Asia,China,Sepsis without Septic Shock,1
+Asia,Eastern Asia,China,SARS,2
+Asia,Eastern Asia,China,Viral Pneumonia,1
+Asia,Eastern Asia,China,Yellow Fever,1
+Americas,Latin America and the Caribbean,Colombia,Influenza,2
+Americas,Latin America and the Caribbean,Colombia,COVID-19,3
+Americas,Latin America and the Caribbean,Colombia,Dengue,1
+Americas,Latin America and the Caribbean,Colombia,Measles,2
+Americas,Latin America and the Caribbean,Colombia,SARS,1
+Americas,Latin America and the Caribbean,Colombia,Sylvatic Yellow Fever,1
+Americas,Latin America and the Caribbean,Colombia,Zika Virus,1
+Africa,Sub-Saharan Africa,Comoros,COVID-19,3
+Africa,Sub-Saharan Africa,Comoros,Cholera,2
+Africa,Sub-Saharan Africa,Congo,Influenza,1
+Africa,Sub-Saharan Africa,Congo,Acute Polio,2
+Africa,Sub-Saharan Africa,Congo,COVID-19,3
+Africa,Sub-Saharan Africa,Congo,Chikungunya Virus,1
+Africa,Sub-Saharan Africa,Congo,Cholera,2
+Africa,Sub-Saharan Africa,Congo,Ebola,1
+Africa,Sub-Saharan Africa,Congo,Infectious Gastroenteritis or Colitis,1
+Africa,Sub-Saharan Africa,Congo,Unspecified Viral Haemorrhagic Fever,6
+Africa,Sub-Saharan Africa,Congo,Yellow Fever,3
+Africa,Sub-Saharan Africa,DR Congo,Acute Polio,6
+Africa,Sub-Saharan Africa,DR Congo,COVID-19,3
+Africa,Sub-Saharan Africa,DR Congo,Cholera,10
+Africa,Sub-Saharan Africa,DR Congo,Ebola,8
+Africa,Sub-Saharan Africa,DR Congo,Infection,1
+Africa,Sub-Saharan Africa,DR Congo,Marburg Disease,2
+Africa,Sub-Saharan Africa,DR Congo,Measles,2
+Africa,Sub-Saharan Africa,DR Congo,Meningococcal Meningitis,4
+Africa,Sub-Saharan Africa,DR Congo,Monkeypox,2
+Africa,Sub-Saharan Africa,DR Congo,Plague,3
+Africa,Sub-Saharan Africa,DR Congo,SARS,1
+Africa,Sub-Saharan Africa,DR Congo,Typhoid Fever,1
+Africa,Sub-Saharan Africa,DR Congo,Unspecified Viral Haemorrhagic Fever,6
+Africa,Sub-Saharan Africa,DR Congo,Viral Meningitis,3
+Africa,Sub-Saharan Africa,DR Congo,Yellow Fever,5
+Oceania,Polynesia,Cook Islands,Influenza,1
+Oceania,Polynesia,Cook Islands,COVID-19,1
+Oceania,Polynesia,Cook Islands,Dengue,2
+Americas,Latin America and the Caribbean,Costa Rica,Influenza,2
+Americas,Latin America and the Caribbean,Costa Rica,COVID-19,3
+Americas,Latin America and the Caribbean,Costa Rica,Zika Virus,1
+Europe,Southern Europe,Croatia,Influenza,2
+Europe,Southern Europe,Croatia,COVID-19,3
+Europe,Southern Europe,Croatia,Measles,1
+Americas,Latin America and the Caribbean,Cuba,Influenza,2
+Americas,Latin America and the Caribbean,Cuba,COVID-19,3
+Americas,Latin America and the Caribbean,Cuba,Dengue,1
+Americas,Latin America and the Caribbean,Cuba,Zika Virus,1
+Americas,Latin America and the Caribbean,Curaçao,Influenza,1
+Americas,Latin America and the Caribbean,Curaçao,COVID-19,3
+Americas,Latin America and the Caribbean,Curaçao,Zika Virus,1
+Asia,Western Asia,Cyprus,Influenza,2
+Asia,Western Asia,Cyprus,COVID-19,3
+Asia,Western Asia,Cyprus,Viral Meningitis,1
+Europe,Eastern Europe,Czechia,Influenza,3
+Europe,Eastern Europe,Czechia,COVID-19,3
+Africa,Sub-Saharan Africa,Côte d'Ivoire,Influenza,1
+Africa,Sub-Saharan Africa,Côte d'Ivoire,Acute Polio,4
+Africa,Sub-Saharan Africa,Côte d'Ivoire,COVID-19,3
+Africa,Sub-Saharan Africa,Côte d'Ivoire,Cholera,3
+Africa,Sub-Saharan Africa,Côte d'Ivoire,Dengue,1
+Africa,Sub-Saharan Africa,Côte d'Ivoire,Ebola,1
+Africa,Sub-Saharan Africa,Côte d'Ivoire,Meningococcal Meningitis,3
+Africa,Sub-Saharan Africa,Côte d'Ivoire,Yellow Fever,6
+Europe,Northern Europe,Denmark,Influenza,3
+Europe,Northern Europe,Denmark,Acute Hepatitis A,1
+Europe,Northern Europe,Denmark,COVID-19,3
+Europe,Northern Europe,Denmark,Escherichia Coli,1
+Europe,Northern Europe,Denmark,Shigella Intestinal Infections,1
+Europe,Northern Europe,Denmark,Meningococcal Meningitis,1
+Africa,Sub-Saharan Africa,Djibouti,Influenza,2
+Africa,Sub-Saharan Africa,Djibouti,COVID-19,3
+Africa,Sub-Saharan Africa,Djibouti,Cholera,1
+Americas,Latin America and the Caribbean,Dominica,Influenza,1
+Americas,Latin America and the Caribbean,Dominica,COVID-19,3
+Americas,Latin America and the Caribbean,Dominica,Zika Virus,1
+Americas,Latin America and the Caribbean,Dominican Republic,Influenza,2
+Americas,Latin America and the Caribbean,Dominican Republic,COVID-19,3
+Americas,Latin America and the Caribbean,Dominican Republic,Zika Virus,1
+Americas,Latin America and the Caribbean,Ecuador,Influenza,1
+Americas,Latin America and the Caribbean,Ecuador,COVID-19,3
+Americas,Latin America and the Caribbean,Ecuador,Cholera,2
+Americas,Latin America and the Caribbean,Ecuador,Measles,1
+Americas,Latin America and the Caribbean,Ecuador,Zika Virus,1
+Africa,Northern Africa,Egypt,Influenza,7
+Africa,Northern Africa,Egypt,COVID-19,3
+Africa,Northern Africa,Egypt,Dengue,1
+Africa,Northern Africa,Egypt,MERS,1
+Americas,Latin America and the Caribbean,El Salvador,Influenza,2
+Americas,Latin America and the Caribbean,El Salvador,COVID-19,3
+Americas,Latin America and the Caribbean,El Salvador,Cholera,1
+Americas,Latin America and the Caribbean,El Salvador,Dengue,1
+Americas,Latin America and the Caribbean,El Salvador,Unspecified Viral Haemorrhagic Fever,1
+Americas,Latin America and the Caribbean,El Salvador,Zika Virus,1
+Africa,Sub-Saharan Africa,Equatorial Guinea,Acute Polio,1
+Africa,Sub-Saharan Africa,Equatorial Guinea,COVID-19,3
+Africa,Sub-Saharan Africa,Eritrea,COVID-19,3
+Europe,Northern Europe,Estonia,Influenza,1
+Europe,Northern Europe,Estonia,COVID-19,3
+Africa,Sub-Saharan Africa,Eswatini,Influenza,1
+Africa,Sub-Saharan Africa,Eswatini,COVID-19,3
+Africa,Sub-Saharan Africa,Ethiopia,Influenza,1
+Africa,Sub-Saharan Africa,Ethiopia,Acute Polio,4
+Africa,Sub-Saharan Africa,Ethiopia,Anthrax,1
+Africa,Sub-Saharan Africa,Ethiopia,COVID-19,3
+Africa,Sub-Saharan Africa,Ethiopia,Dracunculiasis,1
+Africa,Sub-Saharan Africa,Ethiopia,Infectious Gastroenteritis or Colitis,1
+Africa,Sub-Saharan Africa,Ethiopia,Measles,1
+Africa,Sub-Saharan Africa,Ethiopia,Meningococcal Meningitis,5
+Africa,Sub-Saharan Africa,Ethiopia,Viral Meningitis,1
+Africa,Sub-Saharan Africa,Ethiopia,Yellow Fever,1
+Americas,Latin America and the Caribbean,Falkland Islands (Malvinas),Influenza,1
+Americas,Latin America and the Caribbean,Falkland Islands (Malvinas),COVID-19,3
+Europe,Northern Europe,Faroe Islands,COVID-19,3
+Oceania,Melanesia,Fiji,Influenza,1
+Oceania,Melanesia,Fiji,COVID-19,3
+Oceania,Melanesia,Fiji,Cholera,1
+Oceania,Melanesia,Fiji,Dengue,1
+Oceania,Melanesia,Fiji,Measles,1
+Europe,Northern Europe,Finland,Influenza,3
+Europe,Northern Europe,Finland,Acute Hepatitis A,1
+Europe,Northern Europe,Finland,COVID-19,3
+Europe,Western Europe,France,Influenza,4
+Europe,Western Europe,France,Acute Hepatitis A,1
+Europe,Western Europe,France,COVID-19,3
+Europe,Western Europe,France,Chikungunya Virus,2
+Europe,Western Europe,France,Creutzfeldt-Jakob Disease,1
+Europe,Western Europe,France,Escherichia Coli,1
+Europe,Western Europe,France,Salmonella,1
+Europe,Western Europe,France,Legionnaires' Disease,2
+Europe,Western Europe,France,Listeriosis,1
+Europe,Western Europe,France,Measles,2
+Europe,Western Europe,France,Meningococcal Meningitis,2
+Europe,Western Europe,France,MERS,1
+Europe,Western Europe,France,Rabies,1
+Europe,Western Europe,France,Rift Valley Fever,1
+Europe,Western Europe,France,SARS,1
+Europe,Western Europe,France,Yellow Fever,2
+Europe,Western Europe,France,Zika Virus,2
+Americas,Latin America and the Caribbean,French Guiana,Influenza,1
+Americas,Latin America and the Caribbean,French Guiana,Arboviral Fever,1
+Americas,Latin America and the Caribbean,French Guiana,COVID-19,3
+Americas,Latin America and the Caribbean,French Guiana,Dengue,1
+Americas,Latin America and the Caribbean,French Guiana,Oropouche Virus,1
+Americas,Latin America and the Caribbean,French Guiana,Yellow Fever,1
+Oceania,Polynesia,French Polynesia,Influenza,1
+Oceania,Polynesia,French Polynesia,COVID-19,3
+Africa,Sub-Saharan Africa,Gabon,Influenza,1
+Africa,Sub-Saharan Africa,Gabon,COVID-19,3
+Africa,Sub-Saharan Africa,Gabon,Ebola,1
+Africa,Sub-Saharan Africa,Gabon,Unspecified Viral Haemorrhagic Fever,4
+Africa,Sub-Saharan Africa,Gabon,Yellow Fever,1
+Africa,Sub-Saharan Africa,Gambia,COVID-19,3
+Africa,Sub-Saharan Africa,Gambia,Meningococcal Meningitis,2
+Africa,Sub-Saharan Africa,Gambia,Rift Valley Fever,1
+Africa,Sub-Saharan Africa,Gambia,Viral Meningitis,1
+Asia,Western Asia,Georgia,Influenza,1
+Asia,Western Asia,Georgia,COVID-19,3
+Asia,Western Asia,Georgia,Measles,2
+Europe,Western Europe,Germany,Influenza,4
+Europe,Western Europe,Germany,Acute Hepatitis A,1
+Europe,Western Europe,Germany,COVID-19,3
+Europe,Western Europe,Germany,Escherichia Coli,1
+Europe,Western Europe,Germany,Lassa Fever,3
+Europe,Western Europe,Germany,Measles,2
+Europe,Western Europe,Germany,MERS,2
+Europe,Western Europe,Germany,SARS,1
+Europe,Western Europe,Germany,Unspecified Viral Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,Ghana,Influenza,3
+Africa,Sub-Saharan Africa,Ghana,Acute Polio,4
+Africa,Sub-Saharan Africa,Ghana,Anthrax,1
+Africa,Sub-Saharan Africa,Ghana,COVID-19,3
+Africa,Sub-Saharan Africa,Ghana,Cholera,1
+Africa,Sub-Saharan Africa,Ghana,Lassa Fever,1
+Africa,Sub-Saharan Africa,Ghana,Malaria,1
+Africa,Sub-Saharan Africa,Ghana,Meningococcal Meningitis,2
+Africa,Sub-Saharan Africa,Ghana,Viral Meningitis,2
+Africa,Sub-Saharan Africa,Ghana,Yellow Fever,3
+Europe,Southern Europe,Gibraltar,COVID-19,3
+Europe,Southern Europe,Greece,Influenza,3
+Europe,Southern Europe,Greece,COVID-19,3
+Europe,Southern Europe,Greece,Measles,1
+Europe,Southern Europe,Greece,MERS,1
+Europe,Southern Europe,Greece,SARS,1
+Europe,Southern Europe,Greece,West Nile Virus,1
+Americas,Northern America,Greenland,COVID-19,3
+Americas,Latin America and the Caribbean,Grenada,Influenza,1
+Americas,Latin America and the Caribbean,Grenada,COVID-19,3
+Americas,Latin America and the Caribbean,Guadeloupe,Influenza,1
+Americas,Latin America and the Caribbean,Guadeloupe,COVID-19,3
+Americas,Latin America and the Caribbean,Guadeloupe,Dengue,1
+Americas,Latin America and the Caribbean,Guadeloupe,Measles,1
+Oceania,Micronesia,Guam,Influenza,1
+Oceania,Micronesia,Guam,COVID-19,3
+Oceania,Micronesia,Guam,Dengue,1
+Americas,Latin America and the Caribbean,Guatemala,Influenza,2
+Americas,Latin America and the Caribbean,Guatemala,COVID-19,3
+Americas,Latin America and the Caribbean,Guatemala,Cholera,1
+Americas,Latin America and the Caribbean,Guatemala,Dengue,1
+Americas,Latin America and the Caribbean,Guatemala,Leptospirosis,1
+Americas,Latin America and the Caribbean,Guatemala,Malaria,1
+Americas,Latin America and the Caribbean,Guatemala,Zika Virus,1
+Europe,Northern Europe,Guernsey,Influenza,1
+Europe,Northern Europe,Guernsey,COVID-19,3
+Africa,Sub-Saharan Africa,Guinea,Influenza,1
+Africa,Sub-Saharan Africa,Guinea,Acute Polio,2
+Africa,Sub-Saharan Africa,Guinea,COVID-19,3
+Africa,Sub-Saharan Africa,Guinea,Cholera,2
+Africa,Sub-Saharan Africa,Guinea,Ebola,2
+Africa,Sub-Saharan Africa,Guinea,Marburg Disease,1
+Africa,Sub-Saharan Africa,Guinea,Measles,1
+Africa,Sub-Saharan Africa,Guinea,Meningococcal Meningitis,1
+Africa,Sub-Saharan Africa,Guinea,Yellow Fever,5
+Africa,Sub-Saharan Africa,Guinea-Bissau,COVID-19,3
+Africa,Sub-Saharan Africa,Guinea-Bissau,Cholera,3
+Africa,Sub-Saharan Africa,Guinea-Bissau,Meningococcal Meningitis,1
+Africa,Sub-Saharan Africa,Guinea-Bissau,Viral Meningitis,1
+Americas,Latin America and the Caribbean,Guyana,Influenza,3
+Americas,Latin America and the Caribbean,Guyana,COVID-19,3
+Americas,Latin America and the Caribbean,Guyana,Zika Virus,1
+Americas,Latin America and the Caribbean,Haiti,Influenza,1
+Americas,Latin America and the Caribbean,Haiti,COVID-19,3
+Americas,Latin America and the Caribbean,Haiti,Cholera,1
+Americas,Latin America and the Caribbean,Haiti,Zika Virus,1
+Europe,Southern Europe,Holy See,COVID-19,1
+Americas,Latin America and the Caribbean,Honduras,Influenza,2
+Americas,Latin America and the Caribbean,Honduras,COVID-19,3
+Americas,Latin America and the Caribbean,Honduras,Cholera,2
+Americas,Latin America and the Caribbean,Honduras,Dengue,1
+Americas,Latin America and the Caribbean,Honduras,Leptospirosis,1
+Americas,Latin America and the Caribbean,Honduras,Malaria,1
+Americas,Latin America and the Caribbean,Honduras,Unspecified Viral Haemorrhagic Fever,1
+Americas,Latin America and the Caribbean,Honduras,Zika Virus,1
+Asia,Eastern Asia,Hong Kong,Influenza,8
+Asia,Eastern Asia,Hong Kong,Cholera,1
+Asia,Eastern Asia,Hong Kong,Measles,1
+Asia,Eastern Asia,Hong Kong,SARS,1
+Europe,Eastern Europe,Hungary,Influenza,3
+Europe,Eastern Europe,Hungary,COVID-19,3
+Europe,Eastern Europe,Hungary,Meningococcal Meningitis,1
+Europe,Northern Europe,Iceland,Influenza,3
+Europe,Northern Europe,Iceland,COVID-19,3
+Asia,Southern Asia,India,Influenza,5
+Asia,Southern Asia,India,Bacterial Foodborne Intoxications,1
+Asia,Southern Asia,India,COVID-19,3
+Asia,Southern Asia,India,Chikungunya Virus,1
+Asia,Southern Asia,India,Cholera,2
+Asia,Southern Asia,India,Dengue,2
+Asia,Southern Asia,India,Japanese Encephalitis Virus,1
+Asia,Southern Asia,India,Leptospirosis,1
+Asia,Southern Asia,India,Meningococcal Meningitis,1
+Asia,Southern Asia,India,Other Virus,1
+Asia,Southern Asia,India,Plague,1
+Asia,Southern Asia,India,SARS,1
+Asia,Southern Asia,India,Unspecified Virus,2
+Asia,Southern Asia,India,Unspecified Viral Haemorrhagic Fever,1
+Asia,Southern Asia,India,Zika Virus,2
+Asia,South-eastern Asia,Indonesia,Influenza,9
+Asia,South-eastern Asia,Indonesia,Acute Polio,2
+Asia,South-eastern Asia,Indonesia,COVID-19,3
+Asia,South-eastern Asia,Indonesia,Dengue,2
+Asia,South-eastern Asia,Indonesia,SARS,1
+Asia,South-eastern Asia,Indonesia,Unspecified Viral Haemorrhagic Fever,1
+Asia,Southern Asia,Iran,Influenza,3
+Asia,Southern Asia,Iran,Acute Polio,1
+Asia,Southern Asia,Iran,COVID-19,3
+Asia,Southern Asia,Iran,Cholera,1
+Asia,Southern Asia,Iran,MERS,2
+Asia,Western Asia,Iraq,Influenza,2
+Asia,Western Asia,Iraq,Acute Polio,1
+Asia,Western Asia,Iraq,COVID-19,3
+Asia,Western Asia,Iraq,Cholera,6
+Asia,Western Asia,Iraq,Measles,1
+Europe,Northern Europe,Ireland,Influenza,2
+Europe,Northern Europe,Ireland,Acute Hepatitis A,1
+Europe,Northern Europe,Ireland,COVID-19,3
+Europe,Northern Europe,Ireland,Measles,1
+Europe,Northern Europe,Isle of Man,Influenza,1
+Europe,Northern Europe,Isle of Man,COVID-19,3
+Asia,Western Asia,Israel,Influenza,4
+Asia,Western Asia,Israel,Acute Polio,1
+Asia,Western Asia,Israel,COVID-19,3
+Asia,Western Asia,Israel,Measles,1
+Asia,Western Asia,Israel,West Nile Virus,2
+Europe,Southern Europe,Italy,Influenza,5
+Europe,Southern Europe,Italy,Acute Hepatitis A,1
+Europe,Southern Europe,Italy,COVID-19,3
+Europe,Southern Europe,Italy,Chikungunya Virus,1
+Europe,Southern Europe,Italy,Ebola,1
+Europe,Southern Europe,Italy,Measles,1
+Europe,Southern Europe,Italy,MERS,1
+Europe,Southern Europe,Italy,SARS,1
+Americas,Latin America and the Caribbean,Jamaica,Influenza,2
+Americas,Latin America and the Caribbean,Jamaica,COVID-19,3
+Americas,Latin America and the Caribbean,Jamaica,Dengue,1
+Americas,Latin America and the Caribbean,Jamaica,Malaria,1
+Americas,Latin America and the Caribbean,Jamaica,Zika Virus,1
+Asia,Eastern Asia,Japan,Influenza,4
+Asia,Eastern Asia,Japan,COVID-19,3
+Asia,Eastern Asia,Japan,Escherichia Coli,1
+Asia,Eastern Asia,Japan,Staph Food Poisoning,1
+Asia,Eastern Asia,Japan,Measles,2
+Europe,Northern Europe,Jersey,Influenza,1
+Europe,Northern Europe,Jersey,COVID-19,3
+Asia,Western Asia,Jordan,Influenza,1
+Asia,Western Asia,Jordan,COVID-19,3
+Asia,Western Asia,Jordan,MERS,3
+Asia,Central Asia,Kazakhstan,Influenza,2
+Asia,Central Asia,Kazakhstan,COVID-19,3
+Asia,Central Asia,Kazakhstan,Measles,2
+Africa,Sub-Saharan Africa,Kenya,Influenza,2
+Africa,Sub-Saharan Africa,Kenya,Acute Polio,4
+Africa,Sub-Saharan Africa,Kenya,COVID-19,3
+Africa,Sub-Saharan Africa,Kenya,Chikungunya Virus,2
+Africa,Sub-Saharan Africa,Kenya,Cholera,3
+Africa,Sub-Saharan Africa,Kenya,Leptospirosis,1
+Africa,Sub-Saharan Africa,Kenya,Malaria,1
+Africa,Sub-Saharan Africa,Kenya,Meningococcal Meningitis,1
+Africa,Sub-Saharan Africa,Kenya,Rift Valley Fever,5
+Africa,Sub-Saharan Africa,Kenya,Yellow Fever,2
+Oceania,Micronesia,Kiribati,Influenza,1
+Oceania,Micronesia,Kiribati,COVID-19,1
+Oceania,Micronesia,Kiribati,Dengue,1
+Asia,Eastern Asia,North Korea,Influenza,2
+Asia,Eastern Asia,South Korea,Influenza,4
+Asia,Eastern Asia,South Korea,COVID-19,3
+Asia,Eastern Asia,South Korea,Measles,1
+Asia,Eastern Asia,South Korea,MERS,2
+Asia,Eastern Asia,South Korea,SARS,1
+Europe,Southern Europe,Kosovo,Tularaemia,2
+Europe,Southern Europe,Kosovo,Unspecified Viral Haemorrhagic Fever,2
+Asia,Western Asia,Kuwait,Influenza,1
+Asia,Western Asia,Kuwait,COVID-19,3
+Asia,Western Asia,Kuwait,MERS,2
+Asia,Central Asia,Kyrgyzstan,COVID-19,3
+Asia,Central Asia,Kyrgyzstan,Measles,3
+Asia,South-eastern Asia,Laos,Influenza,5
+Asia,South-eastern Asia,Laos,Acute Polio,2
+Asia,South-eastern Asia,Laos,COVID-19,3
+Asia,South-eastern Asia,Laos,Diphtheria,1
+Europe,Northern Europe,Latvia,Influenza,3
+Europe,Northern Europe,Latvia,COVID-19,3
+Asia,Western Asia,Lebanon,Influenza,1
+Asia,Western Asia,Lebanon,COVID-19,3
+Asia,Western Asia,Lebanon,Measles,1
+Asia,Western Asia,Lebanon,MERS,2
+Africa,Sub-Saharan Africa,Lesotho,Influenza,1
+Africa,Sub-Saharan Africa,Lesotho,COVID-19,3
+Africa,Sub-Saharan Africa,Lesotho,Shigella Intestinal Infections,1
+Africa,Sub-Saharan Africa,Liberia,Acute Polio,1
+Africa,Sub-Saharan Africa,Liberia,COVID-19,3
+Africa,Sub-Saharan Africa,Liberia,Cholera,5
+Africa,Sub-Saharan Africa,Liberia,Ebola,2
+Africa,Sub-Saharan Africa,Liberia,Infection,1
+Africa,Sub-Saharan Africa,Liberia,Infectious Gastroenteritis or Colitis,1
+Africa,Sub-Saharan Africa,Liberia,Lassa Fever,2
+Africa,Sub-Saharan Africa,Liberia,Meningococcal Meningitis,1
+Africa,Sub-Saharan Africa,Liberia,Yellow Fever,7
+Africa,Northern Africa,Libya,Influenza,1
+Africa,Northern Africa,Libya,COVID-19,3
+Europe,Western Europe,Liechtenstein,COVID-19,3
+Europe,Northern Europe,Lithuania,Influenza,1
+Europe,Northern Europe,Lithuania,COVID-19,3
+Europe,Western Europe,Luxembourg,Influenza,1
+Europe,Western Europe,Luxembourg,COVID-19,3
+Asia,Eastern Asia,Macao,Measles,1
+Africa,Sub-Saharan Africa,Madagascar,Influenza,3
+Africa,Sub-Saharan Africa,Madagascar,Acute Polio,2
+Africa,Sub-Saharan Africa,Madagascar,COVID-19,3
+Africa,Sub-Saharan Africa,Madagascar,Cholera,2
+Africa,Sub-Saharan Africa,Madagascar,Measles,1
+Africa,Sub-Saharan Africa,Madagascar,Plague,4
+Africa,Sub-Saharan Africa,Madagascar,Rift Valley Fever,1
+Africa,Sub-Saharan Africa,Madagascar,SARS,1
+Africa,Sub-Saharan Africa,Malawi,Influenza,1
+Africa,Sub-Saharan Africa,Malawi,Acute Polio,1
+Africa,Sub-Saharan Africa,Malawi,COVID-19,3
+Africa,Sub-Saharan Africa,Malawi,Cholera,1
+Africa,Sub-Saharan Africa,Malawi,Plague,3
+Asia,South-eastern Asia,Malaysia,Influenza,2
+Asia,South-eastern Asia,Malaysia,COVID-19,3
+Asia,South-eastern Asia,Malaysia,Cholera,1
+Asia,South-eastern Asia,Malaysia,Dengue,2
+Asia,South-eastern Asia,Malaysia,Infection,1
+Asia,South-eastern Asia,Malaysia,Japanese Encephalitis Virus,1
+Asia,South-eastern Asia,Malaysia,Measles,1
+Asia,South-eastern Asia,Malaysia,MERS,2
+Asia,South-eastern Asia,Malaysia,SARS,1
+Asia,South-eastern Asia,Malaysia,Unspecified Virus,1
+Asia,South-eastern Asia,Malaysia,Unspecified Viral Haemorrhagic Fever,1
+Asia,Southern Asia,Maldives,Influenza,1
+Asia,Southern Asia,Maldives,COVID-19,3
+Asia,Southern Asia,Maldives,Zika Virus,1
+Africa,Sub-Saharan Africa,Mali,Influenza,1
+Africa,Sub-Saharan Africa,Mali,Acute Polio,1
+Africa,Sub-Saharan Africa,Mali,COVID-19,3
+Africa,Sub-Saharan Africa,Mali,Cholera,4
+Africa,Sub-Saharan Africa,Mali,Ebola,1
+Africa,Sub-Saharan Africa,Mali,Meningococcal Meningitis,3
+Africa,Sub-Saharan Africa,Mali,Viral Meningitis,2
+Africa,Sub-Saharan Africa,Mali,Yellow Fever,2
+Europe,Southern Europe,Malta,COVID-19,3
+Oceania,Micronesia,Marshall Islands,Influenza,1
+Oceania,Micronesia,Marshall Islands,COVID-19,2
+Americas,Latin America and the Caribbean,Martinique,Influenza,1
+Americas,Latin America and the Caribbean,Martinique,COVID-19,3
+Americas,Latin America and the Caribbean,Martinique,Dengue,1
+Africa,Sub-Saharan Africa,Mauritania,Influenza,1
+Africa,Sub-Saharan Africa,Mauritania,COVID-19,3
+Africa,Sub-Saharan Africa,Mauritania,Cholera,1
+Africa,Sub-Saharan Africa,Mauritania,Rift Valley Fever,2
+Africa,Sub-Saharan Africa,Mauritania,Unspecified Viral Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,Mauritius,Influenza,1
+Africa,Sub-Saharan Africa,Mauritius,COVID-19,3
+Africa,Sub-Saharan Africa,Mayotte,COVID-19,3
+Africa,Sub-Saharan Africa,Mayotte,Dengue,1
+Americas,Latin America and the Caribbean,Mexico,Influenza,3
+Americas,Latin America and the Caribbean,Mexico,COVID-19,3
+Americas,Latin America and the Caribbean,Mexico,Cholera,2
+Americas,Latin America and the Caribbean,Mexico,Measles,3
+Americas,Latin America and the Caribbean,Mexico,Pseudomonas Aeruginosa,1
+Americas,Latin America and the Caribbean,Mexico,Venezuelan Equine Fever,1
+Americas,Latin America and the Caribbean,Mexico,Zika Virus,1
+Oceania,Micronesia,Micronesia,Influenza,1
+Oceania,Micronesia,Micronesia,Cholera,1
+Europe,Eastern Europe,Moldova,Influenza,1
+Europe,Eastern Europe,Moldova,COVID-19,3
+Europe,Western Europe,Monaco,Influenza,1
+Europe,Western Europe,Monaco,COVID-19,3
+Asia,Eastern Asia,Mongolia,Influenza,2
+Asia,Eastern Asia,Mongolia,COVID-19,3
+Asia,Eastern Asia,Mongolia,Cholera,1
+Europe,Southern Europe,Montenegro,Influenza,2
+Europe,Southern Europe,Montenegro,COVID-19,3
+Americas,Latin America and the Caribbean,Montserrat,COVID-19,3
+Africa,Northern Africa,Morocco,Influenza,3
+Africa,Northern Africa,Morocco,COVID-19,3
+Africa,Sub-Saharan Africa,Mozambique,Influenza,1
+Africa,Sub-Saharan Africa,Mozambique,Acute Polio,1
+Africa,Sub-Saharan Africa,Mozambique,COVID-19,3
+Africa,Sub-Saharan Africa,Mozambique,Cholera,6
+Africa,Sub-Saharan Africa,Mozambique,Infection,1
+Africa,Sub-Saharan Africa,Mozambique,Plague,1
+Africa,Sub-Saharan Africa,Mozambique,Viral Meningitis,1
+Asia,South-eastern Asia,Myanmar,Influenza,2
+Asia,South-eastern Asia,Myanmar,Acute Polio,2
+Asia,South-eastern Asia,Myanmar,COVID-19,3
+Asia,South-eastern Asia,Myanmar,Dengue,1
+Asia,South-eastern Asia,Myanmar,Measles,1
+Oceania,Micronesia,Nauru,Influenza,1
+Asia,Southern Asia,Nepal,Influenza,1
+Asia,Southern Asia,Nepal,COVID-19,3
+Asia,Southern Asia,Nepal,Japanese Encephalitis Virus,1
+Asia,Southern Asia,Nepal,Mosquito-borne Encephalitis,1
+Europe,Western Europe,Netherlands,Influenza,2
+Europe,Western Europe,Netherlands,Acute Hepatitis A,1
+Europe,Western Europe,Netherlands,COVID-19,3
+Europe,Western Europe,Netherlands,Escherichia Coli,1
+Europe,Western Europe,Netherlands,Lassa Fever,2
+Europe,Western Europe,Netherlands,Legionnaires' Disease,1
+Europe,Western Europe,Netherlands,Marburg Disease,1
+Europe,Western Europe,Netherlands,MERS,1
+Europe,Western Europe,Netherlands,Yellow Fever,2
+Europe,Western Europe,Netherlands,Zika Virus,1
+Oceania,Melanesia,New Caledonia,Influenza,1
+Oceania,Melanesia,New Caledonia,COVID-19,3
+Oceania,Melanesia,New Caledonia,Dengue,1
+Oceania,Australia and New Zealand,New Zealand,Influenza,2
+Oceania,Australia and New Zealand,New Zealand,COVID-19,3
+Oceania,Australia and New Zealand,New Zealand,Measles,1
+Americas,Latin America and the Caribbean,Nicaragua,Influenza,2
+Americas,Latin America and the Caribbean,Nicaragua,COVID-19,3
+Americas,Latin America and the Caribbean,Nicaragua,Cholera,2
+Americas,Latin America and the Caribbean,Nicaragua,Dengue,1
+Americas,Latin America and the Caribbean,Nicaragua,Leptospirosis,1
+Americas,Latin America and the Caribbean,Nicaragua,Malaria,1
+Americas,Latin America and the Caribbean,Nicaragua,Zika Virus,1
+Africa,Sub-Saharan Africa,Niger,Influenza,1
+Africa,Sub-Saharan Africa,Niger,Acute Hepatitis E,1
+Africa,Sub-Saharan Africa,Niger,Acute Polio,5
+Africa,Sub-Saharan Africa,Niger,COVID-19,3
+Africa,Sub-Saharan Africa,Niger,Cholera,6
+Africa,Sub-Saharan Africa,Niger,Meningococcal Meningitis,7
+Africa,Sub-Saharan Africa,Niger,Rift Valley Fever,1
+Africa,Sub-Saharan Africa,Niger,Viral Meningitis,3
+Africa,Sub-Saharan Africa,Niger,Yellow Fever,1
+Africa,Sub-Saharan Africa,Nigeria,Influenza,4
+Africa,Sub-Saharan Africa,Nigeria,Acute Hepatitis E,1
+Africa,Sub-Saharan Africa,Nigeria,Acute Polio,6
+Africa,Sub-Saharan Africa,Nigeria,COVID-19,3
+Africa,Sub-Saharan Africa,Nigeria,Cholera,5
+Africa,Sub-Saharan Africa,Nigeria,Ebola,1
+Africa,Sub-Saharan Africa,Nigeria,Lassa Fever,7
+Africa,Sub-Saharan Africa,Nigeria,Measles,2
+Africa,Sub-Saharan Africa,Nigeria,Meningococcal Meningitis,7
+Africa,Sub-Saharan Africa,Nigeria,Monkeypox,2
+Africa,Sub-Saharan Africa,Nigeria,Viral Meningitis,1
+Africa,Sub-Saharan Africa,Nigeria,Yellow Fever,5
+Oceania,Polynesia,Niue,COVID-19,1
+Europe,Southern Europe,North Macedonia,Influenza,1
+Europe,Southern Europe,North Macedonia,COVID-19,3
+Europe,Southern Europe,North Macedonia,Measles,1
+Oceania,Micronesia,Northern Mariana Islands,COVID-19,3
+Europe,Northern Europe,Norway,Influenza,3
+Europe,Northern Europe,Norway,Acute Hepatitis A,1
+Europe,Northern Europe,Norway,COVID-19,3
+Europe,Northern Europe,Norway,Escherichia Coli,1
+Europe,Northern Europe,Norway,Legionnaires' Disease,1
+Europe,Northern Europe,Norway,Meningococcal Meningitis,1
+Asia,Western Asia,Oman,Influenza,1
+Asia,Western Asia,Oman,COVID-19,3
+Asia,Western Asia,Oman,MERS,6
+Asia,Southern Asia,Pakistan,Influenza,3
+Asia,Southern Asia,Pakistan,Acute Polio,3
+Asia,Southern Asia,Pakistan,COVID-19,3
+Asia,Southern Asia,Pakistan,Cholera,1
+Asia,Southern Asia,Pakistan,Dengue,2
+Asia,Southern Asia,Pakistan,HIV,1
+Asia,Southern Asia,Pakistan,Leishmaniasis,1
+Asia,Southern Asia,Pakistan,Measles,1
+Asia,Southern Asia,Pakistan,Typhoid Fever,1
+Asia,Southern Asia,Pakistan,Unspecified Viral Haemorrhagic Fever,2
+Oceania,Micronesia,Palau,COVID-19,2
+Asia,Western Asia,Palestine,Influenza,1
+Asia,Western Asia,Palestine,COVID-19,3
+Asia,Western Asia,Palestine,Measles,1
+Asia,Western Asia,Palestine,Viral Meningitis,1
+Americas,Latin America and the Caribbean,Panama,Influenza,2
+Americas,Latin America and the Caribbean,Panama,COVID-19,3
+Americas,Latin America and the Caribbean,Panama,Hantavirus Pulmonary Syndrome,2
+Americas,Latin America and the Caribbean,Panama,Zika Virus,1
+Oceania,Melanesia,Papua New Guinea,Influenza,1
+Oceania,Melanesia,Papua New Guinea,Acute Polio,2
+Oceania,Melanesia,Papua New Guinea,COVID-19,3
+Oceania,Melanesia,Papua New Guinea,Zika Virus,1
+Americas,Latin America and the Caribbean,Paraguay,Influenza,1
+Americas,Latin America and the Caribbean,Paraguay,COVID-19,3
+Americas,Latin America and the Caribbean,Paraguay,Yellow Fever,1
+Americas,Latin America and the Caribbean,Paraguay,Zika Virus,1
+Americas,Latin America and the Caribbean,Peru,Influenza,2
+Americas,Latin America and the Caribbean,Peru,COVID-19,3
+Americas,Latin America and the Caribbean,Peru,Cholera,1
+Americas,Latin America and the Caribbean,Peru,Oropouche Virus,1
+Americas,Latin America and the Caribbean,Peru,Plague,1
+Americas,Latin America and the Caribbean,Peru,Sylvatic Yellow Fever,1
+Americas,Latin America and the Caribbean,Peru,Yellow Fever,1
+Americas,Latin America and the Caribbean,Peru,Zika Virus,1
+Asia,South-eastern Asia,Philippines,Influenza,2
+Asia,South-eastern Asia,Philippines,Acute Polio,1
+Asia,South-eastern Asia,Philippines,COVID-19,3
+Asia,South-eastern Asia,Philippines,Cholera,1
+Asia,South-eastern Asia,Philippines,Dengue,1
+Asia,South-eastern Asia,Philippines,Ebola,2
+Asia,South-eastern Asia,Philippines,Measles,1
+Asia,South-eastern Asia,Philippines,Meningococcal Meningitis,1
+Asia,South-eastern Asia,Philippines,MERS,1
+Asia,South-eastern Asia,Philippines,SARS,1
+Asia,South-eastern Asia,Philippines,Unspecified Viral Haemorrhagic Fever,1
+Europe,Eastern Europe,Poland,Influenza,1
+Europe,Eastern Europe,Poland,COVID-19,3
+Europe,Eastern Europe,Poland,SARS,1
+Europe,Southern Europe,Portugal,Influenza,3
+Europe,Southern Europe,Portugal,Acute Hepatitis A,1
+Europe,Southern Europe,Portugal,COVID-19,3
+Europe,Southern Europe,Portugal,Dengue,1
+Europe,Southern Europe,Portugal,Legionnaires' Disease,1
+Europe,Southern Europe,Portugal,West Nile Virus,1
+Americas,Latin America and the Caribbean,Puerto Rico,Influenza,1
+Americas,Latin America and the Caribbean,Puerto Rico,COVID-19,3
+Asia,Western Asia,Qatar,Influenza,1
+Asia,Western Asia,Qatar,COVID-19,3
+Asia,Western Asia,Qatar,MERS,7
+Europe,Eastern Europe,Romania,Influenza,3
+Europe,Eastern Europe,Romania,COVID-19,3
+Europe,Eastern Europe,Romania,Measles,1
+Europe,Eastern Europe,Romania,SARS,1
+Europe,Eastern Europe,Romania,Viral Meningitis,1
+Europe,Eastern Europe,Romania,West Nile Virus,1
+Europe,Eastern Europe,Russia,Influenza,6
+Europe,Eastern Europe,Russia,Acute Polio,1
+Europe,Eastern Europe,Russia,Anthrax,1
+Europe,Eastern Europe,Russia,COVID-19,3
+Europe,Eastern Europe,Russia,Cholera,1
+Europe,Eastern Europe,Russia,Measles,2
+Europe,Eastern Europe,Russia,Unspecified Viral Haemorrhagic Fever,1
+Europe,Eastern Europe,Russia,West Nile Virus,1
+Africa,Sub-Saharan Africa,Rwanda,Influenza,2
+Africa,Sub-Saharan Africa,Rwanda,COVID-19,3
+Africa,Sub-Saharan Africa,Rwanda,Cholera,4
+Africa,Sub-Saharan Africa,Rwanda,Infectious Gastroenteritis or Colitis,1
+Africa,Sub-Saharan Africa,Rwanda,Measles,1
+Africa,Sub-Saharan Africa,Rwanda,Meningococcal Meningitis,1
+Africa,Sub-Saharan Africa,Rwanda,Viral Meningitis,2
+Africa,Sub-Saharan Africa,Réunion,Influenza,1
+Africa,Sub-Saharan Africa,Réunion,COVID-19,3
+Africa,Sub-Saharan Africa,Réunion,Chikungunya Virus,1
+Africa,Sub-Saharan Africa,Réunion,Dengue,2
+Americas,Latin America and the Caribbean,Saint Barthélemy,COVID-19,3
+Americas,Latin America and the Caribbean,Saint Barthélemy,Dengue,1
+Americas,Latin America and the Caribbean,Saint Kitts and Nevis,Influenza,1
+Americas,Latin America and the Caribbean,Saint Kitts and Nevis,COVID-19,3
+Americas,Latin America and the Caribbean,Saint Lucia,Influenza,1
+Americas,Latin America and the Caribbean,Saint Lucia,COVID-19,3
+Americas,Latin America and the Caribbean,Saint Lucia,Zika Virus,1
+Americas,Latin America and the Caribbean,Saint Martin,Influenza,1
+Americas,Latin America and the Caribbean,Saint Martin,COVID-19,3
+Americas,Latin America and the Caribbean,Saint Martin,Chikungunya Virus,1
+Americas,Latin America and the Caribbean,Saint Martin,Dengue,1
+Americas,Northern America,Saint Pierre and Miquelon,COVID-19,3
+Americas,Latin America and the Caribbean,Saint Vincent and the Grenadines,Influenza,1
+Americas,Latin America and the Caribbean,Saint Vincent and the Grenadines,COVID-19,3
+Americas,Latin America and the Caribbean,Saint Vincent and the Grenadines,Zika Virus,1
+Oceania,Polynesia,Samoa,Influenza,1
+Oceania,Polynesia,Samoa,COVID-19,3
+Oceania,Polynesia,Samoa,Measles,1
+Europe,Southern Europe,San Marino,COVID-19,3
+Africa,Sub-Saharan Africa,Sao Tome and Principe,Influenza,2
+Africa,Sub-Saharan Africa,Sao Tome and Principe,COVID-19,3
+Asia,Western Asia,Saudi Arabia,Influenza,1
+Asia,Western Asia,Saudi Arabia,COVID-19,3
+Asia,Western Asia,Saudi Arabia,Meningococcal Meningitis,1
+Asia,Western Asia,Saudi Arabia,MERS,9
+Asia,Western Asia,Saudi Arabia,Rift Valley Fever,1
+Asia,Western Asia,Saudi Arabia,Yellow Fever,2
+Africa,Sub-Saharan Africa,Senegal,Influenza,1
+Africa,Sub-Saharan Africa,Senegal,Acute Polio,1
+Africa,Sub-Saharan Africa,Senegal,COVID-19,3
+Africa,Sub-Saharan Africa,Senegal,Chikungunya Virus,1
+Africa,Sub-Saharan Africa,Senegal,Cholera,3
+Africa,Sub-Saharan Africa,Senegal,Ebola,1
+Africa,Sub-Saharan Africa,Senegal,Meningococcal Meningitis,1
+Africa,Sub-Saharan Africa,Senegal,Viral Meningitis,1
+Africa,Sub-Saharan Africa,Senegal,Yellow Fever,4
+Europe,Southern Europe,Serbia,Influenza,2
+Europe,Southern Europe,Serbia,COVID-19,3
+Europe,Southern Europe,Serbia,Measles,2
+Africa,Sub-Saharan Africa,Seychelles,Influenza,1
+Africa,Sub-Saharan Africa,Seychelles,COVID-19,3
+Africa,Sub-Saharan Africa,Seychelles,Plague,1
+Africa,Sub-Saharan Africa,Sierra Leone,Acute Polio,1
+Africa,Sub-Saharan Africa,Sierra Leone,COVID-19,3
+Africa,Sub-Saharan Africa,Sierra Leone,Cholera,2
+Africa,Sub-Saharan Africa,Sierra Leone,Ebola,1
+Africa,Sub-Saharan Africa,Sierra Leone,Shigella Intestinal Infections,1
+Africa,Sub-Saharan Africa,Sierra Leone,Lassa Fever,3
+Africa,Sub-Saharan Africa,Sierra Leone,Yellow Fever,3
+Asia,South-eastern Asia,Singapore,Influenza,2
+Asia,South-eastern Asia,Singapore,COVID-19,3
+Asia,South-eastern Asia,Singapore,Meningococcal Meningitis,2
+Asia,South-eastern Asia,Singapore,Monkeypox,1
+Asia,South-eastern Asia,Singapore,SARS,1
+Asia,South-eastern Asia,Singapore,Unspecified Virus,1
+Americas,Latin America and the Caribbean,Sint Maarten,Influenza,1
+Americas,Latin America and the Caribbean,Sint Maarten,COVID-19,3
+Europe,Eastern Europe,Slovakia,Influenza,1
+Europe,Eastern Europe,Slovakia,COVID-19,3
+Europe,Southern Europe,Slovenia,Influenza,3
+Europe,Southern Europe,Slovenia,Acute Hepatitis A,1
+Europe,Southern Europe,Slovenia,COVID-19,3
+Europe,Southern Europe,Slovenia,SARS,1
+Oceania,Melanesia,Solomon Islands,Influenza,1
+Oceania,Melanesia,Solomon Islands,COVID-19,3
+Africa,Sub-Saharan Africa,Somalia,Influenza,1
+Africa,Sub-Saharan Africa,Somalia,Acute Polio,4
+Africa,Sub-Saharan Africa,Somalia,COVID-19,3
+Africa,Sub-Saharan Africa,Somalia,Cholera,6
+Africa,Sub-Saharan Africa,Somalia,Infectious Gastroenteritis or Colitis,1
+Africa,Sub-Saharan Africa,Somalia,Measles,1
+Africa,Sub-Saharan Africa,Somalia,Meningococcal Meningitis,2
+Africa,Sub-Saharan Africa,Somalia,Rift Valley Fever,1
+Africa,Sub-Saharan Africa,Somalia,Viral Meningitis,1
+Africa,Sub-Saharan Africa,South Africa,Influenza,2
+Africa,Sub-Saharan Africa,South Africa,Arenavirus,1
+Africa,Sub-Saharan Africa,South Africa,COVID-19,3
+Africa,Sub-Saharan Africa,South Africa,Cholera,4
+Africa,Sub-Saharan Africa,South Africa,Crimean-Congo Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,South Africa,Infection,1
+Africa,Sub-Saharan Africa,South Africa,Listeriosis,1
+Africa,Sub-Saharan Africa,South Africa,Rift Valley Fever,2
+Africa,Sub-Saharan Africa,South Africa,Unspecified Viral Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,South Sudan,Acute Hepatitis E,1
+Africa,Sub-Saharan Africa,South Sudan,Acute Polio,3
+Africa,Sub-Saharan Africa,South Sudan,COVID-19,3
+Africa,Sub-Saharan Africa,South Sudan,Meningococcal Meningitis,1
+Africa,Sub-Saharan Africa,South Sudan,Unspecified Viral Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,South Sudan,Yellow Fever,1
+Europe,Southern Europe,Spain,Influenza,3
+Europe,Southern Europe,Spain,Acute Hepatitis A,1
+Europe,Southern Europe,Spain,COVID-19,3
+Europe,Southern Europe,Spain,Chikungunya Virus,1
+Europe,Southern Europe,Spain,Dengue,1
+Europe,Southern Europe,Spain,Ebola,1
+Europe,Southern Europe,Spain,Shigella Intestinal Infections,1
+Europe,Southern Europe,Spain,Legionnaires' Disease,1
+Europe,Southern Europe,Spain,Listeriosis,1
+Europe,Southern Europe,Spain,Meningococcal Meningitis,2
+Europe,Southern Europe,Spain,MERS,1
+Europe,Southern Europe,Spain,SARS,1
+Asia,Southern Asia,Sri Lanka,Influenza,1
+Asia,Southern Asia,Sri Lanka,COVID-19,3
+Asia,Southern Asia,Sri Lanka,Dengue,1
+Asia,Southern Asia,Sri Lanka,Infection,1
+Africa,Northern Africa,Sudan,Influenza,2
+Africa,Northern Africa,Sudan,Acute Hepatitis E,1
+Africa,Northern Africa,Sudan,Acute Polio,2
+Africa,Northern Africa,Sudan,COVID-19,3
+Africa,Northern Africa,Sudan,Chikungunya Virus,1
+Africa,Northern Africa,Sudan,Cholera,2
+Africa,Northern Africa,Sudan,Dengue,1
+Africa,Northern Africa,Sudan,Ebola,1
+Africa,Northern Africa,Sudan,Infectious Gastroenteritis or Colitis,1
+Africa,Northern Africa,Sudan,Shigella Intestinal Infections,1
+Africa,Northern Africa,Sudan,Measles,1
+Africa,Northern Africa,Sudan,Meningococcal Meningitis,6
+Africa,Northern Africa,Sudan,Rift Valley Fever,3
+Africa,Northern Africa,Sudan,Unspecified Viral Haemorrhagic Fever,2
+Africa,Northern Africa,Sudan,Viral Meningitis,1
+Africa,Northern Africa,Sudan,Viral Pneumonia,1
+Africa,Northern Africa,Sudan,Yellow Fever,3
+Americas,Latin America and the Caribbean,Suriname,Influenza,1
+Americas,Latin America and the Caribbean,Suriname,COVID-19,3
+Americas,Latin America and the Caribbean,Suriname,Yellow Fever,1
+Americas,Latin America and the Caribbean,Suriname,Zika Virus,1
+Europe,Northern Europe,Sweden,Influenza,2
+Europe,Northern Europe,Sweden,Acute Hepatitis A,1
+Europe,Northern Europe,Sweden,COVID-19,3
+Europe,Northern Europe,Sweden,Escherichia Coli,1
+Europe,Northern Europe,Sweden,Lassa Fever,1
+Europe,Western Europe,Switzerland,Influenza,3
+Europe,Western Europe,Switzerland,COVID-19,3
+Europe,Western Europe,Switzerland,Escherichia Coli,1
+Europe,Western Europe,Switzerland,SARS,1
+Europe,Western Europe,Switzerland,Yellow Fever,1
+Asia,Western Asia,Syria,Influenza,1
+Asia,Western Asia,Syria,Acute Polio,3
+Asia,Western Asia,Syria,COVID-19,3
+Asia,Eastern Asia,Taiwan,Dengue,1
+Asia,Eastern Asia,Taiwan,Enterovirus,1
+Asia,Eastern Asia,Taiwan,SARS,1
+Asia,Central Asia,Tajikistan,Influenza,1
+Asia,Central Asia,Tajikistan,Acute Polio,1
+Asia,Central Asia,Tajikistan,COVID-19,3
+Asia,Central Asia,Tajikistan,Typhoid Fever,2
+Africa,Sub-Saharan Africa,Tanzania,Influenza,2
+Africa,Sub-Saharan Africa,Tanzania,COVID-19,3
+Africa,Sub-Saharan Africa,Tanzania,Cholera,6
+Africa,Sub-Saharan Africa,Tanzania,Ebola,1
+Africa,Sub-Saharan Africa,Tanzania,Malaria,1
+Africa,Sub-Saharan Africa,Tanzania,Meningococcal Meningitis,1
+Africa,Sub-Saharan Africa,Tanzania,Rift Valley Fever,1
+Africa,Sub-Saharan Africa,Tanzania,Viral Meningitis,1
+Asia,South-eastern Asia,Thailand,Influenza,6
+Asia,South-eastern Asia,Thailand,Botulism,1
+Asia,South-eastern Asia,Thailand,COVID-19,3
+Asia,South-eastern Asia,Thailand,Dengue,1
+Asia,South-eastern Asia,Thailand,Diphtheria,1
+Asia,South-eastern Asia,Thailand,MERS,2
+Asia,South-eastern Asia,Thailand,SARS,1
+Asia,South-eastern Asia,Timor-Leste,Influenza,1
+Asia,South-eastern Asia,Timor-Leste,COVID-19,3
+Asia,South-eastern Asia,Timor-Leste,Dengue,1
+Asia,South-eastern Asia,Timor-Leste,Unspecified Viral Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,Togo,Acute Polio,4
+Africa,Sub-Saharan Africa,Togo,COVID-19,3
+Africa,Sub-Saharan Africa,Togo,Cholera,2
+Africa,Sub-Saharan Africa,Togo,Lassa Fever,3
+Africa,Sub-Saharan Africa,Togo,Meningococcal Meningitis,2
+Africa,Sub-Saharan Africa,Togo,Viral Meningitis,2
+Africa,Sub-Saharan Africa,Togo,Yellow Fever,3
+Oceania,Polynesia,Tonga,Influenza,1
+Oceania,Polynesia,Tonga,COVID-19,2
+Oceania,Polynesia,Tonga,Measles,1
+Americas,Latin America and the Caribbean,Trinidad and Tobago,Influenza,1
+Americas,Latin America and the Caribbean,Trinidad and Tobago,COVID-19,3
+Americas,Latin America and the Caribbean,Trinidad and Tobago,Zika Virus,1
+Africa,Northern Africa,Tunisia,Influenza,2
+Africa,Northern Africa,Tunisia,COVID-19,3
+Africa,Northern Africa,Tunisia,Measles,1
+Africa,Northern Africa,Tunisia,MERS,1
+Asia,Western Asia,Turkey,Influenza,3
+Asia,Western Asia,Turkey,COVID-19,3
+Asia,Western Asia,Turkey,Measles,1
+Asia,Western Asia,Turkey,MERS,1
+Asia,Western Asia,Turkey,Unspecified Viral Haemorrhagic Fever,1
+Americas,Latin America and the Caribbean,Turks and Caicos Islands,Influenza,1
+Americas,Latin America and the Caribbean,Turks and Caicos Islands,COVID-19,3
+Oceania,Polynesia,Tuvalu,Influenza,1
+Africa,Sub-Saharan Africa,Uganda,Influenza,1
+Africa,Sub-Saharan Africa,Uganda,COVID-19,3
+Africa,Sub-Saharan Africa,Uganda,Cholera,2
+Africa,Sub-Saharan Africa,Uganda,Ebola,5
+Africa,Sub-Saharan Africa,Uganda,Marburg Disease,3
+Africa,Sub-Saharan Africa,Uganda,Meningococcal Meningitis,2
+Africa,Sub-Saharan Africa,Uganda,O'nyong-nyong Alphavirus,1
+Africa,Sub-Saharan Africa,Uganda,Plague,1
+Africa,Sub-Saharan Africa,Uganda,Typhoid Fever,1
+Africa,Sub-Saharan Africa,Uganda,Unspecified Viral Haemorrhagic Fever,4
+Africa,Sub-Saharan Africa,Uganda,Viral Meningitis,1
+Africa,Sub-Saharan Africa,Uganda,Yellow Fever,3
+Europe,Eastern Europe,Ukraine,Influenza,3
+Europe,Eastern Europe,Ukraine,Acute Polio,2
+Europe,Eastern Europe,Ukraine,COVID-19,3
+Europe,Eastern Europe,Ukraine,Measles,1
+Asia,Western Asia,United Arab Emirates,Influenza,1
+Asia,Western Asia,United Arab Emirates,COVID-19,3
+Asia,Western Asia,United Arab Emirates,MERS,9
+Europe,Northern Europe,United Kingdom,Influenza,5
+Europe,Northern Europe,United Kingdom,Acute Hepatitis A,1
+Europe,Northern Europe,United Kingdom,COVID-19,3
+Europe,Northern Europe,United Kingdom,Coccidioidomycosis,1
+Europe,Northern Europe,United Kingdom,Ebola,1
+Europe,Northern Europe,United Kingdom,Escherichia Coli,3
+Europe,Northern Europe,United Kingdom,Gonorrhea,1
+Europe,Northern Europe,United Kingdom,Shigella Intestinal Infections,1
+Europe,Northern Europe,United Kingdom,Lassa Fever,3
+Europe,Northern Europe,United Kingdom,Measles,1
+Europe,Northern Europe,United Kingdom,Meningococcal Meningitis,2
+Europe,Northern Europe,United Kingdom,MERS,3
+Europe,Northern Europe,United Kingdom,Monkeypox,1
+Europe,Northern Europe,United Kingdom,SARS,1
+Americas,Northern America,United States,Influenza,6
+Americas,Northern America,United States,Acute Hepatitis A,1
+Americas,Northern America,United States,Anthrax,1
+Americas,Northern America,United States,Botulism,1
+Americas,Northern America,United States,COVID-19,3
+Americas,Northern America,United States,Chikungunya Virus,1
+Americas,Northern America,United States,Ebola,2
+Americas,Northern America,United States,Enterovirus,1
+Americas,Northern America,United States,Haemorrhagic Fever with Renal Syndrome,1
+Americas,Northern America,United States,Hantavirus Pulmonary Syndrome,1
+Americas,Northern America,United States,Infection,1
+Americas,Northern America,United States,Salmonella,2
+Americas,Northern America,United States,Lassa Fever,1
+Americas,Northern America,United States,Leptospirosis,1
+Americas,Northern America,United States,Measles,3
+Americas,Northern America,United States,Meningococcal Meningitis,1
+Americas,Northern America,United States,MERS,1
+Americas,Northern America,United States,Monkeypox,1
+Americas,Northern America,United States,SARS,1
+Americas,Northern America,United States,St. Louis Encephalitis Virus,1
+Americas,Northern America,United States,Pulmonary Tuberculosis,1
+Americas,Northern America,United States,West Nile Virus,2
+Americas,Northern America,United States,Yellow Fever,2
+Americas,Northern America,United States,Zika Virus,1
+Americas,Latin America and the Caribbean,Uruguay,Influenza,2
+Americas,Latin America and the Caribbean,Uruguay,COVID-19,3
+Americas,Latin America and the Caribbean,Uruguay,Dengue,1
+Asia,Central Asia,Uzbekistan,COVID-19,3
+Oceania,Melanesia,Vanuatu,Influenza,1
+Oceania,Melanesia,Vanuatu,COVID-19,3
+Americas,Latin America and the Caribbean,Venezuela,Influenza,2
+Americas,Latin America and the Caribbean,Venezuela,COVID-19,3
+Americas,Latin America and the Caribbean,Venezuela,Dengue,1
+Americas,Latin America and the Caribbean,Venezuela,Measles,1
+Americas,Latin America and the Caribbean,Venezuela,Unspecified Viral Haemorrhagic Fever,1
+Americas,Latin America and the Caribbean,Venezuela,Yellow Fever,4
+Americas,Latin America and the Caribbean,Venezuela,Zika Virus,1
+Asia,South-eastern Asia,Vietnam,Influenza,7
+Asia,South-eastern Asia,Vietnam,COVID-19,3
+Asia,South-eastern Asia,Vietnam,Cholera,1
+Asia,South-eastern Asia,Vietnam,Dengue,1
+Asia,South-eastern Asia,Vietnam,Infectious Gastroenteritis or Colitis,1
+Asia,South-eastern Asia,Vietnam,Measles,1
+Asia,South-eastern Asia,Vietnam,SARS,1
+Asia,South-eastern Asia,Vietnam,Zika Virus,1
+Americas,Latin America and the Caribbean,Virgin Islands (British),Influenza,1
+Americas,Latin America and the Caribbean,Virgin Islands (British),COVID-19,3
+Americas,Latin America and the Caribbean,Virgin Islands (U.S.),Influenza,1
+Americas,Latin America and the Caribbean,Virgin Islands (U.S.),COVID-19,3
+Oceania,Polynesia,Wallis and Futuna,Influenza,1
+Oceania,Polynesia,Wallis and Futuna,COVID-19,2
+Asia,Western Asia,Yemen,Influenza,1
+Asia,Western Asia,Yemen,Acute Polio,2
+Asia,Western Asia,Yemen,COVID-19,3
+Asia,Western Asia,Yemen,Diphtheria,1
+Asia,Western Asia,Yemen,Measles,1
+Asia,Western Asia,Yemen,MERS,1
+Asia,Western Asia,Yemen,Rift Valley Fever,1
+Asia,Western Asia,Yemen,Unspecified Viral Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,Zambia,Influenza,1
+Africa,Sub-Saharan Africa,Zambia,Acute Polio,1
+Africa,Sub-Saharan Africa,Zambia,Arenavirus,1
+Africa,Sub-Saharan Africa,Zambia,Bubonic Plague,1
+Africa,Sub-Saharan Africa,Zambia,COVID-19,3
+Africa,Sub-Saharan Africa,Zambia,Cholera,3
+Africa,Sub-Saharan Africa,Zambia,Infection,1
+Africa,Sub-Saharan Africa,Zambia,Measles,1
+Africa,Sub-Saharan Africa,Zambia,Plague,1
+Africa,Sub-Saharan Africa,Zimbabwe,Influenza,1
+Africa,Sub-Saharan Africa,Zimbabwe,COVID-19,3
+Africa,Sub-Saharan Africa,Zimbabwe,Cholera,5
+Africa,Sub-Saharan Africa,Zimbabwe,Unspecified Viral Haemorrhagic Fever,1
+Africa,Sub-Saharan Africa,Zimbabwe,Viral Meningitis,1

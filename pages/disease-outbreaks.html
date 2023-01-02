@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦠</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="../styles/disease-outbreaks.css">
+    <title>Disease Outbreaks</title>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">home</a>
+        <a href="https://figshare.com/articles/dataset/A_global_dataset_of_pandemic-_and_epidemic-prone_disease_outbreaks/17207183/2" target="_blank" rel="noopener noreferrer">data</a>
+    </nav>
+    <main>
+        <section id="visualization">
+            <div class="top">
+                <header>Disease Outbreaks per Country (1996 - 2022)</header>
+                <div id="canvas-wrapper"></div>
+            </div>
+            <div id="notes">
+                <p>1 icon = 1 outbreak</p>
+            </div>
+        </section>
+        <section id="selector">
+            <div id="sort">
+                <text class="cta">Sort by</text>
+                <div class="options"></div>
+            </div>
+            <div id="location">
+                <text class="cta">Choose Country</text>
+                <div class="options"></div>
+            </div>
+        </section>
+    </main>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../scripts/matter.min.js"></script>
+    <script src="../scripts/disease-outbreaks.js"></script>
+</body>
+</html>
