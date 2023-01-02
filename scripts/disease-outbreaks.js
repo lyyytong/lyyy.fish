@@ -152,6 +152,7 @@ async function drawDiseases() {
 
     // PRELOAD TEXTURE IMAGES
     let imgURLs = []
+    
     diseases.forEach(d => imgURLs.push(`../images/disease-outbreaks/${d.replace("'", '')}.png`))
     Promise.all(imgURLs.map(url => new Promise(
         (resolve, reject) => {
