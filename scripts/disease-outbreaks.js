@@ -97,11 +97,11 @@ async function drawDiseases() {
     Runner.run(runner, engine)
 
     // add static walls
-    const options = { 
-        isStatic: true, 
-        render: { 
-            fillStyle: 'transparent' 
-        } 
+    const options = {
+        isStatic: true,
+        render: {
+            fillStyle: 'transparent'
+        }
     }
     Composite.add(world, [
         Bodies.rectangle(-iconW / 2, height / 2, iconW, height, options),
@@ -121,9 +121,9 @@ async function drawDiseases() {
                 }
             }
         })
-    mouseConstraint.mouse.element.removeEventListener('mousewheel',mouseConstraint.mouse.mousewheel)
-    mouseConstraint.mouse.element.removeEventListener('DOMMouseScroll',mouseConstraint.mouse.mousewheel)
-    
+    mouseConstraint.mouse.element.removeEventListener('mousewheel', mouseConstraint.mouse.mousewheel)
+    mouseConstraint.mouse.element.removeEventListener('DOMMouseScroll', mouseConstraint.mouse.mousewheel)
+
     let touchStart;
     mouseConstraint.mouse.element.addEventListener('touchstart', event => {
         if (!mouseConstraint.body) {
@@ -141,7 +141,7 @@ async function drawDiseases() {
             }
         }
     })
-    
+
     Composite.add(world, mouseConstraint)
 
     // keep mouse in sync with rendering
@@ -155,7 +155,7 @@ async function drawDiseases() {
 
     // PRELOAD TEXTURE IMAGES
     let imgURLs = []
-    diseases.forEach(d => imgURLs.push(`../images/disease-outbreaks/${d.replace("'",'')}.png`))
+    diseases.forEach(d => imgURLs.push(`../images/disease-outbreaks/${d.replace("'", '')}.png`))
     Promise.all(imgURLs.map(url => new Promise(
         (resolve, reject) => {
             const img = new Image()
@@ -259,15 +259,15 @@ async function drawDiseases() {
 
             const group = Body.nextGroup(true)
 
-            const imgLink = `../images/disease-outbreaks/${disease.replace("'",'')}.png`
+            const imgLink = `../images/disease-outbreaks/${disease.replace("'", '')}.png`
             const rope = Composites.stack(x, y,
                 1, outbreaks, // columns & rows
                 0, 0, // column & row gaps
                 (x, y) => {
                     const icon = Bodies.rectangle(
                         x, d3.min([y, height * .8]), iconW, iconW, {
-                        collisionFilter: { 
-                            group: group ,
+                        collisionFilter: {
+                            group: group,
                             category: ropeCat,
                         },
                         render: {
@@ -345,18 +345,18 @@ async function drawDiseases() {
             Composite.add(world, rope)
         })
 
-        const countryA = initCountry.replaceAll(",",'').split(' ')
+        const countryA = initCountry.replaceAll(",", '').split(' ')
         let countryAW = 0
         countryA.forEach(word => { countryAW += word.length * countryFontSize * .7 })
         const leftX = (width - countryAW) / 2
         const indent = countryAW / countryA.length
         const bottomY = height - 50
-        countryA.forEach((word,i) => {
+        countryA.forEach((word, i) => {
             const labelW = word.length * countryFontSize * .6
             const labelH = 25
             const wordLabel = Bodies.rectangle(
-                leftX + indent * i + labelW/2, 
-                bottomY - 80 * i, 
+                leftX + indent * i + labelW / 2,
+                bottomY - 80 * i,
                 labelW, labelH,
                 {
                     restitution: 0.5,
