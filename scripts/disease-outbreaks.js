@@ -134,7 +134,7 @@ async function drawDiseases() {
         if (!mouseConstraint.body) {
             const startY = touchStart.changedTouches[0].clientY;
             const endY = event.changedTouches[0].clientY;
-            const delta = Math.abs(startY - endY);
+            const delta = endY - startY;
 
             if (delta > 80) {
                 window.scrollTo(0, 600);
