@@ -134,7 +134,7 @@ async function drawDiseases() {
 
     // PRELOAD TEXTURE IMAGES
     let imgURLs = []
-    diseases.forEach(d => imgURLs.push(`../images/disease-outbreaks/${d}.png`))
+    diseases.forEach(d => imgURLs.push(`../images/disease-outbreaks/${d.replace("'",'')}.png`))
     Promise.all(imgURLs.map(url => new Promise(
         (resolve, reject) => {
             const img = new Image()
@@ -161,7 +161,7 @@ async function drawDiseases() {
             .domain(diseases).range([0, width])
             .paddingOuter(.5)
         diseaseBandW = diseaseXScale.bandwidth()
-        iconW = d3.min([diseaseBandW * .8, 50])
+        iconW = d3.min([diseaseBandW * .8, 40])
         linkLength = d3.max([iconW / 8, 3])
         imgScale = iconW / 50
         topMargin = d3.min([iconW / 2, 10])
@@ -238,7 +238,7 @@ async function drawDiseases() {
 
             const group = Body.nextGroup(true)
 
-            const imgLink = `../images/disease-outbreaks/${disease}.png`
+            const imgLink = `../images/disease-outbreaks/${disease.replace("'",'')}.png`
             const rope = Composites.stack(x, y,
                 1, outbreaks, // columns & rows
                 0, 0, // column & row gaps
@@ -325,7 +325,7 @@ async function drawDiseases() {
         })
 
         const labelW = d3.min([initCountry.length * countryFontSize, width])
-        const labelH = 50
+        const labelH = 25
         const countryLabel = Bodies.rectangle(width / 2, height / 2, labelW, labelH, {
             restitution: 0.5,
             angle: Math.PI * .04,
