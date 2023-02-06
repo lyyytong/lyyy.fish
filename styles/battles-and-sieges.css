@@ -482,8 +482,7 @@ li::before {
 
 @media (min-width: 700px) {
     #notes .content {
-        padding: var(--margin);
-        padding-top: calc(var(--margin)*2);
+        padding: calc(var(--margin)*2);
         height: 100vh;
     }
     #notes .content h1 {
