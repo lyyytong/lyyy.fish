@@ -46,8 +46,10 @@ body {
     margin: 0;
     padding: var(--margin);
     height: calc(100vh - var(--margin)*2);
+    overflow-y: hidden;
 }
 
+/* #dBG, */
 #sBG,
 #sNBG {
     position: absolute;
@@ -56,6 +58,10 @@ body {
     top: 0;
     left: 0;
     opacity: 0;
+}
+
+#dBG {
+    background: linear-gradient(to bottom, var(--baseColor),var(--baseColor2));
 }
 
 #sBG {
@@ -276,6 +282,9 @@ li::before {
     top: 0;
     left: 0;
     background-color: var(--baseColor);
+    /* overflow-y: scroll; */
+    /* height: 100vh; */
+    /* width: 100vw; */
     /* border-radius: var(--buttonBorderRadius); */
     /* border-left: 1px solid var(--mainColor2); */
 }
