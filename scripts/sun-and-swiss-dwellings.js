@@ -479,7 +479,7 @@ async function drawRooms() {
         .attr('height', dim.margin.bottom)
         .attr('y', dim.boundedHeight)
         .append('xhtml:div')
-        .html('The strongest correlation with illuminance is sky view. The average balcony with a wide view receives 10,000 times more light per square meter than the average bathroom. The amount of windows and skylights, though impressive on paper, only matter if they maximize sky view.')
+        .html('The strongest correlation with illuminance is sky view. The average balcony with a wide view receives 10,000 times more light per square meter than the average bathroom. The amount of windows and skylights, though impressive on paper, matters only if the sky is visible.')
 
     const axisY = notes.node().getBoundingClientRect().height
         + dim.boundedHeight + 22

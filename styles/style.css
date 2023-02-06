@@ -1,12 +1,17 @@
+@font-face {
+    font-family: 'Public Sans';
+    src: url("../styles/PublicSans[wght].ttf") format('truetype');
+}
+
 :root {
     --base-color: #ababab;
     --text-color: #1c1c1c;
     --accent-color: #33ff00;
-    --main-font: 'Inter', sans-serif;
+    --main-font: 'Public Sans', sans-serif;
     --main-font-size: clamp(15px, 3vw, 20px);
-    --thick-font-weight: 450;
-    --main-font-weight: 420;
-    --thin-font-weight: 400;
+    --thick-font-weight: 4000;
+    --main-font-weight: 350;
+    --thin-font-weight: 320;
 }
 
 html {

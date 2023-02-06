@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💣</text></svg>" />
+    <link rel="stylesheet" href="../styles/battles-and-sieges.css" />
+    <title>Battles & Sieges</title>
+</head>
+
+<body>
+    <nav>
+        <div id="select-century">
+            <div class="button">Select Century</div>
+            <div class="list hidden"></div>
+        </div>
+        <div id="menu">
+            <div class="button"><span>＋</span></div>
+            <div class="list hidden">
+                <a href="../index.html">Home</a>
+                <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/6ZFC0V"
+                    target="_blank" rel="noopener noreferrer">Data</a>
+                <p class="notes">Notes</p>
+            </div>
+        </div>
+    </nav>
+    <div id="sBG"></div>
+    <div id="sNBG"></div>
+    <main>
+        <section id="intro">
+            <p>
+                This simple simulation shows the first-person view of battles and
+                sieges.
+            </p>
+            <p>
+                Probabilities were generated from data of 8,881 battles spanning 4
+                millennia.
+            </p>
+            <p>Select a century, the rest is up to chance.</p>
+        </section>
+        <section id="bursts"></section>
+        <section id="cta" class="big hidden">
+            <div id="speed">
+                <div class="option selected">Slow</div>
+                <div class="option">Fast</div>
+            </div>
+            <p>click | spacebar</p>
+        </section>
+        <section id="random-outcome" class="hidden">
+            <p>
+                You were in (the)
+                <span class="war">Sino-Vietnam War in today's Vietnam</span>.
+            </p>
+            <p>It was a <span class="feature">land</span> battle.</p>
+            <p>
+                Either side numbered <span class="scale">up to 5,000</span> soldiers.
+            </p>
+            <p>You fought for (the) <span class="side">Vietnam</span>.</p>
+            <p>
+                Your side <span class="outcome">lost</span>.</span>
+            </p>
+            <p>You <span class="survived">unfortunately did not survive</span>.</p>
+        </section>
+        <section id="summary">
+            <div id="data-summary"></div>
+            <div id="record" class="hidden">
+                <text class="legend">Survival %</text>
+            </div>
+            <div id="scales" class="hidden">
+                <text class="legend">Battle size</text>
+            </div>
+        </section>
+        <section id="notes" class="hidden">
+            <div class="button">＋</div>
+            <div class="content">
+                <h1>Data</h1>
+                <p>
+                    Miller, Charles, 2022, "Historical Conflict Event Dataset", <a
+                        href="https://doi.org/10.7910/DVN/6ZFC0V" target="_blank"
+                        rel="noopener noreferrer">https://doi.org/10.7910/DVN/6ZFC0V</a>, Harvard Dataverse, V3
+                </p>
+                <h1>Probabilities</h1>
+                <p>
+                    The dataset contains 8,881 battles between the years 1468 BC and 2003. Percentages were calculated
+                    in this order:
+                <ul>
+                    <li>A war in any given century may have been waged accross more than one territory. Each has their
+                        own probability based on how many battles occured in that war and location.</li>
+                    <li>Battle features — whether on land or at sea, its size and participants — depend on the records
+                        of that specific war in that specific location.</li>
+                    <li>The likelihood of fighting for any participant depends on how often that side engaged in battle.
+                    </li>
+                    <li>The likelihood of winning, losing, and/or a massacre depends on the track record of
+                        that side in
+                        that war and location.</li>
+                    <li>Survival rates were made up for a bit of personal stake: by default
+                        it's 50%, becomes 75% if your side won the battle, down to 30% if lost, and
+                        under
+                        10% if your side lost and was massacred. The displayed rate was randomized (give or take a few
+                        %) for variety.</li>
+
+                </ul>
+                </p>
+                <h1>Data Cleaning</h1>
+                <p>
+                    I manually filled a few missing values for battle locations based on the historical description
+                    provided
+                    for each data point.
+                </p>
+                <p>
+                    Names of the larger wars to which the battles belong were edited for
+                    consistency, for example "World War One" and "World War 1" became "World War I". Some were
+                    changed for ease
+                    of calculating
+                    probabilities, such as several Napoleonic campaigns, each with varied names, were grouped into a
+                    long Napoleonic war.
+                </p>
+                <p>
+                    Some names of battle participants were edited for clarity, especially when it's a civil war:
+                    fighting in
+                    the "Argentinian civil war" on the side of "Argentina" means fighting for the ruling government
+                    against
+                    opposing parties, and were reflected as such.
+                </p>
+                <p>
+                    A big change was battle scale, or size, called the Lehmann Zhukov scale in the dataset: more than
+                    43% of
+                    the data had no information on scale. I made a big assumption that larger battles would likely
+                    get more detailed reports, and so ascribed the smallest scale (up to 50,000 soldiers on either side)
+                    to
+                    all these data points.
+                </p>
+                <p>
+                    These changes and other typo edits were based on very quick search, with results from Wikipedia and
+                    other online sources. There are surely many errors from my lack of understanding and familiarity
+                    with
+                    historical contexts.
+                </p>
+                <h1>Other Notes</h1>
+                <p>
+                    On what the dataset's author called the battle's "theatre" — whether it took place on land, at sea,
+                    or
+                    in the air: all land battles of the 20th century were assumed to have tactical air support since,
+                    according to the author, they're largely ubiquitous in post-1918 warfare.
+                </p>
+                <p>
+                    A battle has three possible outcomes: won, lost, or inconclusive result. The
+                    third is rare and means something like a tie, where according to the author both sides achieved
+                    their
+                    tactical goals.
+                </p>
+                <h1>Tech Stack</h1>
+                <p>
+                    Analysis: Python (Pandas, Regex, Seaborn, Matplotlib)<br>
+                    Visualization: Javascript (D3, mo.js), HTML, CSS
+                </p>
+            </div>
+        </section>
+    </main>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
+    <script src="../scripts/battles-and-sieges.js"></script>
+</body>
+
+</html>

@@ -2,11 +2,12 @@
     --bg-color: black;
     --off-black-color: #1d1d1d;
     --main-color: white;
-    --faint-color: dimgray;
+    --faint-color: #959595;
     --font-family: 'JetBrains Mono', monospace;
     --font-size: clamp(12px, 3vw, 14px);
     --big-font-size: 1.5em;
     --font-weight: 100;
+    --faint-opacity: .8;
 }
 
 html {
@@ -36,7 +37,7 @@ a, a:hover, a:visited, a:active {
 
 header {
     font-size: 1.05em;
-    opacity: .4;
+    opacity: var(--faint-opacity);
     text-align: center;
     padding: 8px 0;
 }
@@ -63,7 +64,7 @@ nav a {
     padding: 8px 0;
     writing-mode: vertical-lr;
     pointer-events: all;
-    opacity: .3;
+    opacity: var(--faint-opacity);
     letter-spacing: .05em;
 }
 
@@ -73,7 +74,7 @@ p {
 
 #notes {
     text-align: center;
-    opacity: .4;
+    opacity: var(--faint-opacity);
 }
 
 #selector {
@@ -92,7 +93,7 @@ p {
 
 :is(#scope, #sort, #location) .cta {
     padding: 8px 5px;
-    color: var(--faint-color);
+    opacity: var(--faint-opacity);
 }
 
 :is(#scope,#sort, #location) .options {
@@ -113,13 +114,13 @@ p {
     background: var(--off-black-color);
     border-radius: 20px;
     cursor: pointer;
-    opacity: .6;
+    opacity: calc(var(--faint-opacity)*.6);
     padding: 8px 16px;
 }
 
 .option.active {
     box-shadow: 0 0 3px var(--main-color);
-    opacity: .8 !important;
+    opacity: 1 !important;
 }
 
 @media (min-width: 1000px){
@@ -146,7 +147,7 @@ p {
     nav a {
         padding: 8px;
         writing-mode:horizontal-tb;
-        opacity: .6;
+        opacity: var(--faint-opacity);
     }
 
     #notes {

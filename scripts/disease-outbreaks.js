@@ -5,8 +5,8 @@ const fontFamily = styles.fontFamily.split(',')[0]
 const margin = +styles.margin.slice(0, -2)
 const bgColor = 'black'
 const mainColor = 'white'
-const faintColor = 'dimgray'
-const faintColor2 = '#525252'
+const faintColor = 'gray'
+const faintColor2 = 'dimgray'
 
 drawDiseases()
 async function drawDiseases() {
@@ -14,8 +14,8 @@ async function drawDiseases() {
     const dataset = await d3.csv('../data/disease-outbreaks.csv', d3.autoType)
 
     const canvasWrapper = document.querySelector('#canvas-wrapper')
-    const width = d3.min([window.innerWidth - 2 * margin, 800])
-    const height = window.innerHeight > window.innerWidth
+    let width = d3.min([window.innerWidth - 2 * margin, 800])
+    let height = window.innerHeight > window.innerWidth
         ? window.innerHeight * .75
         : d3.max([window.innerHeight * .87, 500])
 
@@ -246,7 +246,7 @@ async function drawDiseases() {
         drawRopes()
         window.scrollTo(0, 0)
     }
-
+    
     function drawRopes() {
         const labelScale = 1 / ratio
         const defaultCat = 0x0001, ropeCat = 0x0002

@@ -1,15 +1,20 @@
+@font-face {
+    font-family: 'Public Sans';
+    src: url("../styles/PublicSans[wght].ttf") format('truetype');
+}
+
 :root {
     --bg-color: #bdb3a6;
     --light-bg-color: #e8e1d4;
     --main-color: #222222;
     --highlight-color: #ae71fd;
     --second-highlight-color: #1b7b1b;
-    --font: 'Inter', sans-serif;
+    --font: 'Public Sans', sans-serif;
     --font-size: clamp(12.5px, 3vw, 15px);
     --small-font-size: 0.8em;
-    --font-weight: 450;
-    --thick-font-weight: 500;
-    --thin-font-weight: 400;
+    --font-weight: 400;
+    --thick-font-weight: 450;
+    --thin-font-weight: 350;
     --small-font-letter-spacing: 0.09em;
 }
 
