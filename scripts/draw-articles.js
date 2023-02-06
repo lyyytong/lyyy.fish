@@ -109,7 +109,6 @@ async function drawList() {
         })
     }
 }
-
 const about = d3.select('#about')
 const aboutBg = d3.select('#about-bg')
 const aboutContainer = d3.select('#about-container')

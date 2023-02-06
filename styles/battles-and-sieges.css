@@ -32,12 +32,13 @@
     --ctaRadius2: 235px;
 }
 
-html {
-    background: var(--baseColor);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
 }
 
 body {
-    background: linear-gradient(to bottom, var(--baseColor),var(--baseColor2));
     color: var(--mainColor);
     font-family: var(--fontFamily);
     font-size: var(--fontSize);
@@ -45,23 +46,24 @@ body {
     line-height: 1.35;
     margin: 0;
     padding: var(--margin);
-    height: calc(100vh - var(--margin)*2);
     overflow-y: hidden;
 }
 
-/* #dBG, */
+#dBG,
 #sBG,
 #sNBG {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
     opacity: 0;
+    pointer-events: none;
 }
 
 #dBG {
     background: linear-gradient(to bottom, var(--baseColor),var(--baseColor2));
+    opacity: 1;
 }
 
 #sBG {
@@ -76,16 +78,13 @@ p {
     margin: 0;
 }
 
-main {
-    position: relative;
-}
-
 nav {
-    position: relative;
+    position: fixed;
     z-index: 999;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: var(--fullWidthSansMargin);
 }
 
 nav .button {
@@ -100,8 +99,6 @@ nav .list {
     position: absolute;
     bottom: 0;
     transform: translateY(calc(100% + var(--margin)));
-    /* opacity: 0; */
-    /* pointer-events: none; */
 }
 
 nav .list > * {
@@ -145,7 +142,8 @@ li::before {
     left: 0;
     bottom: 0;
     transform: translateY(60%);
-    mix-blend-mode:soft-light;
+    /* mix-blend-mode:soft-light; */
+    mix-blend-mode: overlay;
 }
 
 #cta {
@@ -265,8 +263,8 @@ li::before {
 }
 
 #intro {
-    position: absolute;
-    top: var(--margin);
+    position: fixed;
+    top: calc(var(--margin)*5.5);
     font-size: var(--fontSize);
     overflow-wrap: break-word;
 }
@@ -282,17 +280,12 @@ li::before {
     top: 0;
     left: 0;
     background-color: var(--baseColor);
-    /* overflow-y: scroll; */
-    /* height: 100vh; */
-    /* width: 100vw; */
-    /* border-radius: var(--buttonBorderRadius); */
-    /* border-left: 1px solid var(--mainColor2); */
 }
 
 #notes .content {
     padding: calc(var(--margin)*2) var(--margin);
     height: calc(100vh - var(--margin)*4);
-    width: var(--fullWidthSansMargin);
+    width: 100vw;
     max-width: 600px;
     overflow-y: scroll;
     scrollbar-width: none;
@@ -314,7 +307,6 @@ li::before {
     margin-top: calc(var(--margin)*3);
 }
 #notes .content h1:first-child {
-    /* margin-top: 0; */
     margin-top: var(--margin);
 }
 
@@ -326,14 +318,9 @@ li::before {
 #notes .content > * {
     margin-bottom: var(--margin);
 }
-#notes .content > *:last-child {
-    margin-bottom: calc(var(--margin)*2);
-}
 
 #notes .button {
     position: absolute;
-    /* right: calc(var(--flexGap)*1.5); */
-    /* top: var(--flexGap); */
     right: var(--margin);
     top: var(--margin);
     font-size: 1.8em;
@@ -347,6 +334,8 @@ li::before {
     width: 60vw;
     font-size: var(--fontSize);
     mix-blend-mode: luminosity;
+    position: fixed;
+    margin-top: calc(var(--margin)*2);
 }
 
 #random-outcome :is(.war,.feature,.scale,.side,.outcome,.massacre,.survived) {
@@ -404,9 +393,9 @@ li::before {
     flex-direction: column;
     justify-content: end;
     position: absolute;
-    bottom: calc(var(--margin)*2);
+    bottom: calc(var(--margin));
     height: var(--recordHeight);
-    width: 2px;
+    width: 1.5px;
     background: var(--mainColor2);
 }
 #summary #record .bar {
@@ -471,8 +460,8 @@ li::before {
 
 .fn-pct {
     color: var(--mainColor2);
-    position: absolute;
-    right: 0;
+    position: fixed;
+    right: var(--margin);
 }
 
 .hidden {
@@ -493,7 +482,9 @@ li::before {
 
 @media (min-width: 700px) {
     #notes .content {
-        padding: calc(var(--margin)*2);
+        padding: var(--margin);
+        padding-top: calc(var(--margin)*2);
+        height: 100vh;
     }
     #notes .content h1 {
         margin-top: calc(var(--margin)*4);

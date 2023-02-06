@@ -101,7 +101,6 @@ d3.range(1,7).forEach(d=> {
     scaleStats[d] = {}
     scaleStats[d].count = 0
 })
-
 setup()
 async function setup() {
     const probaData = await d3.csv('../data/battles-and-sieges/proba.csv', d3.autoType)
@@ -158,12 +157,14 @@ async function setup() {
                 .style('top', 0 + 'px')
             closeMenu()
             closeNotes()
+            annotation.classed('hidden',true)
         } else closeSelectCentury()
     }
     function closeSelectCentury() {
         if (simulations == 0 && !century) intro.classed('hidden', false)
         if (simulations > 0) randomOutcome.classed('hidden', false)
-        if (century)ctaWrapper.classed('hidden',false)
+        if (century) ctaWrapper.classed('hidden',false)
+        if (!century) annotation.classed('hidden',false)
         selectCenturyMenu.classed('hidden', true)
     }
     function updateCentury() {
@@ -183,11 +184,12 @@ async function setup() {
         if (timeline) timeline.stop()
         bursts.classed('hidden', true)
         summary.classed('hidden', false)
+        barsG.transition(getT()).style('opacity',1)
         bars.transition(getT())
             .style('opacity', d => d.century == century ? 1 : .1)
         ticks.transition(getT())
             .style('opacity',d => d.century == century ? 1 : 0)
-        if (annotation.style('opacity')) annotation.style('opacity',0)
+        annotation.style('opacity',0)
     }
     function toggleMenu() {
         if (menu.classed('hidden')) {
@@ -232,6 +234,7 @@ async function setup() {
         survivedBg.transition(getT(animTime)).style('opacity', 0)
         diedBg.transition(getT(animTime)).style('opacity', 0)
         ctaWrapper.classed('hidden', true)
+        barsG.transition(getT(800)).style('opacity',.5)
         bars.style('pointer-events', 'none')
         selectCenturyBtn.style('pointer-events', 'none')
         randomOutcome.classed('hidden', false)
@@ -271,7 +274,6 @@ async function setup() {
         const isLand = getRandBinom(landProba)
         const isSea = getRandBinom(seaProba)
         const isAir = getRandBinom(airProba)
-        // const isSea=1,isAir=1
 
         // indices
         const fought = 0
@@ -301,7 +303,6 @@ async function setup() {
 
         const scales = Object.keys(battleTexts)
         const scale = getRandItem(scales, d => war[`scale${d}`])
-        // const scale = 5
         scaleStats[scale].count++
         const scaleDesc = battleTexts[scale]
         const scaleProba = war[`scale${scale}`]
@@ -310,7 +311,6 @@ async function setup() {
         const isLost = outcome == lost
         const massacreProba = isWon ? +outcomeData[massacre] : isLost ? +outcomeData[massacred] : 0
         const isMassacre = getRandBinom(massacreProba)
-        // const isMassacre = 1
 
         const survivedProba = isWon ? wonSurvivalProba
             : (isLost && isMassacre) ? lostMassacredSurvivalProba
@@ -335,8 +335,7 @@ async function setup() {
             rearrangePcts(d3.select('.feature'),450)
         function rearrangePcts(element,width){
             const pctTexts = element.selectAll('.fn-pct').nodes()
-            const topY = pctTexts[0].getBoundingClientRect().y
-                - d3.select('main').node().getBoundingClientRect().y
+            const topY = element.node().getBoundingClientRect().y
             pctTexts.reverse()
             let distanceRight = 0
             pctTexts.forEach((d, i, array) => {

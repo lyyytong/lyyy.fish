@@ -1,15 +1,11 @@
-@font-face {
-    font-family: 'Public Sans';
-    src: url("../styles/PublicSans[wght].ttf") format('truetype');
-}
-
 :root {
     --bg-color: #f5f5f5;
     --main-color: #4032d7;
     --sun-color: #d678a2;
-    --main-font: 'Public Sans', sans-serif;
+    --main-font: 'Inter', sans-serif;
     --main-font-size: clamp(11.5px, 1.6vw, 14px);
     --main-font-weight: 400;
+    --thick-font-weight: 450;
 }
 
 @keyframes appear {
@@ -238,6 +234,9 @@ text {
 }
 
 @media (max-width:600px) {
+    body {
+        font-weight: var(--thick-font-weight);
+    }
     nav>* {
         padding: 8px 0;
     }
