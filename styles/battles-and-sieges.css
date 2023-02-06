@@ -32,6 +32,10 @@
     --ctaRadius2: 235px;
 }
 
+html {
+    background: var(--baseColor);
+}
+
 body {
     background: linear-gradient(to bottom, var(--baseColor),var(--baseColor2));
     color: var(--mainColor);
@@ -277,9 +281,8 @@ li::before {
 }
 
 #notes .content {
-    padding: var(--margin);
-    padding-top: calc(var(--margin)*2);
-    height: calc(100vh - var(--margin)*3);
+    padding: calc(var(--margin)*2) var(--margin);
+    height: calc(100vh - var(--margin)*4);
     width: var(--fullWidthSansMargin);
     max-width: 600px;
     overflow-y: scroll;
@@ -313,6 +316,9 @@ li::before {
 
 #notes .content > * {
     margin-bottom: var(--margin);
+}
+#notes .content > *:last-child {
+    margin-bottom: calc(var(--margin)*2);
 }
 
 #notes .button {
