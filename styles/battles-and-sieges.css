@@ -285,6 +285,10 @@ li::before {
     overflow-y: scroll;
     scrollbar-width: none;
 }
+#notes .content::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
 
 #notes .content h1 {
     margin: 0;
