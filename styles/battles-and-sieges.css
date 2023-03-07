@@ -32,6 +32,10 @@
     --ctaRadius2: 235px;
 }
 
+html {
+    background: var(--baseColor);
+}
+
 * {
     margin: 0;
     padding: 0;

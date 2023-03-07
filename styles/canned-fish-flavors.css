@@ -276,6 +276,12 @@ nav #dropdown .exit {
     text-align: center;
 }
 
+#graph .more-info .details {
+    font-size: .75em;
+    line-height: 1.5;
+    letter-spacing: var(--bigLetterSpacing);
+}
+
 #graph .more-info .fish {
     align-items: center;
 }
@@ -286,7 +292,7 @@ nav #dropdown .exit {
 
 #graph .more-info .price .details {
     position: relative;
-    top: calc(var(--margin)*3);
+    top: calc(var(--margin)*2.5);
     border-top: 1px solid var(--darkFaintColor);
     height: 10px;
 }
@@ -300,7 +306,7 @@ nav #dropdown .exit {
 
 #graph .more-info .price .details .median-max text {
     position: absolute;
-    transform: translate(-35%, calc(-100% - var(--margin)));
+    transform: translate(-40%, calc(-100% - 6px));
     white-space: nowrap;
 }
 
@@ -320,9 +326,6 @@ nav #dropdown .exit {
     display: flex;
     flex-direction: column;
     margin-top: var(--margin);
-    line-height: 1.5;
-    font-size: .75em;
-    letter-spacing: var(--bigLetterSpacing);
 }
 
 #instructions {
