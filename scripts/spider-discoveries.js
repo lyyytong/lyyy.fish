@@ -1,3 +1,4 @@
+history.scrollRestoration = 'manual'
 drawRidgelineChart()
 async function drawRidgelineChart() {
     const dataset = await d3.csv('../data/spider-discoveries/top_genera.csv', d3.autoType)

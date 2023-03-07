@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canned Fish Flavors</title>
+    <meta name="author" content="Ly Tong">
+    <meta name="description" content="A visualization of add flavors in canned fish at Rainbow Tomato Garden.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/canned-fish-flavors.css">  
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐡</text></svg>">
+</head>
+
+<body>
+    <nav>
+        <div id="buttons">
+            <text id="menu">＋</text>
+            <text id="see-flavors">f</text>
+        </div>
+        <div id="dropdown" class="hidden">
+            <div class="links">
+                <a href="../index.html">Home</a>
+                <a href="https://docs.google.com/spreadsheets/d/1zjfwXVsGPfWw4ag3EHkT6ismDZhj8dlFwwahD7SG7gQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Data</a>
+                <a href="#notes" class="notes">Notes</a>
+            </div>
+            <text class="exit">＋</text>
+        </div>
+    </nav>
+    <main>
+        <section id="instructions" class="hidden">
+            <div class="scroll-area-left has-border">
+                <text>scroll</text>
+            </div>
+            <div class="drag-area has-border">
+                <text>drag circles</text>
+            </div>
+            <div class="scroll-area-right has-border">
+                <text>scroll</text>
+            </div>
+        </section>
+        <section id="graph">
+            <div class="brands">
+                <text class="col-name">Brand</text>
+            </div>
+            <canvas></canvas>
+            <div class="stats">
+                <div class="flavors">
+                    <text class="col-name">✳︎</text>
+                </div>
+                <div class="fish extra-cols">
+                    <text class="col-name">𓆟</text>
+                </div>
+                <div class="price extra-cols">
+                    <text class="col-name">$</text>
+                </div>
+            </div>
+            <div class="more-info hidden">
+                <div class="fish">
+                    <text class="col-name">𓆟</text>
+                    <p class="details"></p>
+                </div>
+                <div class="price">
+                    <text class="col-name">$</text>
+                    <div class="details">
+                        <div class="min-median"></div>
+                        <div class="median-max">
+                            <text></text>
+                        </div>
+                        <div class="details-list">
+                            <text>Product prices</text>
+                            <text>Cheapest: <span class="min"></span>$</text>
+                            <text>Median: <span class="median"></span>$</text>
+                            <text>Most expensive: <span class="max"></span>$</text>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="intro">
+            <h1>Added flavors in canned fish brands at Rainbow Tomato Garden. Circles <span id="legends"></span> show the
+                percentage of products carrying a given flavor. See also the number of flavors <span
+                    id="flavors-col">✳︎</span><span class="extra-cols">, fish types <span id="fish-col">𓆟</span> and
+                    median price in USD <span id="price-col">$</span></span> by each brand.</h1>
+        </section>
+        <section id="notes">
+            <h1>Notes</h1>
+            <p>Data: Rainbow Tomato Garden's <a href="https://rainbowtomatoesgarden.com/" target="_blank"
+                    rel="noopener noreferrer">website</a> & <a
+                    href="https://docs.google.com/spreadsheets/d/1zjfwXVsGPfWw4ag3EHkT6ismDZhj8dlFwwahD7SG7gQ/edit?usp=sharing"
+                    target="_blank" rel="noopener noreferrer">GSheet</a>.</p>
+            <div>
+                <p>
+                    Data cleaning & edits:
+                </p>
+                <ul>
+                    <li>Excluded all neutral tasting oils (canola, corn, grapeseed, sunflower, vegetable, refined
+                        soybean, refined olive oil) and fish' own liquid used for preservation rather than taste (e.g.
+                        mussel broth or nectar). Salt and brine (salt water) were also excluded, as they 'deepen'
+                        flavors but don't add any distinct flavors on their own.</li>
+                    <li>All peppers of the species Capsicum Annuum except bell peppers were renamed chili (e.g. azorean
+                        pepper became azorean chili) to distinguish from pepper made from peppercorns (e.g. ground black
+                        pepper).</li>
+                    <li>Product descriptions and ingredient lists on the store's website were referenced to fill a few
+                        missing values in its Google Sheet data (e.g. sugar and garlic).</li>
+                    <li>Removed all sauce products that contain no fish.</li>
+                    <li>Minor typo, value formatting issues, and naming inconsistencies were corrected.</li>
+                </ul>
+            </div>
+            <div>
+                <p>
+                    After the above edits, these brands were excluded as they were found to carry no added
+                    flavors:
+                </p>
+                <ul id="no-flavors"></ul>
+            </div>
+            <p>
+                Wave simulations and interactive physics were done with <a href="https://brm.io/matter-js/"
+                    target="_blank" rel="noopener noreferrer">Matter.js</a>. Sounds of colliding circles (volume scaling
+                based on strength of collision and its distance from view) were managed
+                with <a href="https://howlerjs.com/" target="_blank" rel="noopener noreferrer">Howler.js</a>. Three
+                different sounds were used (<a href="https://pixabay.com/sound-effects/high-clank-86142/"
+                    target="_blank" rel="noopener noreferrer">01</a>, <a
+                    href="https://pixabay.com/sound-effects/cheese-grater-02-92236/" target="_blank"
+                    rel="noopener noreferrer">02</a>, <a
+                    href="https://pixabay.com/sound-effects/hitting-a-metal-lid-36047/" target="_blank"
+                    rel="noopener noreferrer">03</a>), available for free from <a href="https://pixabay.com/"
+                    target="_blank" rel="noopener noreferrer">Pixabay</a>.
+            </p>
+            <div>
+                <p>Tech stack:</p>
+                <ul>
+                    <li>Data cleaning: Python (Pandas, Matplotlib, Regex)</li>
+                    <li>Visualization: Javascript (D3.js, Matter.js, Howler.js), HTML, CSS</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script src="../scripts/d3.min.js"></script>
+    <script src="../scripts/matter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="../scripts/canned-fish-flavors.js"></script>
+</body>
+
+</html>

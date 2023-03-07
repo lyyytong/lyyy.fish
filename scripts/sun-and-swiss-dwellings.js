@@ -1,3 +1,4 @@
+history.scrollRestoration = 'manual'
 const html = document.getElementsByTagName('html')[0]
 const lineH = parseFloat(getComputedStyle(html).lineHeight.split('px')[0])
 

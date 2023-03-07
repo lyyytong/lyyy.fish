@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Inter';
+    src: url("../styles/Inter.woff2");
+}
+
 :root {
     --main-font: 'Inter', sans-serif;
     --main-font-size: clamp(15px, 3vw, 17px);

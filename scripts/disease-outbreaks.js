@@ -1,3 +1,4 @@
+history.scrollRestoration = 'manual'
 const styles = getComputedStyle(document.querySelector('body'))
 const fontSize = +styles.fontSize.slice(0, -2)
 const countryFontSize = fontSize * 2

@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Public Sans';
-    src: url("../styles/PublicSans[wght].ttf") format('truetype');
+    src: url("../styles/PublicSans.woff2");
 }
 
 :root {
@@ -247,6 +247,16 @@ li::before {
     width: 20vw;
     right: 0;
     justify-content: end;
+}
+
+@keyframes flash {
+    0% {opacity: 1;}
+    50% {opacity: .2;}
+    100% {opacity: 1;}
+}
+
+.flash {
+    animation: flash 1.5s ease infinite;
 }
 
 #select-century .button {

@@ -158,6 +158,7 @@ async function setup() {
             closeMenu()
             closeNotes()
             annotation.classed('hidden',true)
+            if (selectCenturyBtn.classed('flash')) selectCenturyBtn.classed('flash',false)
         } else closeSelectCentury()
     }
     function closeSelectCentury() {

@@ -1,3 +1,4 @@
+history.scrollRestoration = 'manual'
 const lineH = +getComputedStyle(document.querySelector('body')).lineHeight.slice(0, -2)
 const margin = 8
 

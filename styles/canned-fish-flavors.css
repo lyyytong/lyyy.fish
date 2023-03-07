@@ -1,0 +1,545 @@
+@font-face {
+    src: url("../styles/PublicSans.woff2");
+    font-family: 'Public Sans';
+}
+
+:root {
+    --fontFamily: 'Public Sans',sans-serif;
+    --fontSize: clamp(12px, 3vw, 13px);
+    --bigFontSize: 1.5em;
+    --iconSize: 1.2em;
+    --fontW: 350;
+    --thinFontW: 300;
+    --lightFontW: 200;
+    --hairlineFontW: 150;
+    --thickFontW: 400;
+    --mainColor: #0effdf;
+    --faintMainColor: #1DA1AA;
+    --faintColor: #4f48a9;
+    --darkFaintColor: #242054;
+    --baseColor: #302c67;
+    --margin: 8px;
+    --letterSpacing: .05em;
+    --bigLetterSpacing: .09em;
+    --tightLetterSpacing: -.008em;
+    --darkBorder: 1px solid var(--faintColor);
+    --buttonWidth: clamp(35px, 10vw, 45px);
+    --colWidth: clamp(30px, 9vw, 40px);
+    --maxGraphWidth: 400px;
+    --brandH: clamp(35px,6vw,42px);
+    --transition: all 200ms ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--baseColor);
+    scrollbar-width: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--mainColor);
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-color: var(--faintMainColor);
+}
+
+a:visited {
+    color: var(--mainColor);
+}
+
+body {
+    color: var(--mainColor);
+    font-family: var(--fontFamily);
+    font-size: var(--fontSize);
+    font-weight: var(--fontW);
+    line-height: 1.3;
+    padding: var(--margin);
+    min-height: var(--brandH);
+}
+
+canvas {
+    display: block;
+}
+
+h1 {
+    font-size: var(--bigFontSize);
+    font-weight: var(--thinFontW);
+    letter-spacing: var(--tightLetterSpacing);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+nav {
+    font-size: var(--bigFontSize);
+    position: fixed;
+    right: var(--margin);
+    top: var(--margin);
+    z-index: 999;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--mainColor);
+}
+
+nav a:visited {
+    color: var(--mainColor);
+}
+
+nav #buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    transition: var(--transition);
+}
+
+nav #buttons > * {
+    display: inline-block;
+    width: var(--buttonWidth);
+    height: var(--buttonWidth);
+    background: var(--baseColor);
+    color: var(--mainColor);
+    border: var(--darkBorder);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+nav #buttons #menu {
+    font-size: var(--iconSize);
+    font-weight: 450;
+}
+nav #buttons #see-flavors {
+    font-size: var(--iconSize);
+    font-weight: 250;
+    transition: var(--transition);
+}
+nav #dropdown {
+    transition: var(--transition);
+}
+
+nav #dropdown .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--margin)*3);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    color: var(--mainColor);
+    background: var(--baseColor);
+    opacity: .95;
+    left: 0;
+    top: 0;
+}
+
+nav #dropdown .links * {
+    cursor: pointer;
+}
+
+nav #dropdown .exit {
+    color: var(--mainColor);
+    font-size: var(--iconSize);
+    display: inline-block;
+    width: var(--buttonWidth);
+    height: var(--buttonWidth);
+    border: var(--darkBorder);
+    background: var(--baseColor);
+    border-radius: 100%;
+    position: fixed;
+    right: calc(var(--margin)*1);
+    top: calc(var(--margin)*1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#intro {
+    position: absolute;
+    left: var(--margin);
+    width: 82vw;
+    top: calc(var(--margin)*1);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--margin)*2);
+    max-width: 500px;
+    transition: var(--transition);
+    padding: 0 var(--margin);
+}
+
+#graph {
+    letter-spacing: var(--letterSpacing);
+    display: flex;
+    justify-content: start;
+    align-items:start;
+    position: relative;
+    right: calc(var(--colWidth)*.75);
+    top: 0;
+    line-height: 1.1;
+    max-width: var(--maxGraphWidth);
+}
+
+#graph .brands {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    transform: translateX(-100%);
+}
+
+#graph .brands .brand {
+    position: absolute;
+    right: 0;
+    text-align: end;
+    text-transform: capitalize;
+    transform: translateY(-60%);
+}
+
+#graph .stats {
+    display: flex;
+    gap: calc(var(--margin)*.5);
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+}
+
+#graph .stats > * {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--brandH);
+}
+
+#graph :is(.stats,.brands) .col-name {
+    position: relative;
+    bottom: calc(var(--brandH)*1.8);
+    min-width: var(--colWidth);
+    background: var(--darkFaintColor);
+    padding: var(--margin);
+    border-radius: 30px;
+    text-align: center;
+    transform: translateX(-25%);
+}
+
+#graph .brands .col-name {
+    padding: var(--margin) calc(var(--margin)*2); 
+    transform: translateX(5%);
+}
+
+#graph .stats :is(.fish, .price) {
+    display: none;
+}
+
+#graph :is(.flavor-count,.fish-count,.avg-price) {
+    position: absolute;
+    transform: translateY(-60%);
+}
+
+#graph .more-info {
+    position: absolute;
+    left: var(--margin);
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin);
+    z-index: 3;
+    transition: opacity 200ms ease;
+}
+
+#graph .more-info > * {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--margin);
+}
+
+#graph .more-info .col-name {
+    min-width: var(--colWidth);
+    background: var(--darkFaintColor);
+    padding: var(--margin);
+    border-radius: 30px;
+    text-align: center;
+}
+
+#graph .more-info .fish {
+    align-items: center;
+}
+
+#graph .more-info .fish .details {
+    padding: var(--margin) 0;
+}
+
+#graph .more-info .price .details {
+    position: relative;
+    top: calc(var(--margin)*3);
+    border-top: 1px solid var(--darkFaintColor);
+    height: 10px;
+}
+
+#graph .more-info .price .details :is(.min-median, .median-max) {
+    height: inherit;
+    position: absolute;
+    top: -1px;
+    border-top: 1px solid var(--mainColor);
+}
+
+#graph .more-info .price .details .median-max text {
+    position: absolute;
+    transform: translate(-35%, calc(-100% - var(--margin)));
+    white-space: nowrap;
+}
+
+#graph .more-info .price .details .median-max::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--mainColor);
+    border-radius: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%,-60%);
+}
+
+#graph .more-info .price .details .details-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--margin);
+    line-height: 1.5;
+    font-size: .75em;
+    letter-spacing: var(--bigLetterSpacing);
+}
+
+#instructions {
+    position: absolute;
+    top: calc(var(--brandH)*6);
+    left: 0;
+    display: flex;
+    z-index: 995;
+    pointer-events: none;
+    transition: var(--transition);
+}
+#instructions > * {
+    text-align: center;
+    transition: var(--transition);
+}
+
+#instructions > * text {
+    position: relative;
+    bottom: calc(var(--margin)*2);
+    letter-spacing: var(--bigLetterSpacing);
+    opacity: .5;
+}
+#instructions :is(.scroll-area-left,.scroll-area-right).has-border {
+    border-radius: 10px;
+    height: 100vh;
+    background: #0effdf0f;
+}
+
+#instructions .drag-area.has-border {
+    height: 10px;
+}
+
+#legends {
+    display: inline-flex;
+    align-items: center;
+    font-size: .7em;
+    gap: calc(var(--margin)*3.5);
+    background: var(--darkFaintColor);
+    padding: calc(var(--margin)*.8) calc(var(--margin)*2);
+    padding-right: calc(var(--margin)*6);
+    border-radius: 30px;;
+}
+
+#legends > span {
+    display: flex;
+    align-items: center;
+    background: var(--mainColor);
+    border-radius: 100%;
+    position: relative;
+}
+#legends > span .pct {
+    position: absolute;
+    right: 0;
+    font-size: .75em;
+    letter-spacing: var(--bigLetterSpacing);
+    font-weight: var(--thickFontW);
+    transform: translateX(calc(100% + 4px));
+}
+
+#flavors-col,
+#fish-col,
+#price-col {
+    display: inline-block;
+    text-align: center;
+    background: var(--darkFaintColor);
+    font-size: .8em;
+    font-weight: var(--thinFontW);
+    padding: calc(var(--margin)/2) var(--margin);
+    border-radius: 30px;
+    width: 45px;
+}
+
+#notes {
+    letter-spacing: var(--letterSpacing);
+    margin-top: var(--brandH);
+    padding: var(--margin);
+    max-width: 450px;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+#notes > * {
+    margin-bottom: calc(var(--margin)*2);
+}
+#notes > *:last-child {
+    margin-bottom: 0;
+}
+
+#notes ul {
+    padding-left: calc(var(--margin)*2.5);
+}
+#notes li {
+    list-style: circle;
+}
+#notes #no-flavors li {
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.button-active {
+    background: var(--mainColor) !important;
+    color: var(--baseColor) !important;
+    font-weight: 450;
+    transition: var(--transition);
+}
+@keyframes wave {
+    0% {transform: rotate(-10deg);}
+    50% {transform: rotate(10deg);}
+    100% {transform: rotate(-10deg);}
+}
+.button-flash {
+    transition: var(--transition);
+    animation: wave infinite 1.5s ease;
+}
+.button-flash::before {
+    content: ' ';
+    width: 10px;
+    height: 10px;
+    background: var(--darkFaintColor);
+    position: absolute;
+    left: 0;
+    transform: translateX(-90%) rotate(60deg) skewY(-30deg);
+} 
+.button-flash::after {
+    content: 'See flavors';
+    position: absolute;
+    left: 0;
+    transform: translateX(calc(-100% - 2px));
+    font-size: .65em;
+    font-weight: var(--fontW);
+    letter-spacing: var(--letterSpacing);
+    background: var(--darkFaintColor);
+    color: var(--mainColor);
+    padding: var(--margin) calc(var(--margin)*2);
+    padding-right: calc(var(--margin)*2 - 3px);
+    border-radius: 30px;
+    white-space: nowrap;
+}
+
+.extra-cols {
+    display: none;
+}
+
+.fish .col-name {
+    font-size: 1.3em;
+}
+
+.hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: var(--transition);
+}
+
+.large-margin-top {
+    margin-top: calc(var(--brandH)*3) !important;
+    transition: var(--transition);
+}
+
+.rotate135 {
+    transform: rotate(-315deg);
+    transition: var(--transition);
+}
+
+@media (min-width: 750px) {
+    body {
+        font-weight: var(--lightFontW);
+    }
+    h1 {
+        font-weight: var(--hairlineFontW);
+    }
+    main {
+        align-items: center;
+    }
+    nav #buttons #menu {
+        font-weight: 350;
+    }
+    nav #buttons #see-flavors {
+        font-weight: 200;
+        transition: var(--transition);
+    }
+    nav #dropdown .links {
+        font-weight: var(--lightFontW);
+    }
+    #intro {
+        left: 50vw;
+        transform: translateX(-50%);
+        text-align: center;
+        margin-top: calc(var(--margin)*8);
+        font-weight: var(--hairlineFontW);
+    }
+    .button-flash::after {
+        font-weight: var(--lightFontW);
+    }
+    #legends > span .pct {
+        font-weight: var(--thinFontW);
+    }
+    #flavors-col,
+    #fish-col,
+    #price-col {
+        font-weight: var(--lightFontW);
+    }
+    #graph {
+        right:0;
+    }
+    #graph .stats :is(.fish, .price) {
+        display: flex;
+    }
+    #graph :is(.stats,.brands) .col-name {
+        bottom: calc(var(--brandH)*1.5);
+    }
+    #graph .more-info {
+        gap: calc(var(--margin)*2);
+    }
+    #notes {
+        margin-bottom: var(--brandH);
+    }
+    .extra-cols {
+        display: inline;
+    }
+}
