@@ -1,0 +1,637 @@
+@font-face {
+    src: url("../styles/PublicSans.woff2");
+    font-family: 'Public Sans';
+}
+
+:root {
+    --font-family: 'Public Sans', sans-serif;
+    --font-size: clamp(15.5px, 3vw, 17px);
+    --small-font-size: .75em;
+    --tiny-font-size: .65em;
+    --big-font-size: 1.3em;
+    --font-weight: 420;
+    --thick-font-weight: 480;
+    --thin-font-weight: 200;
+    --wide-letter-spacing: .01em;
+    --bg-color: #948484;
+    --bg-color-faint: #9b9b9b;
+    --text-color: black;
+    --faint-text-color: #3d3937;
+    --accent-color: white;
+    --accent-color-1: red;
+    --accent-color-2: mediumblue;
+    --accent-color-3: rebeccapurple;
+    --gradient-red: linear-gradient(to right, crimson, red);
+    --gradient-purple: linear-gradient(to right, darkorchid, rebeccapurple);
+    --margin: 10px;
+    --gap: 45px;
+    --button-padding: 2.5px 8px;
+    --button-width: 25px;
+    --paragraph-max-width: 420px;
+    --column-width: 380px;
+    --annotation-width: 230px;
+    --graph-height: clamp(500px, 95vh, 700px);
+
+    --graph-width-1-col: clamp(280px, calc(100vw - var(--margin) * 2), var(--paragraph-max-width));
+    --graph-width-2-cols: clamp(280px, calc(100vw - var(--margin) * 2), var(--column-width));
+    
+    --graph1-p-top: 50px;
+    --graph1-p-right-1-col: 50%;
+    --graph1-p-right-2-cols: 33px;
+    --graph1-p-bottom: 0px;
+    --graph1-p-left: var(--gap);
+    --graph1-inner-width-1-col: calc(100% - var(--graph1-p-left) - var(--graph1-p-right-1-col));
+    --graph1-inner-width-2-cols: calc(100% - var(--graph1-p-left) - var(--graph1-p-right-2-cols));
+    --graph1-inner-height: calc(100% - var(--graph1-p-top) - var(--graph1-p-bottom));
+    
+    --bar-height: calc(100%/56); /*56 decades*/
+
+    --graph2-p-top: 55px;
+    --graph2-p-right: calc(var(--margin)*2);
+    --graph2-p-bottom: 75px;
+    --graph2-p-left: var(--gap);
+    --graph2-inner-width: calc(100% - var(--graph2-p-left) - var(--graph2-p-right));
+    --graph2-inner-height: calc(var(--graph-height)*.95 - var(--graph2-p-top) - var(--graph2-p-bottom))
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: silver #8267574e;
+}
+
+html::-webkit-scrollbar {
+    width: 2px;
+}
+html::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--text-color);
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-weight: var(--font-weight);
+    line-height: 1.5;
+    padding: var(--margin);
+}
+
+code {
+    font-size: .99em;
+}
+
+figure {
+    max-width: var(--paragraph-max-width);    
+}
+
+figure img {
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+main > * {
+    max-width: var(--paragraph-max-width);
+}
+
+nav {
+    position: fixed;
+    top: var(--margin);
+    right: var(--margin);
+    font-size: var(--big-font-size);
+    z-index: 99;
+}
+nav .icon {
+    font-size: 1.8em;
+    font-weight: var(--thin-font-weight);
+    color: var(--accent-color);
+    width: var(--gap);
+    height: var(--gap);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+nav .menu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(calc(100% + var(--margin)));
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+    gap: var(--margin);
+    display: none;
+}
+nav .menu .button {
+    padding: var(--button-padding);
+    background: var(--accent-color);
+    color: var(--faint-text-color);
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+}
+
+footer {
+    margin-top: var(--gap);
+    padding-top: var(--margin);
+    border-top: 1px solid #9b9b9b7f;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap) /2);
+    max-width: var(--paragraph-max-width);
+}
+
+footer > div {
+    display: flex;
+    gap: var(--margin);
+}
+
+footer .heading {
+    width: calc(var(--gap) - var(--margin));
+    text-align: end;
+}
+footer .sub-heading {
+    text-indent: var(--gap);
+}
+footer .content {
+    width: calc(100% - var(--gap));
+}
+
+@keyframes flash {
+    0% {
+        background: var(--bg-color-faint);
+    }
+    50% {
+        background: gainsboro;
+    }
+    100% {
+        background: var(--bg-color-faint);
+    }
+}
+.flash {
+    transition: ease 100ms;
+    animation: flash 2s infinite;
+    position: relative;
+    opacity: .4 !important;
+}
+.pop {
+    background: var(--accent-color) !important;
+    color: var(--faint-text-color) !important;
+    opacity: 1 !important;
+    transition: all 200ms ease;
+}
+.displayed {
+    opacity: 1 !important;
+    transition: all 200ms ease;
+}
+
+.paragraph {
+    text-indent: var(--gap);
+}
+.paragraph .source {
+    position: relative;
+    bottom: 1px;
+}
+.paragraph .source,
+.small-texts {
+    font-size: var(--small-font-size);
+    font-weight: var(--thick-font-weight);
+    letter-spacing: var(--wide-letter-spacing);
+}
+.tiny-texts {
+    font-size: var(--tiny-font-size);
+    font-weight: var(--thick-font-weight);
+    font-feature-settings: 'tnum'1;
+}
+.faint {
+    opacity: .08 !important;
+    border-right: none !important;
+    transition: all 200ms ease;
+}
+.red-left-border {
+    border-left: .5px solid var(--accent-color-1) !important;
+    transition: all 200ms ease;
+}
+.purple-right-border {
+    border-right: .5px solid var(--accent-color-3) !important;
+    transition: all 200ms ease;
+}
+.white-right-border {
+    border-right: 1.8px solid var(--accent-color);
+    transition: all 200ms ease;
+}
+
+.source,
+.source a,
+.source::before {
+    white-space: nowrap;
+}
+.source::before {
+    content: '© ';
+    position: relative;
+    top: 1px;
+}
+
+#timeline {
+    height: var(--graph-height);
+    width: var(--graph-width-1-col);
+    position: relative;
+    padding: var(--graph1-p-top) var(--graph1-p-right-1-col) var(--graph1-p-bottom) var(--graph1-p-left);
+}
+
+#timeline .bg-bars,
+#timeline .tried-bars,
+#timeline .battles-bars,
+#timeline .axes {
+    position: absolute;
+    top: var(--graph1-p-top);
+    width: var(--graph1-inner-width-1-col);
+    height: var(--graph1-inner-height);
+}
+#timeline .decades {
+    height: var(--graph1-inner-height);
+    position: absolute;
+    top: var(--graph1-p-top);
+    transform: translateX(calc(-100% - var(--margin)));
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+#timeline :is(
+    .bg-bar,
+    .battles-bar,
+    .tried-bar,
+    .decade
+) {
+    height: var(--bar-height);
+}
+#timeline .battles-bar {
+    background: var(--accent-color-2);
+    opacity: .7;
+}
+#timeline .decade {
+    display: flex;
+    align-items: center;
+}
+#timeline .tried-bar {
+    background: var(--accent-color-1);
+}
+#timeline .bg-bar {
+    background: var(--bg-color);
+}
+#timeline .axes {
+    display: flex;
+    z-index: -1;
+    line-height: 1.2;
+}
+#timeline .axes :is(.tried-label, .battles-label) {
+    position: absolute;
+    right: 0;
+    letter-spacing: .03em;
+    opacity: .4;
+}
+#timeline .axes .tried-label {
+    transform: rotate(90deg) translate(100%,calc(-100% - 5px));
+    transform-origin: top right;
+}    
+#timeline .axes .battles-label {
+    bottom: 0;
+    transform: rotate(90deg) translateY(-5px);
+    transform-origin: bottom right;
+}
+#timeline .axes .bg {
+    border-right: 1px solid var(--bg-color-faint);
+    opacity: .5;
+    position: relative;
+    width: calc(100% / 3);
+}
+#timeline :is(.tried-tick,.battles-tick) {
+    position: absolute;
+    right: 0;
+    opacity: .75;
+}
+#timeline .tried-tick {
+    transform: rotate(90deg) translate(100%, 2px);
+    transform-origin: top right;
+}
+#timeline .battles-tick {
+    bottom: 0;
+    transform: rotate(90deg) translateY(calc(100% + 2px));
+    transform-origin: bottom right;
+}
+
+#timeline .annotations {
+    position: absolute;
+    height: var(--graph1-inner-height);
+    width: var(--graph1-p-right-1-col);
+    top: var(--graph1-p-top);
+    right: var(--graph1-p-right-1-col);
+    transform: translateX(100%);
+}
+#timeline .annotations .flash::after {
+    content: 'See annotation';
+    white-space: nowrap;
+    position: absolute;
+    right: 0;
+    transform: translateX(calc(100% + 8px));
+    letter-spacing: .03em;
+}
+#timeline .annotation-bg {
+    height: var(--bar-height);
+    position: relative;
+    transition: all 200ms ease;
+    width: 100%;
+}
+#timeline .annotation-bg.selected::before {
+    content: ' ';
+    display: block;
+    width: calc(100% - var(--graph1-p-left));
+    height: 100%;
+    position: absolute;
+    border-top: 1px solid var(--accent-color);
+    transform: translate(-100%,50%);
+    transition: all 200ms ease;
+}
+#timeline .annotation-group {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    height: 100%;
+    transform: translateY(50%);
+}
+#timeline .annotation-group .button {
+    width: calc(var(--button-width) * 1.1);
+    height: var(--button-width);
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-color-faint);
+    opacity: .25;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+#timeline .annotation-group .desc {
+    width: 100%;
+    transform: translateY(calc(var(--button-width) / -2 - 3px));
+    padding-left: 8px;
+    padding-right: var(--margin);
+    opacity: 0;
+    transition: all 200ms ease;
+}
+#timeline .legends {
+    position: absolute;
+    top: 0;
+    left: var(--graph1-p-left);
+}
+#timeline .legends > div {
+    display: flex;
+    gap: var(--margin);
+    align-items: center;
+}
+#timeline .legends div div {
+    height: 10px;
+    width: 20px;
+}
+#timeline .legends .tried {
+    background: var(--accent-color-1);
+}
+#timeline .legends .battles {
+    background: var(--accent-color-2);
+    opacity: .7;
+}
+
+#countries {
+    position: relative;
+    width: var(--graph-width-1-col);
+    padding: var(--graph2-p-top) var(--graph2-p-right) 0 var(--graph2-p-left);
+}
+#countries .decades {
+    position: absolute;
+    top: var(--graph2-p-top);
+    left: var(--graph2-p-left);
+    height: var(--graph2-inner-height);
+}
+#countries .stream-graph {
+    height: var(--graph2-inner-height);
+    width: 100%;
+    padding-right: calc(var(--margin) * 2);
+}
+#countries .stream-graph .decade-group {
+    height: var(--bar-height);
+    display: flex;
+    justify-content: center;
+}
+#countries .stream-graph .country {
+    position: relative;
+    right: 0;
+    display: flex;
+    align-items: center;
+    transition: all 200ms ease;
+}
+#countries .stream-graph .country .trial-num {
+    font-size: .75em;
+    position: absolute;
+    transform: translateX(100%);
+    color: var(--accent-color);
+    z-index: 97;
+    white-space: nowrap;
+}
+#countries .fill-red {
+    background: var(--accent-color-1);
+}
+#countries .fill-purple {
+    background: var(--accent-color-3);
+}
+#countries .gradient-red {
+    background: var(--gradient-red);
+}
+#countries .gradient-purple {
+    background: var(--gradient-purple);
+}
+#countries .decades {
+    transform: translateX(calc(-100% - var(--margin)));
+}
+#countries .decade {
+    height: var(--bar-height);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+#countries .countries {
+    position: relative;
+    /* transform: translateY(100%); */
+    /* bottom: var(--graph2-p-bottom); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 98;
+}
+#countries .button {
+    padding: var(--button-padding);
+    text-align: center;
+    cursor: pointer;
+    transition: all 200ms ease;
+    margin-right: calc(var(--margin) * 2);
+}
+#countries .country-list {
+    position: absolute;
+    top: 0;
+    transform: translateY(-100%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-right: calc(var(--margin) * 2);
+}
+#countries .country-list .country {
+    background: var(--accent-color);
+    color: var(--faint-text-color);
+    padding: var(--button-padding);
+    position: relative;
+    cursor: pointer;
+}
+#countries .desc {
+    padding: 8px 0 0 0;
+}
+#countries .desc p {
+    display: none;
+}
+#countries .legends {
+    /* width: 100%; */
+    width: var(--graph2-inner-width);
+    position: absolute;
+    top: -5px;
+    left: var(--graph2-p-left);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+#countries .legends .wrapper {
+    display: flex;
+    gap: 15px;
+}
+#countries .legends :is(.catholic,.protestant) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+    gap: 2px;
+}
+#countries .legends .catholic  {
+    align-items: end;
+}
+#countries .legends .gradient {
+    height: 10px;
+    width: 30px;
+}
+
+@media screen and (min-width: 420px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        padding-top: 0;
+        margin-left: var(--gap);
+    }
+    figure,
+    main > *,
+    footer {
+        max-width: var(--column-width);
+    }
+    figure img {
+        width: 150%;
+    }
+    main {
+        gap: 0;
+    }
+
+    main > *:nth-child(even) {
+        margin-left: var(--column-width);
+    }
+    
+    footer {
+        margin-left: var(--column-width);
+        position: relative;
+    }
+    footer > div {
+        flex-direction: column;
+        gap: 0;
+    }
+    footer .heading {
+        text-align: start;
+        width: 100%;
+    }
+    footer .heading::before {
+        content: "#";
+    }
+    footer .content {
+        width: 100%;
+    }
+
+    .paragraph {
+        text-indent: 0;
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--gap) / 2);
+    }
+    #timeline {
+        width: var(--graph-width-2-cols);
+        margin-bottom: calc(var(--gap) / 2);
+        padding: var(--graph1-p-top) var(--graph1-p-right-2-cols) var(--graph1-p-bottom) var(--graph1-p-left);
+    }
+    #timeline .bg-bars,
+    #timeline .tried-bars,
+    #timeline .battles-bars,
+    #timeline .axes {
+        width: var(--graph1-inner-width-2-cols);
+    }
+    #timeline .annotations {
+        right: var(--graph1-p-right-2-cols);
+        width: var(--graph1-inner-width-2-cols);
+    }
+    #timeline .annotation-bg.selected::before {
+        width: 100%;
+    }
+    #timeline .annotation-group .button {
+        width: var(--button-width);
+    }
+    #timeline .annotation-group .desc {
+        width: var(--annotation-width);
+    }
+
+    #countries .countries .desc {
+        position: absolute;
+        right: calc(var(--graph2-p-right) * -1);
+        bottom: calc(var(--graph-height) *.4);
+        width: var(--annotation-width);
+        transform: translate(100%, 50%);
+    }
+    #countries .button {
+        margin-left: 3px;
+    }
+}

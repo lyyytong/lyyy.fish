@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ly Tong">
+    <meta name="description" content="Visualization of an economic theory of European witch trials.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>European Witch Trials</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>" />
+    <link rel="stylesheet" href="../styles/european-witch-trials.css">
+</head>
+
+<body>
+    <nav>
+        <div class="icon">＋</div>
+        <div class="menu">
+            <a class="button" href="../index.html">Home</a>
+            <a class="button" href="https://github.com/JakeRuss/witch-trials" target="_blank" rel="noopener noreferrer">Data</a>
+            <a class="button" href="#notes">Notes</a>
+        </div>
+    </nav>
+    <main>
+        <figure>
+            <img id="header-img" src="../images/european-witch-trials/mallius-front-2.jpg" alt="Malleus-Maleficarum">
+            <figcaption class="small-texts">
+                Illustration for <i>Malleus Maleficarum</i> (The Witches' Hammer), the professional manual of witch hunters for 300 years.
+                <span class="source"><a href="https://salemwitchmuseum.com/product/the-malleus-maleficarum/" target="_blank" rel="noopener noreferrer">Salem Witch Museum</a></span>
+            </figcaption>
+        </figure>
+        <section class="paragraph">
+            <p>
+                The Late Middle Ages and Early Modern Period saw fear of witchcraft take on bloody forms in Europe:
+                in 1484 Pope Innocent VIII condemned witchcraft as Satanism;
+                in 1487 the German publication of <i>Malleus Maleficarum</i> (The Witches' Hammer) became a widely influential manual, second only to the Bible, blaming witchcraft primarily on women and detailing methods of hunting and torture; and in 1530 the Holy Roman Empire adopted the <i>Constitutio Criminalis Carolina</i>, requiring torture of the accused witches to extract a confession and the punishment of death by burning.
+                <span class="source">
+                    <a href="https://www.britannica.com/topic/witchcraft/The-witch-hunts" target="_blank" rel="noopener noreferrer">Britannica</a>,
+                    <a href="https://www.law.berkeley.edu/research/the-robbins-collection/exhibitions/witch-trials-in-early-modern-europe-and-new-england/" target="_blank" rel="noopener noreferrer">Berkeley</a>,
+                    <a href="https://guides.loc.gov/feminism-french-women-history/witch-trials-witchcraft" target="_blank" rel="noopener noreferrer">LOC</a>
+                </span>
+            </p>
+            <p>
+                Accusations of witchcraft belong to a broader pattern of hostility toward marginalized groups. Despite the backwardness and cruetly of such practices, studies suggest a shared myth, often involving fear of a common unknown, has its use: religious beliefs facilitated criminal justice in medieval Europe; witchcraft and divination beliefs resolved conflict between neighbors in early 20th-century Africa; ritual-purity beliefs promoted law and order in American Gypsy communities; and Biblical-cursing beliefs protected ecclesiastical property rights in medieval Francia.
+                <span class="source">
+                    <a href="https://www.britannica.com/topic/witchcraft/The-witch-hunts" target="_blank" rel="noopener noreferrer">Britannica</a>, Peter Leeson (
+                    <a href="https://www.peterleeson.com/Ordeals.pdf" target="_blank" rel="noopener noreferrer">1</a>,
+                    <a href="https://www.peterleeson.com/Gypsies.pdf" target="_blank" rel="noopener noreferrer">2</a>,
+                    <a href="https://www.peterleeson.com/Oracles.pdf" target="_blank" rel="noopener noreferrer">3</a>,
+                    <a href="https://www.peterleeson.com/God_Damn.pdf" target="_blank" rel="noopener noreferrer">4</a>)
+                </span>
+            </p>
+            <p>
+                In similar line, a paper in The Economic Journal by Peter Leeson and Jacob Russ suggests an economic theory of European witch hunting: 15th- and 16th-century witch trials were a way for churches to respond to existing demand in the market, demonstrate zeal, attract followers, and compete for religious market share during the Catholic-Protestant conflict. The accompanying dataset shows that, following Martin Luther's Ninety-five Theses criticizing the Catholic church and the advent of Protestant movements, witch hunting erupted just as religious conflict intensified.
+                <span class="source">
+                    <a href="https://www.peterleeson.com/Witch_Trials.pdf" target="_blank" rel="noopener noreferrer">Peter Leeson</a>,
+                    <a href="https://github.com/JakeRuss/witch-trials" target="_blank" rel="noopener noreferrer">Jake Russ' Github</a>
+                </span>
+            </p>
+        </section>
+        <section id="timeline">
+            <div class="axes tiny-texts">
+                <p class="tried-label">Persons Tried</p>
+                <p class="battles-label">Confessional Battles</p>
+            </div>
+            <div class="annotations small-texts"></div>
+            <div class="bg-bars"></div>
+            <div class="tried-bars"></div>
+            <div class="battles-bars"></div>
+            <div class="decades tiny-texts"></div>
+            <div class="legends small-texts">
+                <div>
+                    <div class="tried"></div>
+                    <p>Persons Tried for Witchcraft</p>
+                </div>
+                <div>
+                    <div class="battles"></div>
+                    <p>Catholic vs. Protestant Confessional Battles</p>
+                </div>
+            </div>
+        </section>
+        <section class="paragraph">
+            <p>
+                Witch trials were concentrated in territories such as Germany, Scandinavia and France, where strong Protestant presence competed with Catholic churches.
+                In others, namely Spain and Italy, where the Catholic church enjoyed long-lasting loyalty and Protestantism was outlawed or quickly eliminated, persecutions of Protestants were carried out through crusades and inquisitions.
+            </p>
+            <p>
+                While inquisitions were established to hunt non-Catholics, including Protestants, Jews, Muslims, false <i>conversos</i> and other heretics, witch hunting mostly involved religious authorities from either side putting on trial citizens of their own following.
+            </p>
+        </section>
+        <section id="countries">
+            <div class="stream-graph tiny-texts"></div>
+            <div class="decades tiny-texts"></div>
+            <div class="legends small-texts">
+                <div>Persons tried in countries with...</div>
+                <div class="wrapper">
+                    <div class="catholic">
+                        <p>near Catholic monopoly</p>
+                        <div class="gradient gradient-purple"></div>
+                    </div>
+                    <div class="protestant">
+                        <p>strong Protestant presence</p>
+                        <div class="gradient gradient-red"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="countries">
+                <p class="button flash">Select Country</p>
+                <div class="country-list"></div>
+                <div class="desc small-texts">
+                    <p class="Germany">
+                        Germany was the cradle of the Protestant Reformation: Martin Luther posted his theses in the town square of Wittenberg, with copies sent to German nobles.
+                        Territorial princes quickly adopted his doctrine, culminating in several wars in and out of the country.
+                        The infamous witch hunters' and Inquisitors' handbook, <i>Malleus Maleficarum</i>, proliferated from Germany.
+                        <span class="source">
+                            <a href="https://en.wikipedia.org/wiki/History_of_the_Catholic_Church_in_Germany" target="_blank" rel="noopener noreferrer">Wikipedia</a>,
+                            <a href="https://www.law.berkeley.edu/research/the-robbins-collection/exhibitions/witch-trials-in-early-modern-europe-and-new-england/" target="_blank" rel="noopener noreferrer">Berkeley</a>
+                        </span>
+                    </p>
+                    <p class="Switzerland">
+                        Switzerland was the world center of the Protestant movement of Calvinism.
+                        Conflicts, even civil wars, took place between Protestant and Catholic cantons and their districts.
+                        Death rate from witch trials was higher in Switzerland than anywhere else: nearly 60% of the accused perished, with torture becoming a grisly art form in regions such as Pays de Vaud.
+                        <span class="source">
+                            <a href="https://en.wikipedia.org/wiki/Religion_in_Switzerland#13th%E2%80%9317th_century:_Catholicism_and_the_Calvinist_Reformation_in_old_Switzerland" target="_blank" rel="noopener noreferrer">Wikipedia</a>,
+                            <a href="https://www.peterleeson.com/Witch_Trials.pdf" target="_blank" rel="noopener noreferrer">Peter Leeson</a>
+                        </span>
+                    </p>
+                    <p class="France">
+                        Early 16th century saw France highly receptive to Protestantism.
+                        Hundreds of Protestants were condemned to retract their beliefs, to imprisonment, or to death at the stake.
+                        Despite this, Reformed Churches multiplied to thousands. More than half of witchcraft prosecutions between 1560 and 1630, a period known as the 'Great Hunt', occured within a 300-mile radius of Strasbourg. 
+                        <span class="source">
+                            <a href="https://en.wikipedia.org/wiki/History_of_the_Catholic_Church_in_France#Wars_of_Religion" target="_blank" rel="noopener noreferrer">Wikipedia</a>,
+                            <a href="https://www.peterleeson.com/Witch_Trials.pdf" target="_blank" rel="noopener noreferrer">Peter Leeson</a>
+                        </span>
+                    </p>
+                    <p class="Scotland">
+                        In mid-16th century, the Church in Scotland broke with the papacy and adotped Calvinism, a major branch of Protestantism.
+                        Although officially illegal, the Catholic Church survived in some parts. Presbyterians (supporters of the Church of Scotland) and Anglicans (supporters of the Church of England) clashed bitterly over the variety of Protestantism that should prevail.
+                        <span class="source">
+                            <a href="https://en.wikipedia.org/wiki/Catholic_Church_in_Scotland#Scottish_Reformation" target="_blank" rel="noopener noreferrer">Wikipedia</a>,
+                            <a href="https://www.peterleeson.com/Witch_Trials.pdf" target="_blank" rel="noopener noreferrer">Peter Leeson</a>
+                        </span>
+                    </p>
+                    <p class="Spain">
+                        The few who promoted Protestantism met violent ends at the hand of the Spanish Inquisition, leaving Spain a firm Catholic stronghold.
+                        The Inquisition's bureaucratic structure ironically prevented surges of witch trials, but sometimes failed to control local secular courts, resulting in the Basque Witch Trials (1609) and a series of severe witchcraft persecutions in Catalonia (1615-1630).
+                        <span class="source">
+                            <a href="https://www.britannica.com/topic/Spanish-Inquisition" target="_blank" rel="noopener noreferrer">Britannica</a>,
+                            <a href="https://en.wikipedia.org/wiki/Witch_trials_in_Spain" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+                        </span>
+                    </p>
+                    <p class="Hungary">
+                        Most Hungarian nobles were Catholic and needed the Pope's support in resisting Ottoman invasions, while prominent town leaders and aristocrats were Protestant.
+                        The Ottomans that occupied part of Hungary were indifferent to Christian debates, allowing reformist ideas to spread undisturbed.
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/Reformation_in_the_Kingdom_of_Hungary" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                    <p class="England">
+                        English Catholicism was strong beginning of 16th century.
+                        King Henry VIII then broke with Rome, annulled his marriage to Catherine to marry Anne Boleyn, and selectively embraced Protestant ideas.
+                        Competition continued between Catholicism and Protestantantism as well as and among Protestant factions, as subsequent rulers took turn advancing their own denomination.
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/English_Reformation" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                    <p class="Belgium">
+                        Despite Lutheranism sweeping across the region, Belgium remained subject to Spain and preserved its Catholic faith.
+                        <span class="source"><a href="https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/belgium-catholic-church" target="_blank" rel="noopener noreferrer">Encyclopedia</a></span>
+                    </p>
+                    <p class="Norway">
+                        Lutheranism was declared the official religion of Norway in 1537.
+                        Catholic priests and bishops were persecuted, monastic orders were suppressed.
+                        Church property was taken over by the crown, while some churches were plundered and even destroyed.
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/Reformation_in_Denmark%E2%80%93Norway_and_Holstein" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                    <p class="Finland">
+                        In the 16th century, Finland was part of Sweden and took part in the Lutheran Reformation, after which Catholicism lost almost all ground in the area.
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/Catholic_Church_in_Finland" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                    <p class="Italy">
+                        The effect of Lutheranism was minimal in Italy: Luther wrote in German and directed his mission mainly at Germans, and the Church censorship in Italy was very effective.
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/Reformation_in_Italy" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                    <p class="Netherlands">
+                        Catholicism dominated until early 16th century.
+                        Discontent grew, resulting in the Dutch revolt from Catholicism and Spanish control.
+                        The third wave of Reformation, Calvinism, took roots and became the de facto state religion in early 17th century.
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/History_of_religion_in_the_Netherlands" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                    <p class="Sweden">
+                        King Gustav Vasa broke relations with the pope during the 16th century and converted to Lutheranism.
+                        It took a long time after the Protestant Reformation for the Catholic Church to officially return to Sweden.
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/Catholic_Church_in_Sweden#Protestant_Reformation_(16th_century)" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                    <p class="Luxembourg">
+                        During the 15th and 16th centuries, as Luxembourg was part of the southern province of the Spanish Netherlands, it was protected from the influence of the Protestant Reformation.
+                        <span class="source"><a href="https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/luxembourg-catholic-church" target="_blank" rel="noopener noreferrer">Encyclopedia</a></span>
+                    </p>
+                    <p class="Estonia">
+                        Due to its links to Germany, Lutheranism is historically the most popular and biggest confession in Estonia since the second part of 16th century.
+                        <span class="source"><a href="https://estonianworld.com/life/religion-in-estonia/" target="_blank" rel="noopener noreferrer">Estonian World</a></span>
+                    </p>
+                    <p class="Denmark">
+                        All of Scandinavia ultimately adopted Lutheranism over the course of the 16th century, as the monarchs of Denmark (who also ruled Norway and Iceland) and Sweden (who also ruled Finland) converted to that faith.
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/Christianity_in_the_16th_century" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                    <p class="Austria">
+                        Historically a Catholic country, Austria was the center of the Habsburg monarchy (1273–1918) which championed Roman Catholicism.
+                        The Habsburgs enacted early measures of Counter-Reformation and harshly repressed Protestantism throughout the country.
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/Religion_in_Austria" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                    <p class="Ireland">
+                        The religious makeup of Ireland was substantially changed due to the Protestant Reformation, although in the end it remained a Catholic stronghold. The state of (the Republic of) Ireland was similar to Northern Ireland in this period, as their separation occured later in the 20th century.
+                        <span class="source">
+                            <a href="https://www.encyclopedia.com/international/encyclopedias-almanacs-transcripts-and-maps/religion-1500-1690" target="_blank" rel="noopener noreferrer">Encyclopedia</a>,
+                            <a href="https://en.wikipedia.org/wiki/Republic_of_Ireland" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+                        </span>
+                    </p>
+                    <p class="Northern-Ireland">
+                        The religious makeup of Northern Ireland was substantially changed due to the Protestant Reformation, although in the end it remained a Catholic stronghold. The state of Northern Ireland was similar to (the Republic of) Ireland in this period, as their separation occured later in the 20th century.
+                        <span class="source">
+                            <a href="https://www.encyclopedia.com/international/encyclopedias-almanacs-transcripts-and-maps/religion-1500-1690" target="_blank" rel="noopener noreferrer">Encyclopedia</a>,
+                            <a href="https://en.wikipedia.org/wiki/Republic_of_Ireland" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+                        </span>
+                    </p>
+                    <p class="Poland">
+                        One of the main terrains of struggle between the Protestant Reformation movement and the Catholic Church's Counter-Reformation.
+                        However, compared to many other European countries, the conflict in Poland was relatively peaceful.
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/Counter-Reformation_in_Poland" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                    <p class="Czech-Republic">
+                        In 15th and 16th centuries most of Czechs were adherents of Hussitism, a Czech proto-Protestant movement catalyzed by Jan Hus.
+                        While there were similarities between Hussitism and Protestantism, adoption of the latter was limited to Sudeten Germans of Czech lands.
+                        Neither Catholicism nor Protestantism of Luther's doctrine had particularly strong ground. 
+                        <span class="source"><a href="https://en.wikipedia.org/wiki/History_of_Christianity_in_the_Czech_Lands" target="_blank" rel="noopener noreferrer">Wikipedia</a></span>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="paragraph">
+            <p>
+                The authors also evaluated existing theories that suggest bad weather, income shocks and weak governments as predictors of witch hunting activity, and concluded that they performed poorly compared to the economic theory.
+                While these factors may have influenced demand for scapegoats and show trials, religious-market contestation was the strongest indicator of the motivation and ability to meet this demand at such scale.
+            </p>
+        </section>
+    </main>
+    <footer id="notes" class="small-texts">
+        <div>
+            <p class="heading">Data</p>
+            <p class="content">
+                Peter T. Leeson, Jacob W. Russ, Witch Trials, The Economic Journal, Volume 128, Issue 613, 1 August 2018, Pages 2066–2105, https://doi.org/10.1111/ecoj.12498 | <a href="https://github.com/JakeRuss/witch-trials" target="_blank" rel="noopener noreferrer">GitHub Dataset</a>
+                | <a href="https://www.peterleeson.com/Witch_Trials.pdf" target="_blank" rel="noopener noreferrer">Research Paper</a>
+            </p>
+        </div>
+        <div>
+            <p class="heading">Tools</p>
+            <p class="content">
+                Data Preparation: Python (Pandas, Matplotlib)<br>
+                Visualization: Javascript (D3.js), HTML, CSS<br>
+            </p>
+        </div>
+        <div>
+            <p class="heading">Notes</p>
+            <div class="content">
+                <div>
+                    <p class="sub-heading">Data Preparation</p>
+                    <p>
+                        The authors' dataset includes 43,240 persons tried for witchcraft across 21 European countries between 1300 and 1850. It was cleaned and ready for use. Their research paper showed the conclusions my graphs were to reflect.
+                        For the timeline (1st graph), I only reformatted data for visualization and performed no additional cleaning, transformation or analysis. For the country view (2nd graph), I determined whether each country was a Catholic stronghold or under Protestant influence with a quick internet search. Sources include Wikipedia, Encyclopedia and others.
+                    </p>
+                </div>
+                <div>
+                    <p class="sub-heading">Visualization</p>
+                    <p>
+                        All graphs were done without SVG, making use instead of nested <code>divs</code>, <code>flexbox</code>, and CSS <code>calc</code> for responsive graph layout. D3.js was used to bind data to HTML elements, map values to sizes, and to manage CSS classes, some animations, and interactivity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../scripts/d3.min.js"></script>
+    <script src="../scripts/european-witch-trials.js"></script>
+</body>
+</html>
