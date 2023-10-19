@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASCII Music</title>
+    <meta name="author" content="Ly Tong">
+    <meta name="description" content="ASCII Mel Spectrogram: text patterns from sound information.">
+    <meta name="theme-color" content="skyblue">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/ascii-music.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎹</text></svg>" />
+</head>
+<body>
+    <nav>
+        <a href="../index.html">home</a>
+        <a href="#notes">notes</a>
+    </nav>
+    <main>
+        <section id="intro">
+            <p>
+                ASCII Mel Spectrogram: text pattern from sound frequency and intensity.
+                Higher <span class="pop">FREQUENCIES</span> mean higher notes.
+                <span class="pop">'DENSER'</span> texts mean louder sounds.
+            </p>
+        </section>
+        <section id="audio">
+            <div class="loading">loading</div>
+            <div class="play-button hidden">play</div>
+            <div class="track-select faint">select</div>
+            <div class="options hidden">
+                <p data-track-name="rhapsody">Rhapsody in Blue</p>
+                <p data-track-name="fantasia">Fantasia in D minor</p>
+                <p data-track-name="streetrag">12th Street Rag</p>
+                <p data-track-name="cellosuite">Cello Suite No.1 in Gm</p>
+            </div>
+            <p class="selected">Rhapsody in Blue</p>
+        </section>
+        <section id="mel-spectrogram">
+            <div class="axes hidden">
+                <div class="x-axis">
+                    <p class="legend">frequency (Hz)</p>
+                    <div class="ticks">
+                        <p>512</p>
+                        <p>1024</p>
+                        <p>2048</p>
+                        <p>4096</p>
+                        <p>8192</p>
+                    </div>
+                </div>
+                <div class="y-axis"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line hidden">
+                    <span class="time"></span><span class="duration"></span>
+                </div>
+                <p></p>
+            </div>
+        </section>
+    </main>
+    <footer id="notes">
+        <div>
+            <p>Audio used are in the public domain or under Creative Commons licenses:</p>
+            <ul>
+                <li>Rhapsody in Blue composed & performed by George Gershwin (<a href="https://archive.org/details/RhapsodyInBlue_539" target="_blank" rel="noopener noreferrer">Internet Archive</a>)</li>
+                <li>Fantasia in D Minor, K.397/385g (Mozart) performed by Stefano Ligoratti (<a href="https://imslp.org/wiki/Special:ReverseLookup/275633" target="_blank" rel="noopener noreferrer">IMSLP</a>)</li>
+                <li>12th Street Rag (Euday L. Bowman) performed by All Star Trio (<a href="https://www.loc.gov/item/jukebox-38191/" target="_blank" rel="noopener noreferrer">Library of Congress</a>)</li>
+                <li>Cello Suite No.1 in G Minor (Bach) performed by Colin Carr (<a href="https://imslp.org/wiki/Special:ReverseLookup/310845" target="_blank" rel="noopener noreferrer">IMSLP</a>)</li>
+            </ul>
+        </div>
+        <div>
+            <p>
+                Characters were picked manually to highlight the contrast between notes and distiguish melody-making sounds from background noises:
+            </p>
+            <li>Fantasia: (space).,ce¢N$W</li>
+            <li>Rhapsody: (space).-+cg$W</li>
+            <li>Street Rag: (space).,-om@W</li>
+            <li>Cello: (space)(space)..,c¢gNW</li>
+        </div>
+        <ul>
+            Tech stack:
+            <li>
+                Data: Python (Pandas, Numpy, Matplotlib, Librosa)
+            </li>
+            <li>
+                Visualization: Javascript (D3.js, Howler.js), HTML, CSS
+            </li>
+        </ul>
+
+    </footer>
+    <script src="../scripts/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="../scripts/ascii-music.js"></script>
+</body>
+</html>

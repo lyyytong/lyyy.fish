@@ -1,0 +1,307 @@
+:root {
+    --font-family: 'Xanh Mono',monospace;
+    --font-size: clamp(12px, 2vw, 14px);
+    --font-size-medium: clamp(15px,1.6em,20px);
+    --font-size-large: clamp(18px, 2.2em,35px);
+    --letter-spacing-compact: -.2em;
+    --letter-spacing-compact2: -.15em;
+    --bg-color: skyblue;
+    --bg-faint-color: silver;
+    --text-color: blue;
+    --text-color-faint: #0000ff3f;
+    --accent-color: white;
+    --accent-color-faint: #ffffff38;
+    --accent-color2: cornflowerblue;
+    --accent-color2-faint: #6494ed43;
+    --padding: 8px;
+    --padding-large: 60px;
+    --padding-small: 4px;
+    --gradient-1: radial-gradient(var(--accent-color),transparent,transparent);
+    --gradient-2: radial-gradient(var(--accent-color2),transparent,transparent);
+    --border: 1px solid var(--text-color-faint);
+    --border2: 1px solid var(--accent-color2);
+}
+html {
+    scrollbar-width: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    color: var(--text-color);
+}
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--text-color);
+    padding: var(--padding);
+    background: var(--bg-color);
+    line-height: 1.4;
+    text-shadow: 0 0 1px var(--text-color-faint);
+}
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-large);
+}
+footer {
+    padding-top: var(--padding-large);
+    padding-bottom: calc(var(--padding-large) * 1.5);
+    font-size: var(--font-size-medium);
+    max-width: 80vw;
+}
+footer a {
+    text-decoration: none;
+    border-bottom: var(--border);
+}
+footer div {
+    margin-bottom: calc(var(--padding) * 2);
+}
+footer li {
+    margin-left: calc(var(--padding) * 2);
+    list-style-type: none;
+    position: relative;
+}
+footer li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    transform: translateX(calc(-100% - var(--padding-small)));
+}
+nav {
+    text-transform: uppercase;
+    font-size: var(--font-size-large);
+    position: fixed;
+    top: var(--padding);
+    right: var(--padding);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    line-height: 1.2;
+    z-index: 999;
+}
+nav a {
+    text-decoration: none;
+    background: var(--gradient-2);
+}
+
+#intro {
+    max-width: 80vw;
+    font-size: var(--font-size-medium);
+    margin-top: var(--padding-large);
+}
+#intro .pop {
+    background: var(--gradient-2);
+}
+
+#mel-spectrogram {
+    position: relative;
+    display: flex;
+    margin-top: var(--padding);
+}
+.axes {
+    font-size: var(--font-size-medium);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.axes .x-axis {
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    transform: translateY(-50%);
+}
+.axes .x-axis .legend {
+    text-align: end;
+    padding: var(--padding-small) 0;
+}
+.axes .x-axis .ticks {
+    display: flex;
+    border-top: var(--border);
+    padding: var(--padding-small) 0;
+}
+.axes .x-axis .ticks p {
+    width: calc(100% / 5);
+    text-align: end;
+    position: relative;
+}
+.axes .x-axis .ticks p::after {
+    content: ' ';
+    height: var(--padding);
+    border-right: var(--border2);
+    position: absolute;
+    top: calc(var(--padding) * -1);
+}
+.axes .y-axis {
+    position: absolute;
+    top: 0;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.axes .y-axis .tick {
+    position: relative;
+    white-space: nowrap;
+}
+.axes .y-axis .tick p {
+    position: absolute;
+    right: var(--padding);
+    transform: translateY(-50%);
+}
+.paragraph p {
+    user-select: none;
+    letter-spacing: var(--letter-spacing-compact);
+    line-height: 1.1;
+}
+.line {
+    z-index: -1;
+    position: absolute;
+    left: calc(var(--padding) * -1);
+    width: 100vw;
+    text-align: end;
+    border-bottom: 1px solid var(--accent-color-faint);
+    box-shadow: 0 0 5px var(--accent-color-faint);
+}
+.line.fixed {
+    position: fixed;
+    left: 0;
+}
+.line .duration,
+.line .time {
+    position: absolute;
+    right:var(--padding);
+    font-size: var(--font-size-large);
+}
+.line .time {
+    bottom: -1px;
+    opacity: .9;
+}
+.line .duration {
+    color: var(--accent-color2);
+    text-shadow: 0 0 1px var(--accent-color2-faint);
+}
+.line .duration::before {
+    content: '/';
+}
+
+#audio {
+    font-size: var(--font-size-large);
+    position: fixed;
+    bottom: 0;
+    right: var(--padding);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    line-height: 1.2;
+    z-index: 999;
+}
+@keyframes rotate {
+    0% {}
+    100% {transform: rotate(360deg);}
+}
+.loading {
+    text-transform: uppercase;
+    background: var(--gradient-1);
+    animation: rotate 1.5s ease infinite;
+}
+.play-button,
+.track-select {
+    text-transform: uppercase;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-1);
+    cursor: pointer;
+    user-select: none;
+    z-index: 999;
+}
+.play-button.faint,
+.track-select.faint {
+    background: var(--gradient-2);
+}
+.selected {
+    background: radial-gradient(var(--bg-color),transparent);
+    padding-left: var(--padding);
+    padding-bottom: var(--padding);
+}
+.options {
+    text-align: end;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.options p {
+    cursor: pointer;
+    background: var(--bg-color);
+    padding-left: var(--padding);
+    position: relative;
+}
+.options p::after {
+    content: ' ';
+    width: 30px;
+    height: 30px;
+    background: var(--gradient-1);
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+.options p:hover::after,
+.option p:active::after {
+    content: '#';
+}
+
+.hidden {
+    display: none;
+}
+.disabled {
+    pointer-events: none;
+}
+
+@media screen and (min-width:450px) {
+    .axes .y-axis {
+        opacity: 1;
+    }
+    #intro {
+        margin-top: 0;
+    }
+    #mel-spectrogram {
+        justify-content: center;
+    }
+    .axes {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media screen and (min-width: 800px) {
+    :root {
+        --padding-large: 100px;
+    }
+    footer {
+        padding-bottom: 0;
+    }
+    #intro {
+        max-width: 80vw;
+    }
+    #mel-spectrogram {
+        margin-top: 0;
+    }
+    .paragraph p {
+        letter-spacing: var(--letter-spacing-compact2);
+    }
+    .options p::after {
+        width: 35px;
+        height: 35px;
+    }
+}
