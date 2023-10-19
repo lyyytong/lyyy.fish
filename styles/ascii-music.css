@@ -158,6 +158,7 @@ nav a {
     user-select: none;
     letter-spacing: var(--letter-spacing-compact);
     line-height: 1.1;
+    white-space: nowrap;
 }
 .line {
     z-index: -1;
