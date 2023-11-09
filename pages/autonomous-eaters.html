@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Autonomous Eaters</title>
+  <meta name="author" content="Ly Tong">
+  <meta name="description" content="Simulation of organisms whose behavior follows a few set rules.">
+  <meta name="theme-color" content="silver">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/autonomous-eaters.css" />
+  <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🫧</text></svg>" />
+</head>
+
+<body>
+  <nav class="hidden">
+    <p class="button"><a href="../index.html">Home</a></p>
+    <div id="info">
+      <p class="button">What is this?</p>
+      <div class="notes">
+        <div>
+          <div class="close-button button">x close</div>
+          <p>
+            Simulation of organisms whose behavior follows set rules:
+          </p>
+          <ol>
+            <li>Every 1-2 seconds, set a random new course.</li>
+            <li>Each eater is blind and can only detect others when "stepping" on their scents.</li>
+            <li>If the scent is not bigger than its own, assume presence of prey and pursue. Otherwise, assume presence of predator and flee.</li>
+            <li>When two eaters collide, the bigger one eats the smaller one. If same size, randomly pick one to consume the other.</li>
+            <li>Eaters grow from eating, adding their preys' radius to their own. Their size slowly decreases every second without eating.</li>
+            <li>At a certain size, eaters can periodically produce offsprings. Parents and children won't eat each other, but siblings and relatives are fair game.</li>
+          </ol>
+        </div>
+        <p>Simulation stops when there is only one eater left.</p>
+        <p>
+          Done with P5.js.
+        </p>
+      </div>
+    </div>
+    <p id="see-links" class="button">View parental links</p>
+    <p id="see-params" class="button">Settings</p>
+    <p id="restart-button2" class="button">Restart simulation</p>
+  </nav>
+  <main>
+    <section id="sim">
+      <canvas id="sim-canvas"></canvas>
+      <div id="params" class="hidden">
+        <div class="col col1">
+          <div>
+            <label>Population</label>
+            <div class="info-button">
+              ?<span>Starting number of eaters. Large populations may cause lagging.</span>
+            </div>
+            <input type="range" min="2" max="100" step="1" value="100" id="eNum" />
+            <p class="eNum value">100</p>
+          </div>
+          <div>
+            <label>Eater Radius</label>
+            <div class="info-button">
+              ?<span>Big eaters cramp small screens and end the simulation
+                quickly. Tiny eaters have a harder time finding each
+                other.</span>
+            </div>
+            <input type="range" min="2" max="20" step="1" value="3" id="eaterR" />
+            <p class="eaterR value">3</p>
+          </div>
+          <div>
+            <label>Speed</label>
+            <div class="info-button">
+              ?<span>Speed 10 means eaters periodically try to cover a
+                distance 10 times their initial radius. Speed stays the same
+                even as they grow bigger from eating, making them seem more lethargic when
+                fed.</span>
+            </div>
+            <input type="range" min="2" max="20" step="1" value="20" id="stepR" />
+            <p class="stepR value">20</p>
+          </div>
+        </div>
+        <div class="col col2">
+          <div>
+            <label>Scents</label>
+            <div class="info-button">
+              ?<span>Number of scents trailing behind each eater. More scents make
+                hunting easier, but may cause significant lagging
+                with big populations.</span>
+            </div>
+            <input type="range" min="20" max="100" step="1" value="30" id="scents" />
+            <p class="scents value">30</p>
+          </div>
+          <div>
+            <label>Scent Radius</label>
+            <div class="info-button">
+              ?<span>Value 2 means the scent radius is twice the current radius of
+                each eater. Big scents help eaters detect each other more
+                easily, allowing small eaters more time to flee from
+                predators.</span>
+            </div>
+            <input type="range" min="1.5" max="5" step="0.1" value="3" id="scentR" />
+            <p class="scentR value">3</p>
+          </div>
+          <div>
+            <label>Weight Loss</label>
+            <div class="info-button">
+              ?<span>Rough loss in radius every second an eater goes without eating.
+                Eaters cannot go smaller than their initial size. More weight
+                loss per second helps reduce the advantage big eaters have
+                over small ones.</span>
+            </div>
+            <input type="range" min="1" max="10" step="0.1" value="3" id="hungerRR" />
+            <p class="hungerRR value">3</p>
+          </div>
+        </div>
+        <div class="col col3">
+          <div>
+            <label>Reproductive Size</label>
+            <div class="info-button">?<span>
+                Value 2 means eaters start producing offsprings once they have reached and maintain a radius 2x their
+                initial radius.
+              </span></div>
+            <input type="range" min="1.5" max="10" step="0.1" value="2" id="reproRR" />
+            <p class="reproRR value">2</p>
+          </div>
+          <div>
+            <label>Reproductive Gap</label>
+            <div class="info-button">?<span>
+                Value 5 means eaters produce one batch of offsprings every 5 seconds.
+              </span></div>
+            <input type="range" min="1" max="30" step="1" value="6" id="reproP" />
+            <p class="reproP value">6</p>
+          </div>
+          <div>
+            <label>Litter Size</label>
+            <div class="info-button">?<span>
+                Number of offsprings produced in each batch.
+                Parents and children do not eat each other, but siblings and other relatives are fair game.
+              </span></div>
+            <input type="range" min="0" max="10" step="1" value="3" id="reproQty" />
+            <p class="reproQty value">3</p>
+          </div>
+        </div>
+      </div>
+      <div id="stats" class="hidden">
+        <div class="currentPop">
+          <div class="initPop"></div>
+          <p class="label">Population</p>
+        </div>
+        <div class="born">
+          <p class="label">Born</p>
+          <div class="bg"></div>
+        </div>
+        <div class="eaten">
+          <p class="label">Eaten</p>
+        </div>
+      </div>
+      <div id="restart-button" class="button hidden">Restart simulation</div>
+    </section>
+    <div id="loading">loading...</div>
+  </main>
+  <script src="../scripts/p5.min.js"></script>
+  <script src="../scripts/autonomous-eaters.js"></script>
+</body>
+
+</html>
