@@ -33,7 +33,7 @@ let stats = [],
     paramIDs = ['eNum', 'eaterR', 'stepR', 'scents', 'scentR', 'hungerRR', 'reproRR', 'reproP', 'reproQty'],
     paramVs = {
         eNum: mediumScreen ? 40 : 10,
-        eaterR: mediumScreen ? 5 : 8,
+        eaterR: mediumScreen ? 4.5 : 8,
         stepR: mediumScreen ? 12 : 10,
         scents: mediumScreen ? 40 : 50,
         scentR: mediumScreen ? 3 : 2,
