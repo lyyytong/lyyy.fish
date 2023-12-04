@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moiré Bodies</title>
+    <meta name="author" content="Ly Tong">
+    <meta name="description" content="Experiment with moiré effect produced by overlapping moving patterns.">
+    <meta name="theme-color" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/moiré-bodies.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌈</text></svg>" />
+</head>
+<body>
+    <main>
+        <div id="mode">
+            <div class="home button"><a href="../index.html">Home</a></div>
+            <div class="mode2 button">Circling </div>
+            <div class="mode1 button faint">Track Mouse</div>
+            <div class="intensity button faint ">🔥</div>
+        </div>
+        <div id="settings">
+            <div id="bodies">
+                <div class="body1 body button">
+                    <p class="body1 checkbox">✳︎</p>
+                    <input type="checkbox" class="show-body" checked id="show-body1">
+                    <div class="body1 body swatch"></div>
+                    <input type="color" class="color-body" id="color-body1">
+                </div>
+                <div class="body2 body button">
+                    <p class="body2 checkbox">✳︎</p>
+                    <input type="checkbox" class="show-body" checked id="show-body2">
+                    <div class="body2 body swatch"></div>
+                    <input type="color" class="color-body" id="color-body2">
+                </div>
+                <div class="body3 body button faint">
+                    <p class="body3 checkbox hidden">✳︎</p>
+                    <input type="checkbox" class="show-body" id="show-body3">
+                    <div class="body3 body swatch"></div>
+                    <input type="color" class="color-body disabled" id="color-body3">
+                </div>
+            </div>
+            <div id="background">
+                <div class="background button">
+                    <p>Background</p>
+                    <div class="bg swatch"></div>
+                    <input type="color" id="color-bg">
+                </div>
+            </div>
+        </div>
+        <canvas></canvas>
+    </main>
+    <script src="../scripts/p5.min.js"></script>
+    <script src="../scripts/moiré-bodies.js"></script>
+</body>
+</html>

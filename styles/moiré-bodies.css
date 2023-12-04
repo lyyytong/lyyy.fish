@@ -1,0 +1,229 @@
+:root {
+    --fontFamily: sans-serif;
+    --fontSize: 16px;
+    --fontColor: darkgray;
+    --fontColor2: gray;
+    --bgColor: black;
+    --margin: 8px;
+    --smallMargin: 7px;
+    --bigMargin: 16px;
+    --buttonBRadius: 20px;
+    --colorPickerW: 25px;
+    --colorPickerH: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-width: none;
+    line-height: 1;
+    font-size: var(--fontSize);
+    color: var(--fontColor);
+}
+
+a {
+    color: var(--fontColor);
+    text-decoration: none;
+}
+
+body {
+    font-family: var(--fontFamily);
+    overflow: hidden;
+    background: var(--bgColor);
+}
+canvas {
+    user-select: none;
+}
+
+main {
+    position: relative;
+}
+
+input[type='checkbox'],
+input[type='color'] {
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+}
+input[type='checkbox'] {
+    position: relative;
+    left: -6px;
+    width: var(--colorPickerH);
+    height: var(--colorPickerH);
+}
+input[type='color'] {
+    width: var(--colorPickerW);
+    height: var(--colorPickerH);
+}
+
+#mode {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: var(--margin);
+    width: 100vw;
+    display: flex;
+}
+#mode > * {
+    flex: auto;
+    text-align: center;
+}
+#settings {
+    position: absolute;
+    padding: var(--margin);
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+#settings .button {
+    cursor: auto;
+}
+#background {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+#background .background {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--margin) * 1.8);
+}
+#background .background p {
+    user-select: none;
+}
+#bodies {
+    display: flex;
+}
+#bodies > * {
+    display: flex;
+    align-items: center;
+    gap: var(--margin);
+    position: relative;
+}
+#background .background.button,
+#bodies .button {
+    padding-right: var(--smallMargin);
+}
+#bodies .checkbox {
+    position: absolute;
+    font-size: 1.6em;
+    left: calc(var(--margin) + 1px);
+    cursor: none;
+    user-select: none;
+}
+
+.swatch {
+    position: absolute;
+    right: var(--smallMargin);
+    border-radius: var(--buttonBRadius);
+    width: calc(var(--smallMargin) + var(--colorPickerW));
+    height: calc((var(--margin) - var(--smallMargin))*2 + var(--colorPickerH));
+    background: gray;
+}
+.button {
+    z-index: 999;
+    cursor: pointer;
+    padding: var(--margin) var(--bigMargin);
+    background: var(--bgColor);
+    border-radius: var(--buttonBRadius);
+    transition: all 200ms ease;
+}
+.disabled {
+    pointer-events: none;
+}
+.faint {
+    opacity: .3;
+    transition: all 200ms ease;
+}
+.hidden {
+    opacity: 0 !important;
+    transition: all 200ms ease;
+}
+
+@keyframes showhide {
+    0% {opacity: 0;}
+    5% {opacity: 1;}
+    95% {opacity: 1;}
+    100% {opacity: 0;}
+}
+.body1.body.button::before {
+    content: 'Show/hide';
+    left: 0;
+    transform: translateY(calc(-100% - var(--bigMargin)));
+}
+.body2.body.button::before {
+    content: 'Pick Color';
+    right: calc(var(--colorPickerW)/2 + var(--margin));
+    /* transform: translate(calc(100% - var(--fontSize) - 2px),calc(-100% - var(--bigMargin))); */
+    transform: translate(65%,calc(-100% - var(--bigMargin)));
+}
+.body1.body.button::before,
+.body2.body.button::before {
+    padding: 3px 6px;
+    background: var(--fontColor);
+    color: var(--bgColor);
+    font-size: var(--fontSize);
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+}
+.body1.body.button::after {
+    left: calc(var(--fontSize) + 2px);
+}
+.body2.body.button::after {
+    right: calc(var(--colorPickerW)/2 + var(--margin));
+}
+.body1.body.button::after,
+.body2.body.button::after {
+    content: ' ';
+    width: 1px;
+    height: var(--bigMargin);
+    border-left: 1px solid #bcbcbc;
+    position: absolute;
+    top: 0;
+    transform: translateY(-100%);
+    
+}
+.body1.body.button::before,
+.body2.body.button::before,
+.body1.body.button::after,
+.body2.body.button::after {
+    opacity: 0;
+    animation: showhide 5s ease 5s 1;
+}
+
+@media screen and (min-width: 900px) {
+    :root {
+        --colorPickerW: 35px;
+    }
+    nav {
+        display: none;
+    }
+    #mode {
+        top: auto;
+        bottom: 0;
+        width: auto;
+    }
+    #mode .home {
+        display: inline;
+    }
+    #settings {
+        left: auto;
+        right: 0;
+        width: auto;
+    }
+    #bodies .checkbox {
+        color: var(--fontColor2);
+        font-weight: 100;
+    }
+    .body2.body.button::before {
+        transform: translate(50%,calc(-100% - var(--bigMargin)));
+    }
+}
