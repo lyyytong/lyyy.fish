@@ -11,7 +11,7 @@ let bgc = 'darkgray'
     margin=8, margin2=12
 let g1r = .6,
     gapr = .2
-let gmode = 2, // 1 for bar, 2 for network
+let gmode = 1, // 1 for bar, 2 for network
     sortmode = 'inscore', // pop,inscore,outscore
     scaletype = 'log'
 let simtick = 5,
