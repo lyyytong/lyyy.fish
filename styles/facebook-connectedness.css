@@ -475,14 +475,12 @@ nav #tools:hover .tool-list {
 }
 .dcm {
     display: none;
-    color:#bfbcad
 }
 @media (hover:hover) {
     #graph .country-name:hover {
         color: var(--textcolor) !important;
         background: var(--accentcolor) !important;
         transform: translate(-50%,-50%);
-        /* box-shadow: 0 0 8px 10px var(--accentcolor) !important; */
         box-shadow: 0 0 5px 7px var(--accentcolor) !important;
         text-shadow: 0 0 3px var(--accentcolor) !important;
         z-index: 999 !important;
