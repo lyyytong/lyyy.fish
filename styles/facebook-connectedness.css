@@ -609,9 +609,6 @@ nav #tools:hover .tool-list {
     #graph .countries {
         display: none;
     }
-    #graph .country-name {
-        padding-top: 2.5px;
-    }
     #graph .x-axis .tick-wrapper.pop .tick {
         text-shadow: 0 0 3px var(--accentcolor);
     }
