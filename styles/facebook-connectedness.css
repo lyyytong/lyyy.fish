@@ -1,0 +1,758 @@
+@font-face {
+    font-family: 'Public Sans';
+    src: url("../styles/PublicSans.woff2");
+}
+:root {
+    --fontfamily: 'Public Sans';
+    --fontsize: clamp(15px, 1vw, 17px);
+    --fontsizetiny: .65em;
+    --fontsizesmall: .8em;
+    --fontweight: 400;
+    --fontweightthick: 450;
+    --fontweightthin: 300;
+    --lineheight: 1.35;
+    --lineheight2: 1.1;
+    --bgcolor: darkgray;
+    --bgcolorlight: silver;
+    --bgcolorpop: gainsboro;
+    --nodecolor: silver;
+    --textcolor: #161616;
+    --textcolorfaint: #282828;
+    --textcolorlight: gainsboro;
+    --linkcolor: #0000e1;
+    --linkcolorpop: blue;
+    --accentcolor: palegreen;
+    --gradientcolor: linear-gradient(to bottom, transparent, transparent, #c0c0c053, transparent);
+    --gradientpop: linear-gradient(to bottom, transparent, transparent,#98fb984d, transparent);
+    --letterspacingbig: .08em;
+    --circlesizemin: 20px;
+    --margin: 8px;
+    --marginsmall: 4px;
+    --marginbig: 16px;
+    --paragap: 30px;
+    --parawidth: 42ch;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bgcolorlight) var(--bgcolor);
+}
+html::-webkit-scrollbar {
+    width: var(--marginsmall);
+    height: var(--marginsmall);
+}
+html::-webkit-scrollbar-track {
+    background: var(--bgcolor);
+}
+html::-webkit-scrollbar-thumb {
+    background: var(--bgcolorpop);
+    border-radius: 10px;
+}
+html::-webkit-scrollbar-corner {
+    background: var(--bgcolor);
+}
+
+a, a:visited {
+    color: var(--textcolor);
+    text-decoration: none;
+}
+
+body {
+    background: var(--bgcolor);
+    font-family: var(--fontfamily);
+    font-size: var(--fontsize);
+    font-weight: var(--fontweight);
+    overflow: hidden;
+    line-height: var(--lineheight);
+}
+input[type='radio'],
+input[type='checkbox'] {
+    opacity: 0;
+    cursor: pointer;
+    transition: all 100ms ease;
+}
+input[type='radio']+label,
+input[type='checkbox']+label {
+    cursor: pointer;
+}
+input[type='radio']:checked+label,
+input[type='checkbox']:checked+label {
+    color: var(--linkcolor);
+    text-transform: uppercase;
+    transition: all 100ms ease;
+}
+input[type='radio'].disabled,
+input[type='radio'].disabled+label,
+input[type='checkbox'].disabled,
+input[type='checkbox'].disabled+label {
+    pointer-events: none !important;
+}
+input[type='search'],
+input[type='search']:active {
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    border-radius: 0%;
+    font-family: var(--fontfamily);
+    font-size: var(--fontsize);
+    border-bottom: .5px solid var(--textcolor);
+    padding: 0;
+}
+input[type='search']::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+}
+input::placeholder {
+    text-align: right;
+    color: var(--textcolor);
+    opacity: .3;
+    position: relative;
+}
+
+nav {
+    position: fixed;
+    left: var(--margin);
+    top: var(--margin);
+    width: var(--parawidth);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--marginbig);
+    margin-left:  3px;
+    z-index: 999;
+}
+nav #tools {
+    position: relative;
+}
+nav #tools .tool-list {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1px;
+    transition: all 100ms ease;
+}
+nav #tools :is(.lan,.lib) {
+    border-radius: 100%;
+    text-align: center;
+    padding: var(--marginsmall) var(--margin);
+    transform: translateX(calc(100% + var(--margin)));
+}
+nav #tools .lan {
+    background: var(--linkcolorpop);
+    color: var(--bgcolorpop);
+    box-shadow: 0 0 3px 2px var(--linkcolorpop);
+    font-weight: var(--fontweightthin);
+}
+nav #tools .lib {
+    background: var(--accentcolor);
+    box-shadow: 0 0 3px 2px var(--accentcolor);
+}
+nav #tools:hover .button {
+    text-transform: uppercase;
+    color: var(--linkcolor);
+    transition: all 100ms ease;
+}
+nav #tools:hover .tool-list {
+    opacity: 1 !important;
+    transition: all 100ms ease;
+}
+
+#info {
+    position: fixed;
+    left: var(--margin);
+    bottom: var(--margin);
+    width: var(--parawidth);
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    gap: var(--paragap)
+}
+#info #intro .formula {
+    width: var(--parawidth);
+    display: inline-block;
+    position: relative;
+    text-align: right;
+    margin: var(--marginbig) 0;
+}
+#info #intro .num {
+    display: inline-block;
+    padding-bottom: 2px;
+}
+#info #intro .den {
+    display: inline-block;
+    padding-top: 2px;
+    border-top: 1px solid var(--textcolor);
+}
+#info :is(#selectors,#params) label {
+    position: relative;
+}
+#info :is(#selectors,#params) label:first-of-type {
+    left: -3px;
+}
+#info :is(#selectors,#params) label::before {
+    content: '✳︎';
+    position: absolute;
+    left: -3px;
+    transform: translateX(-100%);
+}
+#info :is(.selectors-wrapper,.params-wrapper) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    padding: 2px 0;
+}
+#info .params-wrapper input[type='radio']:checked+label {
+    text-transform: uppercase;
+}
+#info #selectors .graph-info {
+    position: relative;
+}
+#info #selectors .graph-info > * {
+    transition: all 100ms ease;
+}
+#info #selectors .graph-info .toggle-scale {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+#info #selectors .graph-info .network {
+    position: absolute;
+    top: 0;
+}
+#info #search {
+    display: flex;
+    gap: var(--margin);
+    justify-content: space-between;
+}
+#info #search input[type='search'] {
+    flex: 1;
+}
+#graph {
+    position: fixed;
+    right: 0;
+}
+#graph .canvas-wrapper {
+    position: relative;
+}
+#graph .countries {
+    transition: all 100ms ease;
+}
+#graph .country-name {
+    color: var(--textcolor);
+    transform: translate(-50%,-50%);
+    font-feature-settings: 'tnum'1;
+    background: transparent;
+    font-size: var(--fontsizetiny);
+    font-weight: var(--fontweightthick);
+    letter-spacing: var(--letterspacingbig);
+    line-height: var(--lineheight2);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+    min-width: var(--circlesizemin) !important;
+    min-height: var(--circlesizemin) !important;
+    cursor: pointer;
+    transition: all 100ms ease;
+}
+#graph .country-name.connected {
+    color: var(--bgcolorpop) !important;
+    font-weight: var(--fontweightthin);
+    transition: all 100ms ease;
+}
+#graph .country-name.pop {
+    color: var(--textcolor) !important;
+    background: var(--accentcolor) !important;
+    transform: translate(-50%,-50%);
+    text-shadow: 0 0 5px var(--accentcolor) !important;
+    box-shadow: 0 0 5px 7px var(--accentcolor) !important;
+    transition: all 100ms ease;
+}
+#graph .axes {
+    transition: all 100ms ease;
+}
+#graph .tick {
+    position: absolute;
+    font-size: var(--fontsizetiny);
+    letter-spacing: var(--letterspacingbig);
+}
+#graph .x-axis {
+    transition: all 300ms ease;
+}
+#graph .x-axis .tick {
+    opacity: 0;
+    white-space: nowrap;
+    transform: translateX(-50%) rotate(-90deg);
+    pointer-events: none;
+}
+#graph .x-axis .tick-wrapper {
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+}
+#graph .x-axis .tick-wrapper.shown {
+    background: var(--gradientcolor);
+    transition: all 100ms ease;
+}
+#graph .x-axis .tick-wrapper.pop {
+    background: var(--gradientpop);
+    z-index: 900;
+    transition: all 100ms ease;
+}
+#graph .x-axis .tick-wrapper.shown .tick {
+    opacity: 1;
+    transition: all 100ms ease;
+}
+#graph .x-axis .tick-wrapper.pop .tick {
+    opacity: 1;
+    font-size: var(--fontsizesmall);
+    letter-spacing: .06em;
+}
+#graph .x-axis .tick-wrapper .country-inscore,
+#graph .x-axis .tick-wrapper .country-outscore,
+#graph .x-axis .tick-wrapper .country-pop {
+    opacity: 0;
+    font-size: var(--fontsizesmall);
+    transform: translateX(-50%) rotate(-90deg);
+    position: relative;
+    letter-spacing: var(--letterspacingbig);
+}
+#graph .x-axis .tick-wrapper.pop .country-inscore,
+#graph .x-axis .tick-wrapper.pop .country-outscore,
+#graph .x-axis .tick-wrapper.pop .country-pop {
+    opacity: 1;
+    transform: translate(-50%,calc(-100% - var(--margin)));
+    transform: translate(-50%,-50%);
+    padding: 0 var(--margin);
+    border-radius: 100%;
+    transition: all 100ms ease;
+}
+#graph .x-axis .tick-wrapper.pop .country-inscore {
+    color: var(--textcolorfaint);
+    font-weight: var(--fontweightthick);
+    background: var(--bgcolorpop);
+    box-shadow: 0 0 3px 6px var(--bgcolorpop);
+}
+#graph .x-axis .tick-wrapper.pop .country-outscore {
+    background: var(--linkcolorpop);
+    box-shadow: 0 0 3px 6px var(--linkcolorpop);
+    color: var(--bgcolorlight);
+}
+#graph .x-axis .tick-wrapper.pop .country-pop {
+    background: var(--nodecolor);
+    box-shadow: 0 0 3px 6px var(--nodecolor);
+}
+#graph :is(.y-axis-log,.y-axis-lin) .tick,
+#graph :is(.pop-axis-log,.pop-axis-lin) .tick {
+    padding-left: var(--marginsmall);
+    position: relative;
+    line-height: normal;
+}
+#graph :is(.y-axis-log,.y-axis-lin) .tick.vertical,
+#graph :is(.pop-axis-log,.pop-axis-lin) .tick.vertical {
+    transform: rotate(-90deg) translateY(-2px);
+    transform-origin: top left;
+}
+#graph :is(.y-axis-log,.y-axis-lin) .tick:first-child,
+#graph :is(.pop-axis-log,.pop-axis-lin) .tick:first-child {
+    position: relative;
+}
+#graph :is(.y-axis-log,.y-axis-lin) .tick.vertical:first-child::before {
+    content: 'Connectedness Index →';
+}
+#graph :is(.pop-axis-log,.pop-axis-lin) .tick.vertical:first-child::before {
+    content: 'Population →';
+}
+#graph :is(.y-axis-log,.y-axis-lin) .tick.vertical:first-child::before,
+#graph :is(.pop-axis-log,.pop-axis-lin) .tick.vertical:first-child::before{
+    position: absolute;
+    top: 0;
+    transform: translateY(calc(-100% - 2px));
+    white-space: nowrap;
+}
+#labels {
+    position: relative;
+}
+#labels-sorted,
+#labels-network {
+    display: flex;
+    justify-content: space-between;
+}
+#labels-network {
+    position: absolute;
+    bottom: 0;
+    width: var(--parawidth);
+    height: 100%;
+}
+#labels-sorted .population,
+#labels-sorted .connectedness {
+    display: flex;
+    gap: var(--margin);
+}
+#labels-sorted .sizes {
+    display: flex;
+    align-items: flex-end;
+}
+#labels-sorted .size {
+    background: var(--nodecolor);
+    min-width: 3px;
+}
+#labels-sorted .connectedness > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5px;
+}
+#labels-sorted .connectedness .label {
+    margin-left: var(--margin);
+}
+#labels-sorted :is(.within,.without) {
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+}
+#labels-sorted .within {
+    background: rgb(220, 220, 220);
+}
+#labels-sorted .without {
+    background: var(--linkcolor);
+}
+#labels-network .population,
+#labels-network .connectedness {
+    display: flex;
+    gap: var(--margin);
+}
+#labels-network .sizes,
+#labels-network .weights {
+    display: flex;
+    align-items: center;
+    gap: var(--marginsmall);
+}
+#labels-network .size {
+    background: var(--nodecolor);
+    border-radius: 100%;
+}
+#labels-network .weights {
+    align-items: end;
+}
+#labels-network .weight {
+    display: inline-block;
+    height: 60%;
+    width: 2px;
+}
+#intro-mobile,
+#search-mobile,
+#labels-mobile-sorted,
+#labels-mobile-network,
+.mobile-small {
+    display: none;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 100ms ease;
+}
+.button {
+    cursor: pointer;
+}
+.button::before {
+    content: '✳︎';
+    position: relative;
+    left: -3px;
+}
+.dcm {
+    display: none;
+    color:#bfbcad
+}
+@media (hover:hover) {
+    #graph .country-name:hover {
+        color: var(--textcolor) !important;
+        background: var(--accentcolor) !important;
+        transform: translate(-50%,-50%);
+        /* box-shadow: 0 0 8px 10px var(--accentcolor) !important; */
+        box-shadow: 0 0 5px 7px var(--accentcolor) !important;
+        text-shadow: 0 0 3px var(--accentcolor) !important;
+        z-index: 999 !important;
+        transition: all 100ms ease;
+    }
+    #graph .x-axis .tick-wrapper:hover {
+        background: var(--gradientpop);
+        transition: all 100ms ease;
+        z-index: 999;
+    }
+    #graph .x-axis .tick-wrapper:hover .tick {
+        opacity: 1;
+        transform: translate(-50%,-30%);
+        font-size: var(--fontsize);
+        letter-spacing: normal;
+        text-shadow: none;
+        transition: all 100ms ease;
+    }
+    #graph .x-axis .tick-wrapper:hover .country-inscore,
+    #graph .x-axis .tick-wrapper:hover .country-outscore,
+    #graph .x-axis .tick-wrapper:hover .country-pop {
+        opacity: 1;
+        transform: translate(-50%,calc(-100% - var(--margin)));
+        transform: translate(-50%,-50%);
+        background: radial-gradient(var(--bgcolor),transparent);
+        padding: 0 var(--margin);
+        border-radius: 100%;
+        transition: all 100ms ease;
+    }
+    #graph .x-axis .tick-wrapper:hover .country-inscore {
+        color: var(--textcolorfaint);
+        font-weight: var(--fontweightthick);
+        background: var(--bgcolorpop);
+        box-shadow: 0 0 3px 6px var(--bgcolorpop);
+    }
+    #graph .x-axis .tick-wrapper:hover .country-outscore {
+        background: var(--linkcolorpop);
+        box-shadow: 0 0 3px 6px var(--linkcolorpop);
+        color: var(--bgcolorlight);
+    }
+    #graph .x-axis .tick-wrapper:hover .country-pop {
+        background: var(--nodecolor);
+        box-shadow: 0 0 3px 6px var(--nodecolor);
+    }
+    .button:hover,
+    .button:hover a {
+        color: var(--linkcolor) !important;
+    }
+    .button:hover {
+        text-transform: uppercase;
+        transition: all 100ms ease;
+        color:#afd1d5;
+    }
+}
+@media screen and (max-width: 400px) {
+    .mobile-small {
+        display: inline;
+    }
+    .large {
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    :root {
+        --fontsize: 16px;
+        --fontsizesmall: .65em;
+        --fontsizetiny: .55em;
+        --fontweightthin: 380;
+        --circlesizemin: 8px;
+    }
+    input[type='search'],
+    input[type='search']:active,
+    input[type='search'],
+    #search-mobile label {
+        border-bottom: none;
+    }
+    body {
+        overflow:auto;
+    }
+    nav {
+        position: sticky;
+        top: 0;
+        left: 0;
+        padding: var(--margin);
+        padding-bottom:0;
+        width: auto;
+        background: var(--bgcolor);
+        box-shadow: 0 3px var(--marginsmall) var(--marginsmall) var(--bgcolor);
+    }
+    nav #tools :is(.lan,.lib) {
+        transform: translateY(var(--margin));
+    }
+    main {
+        padding: var(--margin);
+        display: flex;
+        flex-direction: column;
+        gap: var(--paragap);
+    }
+    #intro-mobile {
+        display: inline;
+        text-align: justify;
+        margin-top: var(--paragap);
+    }
+    #intro-mobile .formula {
+        width: 100%;
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        margin: var(--paragap) 0;
+    }
+    #intro-mobile .num {
+        display: inline-block;
+        padding-bottom: 2px;
+    }
+    #intro-mobile .den {
+        display: inline-block;
+        padding-top: 2px;
+        border-top: 1px solid var(--textcolor);
+    }
+    #graph {
+        position: relative;
+        background: var(--bgcolor);
+        z-index: 99;
+        padding-top: calc(var(--paragap) + var(--fontsize));
+    }
+    #graph .countries {
+        display: none;
+    }
+    #graph .country-name {
+        padding-top: 2.5px;
+    }
+    #graph .x-axis .tick-wrapper.pop .tick {
+        text-shadow: 0 0 3px var(--accentcolor);
+    }
+    #graph :is(.y-axis-log,.y-axis-lin) .tick,
+    #graph :is(.pop-axis-log,.pop-axis-lin) .tick {
+        color: var(--textcolorlight);
+    }
+    #graph :is(.y-axis-log,.y-axis-lin) .tick.horizontal,
+    #graph :is(.pop-axis-log,.pop-axis-lin) .tick.horizontal {
+        transform: translateY(calc(-100% - 3px));
+    }
+    #graph :is(.y-axis-log,.y-axis-lin) .tick.horizontal:first-child::before {
+        content: 'Connectedness Index →';
+    }
+    #graph :is(.pop-axis-log,.pop-axis-lin) .tick.horizontal:first-child::before {
+        content: 'Population →';
+    }
+    #graph :is(.y-axis-log,.y-axis-lin) .tick.horizontal:first-child::before,
+    #graph :is(.pop-axis-log,.pop-axis-lin) .tick.horizontal:first-child::before {
+        position: absolute;
+        left: 1px;
+        white-space: nowrap;
+        transform: rotate(-90deg);
+        transform-origin: bottom left;
+    }
+    #labels-mobile-sorted,
+    #labels-mobile-network {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+    }
+    #labels-mobile-sorted .connectedness {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--marginbig);
+        width: calc(100vw - var(--margin) * 2);
+    }
+    #labels-mobile-sorted .connectedness > div {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1px;
+    }
+    #labels-mobile-sorted .connectedness :is(.within,.without) {
+        width: 2.5px;
+        height: 2.5px;
+        border-radius: 100%;
+    }
+    #labels-mobile-sorted .connectedness .within {
+        background: rgb(220, 220, 220);
+    }
+    #labels-mobile-sorted .connectedness .without {
+        background: var(--linkcolor);
+    }
+    #labels-mobile-sorted .connectedness .label {
+        margin-left: var(--marginsmall);
+    }
+    #labels-mobile-network {
+        display: flex;
+        justify-content: center;
+        width: calc(100vw - var(--margin) * 2);
+        gap: var(--marginbig);
+    }
+    #labels-mobile-network .population,
+    #labels-mobile-network .connectedness {
+        display: flex;
+        align-items: center;
+        gap: var(--marginsmall);
+    }
+    #labels-mobile-network .sizes,
+    #labels-mobile-network .weights {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+    }
+    #labels-mobile-network .sizes {
+        padding-top: 2px;
+    }
+    #labels-mobile-network .size {
+        background: var(--nodecolor);
+        border-radius: 100%;
+    }
+    #labels-mobile-network .weight {
+        display: inline-block;
+        height: 15px;
+        width: 2px;
+    }
+    #search-mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--margin);
+        margin: var(--marginsmall) 0;
+    }
+    #search-mobile input[type='search'] {
+        flex: 1;
+        text-align: center;
+        border-bottom: 1px solid var(--textcolor);
+    }
+    #info {
+        position: relative;
+        width: auto;
+        left: auto;
+        bottom: auto;
+        padding-bottom: var(--marginbig);
+    }
+    #info > * {
+        width: auto;
+    }
+    #info #selectors > p {
+        text-align: center;
+    }
+    #info :is(#intro,#labels,#search) {
+        display: none;
+    }
+}
+@media (pointer:coarse) and (max-width:1024px) {
+    .dcm {
+        background: var(--accentcolor);
+        box-shadow: 0 0 10px 10px var(--accentcolor);
+        padding: var(--paragap);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 80vw;
+        border-radius: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: all 200ms ease;
+    }
+    .dcm p {
+        margin-top: calc(var(--paragap)*2);
+    }
+    .dcm .button {
+        padding: var(--paragap);
+    }
+}

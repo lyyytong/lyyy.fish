@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook Connectedness</title>
+    <meta name="author" content="Ly Tong">
+    <meta name="description" content="Mapping relationships between countries using Facebook-based Social Connectedness Index.">
+    <meta name="theme-color" content="darkgray">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/facebook-connectedness.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👯‍♂️</text></svg>" />
+</head>
+
+<body>
+    <nav>
+        <p class="button"><a href="../index.html">Home</a></p>
+        <p class="button"><a href="https://data.humdata.org/dataset/social-connectedness-index" target="_blank" rel="noopener noreferrer">SCI data</a></p>
+        <p class="button mobile-small"><a href="https://population.un.org/wpp/Download/Standard/CSV/" target="_blank" rel="noopener noreferrer">Population</a></p>
+        <p class="button large"><a href="https://population.un.org/wpp/Download/Standard/CSV/" target="_blank" rel="noopener noreferrer">Population data</a></p>
+        <div id="tools">
+            <p class="button">Tools</p>
+            <div class="tool-list hidden">
+                <p class="lan">Python</p>
+                <p class="lib">Pandas</p>
+                <p class="lib">Matplotlib</p>
+                <p class="lan">Javascript</p>
+                <p class="lib">D3.js</p>
+                <p class="lib">P5.js</p>
+                <p class="lan">HTML</p>
+                <p class="lan">CSS</p>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section id="intro-mobile">
+            <p>
+                The Social Connectedness Index (SCI) uses a snapshot of active Facebook users, their location and friends network as of October 2021 to
+                measure the intensity of connectedness between countries.
+                It's calculated as:
+            </p>
+            <p class="formula">
+                <span class="num">FB connections between two countries</span><br>
+                <span class="den">FB users of country 01 × FB users of country 02</span>
+            </p>
+            <p>
+                It shows the relative probability of a Facebook link between two countries:
+                an index of 2,000 means a link is twice more likely than that of 1,000.
+                It's a highly stable metric for social ties between countries given Facebook's ubiquity
+                (except in China, Iran, North Korea, Russia, Cuba, Syria, Turkmenistan and Somalia,
+                which are missing from this dataset).
+            </p>
+        </section>
+        <section id="graph">
+            <div class="canvas-wrapper">
+                <canvas></canvas>
+                <div class="countries"></div>
+                <div class="axes hidden">
+                    <div class="x-axis hidden"></div>
+                    <div class="y-axis-log"></div>
+                    <div class="pop-axis-log"></div>
+                    <div class="y-axis-lin hidden"></div>
+                    <div class="pop-axis-lin hidden"></div>
+                </div>
+            </div>
+            <div id="labels-mobile-sorted">
+                <div class="connectedness">
+                    <p class="mobile-small">SCI</p>
+                    <p class="large">Connectedness</p>
+                    <div>
+                        <div class="within"></div>
+                        <div class="within"></div>
+                        <div class="within"></div>
+                        <div class="within"></div>
+                        <div class="within"></div>
+                        <div class="within"></div>
+                        <p class="label">within country</p>
+                    </div>
+                    <div>
+                        <div class="without"></div>
+                        <div class="without"></div>
+                        <div class="without"></div>
+                        <div class="without"></div>
+                        <div class="without"></div>
+                        <div class="without"></div>
+                        <p class="label">with others</p>
+                    </div>
+                </div>
+            </div>
+            <div id="labels-mobile-network" class="hidden">
+                <div class="population">
+                    <p>Population size</p>
+                    <div class="sizes"></div>
+                </div>
+                <div class="connectedness">
+                    <p class="mobile-small">SCI</p>
+                    <p class="large">Connectedness</p>
+                    <div class="weights"></div>
+                </div>
+            </div>
+            <div id="search-mobile">
+                <label for="search-country">Search country</label>
+                <input type="search" name="search" id="search-country" autocomplete="off" placeholder="min. 3 characters">
+            </div>
+        </section>
+        <section id="info">
+            <div id="intro">
+                <p>
+                    The Social Connectedness Index (SCI) uses a snapshot of active Facebook users, their location and friends network as of October 2021 to
+                    measure the intensity of connectedness between countries.
+                    It's calculated as:
+                </p>
+                <p class="formula">
+                    <span class="num">FB connections between two countries</span><br>
+                    <span class="den">FB users of country 01 × FB users of country 02</span>
+                </p>
+                <p>
+                    It shows the relative probability of a Facebook link between two countries:
+                    an index of 2,000 means a link is twice more likely than that of 1,000.
+                    It's a highly stable metric for social ties between countries given Facebook's ubiquity
+                    (except in China, Iran, North Korea, Russia, Cuba, Syria, Turkmenistan and Somalia,
+                    which are missing from this dataset).
+                </p>
+            </div>
+            <div id="selectors">
+                <p>Choose graph view</p>
+                <div class="selectors-wrapper">
+                    <div class="bar">
+                        <input class="disabled" type="radio" name="graphtype" id="bar" value="1">
+                        <label for="bar">Country ranking</label>
+                    </div>
+                    <div class="network">
+                        <input class="disabled" type="radio" name="graphtype" id="network" value="2">
+                        <label for="network">Relationship network</label>
+                    </div>
+                </div>
+                <div class="graph-info">
+                    <p class="sorted">
+                        Connectedness within and between countries decreases as population size increases.
+                        Both connectedness and population are on logarithmic scale to better show smaller observations,
+                        as countries with extremely high indices make it hard to see the rest on a linear scale.
+                        <span class="toggle-scale">
+                            <input class="disabled" type="checkbox" name="scale" id="toggle-scale">
+                            <label for="toggle-scale">Linear scale OFF</label>
+                        </span>
+                    </p>
+                    <p class="network hidden">
+                        Countries with strong ties drift closer together, with the strongest relationships marked by bolder blue lines.
+                        Those with weaker and/or fewer ties to the rest tend to float at the periphery.
+                        This view ignores links of index under 4,586, showing only the strongest 25% relationships.
+                        Hover/tap on a country to see others connected to it, colored from muted purple for weak link
+                            to bright blue for strong link (relative to the country's data alone).
+                    </p>
+                </div>
+            </div>
+            <div id="params">
+                <p>Sort countries by connectedness / population</p>
+                <div class="params-wrapper">
+                    <div class="inscore">
+                        <input class="disabled" type="radio" name="sort" id="sort-inscore" checked>
+                        <label for="sort-inscore">Within country</label>
+                    </div>
+                    <div class="outscore">
+                        <input class="disabled" type="radio" name="sort" id="sort-outscore">
+                        <label for="sort-outscore">With others</label>
+                    </div>
+                    <div class="pop">
+                        <input class="disabled" type="radio" name="sort" id="sort-pop">
+                        <label for="sort-pop">Population</label>
+                    </div>
+                </div>
+            </div>
+            <div id="search">
+                <label for="search-country">Search country</label>
+                <input type="search" name="search" id="search-country" autocomplete="off" placeholder="min. 3 characters">
+            </div>
+            <div id="labels">
+                <div id="labels-sorted">
+                    <div class="population">
+                        <p>Population</p>
+                        <div class="sizes"></div>
+                    </div>
+                    <div class="connectedness">
+                        <p>Connectedness</p>
+                        <div>
+                            <div>
+                                <div class="within"></div>
+                                <div class="within"></div>
+                                <div class="within"></div>
+                                <div class="within"></div>
+                                <p class="label">within country</p>
+                            </div>
+                            <div>
+                                <div class="without"></div>
+                                <div class="without"></div>
+                                <div class="without"></div>
+                                <div class="without"></div>
+                                <p class="label">with others (avg.)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="labels-network" class="hidden">
+                    <div class="population">
+                        <p>Population</p>
+                        <div class="sizes"></div>
+                    </div>
+                    <div class="connectedness">
+                        <p>Connectedness index</p>
+                        <div class="weights"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="dcm hidden">
+            <p>
+                This page is best on big screens and devices with mouse control.
+                Some details and hover effects are lost.
+            </p>
+            <div class="button">OK</div>
+        </div>
+    </main>
+    <script src="../scripts/d3.min.js"></script>
+    <script src="../scripts/p5.min.js"></script>
+    <script src="../scripts/facebook-connectedness.js"></script>
+</body>
+
+</html>
