@@ -12,6 +12,7 @@
     --thick-font-weight: 400;
     --main-font-weight: 350;
     --thin-font-weight: 320;
+    --thumbnail-width: 120px;
 }
 
 * {
@@ -49,13 +50,6 @@ a:visited {
     transition: all 150ms ease;
 }
 
-a:hover {
-    color: var(--accent-color);
-    font-weight: var(--thin-font-weight);
-    letter-spacing: .1em;
-    transition: all 150ms ease;
-}
-
 #name {
     position: fixed;
     top: 10px;
@@ -73,14 +67,6 @@ a:hover {
 #about {
     z-index: 1000;
     transition: all 150ms ease;
-}
-
-#about:hover {
-    color: var(--accent-color);
-    font-weight: var(--thin-font-weight);
-    letter-spacing: .1em;
-    transition: all 150ms ease;
-    cursor: pointer;
 }
 
 #about-bg {
@@ -117,11 +103,10 @@ a:hover {
     transition: all 150ms ease;
 }
 
-#about-back:hover {
-    font-weight: var(--main-font-weight);
-    letter-spacing: .1em;
-    transition: all 150ms ease;
-    cursor: pointer;
+#articles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .article {
@@ -129,17 +114,15 @@ a:hover {
     transition: all 150ms ease;
     dominant-baseline: middle;
 }
-
-.article:hover {
-    fill: var(--accent-color);
-    cursor: pointer;
+.article-group .thumbnail {
+    width: var(--thumbnail-width);
+    height: var(--thumbnail-width);
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 100%;
+    transition: all 150ms ease;
 }
 
-#articles {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .article-axis {
     stroke: var(--accent-color);
@@ -180,5 +163,52 @@ a:hover {
 
     #about:hover {
         font-weight: var(--main-font-weight);
+    }
+}
+
+@media (hover:hover) {
+    a:hover {
+        color: var(--accent-color);
+        font-weight: var(--thin-font-weight);
+        letter-spacing: .1em;
+        transition: all 150ms ease;
+    }
+
+    #about:hover {
+        color: var(--accent-color);
+        font-weight: var(--thin-font-weight);
+        letter-spacing: .1em;
+        transition: all 150ms ease;
+        cursor: pointer;
+    }
+
+    #about-back:hover {
+        font-weight: var(--main-font-weight);
+        letter-spacing: .1em;
+        transition: all 150ms ease;
+        cursor: pointer;
+    }
+
+    .article-group:hover .article {
+        fill: var(--accent-color);
+        cursor: pointer;
+    }
+
+    @keyframes move-right {
+        0% { transform: translateX(-100px); }
+        100% { transform: none; }
+    }
+    @keyframes move-left {
+        0% { transform: none; }
+        100% { transform: translateX(-100px); }
+    }
+    .article-group:hover .thumbnail {
+        opacity: .8;
+    }
+    .article-group:hover .thumbnail.move-right {
+        animation: move-right 150ms ease 1 forwards;
+    }
+    .article-group:hover .thumbnail.move-left{
+        animation: move-left 150ms ease 1 forwards;
     }
 }

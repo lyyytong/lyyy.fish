@@ -3,6 +3,7 @@ async function drawList() {
     const data = await d3.csv('data/articles.csv')
     data.sort((a,b)=>d3.descending(a.date,b.date))
     
+    let imgW = 120, imgR = imgW/2
     let styles
     let lineHeight
     let listHeight
@@ -10,6 +11,7 @@ async function drawList() {
     let height
     let dim
     let coords
+    let articlesG,articlesImg,articles
 
     const wrapper = d3.select('#articles').append('svg')
     const bounds = wrapper.append('g')
@@ -30,12 +32,19 @@ async function drawList() {
         .attr('x2', randomX2)
         .attr('y2', dim.height)
     
-    const articles = textBounds.selectAll('.article')
-        .data(data).join('a')
+    const getName = d=>d.name.replaceAll(' ', '-')
+    articlesG = textBounds.selectAll('.article')
+        .data(data).join('g').attr('class','article-group')
+    if (hasMouseControl()) articlesImg = articlesG.append('image')
+        .attr('class','thumbnail')
+        .attr('href',d=>{
+            if (d.thumbnail) return `images/thumbnails/${getName(d)}.${d.thumbnail}`
+        })
+    articles = articlesG.append('a')
         .attr('class', 'article')
-        .attr('href', d => d.name != '(coming soon)' ? 'pages/' + d.name.replaceAll(' ', '-') + '.html' : '')
+        .attr('href', d => d.name != '(coming soon)' ? 'pages/' + getName(d) + '.html' : '')
         .append('text')
-            .html(d => d.name)
+        .html(d => d.name)
 
     updateListCoords()
 
@@ -89,15 +98,16 @@ async function drawList() {
         articles.attr('y', (d, i) => lineHeight * i + lineHeight / 2)
         coords = []
         articles.nodes().forEach((d, i) => {
-            const triangleHeight = d.getBoundingClientRect().y+d.getBoundingClientRect().height/2
-            const triangleBase = Math.tan(alpha) * triangleHeight
-            const x = randomX1 > randomX2 ? randomX1 - triangleBase : randomX1 + triangleBase
-            const textWidth = d.getBoundingClientRect().width
-            const rightX = x + textWidth
-            const textAnchor = rightX > dim.boundedWidth ? 'end' : 'start'
-            const x0 = textAnchor == 'start' ? x - 10 : x + 10
-            const delay = 1000 + 30 * i
-            coords.push({ x: x, x0: x0, textAnchor: textAnchor, delay: delay })
+            const triangleHeight = d.getBoundingClientRect().y+d.getBoundingClientRect().height/2,
+                triangleBase = Math.tan(alpha) * triangleHeight,
+                x = randomX1 > randomX2 ? randomX1 - triangleBase : randomX1 + triangleBase,
+                textWidth = d.getBoundingClientRect().width,
+                rightX = x + textWidth,
+                textAnchor = rightX > dim.boundedWidth ? 'end' : 'start',
+                x0 = textAnchor == 'start' ? x - 10 : x + 10,
+                imgX = textAnchor == 'start' ? rightX + imgR : x - textWidth - imgR*1.5,
+                delay = 1000 + 30 * i
+            coords.push({ x, x0, textAnchor, delay, imgX })
         })
         articles.attr('x', (d, i) => coords[i].x0)
             .style('text-anchor', (d, i) => coords[i].textAnchor)
@@ -107,6 +117,13 @@ async function drawList() {
                 .ease(d3.easeElasticOut)
                 .attr('x', coords[i].x)
         })
+
+        if (hasMouseControl()) articlesImg.attr('x', (d, i) => coords[i].imgX)
+            .attr('y', (d, i) => lineHeight * i + lineHeight / 2 - imgR)
+            .attr('class', (d, i) => {
+                const anim = coords[i].textAnchor=='start'?'move-right':'move-left'
+                return `thumbnail ${anim}`
+            })
     }
 }
 const about = d3.select('#about')
@@ -129,3 +146,10 @@ aboutBack.on('click', () => {
     aboutContainer.transition().duration(200)
         .style('opacity', '0').style('display', 'none')
 })
+
+function hasMouseControl(){
+    const isTouchDevice = ('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0) ||
+        (navigator.msMaxTouchPoints > 0)
+    return !isTouchDevice
+}
