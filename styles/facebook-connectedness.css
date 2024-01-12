@@ -3,7 +3,7 @@
     src: url("../styles/PublicSans.woff2");
 }
 :root {
-    --fontfamily: 'Public Sans';
+    --fontfamily: 'Public Sans', sans-serif;
     --fontsize: clamp(15px, 1vw, 16.5px);
     --fontsizetiny: .65em;
     --fontsizesmall: .8em;
