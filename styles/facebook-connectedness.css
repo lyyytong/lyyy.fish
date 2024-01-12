@@ -545,9 +545,9 @@ nav #tools:hover .tool-list {
 }
 @media screen and (max-width: 1024px) {
     :root {
-        --fontsize: 16px;
-        --fontsizesmall: .65em;
-        --fontsizetiny: .55em;
+        --fontsize: 15.5px;
+        --fontsizesmall: .7em;
+        --fontsizetiny: .6em;
         --fontweightthin: 380;
         --circlesizemin: 8px;
     }

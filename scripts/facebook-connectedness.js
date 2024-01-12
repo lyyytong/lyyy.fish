@@ -422,8 +422,8 @@ function getForceSim(){
         .force('x',d3.forceX(width/2-15).strength(screenr))
         .force('y',d3.forceY(height/2+20).strength(1.25))
     else s.force('charge', d3.forceManyBody().strength(-bfstrength/2))
-        .force('x',d3.forceX(width/2).strength(screenr))
-        .force('y',d3.forceY(height/2+15).strength(1.2))
+        .force('x',d3.forceX(width/2-10).strength(screenr))
+        .force('y',d3.forceY(height/2+15).strength(1.1))
     return s
 }
 function initScaleTicks(scale){
