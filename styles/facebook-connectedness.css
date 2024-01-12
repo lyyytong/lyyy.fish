@@ -581,14 +581,14 @@ nav #tools:hover .tool-list {
     }
     #intro-mobile {
         display: inline;
-        text-align: justify;
+        text-align: left;
         margin-top: var(--paragap);
     }
     #intro-mobile .formula {
         width: 100%;
         display: inline-block;
         position: relative;
-        text-align: center;
+        text-align: left;
         margin: var(--paragap) 0;
     }
     #intro-mobile .num {
@@ -718,8 +718,8 @@ nav #tools:hover .tool-list {
     #info > * {
         width: auto;
     }
-    #info #selectors > p {
-        text-align: center;
+    #info #selectors .sorted {
+        text-align: left;
     }
     #info :is(#intro,#labels,#search) {
         display: none;
