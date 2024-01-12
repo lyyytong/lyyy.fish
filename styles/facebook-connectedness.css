@@ -4,7 +4,7 @@
 }
 :root {
     --fontfamily: 'Public Sans';
-    --fontsize: clamp(15px, 1vw, 17px);
+    --fontsize: clamp(15px, 1vw, 16.5px);
     --fontsizetiny: .65em;
     --fontsizesmall: .8em;
     --fontweight: 400;
@@ -718,7 +718,7 @@ nav #tools:hover .tool-list {
     #info > * {
         width: auto;
     }
-    #info #selectors .sorted {
+    #info #selectors :is(.sorted,.network) {
         text-align: left;
     }
     #info :is(#intro,#labels,#search) {
