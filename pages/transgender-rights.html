@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ly Tong">
+    <meta name="description" content="Visualizing the legal situations transgender people faced in 173 countries between 2000 and 2021.">
+    <meta name="theme-color" content="#5d0088">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Transgender Rights</title>
+    <link rel="stylesheet" href="../styles/transgender-rights.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏳️‍⚧️</text></svg>" />
+</head>
+
+<body>
+    <nav>
+        <a class="home" href="../index.html">home</a>
+        <p class="about">?</p>
+    </nav>
+    <main>
+        <section id="intro" class="hidden">
+            <p>
+                The <a href="https://www.cambridge.org/core/journals/perspectives-on-politics/article/global-analysis-of-transgender-rights-introducing-the-trans-rights-indicator-project-trip/3C143E501E0824C8F9F0C40925965F43" target="_blank" rel="noopener noreferrer">
+                    Trans Rights Indicator Project by Myles Williamson</a> gives insights into
+                the legal situations transgender people faced in 173 countries from 2000 to 2021.
+                Countries are scored based on 13 indicators, capturing the absence of criminalization 
+                and the presence of gender recognition and anti-discrimination laws.
+                Though many countries were improving, by 2021 the average global score remained low at
+                just 3/13.
+            </p>
+        </section>
+        <section id="graph">
+            <div class="countries"></div>
+            <div class="timelapse"></div>
+            <div class="x-axis">
+                <p class="score-label">Transgender Rights Score</p>
+                <p class="count-label">Number of Countries with Score</p>
+                <p class="undefined-label">Unknown Score</p>
+            </div>
+        </section>
+        <section id="params">
+            <div class="filters">
+                <div class="year">
+                    <p class="label">Year</p>
+                    <p class="button year-select">2000</p>
+                    <div class="year-list hidden"></div>
+                    <div class="close hidden">Close</div>
+                </div>
+                <div class="region">
+                    <p class="label">Region</p>
+                    <p class="button region-select">All</p>
+                    <div class="region-list hidden"></div>
+                    <div class="clear hidden">✕</div>
+                    <div class="close hidden">Close</div>
+                </div>
+                <div class="country-param">
+                    <p class="label">Country</p>
+                    <p class="button country-select">All</p>
+                    <div class="country-list hidden">
+                    </div>
+                    <div class="cta hidden">
+                        <p>scroll</p>
+                        <p class="arrow">☟</p>
+                    </div>
+                    <div class="clear hidden">✕</div>
+                    <div class="close hidden">Close</div>
+                </div>
+                <div class="see-details button disabled">See country's scores</div>
+                <div class="button timelapse disabled">2000—2021 timelapse</div>
+                <div class="button back hidden">Back to all countries</div>
+            </div>
+        </section>
+        <section id="country-info" class="hidden">
+            <div class="close button">✕</div>
+            <div class="country-score">
+                <p class="country-year">Vietnam, 2021</p>
+                <p><span class="trip-score">0</span>/13</p>
+            </div>
+            <div class="pillars">
+                <div class="crim">
+                    <div class="total">
+                        <p class="title">No Criminalization</p>
+                        <p><span class="score">0</span>/2</p>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric no_dircrim">
+                            <p class="title">
+                                <span class="name">No direct criminalization laws</span>
+                                <span class="info-button no_dircrim">?</span>
+                                <span class="info no_dircrim">
+                                    Direct criminalization refers to laws that explicitly criminalize
+                                    individuals based on gender identity or expression when it diverges from
+                                    traditional expectations of birth-assigned sex. They typically include
+                                    provisions against “cross-dressing” or “disguising” as a different
+                                    sex/gender.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                        <div class="metric no_indcrim">
+                            <p class="title">
+                                <span class="name">No indirect criminalization laws</span>
+                                <span class="info-button no_indcrim">?</span>
+                                <span class="info no_indcrim">
+                                    Indirect criminalization occurs when countries arbitrarily use laws
+                                    unrelated to gender identity or expression to target transgender people. For
+                                    example, security forces may use laws concerning “public order”, “vagrancy”,
+                                    “morality”, “decency”, and other vague offenses to indirectly criminalize
+                                    individuals. Laws only count as indirect criminalization if at least one
+                                    credible source states that countries used them to target transgender people.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rec">
+                    <div class="total">
+                        <p class="title">Legal Gender Recognition</p>
+                        <p><span class="score">0</span>/5</p>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric gmc">
+                            <p class="title">
+                                <span class="name">Gender marker change allowed</span>
+                                <span class="info-button gmc">?</span>
+                                <span class="info gmc">
+                                    Whether a national law or policy allows gender marker changes on identity documents
+                                    beyond travel documents alone. Countries receive no score if national law does not specify
+                                    this right (e.g. the United States) or if gender marker changes are prohibited (e.g. Hungary).
+                                    Subnational laws or established practices that have not been codified into national law
+                                    were not counted.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                        <div class="metric nophys">
+                            <p class="title">
+                                <span class="name">No physiological requirements</span>
+                                <span class="info-button nophys">?</span>
+                                <span class="info nophys">
+                                    Physiological requirements refer to any prohibitive medical interventions
+                                    that an individual must undergo to alter their body or sex characteristics
+                                    before they can amend their gender marker. This may include interventions
+                                    such as hormone therapy, surgery, or sterilization.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                        <div class="metric nopsych">
+                            <p class="title">
+                                <span class="name">No psychological requirements</span>
+                                <span class="info-button nopsych">?</span>
+                                <span class="info nopsych">
+                                    Psychological requirements stipulate that individuals must receive a
+                                    diagnosis or documented treatment by a psychiatrist, psychologist, or other mental
+                                    health medical professional before they can amend their gender marker.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                        <div class="metric nodiv">
+                            <p class="title">
+                                <span class="name">No divorce/single-status requirements</span>
+                                 <span class="info-button nodiv">?</span>
+                                 <span class="info nodiv">
+                                    Divorce/single-status provisions
+                                    require individuals to be divorced or otherwise unmarried to qualify for a legal
+                                    gender marker change. This enables countries to allow legal gender marker changes
+                                    without recognizing same-sex marriages.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                        <div class="metric nb3g">
+                            <p class="title">
+                                <span class="name">Nonbinary/third gender marker options</span>
+                                <span class="info-button nb3g">?</span>
+                                <span class="info nb3g">
+                                    Whether countries have national recognition of gender
+                                    designation outside of the traditional binary markers “Male” or “Female”.
+                                    Examples include the “Other” (“Anya”) designation in
+                                    Nepal and the “X” marker in Malta. In some cases, these markers are available but
+                                    reserved for those with specific identities, e.g. the “Hijra”
+                                    designation in Bangladesh. These individuals may or may not self-identify as
+                                    transgender, but these cases are counted since an alternate marker is available.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro">
+                    <div class="total">
+                        <p class="title">Legal Anti-discrimination Protection</p>
+                        <p><span class="score">0</span>/6</p>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric adp_general">
+                            <p class="title">
+                                <span class="name">General protections</span>
+                                <span class="info-button adp_general">?</span>
+                                <span class="info adp_general">
+                                    General anti-discrimination protections are laws and policies that are not
+                                    entirely specific to one sector, providing broad-based protections from
+                                    discrimination against certain characteristics of individuals or groups. E.g.
+                                    Montenegro’s 2010 Law on Prohibition of Discrimination prohibits “any form of discrimination,
+                                    on any ground” and explicitly states that “unequal treatment [...] based on gender identity
+                                    or sexual orientation, shall be deemed to be discrimination.”
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                        <div class="metric adp_const">
+                            <p class="title">
+                                <span class="name">Constitutional protections</span>
+                                 <span class="info-button adp_const">?</span>
+                                 <span class="info adp_const">
+                                    Constitutional protections are anti-discrimination provisions that
+                                    are embedded within a country’s constitution. E.g. Article
+                                    14 of Bolivia’s 2009 constitution explicitly prohibits discrimination based on
+                                    several grounds, including gender identity and sexual orientation. Though
+                                    constitutional protections do not guarantee that countries will adopt other
+                                    anti-discrimination policies, they help establish a more inclusive legal
+                                    foundation.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                        <div class="metric adp_employment">
+                            <p class="title">
+                                <span class="name">Employment protections</span>
+                                <span class="info-button adp_employment">?</span>
+                                <span class="info adp_employment">
+                                    The presence of anti-discrimination laws and policies that protect
+                                    transgender people within the employment sector. These must explicitly protect individuals
+                                    on the grounds of gender identity, gender expression, or gender
+                                    “reassignment”. Implicit inclusion on the grounds of sex alone did not count.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                        <div class="metric adp_edu">
+                            <p class="title">
+                                <span class="name">Education protections</span>
+                                <span class="info-button adp_edu">?</span>
+                                <span class="info adp_edu">
+                                    The presence of anti-discrimination laws and policies that protect
+                                    transgender people within the education sector. These must explicitly protect individuals
+                                    on the grounds of gender identity, gender expression, or gender
+                                    “reassignment”. Implicit inclusion on the grounds of sex alone did not count.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                        <div class="metric adp_health">
+                            <p class="title">
+                                <span class="name">Healthcare protections</span>
+                                 <span class="info-button adp_health">?</span>
+                                 <span class="info adp_health">
+                                    The presence of anti-discrimination laws and policies that protect
+                                    transgender people within the healthcare sector. These must explicitly protect individuals
+                                    on the grounds of gender identity, gender expression, or gender
+                                    “reassignment”. Implicit inclusion on the grounds of sex alone did not count.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                        <div class="metric adp_housing">
+                            <p class="title">
+                                <span class="name">Housing protections</span>
+                                <span class="info-button adp_housing">?</span>
+                                <span class="info adp_housing">
+                                    The presence of anti-discrimination laws and policies that protect
+                                    transgender people within the housing sector. These must explicitly protect individuals
+                                    on the grounds of gender identity, gender expression, or gender
+                                    “reassignment”. Implicit inclusion on the grounds of sex alone did not count.
+                                </span>
+                            </p>
+                            <p class="score"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-info hidden">
+                <p></p>
+                <div class="close button">✕</div>
+            </div>
+        </section>
+        <div class="mousecta hidden"></div>
+    </main>
+    <script src="../scripts/d3.min.js"></script>
+    <script src="../scripts/transgender-rights.js"></script>
+</body>
+
+</html>

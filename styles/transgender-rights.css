@@ -1,0 +1,873 @@
+@font-face {
+    font-family: 'Inter';
+    src: url("../styles/Inter.woff2");
+}
+
+:root {
+    --fontfamily: 'Inter', sans-serif;
+    --fontsize: clamp(11px, 2vw, 14px);
+    --fontsize2: 1.2em;
+    --fontsizebig: 1.4em;
+    --fontweight: 450;
+    --fontweightthin: 430;
+    --fontweightthick: 480;
+    --lineheight: 1.3;
+    --lineheightsmall: 1.1;
+    --lineheightbig: 1.5;
+    --lineheightbiiig: 1.7;
+    --letterspacingsmall: -.01em;
+    --letterspacingtiny: -.05em;
+    --bgcolor: #5d0088;
+    --bgcolor2: #e0e05d;
+    --bgcolor3: silver;
+    --bgcolor4: #cff39d;
+    --bgcolor5: #5d0088be;
+    --textcolor: silver;
+    --textcolor2: black;
+    --textcolor2faint: #00000083;
+    --textcolor3: #f4f4f4;
+    --popcolor: #f4f4f4;
+    --popcolor2: lime;
+    --popcolor3: aqua;
+    --regionfaintbgcolor: #bf8e88;
+    --buttonbgcolor: #dcdcdc9c;
+    --buttonbgcolor2: linear-gradient(to bottom right, #ffff41ba, #ffff0047);
+    --buttonbgcolor3: linear-gradient(to bottom right, #d1ff5e, #d1ff5e8d);
+    --buttonoptioncolor: gainsboro;
+    --buttonoptioncolor2: black;
+    --countrynoscorecolor: linear-gradient(to bottom right, silver, gainsboro);
+    --margin: 8px;
+    --marginsmall: 5px;
+    --marginbig: 16px;
+    --gap: 30px;
+    --clearbuttonwidth: 25px;
+    --countryshadow: -1px .5px 1px .5px #0000001d;
+    --countryshadowpop: -1px .5px 1.5px 1px #0000001d;
+    --buttonshadow: -.5px .5px 1px .1px #0000001d;
+    --transition: all 100ms ease;
+    --transitionlong: all 200ms ease;
+    --transitionlooong: all 500ms ease;
+    --transitionshort: all 50ms ease;
+    --ctamove: calc(var(--margin)*2 + var(--marginsmall)*5 + var(--fontsize)*2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a,
+a:is(:hover, :active, :visited) {
+    color: var(--textcolor2);
+    text-decoration: none;
+}
+
+html {
+    background: var(--bgcolor);
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+body {
+    font-family: var(--fontfamily);
+    font-size: var(--fontsize);
+    font-weight: var(--fontweightthick);
+    line-height: var(--lineheight);
+    background: linear-gradient(to bottom, var(--bgcolor), var(--bgcolor2));
+    color: var(--textcolor);
+
+}
+
+main {
+    padding: var(--margin);
+}
+
+nav {
+    position: absolute;
+    bottom: var(--margin);
+    left: var(--margin);
+    font-size: var(--fontsize2);
+    color: var(--textcolor2);
+    display: flex;
+    align-items: center;
+    gap: var(--margin);
+    user-select: none;
+    z-index: 996;
+}
+
+nav>* {
+    cursor: pointer;
+}
+
+nav .about {
+    background: var(--buttonbgcolor3);
+    padding: calc(var(--marginsmall)*1.16) var(--margin);
+    text-align: center;
+    min-width: 28px;
+}
+
+nav .home::before {
+    content: '←';
+}
+
+#intro {
+    position: absolute;
+    font-size: var(--fontsizebig);
+    font-weight: var(--fontweight);
+    line-height: var(--lineheightbig);
+    color: var(--textcolor2);
+    z-index: 995;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    background: linear-gradient(to bottom, var(--bgcolor5), var(--bgcolor2));
+    padding: var(--margin);
+    padding-bottom: calc(var(--gap) * 1.5);
+    transform-origin: bottom;
+}
+
+#intro a,
+#intro a:is(:hover, :active, :visited) {
+    border-bottom: 1px dotted var(--textcolor2faint);
+}
+
+#intro.hidden {
+    transform: translateY(5px) scaleY(.95) !important;
+}
+
+#graph {
+    position: relative;
+}
+
+#graph :is(.countries, .timelapse) .country {
+    color: var(--textcolor2);
+    line-height: var(--lineheightsmall);
+    position: absolute;
+    text-align: end;
+    padding: var(--marginsmall) var(--margin);
+    box-shadow: var(--countryshadow);
+    user-select: none;
+    opacity: .95;
+    z-index: 1;
+    transition: var(--transitionshort);
+}
+
+#graph :is(.countries, .timelapse) .country.no-score {
+    background: var(--countrynoscorecolor) !important;
+    transition: var(--transition);
+}
+
+#graph .countries .country.region-faint {
+    background: var(--regionfaintbgcolor) !important;
+    color: transparent !important;
+    z-index: 0 !important;
+    mix-blend-mode: color;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+#graph :is(.countries, .timelapse) .country.country-pop {
+    background: var(--popcolor2) !important;
+    transform: rotate(-20deg) !important;
+    transform-origin: top left;
+    transition: var(--transitionlong);
+}
+
+#graph .x-axis :is(.tick, .tick-count) {
+    position: absolute;
+    transform: translateY(-25%);
+    transition: var(--transition);
+}
+
+#graph .x-axis :is(.tick, .tick-count).faint {
+    opacity: .2;
+    transition: var(--transition);
+}
+
+#graph .x-axis :is(.tick, .tick-count).tick-pop {
+    color: var(--popcolor2) !important;
+}
+
+#graph .x-axis :is(.score-label, .count-label) {
+    position: absolute;
+    transform: translateY(-165%);
+}
+
+#graph .x-axis .undefined-label {
+    position: absolute;
+    transform: translateY(-135%);
+    color: var(--textcolor3);
+    opacity: .7;
+}
+
+#graph .x-axis .grid-line {
+    position: absolute;
+    width: 100vw;
+    height: 20px;
+    z-index: 0;
+    opacity: .3;
+    transition: var(--transition);
+}
+
+#graph .x-axis .grid-line.faint {
+    opacity: .1;
+    transition: var(--transition);
+}
+
+#graph .x-axis .grid-line.grid-pop {
+    opacity: 1 !important;
+    border-top-color: var(--popcolor2) !important;
+}
+
+#params {
+    font-size: var(--fontsize2);
+    color: var(--textcolor2);
+    position: absolute;
+    bottom: 0;
+    padding: var(--margin);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    user-select: none;
+}
+
+#params .filters {
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin);
+}
+
+#params .filters :is(.year, .region, .country-param) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+#params .filters :is(.year, .region, .country-param) .label {
+    flex: 30%;
+}
+
+#params .filters :is(.year, .region, .country-param) .button {
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#params :is(.region-select, .country-select) {
+    padding-right: var(--clearbuttonwidth);
+}
+
+#params .option {
+    font-size: var(--fontsizebig);
+    letter-spacing: var(--letterspacingsmall);
+    background: var(--buttonoptioncolor);
+    font-weight: var(--fontweight);
+    transition: var(--transition);
+    position: relative;
+}
+
+#params .option.selected {
+    background: var(--buttonoptioncolor2) !important;
+    color: var(--textcolor3);
+    font-weight: 300;
+    z-index: 990 !important;
+    transition: var(--transition);
+}
+
+#params .option.disabled {
+    pointer-events: none !important;
+    cursor: not-allowed;
+    opacity: .3;
+}
+
+#params :is(.close, .clear) {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+#params .close {
+    width: 70%;
+    justify-content: end;
+    padding: var(--marginsmall) var(--margin);
+    background: var(--buttonoptioncolor2);
+    color: var(--textcolor);
+    box-shadow: var(--buttonshadow);
+    transition: var(--transition);
+}
+
+#params .clear {
+    height: 100%;
+    width: var(--clearbuttonwidth);
+    justify-content: center;
+    background: var(--buttonoptioncolor2);
+    color: var(--textcolor);
+}
+
+#params :is(.year-list, .region-list, .country-list) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(calc(-100% - var(--margin)));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    gap: var(--margin);
+    z-index: 999;
+}
+
+#params .country-list {
+    overflow-y: auto;
+    align-items: end;
+    scrollbar-width: none;
+}
+
+#params .country-list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+#params .country-list .option.region-pop {
+    background: var(--popcolor2);
+}
+
+@keyframes movescrollcta {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    10% {
+        transform: translateY(calc(-100% - 30px));
+    }
+
+    20% {
+        transform: translateY(-100%);
+    }
+
+    30% {
+        transform: translateY(calc(-100% - 30px));
+    }
+
+    40% {
+        transform: translateY(-100%);
+    }
+
+    50% {
+        transform: translateY(calc(-100% - 30px));
+    }
+
+    60% {
+        transform: translateY(-100%);
+    }
+
+    70% {
+        transform: translateY(calc(-100% - 30px));
+    }
+
+    80% {
+        transform: translateY(-100%);
+    }
+
+    90% {
+        transform: translateY(calc(-100% - 30px));
+    }
+
+    97% {
+        transform: translateY(calc(-100% - 1px));
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+#params .country-param .cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    transform-origin: left bottom;
+    top: -8px;
+    left: 0;
+    z-index: 990;
+    text-align: center;
+    width: 55px;
+    height: 58px;
+    background: var(--popcolor2);
+    padding-top: var(--margin);
+    border-radius: 100%;
+    z-index: 999;
+}
+
+#params .country-param .cta .arrow {
+    font-size: var(--fontsizebig);
+    position: relative;
+    top: -2px;
+}
+
+#params :is(.year-list, .region-list, .country-list) .option.button {
+    width: auto;
+}
+
+#params .year-list .option.button {
+    text-align: center;
+}
+
+#params :is(.timelapse, .see-details).button {
+    text-align: center;
+    padding: calc(var(--marginsmall)*1.16) var(--margin);
+}
+
+#params .timelapse.button {
+    background: var(--buttonbgcolor3);
+}
+
+#params .see-details.button {
+    background: var(--buttonbgcolor2);
+}
+
+#params :is(.timelapse, .see-details).button.disabled {
+    pointer-events: none;
+    opacity: .2;
+    transition: var(--transition);
+}
+
+#params .filters .back {
+    text-align: center;
+    position: absolute;
+    bottom: var(--margin);
+    width: calc(100% - var(--margin)*2);
+    background: var(--buttonoptioncolor2);
+    color: var(--textcolor3);
+}
+
+#country-info {
+    font-size: var(--fontsizebig);
+    background: var(--bgcolor3);
+    font-weight: var(--fontweight);
+    line-height: var(--lineheightbiiig);
+    position: absolute;
+    bottom: var(--margin);
+    color: var(--textcolor2);
+    z-index: 999;
+    box-shadow: var(--countryshadowpop);
+    padding-bottom: var(--margin);
+    transform-origin: bottom;
+}
+
+#country-info .close {
+    padding: var(--marginsmall) calc(var(--margin)*1.4);
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-200%);
+    background: var(--buttonoptioncolor2);
+    color: var(--textcolor);
+}
+
+#country-info .country-score {
+    display: flex;
+    justify-content: space-between;
+    background: var(--popcolor2);
+    padding: var(--marginsmall) var(--margin);
+    position: absolute;
+    top: 0;
+    transform: translateY(-100%);
+    width: 100%;
+}
+
+#country-info .pillars {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#country-info .total {
+    background: var(--buttonoptioncolor);
+    padding: var(--marginsmall) var(--margin);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--margin);
+}
+
+#country-info .metrics {
+    padding: var(--marginsmall) var(--margin);
+}
+
+#country-info .metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--margin);
+    margin-left: var(--margin);
+}
+
+#country-info .metric .title {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#country-info .metric .info-button {
+    font-size: .7em;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: var(--buttonbgcolor);
+    box-shadow: -1px .5px .5px .5px #00000018;
+    color: var(--textcolor2);
+    margin-left: var(--marginsmall);
+    margin-top: 1px;
+    opacity: .8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;
+}
+
+#country-info .metric .info {
+    display: none;
+}
+
+#country-info .mobile-info {
+    line-height: var(--lineheightbig);
+    position: absolute;
+    left: -8px;
+    width: calc(100% + var(--margin) * 2);
+    padding: var(--gap) var(--marginbig);
+    background: var(--bgcolor4);
+    box-shadow: -1px 0 3px 2px #00000016;
+    z-index: 3;
+}
+
+#country-info .mobile-info .close {
+    right: var(--margin);
+    transform: translateY(-100%);
+    z-index: 3;
+}
+
+.mousecta {
+    position: absolute;
+    display: block;
+    background: var(--popcolor3);
+    box-shadow: 0 0 6px 6px var(--popcolor3);
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.mousecta.hidden {
+    display: none;
+}
+
+.mousecta:after {
+    content: '👁️';
+    position: absolute;
+    color: var(--textcolor2);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    background: var(--buttonbgcolor);
+    padding: var(--marginsmall) var(--margin);
+    box-shadow: var(--buttonshadow);
+    cursor: pointer;
+    user-select: none;
+    transition: var(--transition);
+}
+
+.hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+@media (hover:hover) {
+    nav>* {
+        cursor: pointer;
+    }
+
+    #graph :is(.countries, .timelapse) .country {
+        cursor: none;
+        pointer-events: all;
+    }
+
+    @keyframes movecta {
+        0% {
+            bottom: 0;
+        }
+
+        5% {
+            bottom: -5px;
+            opacity: 1;
+        }
+
+        10% {
+            bottom: 0;
+        }
+
+        15% {
+            bottom: -5px;
+        }
+
+        20% {
+            bottom: 0;
+        }
+
+        25% {
+            bottom: -5px;
+        }
+
+        30% {
+            bottom: 0;
+        }
+
+        35% {
+            bottom: -5px;
+        }
+
+        40% {
+            bottom: 0;
+        }
+
+        45% {
+            bottom: -5px;
+        }
+
+        50% {
+            bottom: 0;
+        }
+
+        55% {
+            bottom: -5px;
+        }
+
+        60% {
+            bottom: 0;
+        }
+
+        65% {
+            bottom: -5px;
+        }
+
+        70% {
+            bottom: 0;
+        }
+
+        75% {
+            bottom: -5px;
+        }
+
+        80% {
+            bottom: 0;
+        }
+
+        85% {
+            bottom: -5px;
+        }
+
+        70% {
+            bottom: 0;
+        }
+
+        85% {
+            bottom: -5px;
+        }
+
+        90% {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        100% {
+            bottom: -5px;
+            opacity: 0;
+        }
+    }
+
+    #graph .countries .country.showcta::after {
+        content: "click for info☝︎";
+        color: var(--textcolor3);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translateY(110%);
+        opacity: 0;
+        animation: movecta 10s ease 1 forwards;
+        animation-delay: 10s;
+    }
+
+    #graph .country:hover,
+    #graph .country:hover.no-score {
+        transform: translateY(-18%) !important;
+        transition: var(--transition);
+        box-shadow: var(--countryshadowpop) !important;
+    }
+
+    #params .option:hover {
+        transform: translateY(-18%);
+        transition: var(--transition);
+    }
+
+    #params .country-list {
+        padding-top: var(--marginbig);
+    }
+
+    #params .see-details.button {
+        display: none;
+    }
+
+    #country-info {
+        cursor: grab;
+    }
+
+    #country-info .metric .info-button:hover {
+        background: var(--popcolor2);
+        transition: var(--transition);
+    }
+
+    #country-info .metric .info-button:hover+.info {
+        right: 0;
+        opacity: 1 !important;
+        transition: var(--transition);
+    }
+}
+
+@media (min-width: 600px) {
+    :root {
+        --clearbuttonwidth: 28px;
+    }
+
+    body {
+        font-weight: var(--fontweight);
+    }
+
+    nav {
+        font-size: var(--fontsize);
+        bottom: auto;
+        top: var(--margin);
+        width: fit-content;
+    }
+
+    nav .about {
+        background: none;
+        color: var(--textcolor);
+    }
+
+    nav .about.close-button {
+        background: var(--buttonoptioncolor2);
+        color: var(--textcolor);
+        transition: var(--transition);
+    }
+
+    nav .home {
+        color: var(--textcolor);
+        padding: var(--margin) 0;
+    }
+
+    #intro {
+        width: 41ch;
+        height: auto;
+        background: var(--bgcolor4);
+        font-size: var(--fontsize);
+        padding: calc(var(--gap)*.7) var(--gap);
+        padding-top: calc(var(--gap)*.69);
+        box-shadow: -1px .5px 2px 1px #00000016;
+        transform-origin: top;
+    }
+
+    #intro.hidden {
+        transform: translateY(-5px) !important;
+    }
+
+    #graph :is(.countries, .timelapse) .country {
+        line-height: var(--lineheight);
+    }
+
+    #graph :is(.countries, .timelapse) .country.country-pop {
+        transform: rotate(-12deg) !important;
+    }
+
+    #params {
+        font-size: var(--fontsize);
+        bottom: var(--margin);
+    }
+
+    #params .option {
+        font-weight: var(--fontweightthin);
+    }
+
+    #country-info {
+        font-size: var(--fontsize);
+        line-height: var(--lineheightbig);
+        bottom: 0;
+    }
+
+    #country-info .close {
+        transform: translate(100%, -100%);
+        padding: var(--marginsmall) calc(var(--margin)*1.2);
+    }
+
+    #country-info .metric .info-button {
+        width: 15px;
+        height: 15px;
+        font-size: .8em;
+        margin-top: 0;
+    }
+
+    #country-info .metric .info {
+        display: inline;
+        opacity: 0;
+        position: absolute;
+        right: 5px;
+        bottom: -8px;
+        transform: translateX(calc(100% + var(--margin)));
+        background: var(--bgcolor4);
+        padding: calc(var(--gap)*.7) var(--gap);
+        padding-top: calc(var(--gap)*.69);
+        box-shadow: -1px .5px 2px 1px #00000016;
+        width: 40ch;
+        z-index: 999;
+        pointer-events: none;
+    }
+
+    #country-info .mobile-info {
+        display: none;
+    }
+}
+
+@media (min-width: 1100px) {
+    nav .about {
+        display: none;
+    }
+
+    #intro {
+        width: 50vw;
+        background: none;
+        padding: 0;
+        transform-origin: left;
+        box-shadow: none;
+    }
+
+    #intro.hidden {
+        transform: none;
+    }
+}
