@@ -639,7 +639,7 @@ async function drawCards(){
             d3.select(this).classed('country-pop',false)
                 .classed('region-faint',d=>d.region!=region&&region!='All')
             if (mode==1) {
-                country=='All'
+                country='All'
                 timelapsebutton.classed('disabled',true)
                 countrybutton.html('All')
                 countryclearbutton.classed('hidden',true)
