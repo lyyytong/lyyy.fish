@@ -12,7 +12,7 @@ let picn = 3,
     picspeed = 2,
     layoutswitchw = 900,
     widescreencanvasratio = .65,
-    easing = .07
+    easing = .1
 let puppymaxage = 1,
     seniorminage = 8
 const dtexts = {
@@ -173,7 +173,7 @@ function setdimensions(newcanvas = 0, canvas = cv) {
     cr = picw / 3
     cx = width / 2
     cy = smallscreen
-        ? (windowHeight - ppwrapper.height) * .7
+        ? (windowHeight - ppwrapper.height) * .8
         : windowHeight * .6 - cvtopy
     cy = constrain(cy, cr * 3, height - cr * 2)
 
@@ -263,11 +263,6 @@ class Dog {
         this.puppy = this.age < puppymaxage
         this.senior = this.age >= seniorminage
         this.aptfriendly = this.size == 'XS' || this.size == 'S'
-        this.headw = d.size == 'XL' ? headw
-            : d.size == 'L' ? headw * .9
-                : d.size == 'M' ? headw * .8
-                    : d.size == 'S' ? headw * .7
-                        : headw * .6
         this.story = d.story
         this.rank = i
         this.head = d.head
@@ -285,6 +280,11 @@ class Dog {
             .mouseClicked(showprofile)
     }
     updatepos() {
+        this.headw = this.size == 'XL' ? headw
+            : this.size == 'L' ? headw * .9
+                : this.size == 'M' ? headw * .8
+                    : this.size == 'S' ? headw * .7
+                        : headw * .6
         this.rank = dogs.indexOf(this)
         this.rankx = this.rank % colnum * headw
         this.ranky = Math.floor(this.rank / colnum) * headw
@@ -303,6 +303,21 @@ class Dog {
         if (!firstdraw) this.overlaydiv.addClass('disabled')
     }
     turnshead() {
+        if (transitioning) {
+            let dx = this.tx - this.x,
+                dy = this.ty - this.y
+            this.x += dx * easing
+            this.y += dy * easing
+            if (this.rank == dogs.length - 1) {
+                dx = Math.abs(dx)
+                dy = Math.abs(dy)
+                if (dx <= 1 && dy <= 1) {
+                    selectAll('.overlay').forEach(o => o.removeClass('disabled'))
+                    transitioning = 0
+                }
+            }
+        }
+
         const fitcriteria = filters.every(f => {
             if (f == 'special-needs') {
                 const hasspecialneeds = specialneedskeys.some(k => this[k] == 1)
@@ -317,21 +332,6 @@ class Dog {
         }
         this.underlaydiv.addClass('hidden')
         this.overlaydiv.removeClass('hidden')
-
-        if (transitioning) {
-            let dx = this.tx - this.x,
-                dy = this.ty - this.y
-            this.x += dx * easing
-            this.y += dy * easing
-            if (this.rank == dogs.length - 1) {
-                dx = Math.abs(dx)
-                dy = Math.abs(dy)
-                if (dx <= .5 && dy <= .5) {
-                    selectAll('.overlay').forEach(o => o.removeClass('disabled'))
-                    transitioning = 0
-                }
-            }
-        }
 
         let dx, dy, ma = 0
         if (touchdevice) {
@@ -372,7 +372,7 @@ class Dog {
             let d = tcy - cy
             cy += d * easing
             d = Math.abs(d)
-            if (d < .5) transitioning = 0
+            if (d < 1) transitioning = 0
         }
         let dx, dy, ma
         if (touchdevice) {
@@ -492,6 +492,7 @@ function setinteractivity() {
     paramsbutton.mouseClicked(() => {
         ppwrapper.removeClass('hidden')
         params.removeClass('hidden')
+        params.elt.scrollTo(0,0)
         navlinks.addClass('hidden')
         backbutton.removeClass('hidden')
         dogprofile.addClass('hidden')
