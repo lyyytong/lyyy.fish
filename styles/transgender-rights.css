@@ -539,6 +539,17 @@ nav .home::before {
     cursor: help;
 }
 
+#country-info .metric .info-button:hover {
+    background: var(--popcolor2);
+    transition: var(--transition);
+}
+
+#country-info .metric .info-button:hover+.info {
+    right: 0;
+    opacity: 1 !important;
+    transition: var(--transition);
+}
+
 #country-info .metric .info {
     display: none;
 }
@@ -737,17 +748,6 @@ nav .home::before {
 
     #country-info {
         cursor: grab;
-    }
-
-    #country-info .metric .info-button:hover {
-        background: var(--popcolor2);
-        transition: var(--transition);
-    }
-
-    #country-info .metric .info-button:hover+.info {
-        right: 0;
-        opacity: 1 !important;
-        transition: var(--transition);
     }
 }
 
