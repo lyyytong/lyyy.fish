@@ -102,15 +102,15 @@ function setup() {
     })
     let pcount = 0, p = 0
     const ptotal = data.length * (picn + 1)
-    const timer = setInterval(tick, 2000)
+    const timer = setInterval(tick, 1500)
     function tick() {
         if (p >= 70) return
-        p += random(3, 15)
+        p += random(2, 9)
         progress.style('width', p + '%')
     }
     data.forEach(d => {
         const dn = d.name
-        d.head = loadImage(`../images/dogs-for-adoptions/${dn}/Head.png`, () => pcount++)
+        d.head = loadImage(`../images/dogs-for-adoptions/${dn}/Head.png`, () => { pcount++ })
         d.pics = []
         for (let i = 1; i <= picn; i++)
             loadImage(`../images/dogs-for-adoptions/${dn}/${i}.png`, img => {
