@@ -1,3 +1,4 @@
+let lastupdate = 'Sunday April 7th 2024'
 let puppytintc = [0, 0, 255, 180],
     picc1 = [220, 0, 0, 100],
     picc2 = [0, 180, 0, 100],
@@ -143,7 +144,6 @@ function setup() {
     progress = select('.progress', loading)
     setdimensions(newcanvas = 1)
 
-
     imageMode(CENTER)
     angleMode(DEGREES)
 
@@ -154,6 +154,8 @@ function setup() {
     filteroptions.forEach(o => {
         if (o.checked()) filters.push(o.id())
     })
+    const dnum = dogs.length
+    select('.result-count').html(`${dnum}/${dnum}`)
 }
 
 function setdimensions(newcanvas = 0, canvas = cv) {
@@ -183,7 +185,7 @@ function setdimensions(newcanvas = 0, canvas = cv) {
     const infos = selectAll('.info')
     if (smallscreen) {
         ppwrapper.addClass('hidden').style('top', 'auto')
-        backbutton.addClass('hidden').style('bottom', params.height - 1 + 'px')
+        backbutton.style('bottom', params.height - 1 + 'px')
         infos.forEach(el => el.position(0, 0, 'absolute')
             .style('transform', 'translate(-10%,-100%)'))
     }
@@ -201,6 +203,9 @@ function setdimensions(newcanvas = 0, canvas = cv) {
             el.style('transform', `translate(calc(${smallscreen ? -10 : -50}% - ${xshift}px),-100%)`)
         }
     })
+
+    const container = smallscreen ? '#dogs' : '#params'
+    select(container+' .last-update .day').html(lastupdate)
 }
 
 function draw() {
@@ -304,6 +309,16 @@ class Dog {
             .style('width', headw - margin * 2 + 'px')
             .style('height', headw + 'px')
         if (!firstdraw) this.overlaydiv.addClass('disabled')
+        else this.checkscriteria()
+    }
+    checkscriteria() {
+        this.fitcriteria = filters.every(f => {
+            if (f == 'special-needs') {
+                const hasspecialneeds = specialneedskeys.some(k => this[k] == 1)
+                return hasspecialneeds == 1
+            }
+            else return this[f] == 1
+        })
     }
     turnshead() {
         if (transitioning) {
@@ -320,15 +335,7 @@ class Dog {
                 }
             }
         }
-
-        const fitcriteria = filters.every(f => {
-            if (f == 'special-needs') {
-                const hasspecialneeds = specialneedskeys.some(k => this[k] == 1)
-                return hasspecialneeds == 1
-            }
-            else return this[f] == 1
-        })
-        if (!fitcriteria) {
+        if (!this.fitcriteria) {
             this.underlaydiv.removeClass('hidden')
             this.overlaydiv.addClass('hidden')
             return
@@ -398,14 +405,12 @@ class Dog {
                 ym = angle > 90 && angle <= 270 ? 1 : -1,
                 x = cr * sin(a) * xm * map(windowWidth,1500,2500,2,3,true),
                 y = cr * cos(a) * ym,
-                miny = -cr,
-                maxy = cr,
-                s = map(y, maxy, miny, picw * .5, picw, true),
+                s = map(y, cr, -cr, picw * .5, picw, true),
                 p = this.pics[pi],
                 c = pi == 0 ? picc1
                     : pi == 1 ? picc2
                         : picc3
-            if (y <= miny + 10 && pinrange != p) pinrange = p
+            if (y <= -cr + 10 && pinrange != p) pinrange = p
             tint(c)
             push()
             const a2 = atan2(y, x) + 90
@@ -444,7 +449,6 @@ function showprofile() {
     dogselected = this.value()
     const dog = dogs.filter(dog => dog.name == dogselected)[0],
         sstring = '#dog-profile '
-
     select(sstring + '.name').html(dog.name)
     select(sstring + '.age').html(dog.age > 1 ? 'about ' + dog.age + ' years old' : dog.age == 1 ? 'about 1 year old' : 'under 1 year old')
     select(sstring + '.breed').html(
@@ -511,14 +515,12 @@ function setinteractivity() {
         sortby = e.target.id
         sortdogs()
     }))
-
     const orderoptions = selectAll('.sort .order input[type="radio"]')
     orderoptions.forEach(o => o.mouseClicked(e => {
         if (e.target.id == order) return
         order = e.target.id
         sortdogs()
     }))
-
     function sortdogs() {
         if (sortby == 'size') {
             const sizes = ['XS', 'S', 'M', 'L', 'XL']
@@ -533,7 +535,6 @@ function setinteractivity() {
         }
         dogs.forEach(dog => dog.updatepos())
         transitioning = 1
-        movecanvasinview()
         loop()
     }
 
@@ -552,18 +553,14 @@ function setinteractivity() {
             }
         }
         else filters.splice(filters.indexOf(f), 1)
-        movecanvasinview()
+        let resultcount = 0
+        dogs.forEach(dog=>{
+            dog.checkscriteria()
+            if (dog.fitcriteria==true) resultcount++
+        })
+        select('.result-count').html(`${resultcount}/${dogs.length}`)
         loop()
     }))
-
-    function movecanvasinview() {
-        const currentcvy = cv.elt.getBoundingClientRect().y
-        if (smallscreen && currentcvy > windowHeight - params.height) {
-            scrollTo(0, cvtopy + 3)
-            my = displayHeight * .45 + 3
-        }
-
-    }
 }
 function switchtolistview() {
     dogprofile.addClass('hidden')
@@ -577,7 +574,7 @@ function switchtolistview() {
         backbutton.removeClass('aligntop')
         if (mode == 'profile') {
             scrollTo(0, lastscrolly)
-            my = displayHeight * .5 - cvtopy + lastscrolly
+            my = displayHeight * .45 - cvtopy + lastscrolly
         }
     } else {
         legendwrapper.removeClass('pop')

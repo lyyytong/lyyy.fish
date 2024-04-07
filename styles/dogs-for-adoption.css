@@ -6,6 +6,7 @@
 :root {
     --fontfamily: 'Public Sans', sans-serif;
     --fontsize: clamp(16px, 1.2vw, 20px);
+    --fontsizesmall: .8em;
     --fontsizebig: 1.2em;
     --lineheight: 1.6;
     --lineheightsmall: 1.45;
@@ -203,10 +204,19 @@ nav .links>*::before {
 }
 
 @keyframes flash {
-    0% {box-shadow: var(--boxshadow);}
-    50% {box-shadow: 0 -1.5px 12px 8px var(--highlightcolor);}
-    100% {box-shadow: var(--boxshadow);}
+    0% {
+        box-shadow: var(--boxshadow);
+    }
+
+    50% {
+        box-shadow: 0 -1.5px 12px 8px var(--highlightcolor);
+    }
+
+    100% {
+        box-shadow: var(--boxshadow);
+    }
 }
+
 nav .links .params-button.flash {
     animation: flash 2s infinite ease;
 }
@@ -264,6 +274,13 @@ main {
 
 #viz {
     position: relative;
+}
+
+#dogs .last-update {
+    margin: var(--marginbig) var(--margin);
+    opacity: var(--fainttextopacity);
+    font-size: var(--fontsizesmall);
+    letter-spacing: .05em;
 }
 
 #dogs.no-scroll {
@@ -361,7 +378,6 @@ nav .puppy-legend p,
     align-items: end;
     justify-content: center;
     user-select: none;
-    position: relative;
 }
 
 #pp {
@@ -387,8 +403,17 @@ nav .puppy-legend p,
     width: 100vw;
 }
 
+#pp #params .last-update {
+    display: none;
+}
+
 #pp #params .filter {
     line-height: var(--lineheighbig);
+}
+
+#pp #params .filter .result-count {
+    color: var(--textcoloralert);
+    margin-left: var(--margin);
 }
 
 #pp #params .sort {
@@ -412,10 +437,12 @@ nav .puppy-legend p,
 #pp #params .info-wrapper {
     position: relative;
 }
+
 #pp #params .info-button::after {
     content: '..........💬';
     white-space: nowrap;
 }
+
 #pp #params .info-button {
     display: inline-block;
     opacity: .1;
@@ -538,6 +565,7 @@ nav .left-col.hidden,
 }
 
 @media (hover:hover) {
+
     nav .puppy-legend,
     #dogs .dog-overlay .overlay {
         opacity: var(--fainttextopacity);
@@ -647,7 +675,10 @@ nav .left-col.hidden,
 
     #dogs {
         position: relative;
-        display: flex;
+    }
+
+    #dogs .last-update {
+        display: none;
     }
 
     #dogs .labels {
@@ -674,9 +705,14 @@ nav .left-col.hidden,
         height: auto;
         overflow: visible;
     }
-    #pp #params .filter {
-        /* line-height: var(--lineheight); */
+
+    #pp #params .last-update {
+        display: inline;
+        opacity: var(--fainttextopacity);
+        font-size: var(--fontsizesmall);
+        letter-spacing: .05em;
     }
+
     #pp #params .filter>div {
         display: inline;
     }
