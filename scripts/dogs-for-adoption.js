@@ -2,26 +2,26 @@ let puppytintc = [0, 0, 255, 180],
     picc1 = [220, 0, 0, 100],
     picc2 = [0, 180, 0, 100],
     picc3 = [20, 40, 255, 120]
-let minpicw = 220,
-    maxpicw = 400
-margin = 12
+let minpicw = 240,
+    maxpicw = 400,
+    margin = 12
 let sortby = 'age',
     order = 'ascending'
 let picn = 3,
     picrepn = 5,
     picspeed = 2,
     layoutswitchw = 900,
-    widescreencanvasratio = .65,
+    widescreencanvasratio = .68,
     easing = .1
 let puppymaxage = 1,
     seniorminage = 8
 const dtexts = {
     size: {
-        XS: 'Very small (under 5kg)',
+        XS: 'Very small (<5kg)',
         S: 'Small (5-10kg)',
         M: 'Medium (10-18kg)',
         L: 'Large (18-25kg)',
-        XL: 'Very large (bove 25kg)'
+        XL: 'Very large (>25kg)'
     },
     exercise: {
         1: '15-20 minutes of exercie, x2/day',
@@ -29,8 +29,8 @@ const dtexts = {
         3: '40-60 minutes of exercise, x2-3/day'
     },
     patience: {
-        1: '💖 Very friendly, bonds with new humans quickly',
-        2: '🤍 Takes some time to warm up to new people',
+        1: '💝 Very friendly, bonds with new humans quickly',
+        2: '💙 Takes some time to warm up to new people',
         3: '👽 A character! Needs patience to build trust'
     },
     'specialneeds': {
@@ -119,6 +119,7 @@ function setup() {
                     select('#dogs').removeClass('hidden')
                     loading.addClass('hidden')
                     paramsbutton.removeClass('disabled')
+                    if (!getItem('firstvisit')) paramsbutton.addClass('flash')
                     clearInterval(timer)
                     redraw()
                 }
@@ -158,29 +159,31 @@ function setup() {
 function setdimensions(newcanvas = 0, canvas = cv) {
     oldwidth = windowWidth
     smallscreen = windowWidth < layoutswitchw
-    colnum = smallscreen ? 3 : 5
+    colnum = smallscreen ? 3 : map(windowWidth,layoutswitchw,2500,4,6,true)
+    colnum = round(colnum)
     const cw = smallscreen ? windowWidth : windowWidth * widescreencanvasratio
     headw = cw / colnum
-    const rownum = Math.ceil(data.length / colnum),
-        ch = rownum * headw
+    const rownum = Math.ceil(data.length / colnum)
+    let ch = rownum * headw
+    if (ch < windowHeight*.8) ch = windowHeight*.8
     if (newcanvas) createCanvas(cw, ch, canvas.elt)
     else resizeCanvas(cw, ch)
 
     touchdevice = 0
     picw = map(width, 380, 1000, minpicw, maxpicw, true)
     cvtopy = cv.elt.getBoundingClientRect().y
-    my = displayHeight * .5 - cvtopy
+    my = displayHeight * .45 - cvtopy
     cr = picw / 3
     cx = width / 2
     cy = smallscreen
-        ? (windowHeight - ppwrapper.height) * .8
+        ? (windowHeight - ppwrapper.height) * .9
         : windowHeight * .6 - cvtopy
     cy = constrain(cy, cr * 3, height - cr * 2)
 
     const infos = selectAll('.info')
     if (smallscreen) {
         ppwrapper.addClass('hidden').style('top', 'auto')
-        backbutton.addClass('hidden')
+        backbutton.addClass('hidden').style('bottom', params.height - 1 + 'px')
         infos.forEach(el => el.position(0, 0, 'absolute')
             .style('transform', 'translate(-10%,-100%)'))
     }
@@ -393,7 +396,7 @@ class Dog {
                             : 360 - angle,
                 xm = angle <= 180 ? 1 : -1,
                 ym = angle > 90 && angle <= 270 ? 1 : -1,
-                x = cr * sin(a) * xm * 2,
+                x = cr * sin(a) * xm * map(windowWidth,1500,2500,2,3,true),
                 y = cr * cos(a) * ym,
                 miny = -cr,
                 maxy = cr,
@@ -454,7 +457,7 @@ function showprofile() {
 
     const i2metrics = ['size', 'exercise', 'patience']
     i2metrics.forEach(m => {
-        const extranote = m == 'size' && dog['age'] <= 1 ? ' when fully grown' : ''
+        const extranote = m == 'size' && dog['age'] < 1 ? ' when fully grown' : ''
         select(sstring + '.' + m).html(dtexts[m][dog[m]] + extranote)
     })
 
@@ -492,10 +495,14 @@ function setinteractivity() {
     paramsbutton.mouseClicked(() => {
         ppwrapper.removeClass('hidden')
         params.removeClass('hidden')
-        params.elt.scrollTo(0,0)
+        params.elt.scrollTo(0, 0)
         navlinks.addClass('hidden')
         backbutton.removeClass('hidden')
         dogprofile.addClass('hidden')
+        if (!getItem('firstvisit')) {
+            paramsbutton.removeClass('flash')
+            storeItem('firstvisit', 1)
+        }
     })
 
     const sortoptions = selectAll('.sort .list input[type="radio"]')
@@ -526,16 +533,37 @@ function setinteractivity() {
         }
         dogs.forEach(dog => dog.updatepos())
         transitioning = 1
+        movecanvasinview()
         loop()
     }
 
     filteroptions = selectAll('.filter input[type="checkbox"]')
     filteroptions.forEach(o => o.mouseClicked(e => {
         const f = e.target.id
-        if (e.target.checked) filters.push(f)
+        if (e.target.checked) {
+            filters.push(f)
+            if (f=='puppy'&&filters.includes('senior')) {
+                filters.splice(filters.indexOf('senior'), 1)
+                select('input#senior').checked(false)
+            }
+            if (f=='senior'&&filters.includes('puppy')) {
+                filters.splice(filters.indexOf('puppy'), 1)
+                select('input#puppy').checked(false)
+            }
+        }
         else filters.splice(filters.indexOf(f), 1)
+        movecanvasinview()
         loop()
     }))
+
+    function movecanvasinview() {
+        const currentcvy = cv.elt.getBoundingClientRect().y
+        if (smallscreen && currentcvy > windowHeight - params.height) {
+            scrollTo(0, cvtopy + 3)
+            my = displayHeight * .45 + 3
+        }
+
+    }
 }
 function switchtolistview() {
     dogprofile.addClass('hidden')
