@@ -156,7 +156,7 @@ function setup() {
         if (o.checked()) filters.push(o.id())
     })
     const dnum = dogs.length
-    select('.result-count').html(`${dnum}/${dnum}`)
+    select('.result-count').html(`(${dnum}/${dnum})`)
 }
 
 function setdimensions(newcanvas = 0, canvas = cv) {
@@ -562,7 +562,7 @@ function setinteractivity() {
             dog.checkscriteria()
             if (dog.fitcriteria == true) resultcount++
         })
-        select('.result-count').html(`${resultcount}/${dogs.length}`)
+        select('.result-count').html(`(${resultcount}/${dogs.length})`)
         loop()
     }))
 }
