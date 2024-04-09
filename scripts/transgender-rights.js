@@ -359,9 +359,9 @@ async function drawCards(){
         const m = d3.select(e.target).attr('class').replace('info-button ',''),
             mtext = d3.select(`.info.${m}`).html()
         mobileinfo.classed('hidden',false)
-            .style('bottom',`-30px`)
+            .style('transform','scaleY(.96)')
             .transition().duration(100).ease(d3.easeCubicOut)
-            .style('bottom',`-8px`)
+            .style('transform','none')
         mobileinfo.select('p').html(mtext)
     })
     mobileinfo.select('.close').on('click',()=>{ mobileinfo.classed('hidden',true) })

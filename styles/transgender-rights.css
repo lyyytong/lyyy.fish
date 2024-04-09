@@ -66,6 +66,8 @@ a:is(:hover, :active, :visited) {
 html {
     background: var(--bgcolor);
     scrollbar-width: none;
+    height: 100vh;
+    overflow: hidden;
 }
 
 html::-webkit-scrollbar {
@@ -80,7 +82,6 @@ body {
     line-height: var(--lineheight);
     background: linear-gradient(to bottom, var(--bgcolor), var(--bgcolor2));
     color: var(--textcolor);
-
 }
 
 main {
@@ -539,6 +540,11 @@ nav .home::before {
     cursor: help;
 }
 
+#country-info .metric .info {
+    display: none;
+}
+
+
 #country-info .metric .info-button:hover {
     background: var(--popcolor2);
     transition: var(--transition);
@@ -550,18 +556,16 @@ nav .home::before {
     transition: var(--transition);
 }
 
-#country-info .metric .info {
-    display: none;
-}
-
 #country-info .mobile-info {
     line-height: var(--lineheightbig);
     position: absolute;
     left: -8px;
+    bottom: -8px;
     width: calc(100% + var(--margin) * 2);
     padding: var(--gap) var(--marginbig);
     background: var(--bgcolor4);
     box-shadow: -1px 0 3px 2px #00000016;
+    transform-origin: bottom;
     z-index: 3;
 }
 
