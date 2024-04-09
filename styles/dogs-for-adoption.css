@@ -10,7 +10,7 @@
     --fontsizebig: 1.2em;
     --lineheight: 1.6;
     --lineheightsmall: 1.45;
-    --lineheighbig: 1.75;
+    --lineheighbig: 1.7;
     --fontweight: 190;
     --fontweightthin: 100;
     --bgcolor: #121212;
@@ -266,6 +266,10 @@ main {
     font-size: var(--fontsizebig);
     line-height: var(--lineheightsmall);
     font-weight: var(--fontweightthin);
+}
+
+#intro.disabled {
+    user-select: none;
 }
 
 #intro2 {

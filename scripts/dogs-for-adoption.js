@@ -1,6 +1,6 @@
 let lastupdate = 'Sunday April 7th 2024'
 let puppytintc = [0, 0, 255, 180],
-    picc1 = [220, 0, 0, 100],
+    picc1 = [200, 0, 0, 100],
     picc2 = [0, 180, 0, 100],
     picc3 = [20, 40, 255, 120]
 let minpicw = 240,
@@ -9,7 +9,7 @@ let minpicw = 240,
 let sortby = 'age',
     order = 'ascending'
 let picn = 3,
-    picrepn = 5,
+    picrepn = 6,
     picspeed = 2,
     layoutswitchw = 900,
     widescreencanvasratio = .68,
@@ -84,6 +84,7 @@ let mode = 'list', // 'list' or 'profile'
     transitioning = 0,
     touchdevice = 0,
     rotatea = 0,
+    trotatea = 0,
     cvtopy,
     mx, my, // touch devices: ref points for turning heads
     cx, cy, tcy, cr,
@@ -161,13 +162,13 @@ function setup() {
 function setdimensions(newcanvas = 0, canvas = cv) {
     oldwidth = windowWidth
     smallscreen = windowWidth < layoutswitchw
-    colnum = smallscreen ? 3 : map(windowWidth,layoutswitchw,2500,4,6,true)
+    colnum = smallscreen ? 3 : map(windowWidth, layoutswitchw, 2500, 4, 6, true)
     colnum = round(colnum)
     const cw = smallscreen ? windowWidth : windowWidth * widescreencanvasratio
     headw = cw / colnum
     const rownum = Math.ceil(data.length / colnum)
     let ch = rownum * headw
-    if (ch < windowHeight*.8) ch = windowHeight*.8
+    if (ch < windowHeight * .8) ch = windowHeight * .8
     if (newcanvas) createCanvas(cw, ch, canvas.elt)
     else resizeCanvas(cw, ch)
 
@@ -205,7 +206,7 @@ function setdimensions(newcanvas = 0, canvas = cv) {
     })
 
     const container = smallscreen ? '#dogs' : '#params'
-    select(container+' .last-update .day').html(lastupdate)
+    select(container + ' .last-update .day').html(lastupdate)
 }
 
 function draw() {
@@ -403,9 +404,11 @@ class Dog {
                             : 360 - angle,
                 xm = angle <= 180 ? 1 : -1,
                 ym = angle > 90 && angle <= 270 ? 1 : -1,
-                x = cr * sin(a) * xm * map(windowWidth,1500,2500,2,3,true),
+                widthmultiplier = map(windowWidth, 1500, 2500, 2, 3, true),
+                x = cr * sin(a) * xm * widthmultiplier,
                 y = cr * cos(a) * ym,
-                s = map(y, cr, -cr, picw * .5, picw, true),
+                s = picw * .3,
+                // s = map(y, cr, -cr, picw * .5, picw, true),
                 p = this.pics[pi],
                 c = pi == 0 ? picc1
                     : pi == 1 ? picc2
@@ -436,12 +439,13 @@ function showprofile() {
         scrollTo(0, 0)
         dogprofile.elt.scrollTo(0, 0)
         select('#dogs').addClass('no-scroll')
+        select('#intro').addClass('disabled')
         navlinks.addClass('hidden')
         ppwrapper.removeClass('hidden')
         backbutton.addClass('aligntop')
     } else {
         legendwrapper.addClass('pop')
-        legend.html('🔄 move mouse to turn carrousel')
+        legend.html('🔄 Move mouse to turn carrousel.')
         legendicon.style('display', 'none')
     }
     params.addClass('hidden')
@@ -543,20 +547,20 @@ function setinteractivity() {
         const f = e.target.id
         if (e.target.checked) {
             filters.push(f)
-            if (f=='puppy'&&filters.includes('senior')) {
+            if (f == 'puppy' && filters.includes('senior')) {
                 filters.splice(filters.indexOf('senior'), 1)
                 select('input#senior').checked(false)
             }
-            if (f=='senior'&&filters.includes('puppy')) {
+            if (f == 'senior' && filters.includes('puppy')) {
                 filters.splice(filters.indexOf('puppy'), 1)
                 select('input#puppy').checked(false)
             }
         }
         else filters.splice(filters.indexOf(f), 1)
         let resultcount = 0
-        dogs.forEach(dog=>{
+        dogs.forEach(dog => {
             dog.checkscriteria()
-            if (dog.fitcriteria==true) resultcount++
+            if (dog.fitcriteria == true) resultcount++
         })
         select('.result-count').html(`${resultcount}/${dogs.length}`)
         loop()
@@ -569,6 +573,7 @@ function switchtolistview() {
     params.removeClass('hidden')
     if (smallscreen) {
         select('#dogs').removeClass('no-scroll')
+        select('#intro').removeClass('disabled')
         navlinks.removeClass('hidden')
         ppwrapper.addClass('hidden')
         backbutton.removeClass('aligntop')
