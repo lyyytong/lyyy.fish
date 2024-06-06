@@ -64,6 +64,10 @@ a.link {
     text-decoration: underline var(--highlightcolorfaint);
     -webkit-text-decoration: underline var(--highlightcolorfaint);
 }
+.last-update a {
+    text-decoration: underline var(--textcolor);
+    -webkit-text-decoration: underline var(--textcolor);
+}
 
 input[type="radio"],
 input[type="checkbox"] {
@@ -491,9 +495,11 @@ nav .puppy-legend p,
     overflow-y: scroll;
 }
 
-#pp #dog-profile .not {
-    text-decoration: line-through;
-    opacity: var(--fainttextopacity);
+#pp #dog-profile :is(p:has(.not),span.not) {
+    display: none;
+}
+#pp #dog-profile p:has(.size) {
+    display: inline;
 }
 
 #pp #dog-profile .name {
@@ -726,7 +732,6 @@ nav .left-col.hidden,
     }
 
     #pp #dog-profile {
-        margin-top: var(--margin);
         height: auto;
         max-width: 38ch;
         display: flex;
@@ -749,6 +754,11 @@ nav .left-col.hidden,
     #pp #params .filter>div {
         display: flex;
         gap: 2ch;
+    }
+    #pp #dog-profile {
+        height: calc(100vh - var(--margin)*7.5);
+        justify-content: center;
+        padding-bottom: var(--margin);
     }
 }
 

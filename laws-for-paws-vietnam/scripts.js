@@ -52,7 +52,7 @@ const dtexts = {
 }
 const catkeys = ['name', 'adopted', 'size', 'gender', 'breed', 'story'],
     nodisplaykeys = ['adopted', 'img'],
-    specialneedskeys = ['grooming', 'weightpb', 'skinpb', 'limp', 'missinglegs', 'missingteeth', 'hearingloss', 'visionloss', 'diapers', 'wheelchair', 'dementia']
+    specialneedskeys = ['grooming', 'weightpb', 'skinpb', 'limp', 'missinglegs', 'missingteeth', 'hearingloss', 'visionloss', 'diapers', 'wheelchair', 'dementia','sepanxiety','fearaggression']
 let colnum,
     headw,
     picw,
@@ -184,6 +184,9 @@ function setdimensions(newcanvas = 0, canvas = cv) {
         ? (windowHeight - ppwrapper.height) * .9
         : windowHeight * .6 - cvtopy
     cy = constrain(cy, cr * 3, height - cr * 2)
+
+    const introtext = select('#intro').html()
+    select('#intro2').html(introtext)
 
     const infos = selectAll('.info')
     if (smallscreen) {
