@@ -107,7 +107,7 @@ function setup() {
     const ptotal = data.length * (picn + 1)
     const timer = setInterval(tick, 1500)
     function tick() {
-        if (p >= 60) clearInterval(timer)
+        if (p >= 70 || pcount == ptotal) clearInterval(timer)
         p += random(2, 9)
         progress.style('width', p + '%')
     }
