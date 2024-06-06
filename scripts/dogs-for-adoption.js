@@ -52,7 +52,7 @@ const dtexts = {
 }
 const catkeys = ['name', 'adopted', 'size', 'gender', 'breed', 'story'],
     nodisplaykeys = ['adopted', 'img'],
-    specialneedskeys = ['grooming', 'weightpb', 'skinpb', 'limp', 'missinglegs', 'missingteeth', 'hearingloss', 'visionloss', 'diapers', 'wheelchair', 'dementia']
+    specialneedskeys = ['grooming', 'weightpb', 'skinpb', 'limp', 'missinglegs', 'missingteeth', 'hearingloss', 'visionloss', 'diapers', 'wheelchair', 'dementia','sepanxiety','fearaggression']
 let colnum,
     headw,
     picw,
@@ -90,7 +90,9 @@ let mode = 'list', // 'list' or 'profile'
     cvtopy,
     mx, my, // touch devices: ref points for turning heads
     cx, cy, tcy, cr,
-    lastscrolly
+    lastscrolly,
+    loadingp = 0,
+    pcount = 0
 
 function preload() {
     rawdata = loadTable('../data/dogs-for-adoption/list.csv', 'csv', 'header')
@@ -103,14 +105,8 @@ function setup() {
         numkeys.forEach(k => o[k] = +o[k])
         data.push(o)
     })
-    let pcount = 0, p = 0
-    const ptotal = data.length * (picn + 1)
-    const timer = setInterval(tick, 1500)
-    function tick() {
-        if (p >= 70 || pcount == ptotal) clearInterval(timer)
-        p += random(2, 9)
-        progress.style('width', p + '%')
-    }
+
+    ptotal = data.length * (picn + 1)    
     data.forEach(d => {
         const dn = d.name
         d.head = loadImage(`../images/dogs-for-adoptions/${dn}/Head.png`, () => { pcount++ })
@@ -119,13 +115,6 @@ function setup() {
             loadImage(`../images/dogs-for-adoptions/${dn}/${i}.png`, img => {
                 d.pics.push(img)
                 pcount++
-                if (pcount == ptotal) {
-                    select('#dogs').removeClass('hidden')
-                    loading.addClass('hidden')
-                    paramsbutton.removeClass('disabled')
-                    if (!getItem('firstvisit')) paramsbutton.addClass('flash')
-                    redraw()
-                }
             })
     })
 
@@ -184,6 +173,9 @@ function setdimensions(newcanvas = 0, canvas = cv) {
         : windowHeight * .6 - cvtopy
     cy = constrain(cy, cr * 3, height - cr * 2)
 
+    const introtext = select('#intro').html()
+    select('#intro2').html(introtext)
+
     const infos = selectAll('.info')
     if (smallscreen) {
         ppwrapper.addClass('hidden').style('top', 'auto')
@@ -211,6 +203,23 @@ function setdimensions(newcanvas = 0, canvas = cv) {
 }
 
 function draw() {
+    // loading pictures
+    if (pcount!=ptotal) {
+        if (frameCount%100==0 && loadingp < 70) {
+            loadingp += random(5, 9)
+            progress.style('width', loadingp + '%')
+        }
+        return
+    } else if (!loading.hasClass('hidden')) {
+        if (smallscreen) progress.style('width','100%')
+        setTimeout(()=>{
+            select('#dogs').removeClass('hidden')
+            loading.addClass('hidden')
+        },200)
+        paramsbutton.removeClass('disabled')
+        if (!getItem('firstvisit')) paramsbutton.addClass('flash')
+    }
+    // pictures loaded, draw dogs
     if (firstdraw) {
         dogs.forEach(dog => dog.updatepos())
         firstdraw = 0

@@ -548,6 +548,7 @@ nav .left-col.hidden,
     background: linear-gradient(to bottom, transparent, var(--highlightcolordark), transparent);
     width: 100vw;
     height: var(--mobileppheight);
+    overflow-x: hidden;
 }
 
 .loading .progress {
@@ -557,7 +558,7 @@ nav .left-col.hidden,
     display: flex;
     align-items: center;
     position: relative;
-    transition: all 200ms ease;
+    transition: all 300ms ease;
 }
 
 .loading .progress p {

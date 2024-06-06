@@ -542,6 +542,7 @@ nav .left-col.hidden,
     background: linear-gradient(to bottom, transparent, var(--highlightcolordark), transparent);
     width: 100vw;
     height: var(--mobileppheight);
+    overflow-x: hidden;
 }
 
 .loading .progress {
