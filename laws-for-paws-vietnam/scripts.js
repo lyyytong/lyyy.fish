@@ -107,7 +107,7 @@ function setup() {
     const ptotal = data.length * (picn + 1)
     const timer = setInterval(tick, 1500)
     function tick() {
-        if (p >= 70) return
+        if (p >= 60) clearInterval(timer)
         p += random(2, 9)
         progress.style('width', p + '%')
     }
@@ -124,7 +124,6 @@ function setup() {
                     loading.addClass('hidden')
                     paramsbutton.removeClass('disabled')
                     if (!getItem('firstvisit')) paramsbutton.addClass('flash')
-                    clearInterval(timer)
                     redraw()
                 }
             })
