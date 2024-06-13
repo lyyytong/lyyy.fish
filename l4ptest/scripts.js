@@ -1,11 +1,12 @@
 let lastupdate = 'Thursday June 6th 2024'
-let puppytintc = [0, 0, 255, 180],
-    picc1 = [200, 0, 0, 100],
-    picc2 = [0, 180, 0, 100],
-    picc3 = [20, 40, 255, 120]
+let puppytintc = [0, 40],
+    pict = 20,
+    picc1 = [0, pict],
+    picc2 = [0, pict],
+    picc3 = [0, pict]
 let minpicw = 240,
     maxpicw = 450,
-    margin = 12
+    margin = 16
 let sortby = 'age',
     order = 'ascending'
 let picn = 3,
@@ -29,10 +30,15 @@ const dtexts = {
         2: '20-40 minutes of exercise, x2-3/day',
         3: '40-60 minutes of exercise, x2-3/day'
     },
+    // patience: {
+    //     1: '💝 Very friendly, bonds with new humans quickly',
+    //     2: '💙 Takes some time to warm up to new people',
+    //     3: '👽 A character! Needs patience to build trust'
+    // },
     patience: {
-        1: '💝 Very friendly, bonds with new humans quickly',
-        2: '💙 Takes some time to warm up to new people',
-        3: '👽 A character! Needs patience to build trust'
+        1: 'Very friendly, bonds with humans quickly',
+        2: 'Takes time warming up to new people',
+        3: 'A character! Needs patience to build trust'
     },
     'specialneeds': {
         "grooming": 'needs regular grooming',
@@ -68,7 +74,9 @@ let dogs = [],
     dogoverlay,
     dogprofile,
     filteroptions,
+    backadoptbuttons,
     backbutton,
+    adoptbutton,
     paramsbutton,
     params,
     ppwrapper,
@@ -126,7 +134,9 @@ function setup() {
     dogprofile = select('#dog-profile')
     params = select('#params')
     paramsbutton = select('nav .params-button')
+    backadoptbuttons = select('nav .right-col')
     backbutton = select('nav .back.button')
+    adoptbutton = select('nav .adopt.button')
     navlinks = select('nav .left-col')
     legendwrapper = select('nav .puppy-legend')
     legend = select('p', legendwrapper)
@@ -147,8 +157,80 @@ function setup() {
     })
     const dnum = dogs.length
     select('.result-count').html(`(${dnum}/${dnum})`)
-}
 
+    loadcolors()
+}
+function loadcolors(){
+    select('#color-selectors .close').mouseClicked(()=>{
+        select('#color-selectors').addClass('hidden')
+        select('.color-selectors-button').removeClass('hidden')
+    })
+    select('.color-selectors-button').mouseClicked(()=>{
+        select('.color-selectors-button').addClass('hidden')
+        select('#color-selectors').removeClass('hidden')
+    })
+    const params = [
+        select('#bgcolor'),
+        select('#textcolor'),
+        select('#loadingcolor'),
+        select('#accentcolor'),
+        select('#linkunderline'),
+        select('#buttonbgcolor'),
+        select('#filterbgcolor'),
+        select('#fontweight'),
+        select('#lineheight'),
+        select('#lineheightbig')
+    ]
+    const piccolors = [
+        select('#pic-color-1'),
+        select('#pic-color-2'),
+        select('#pic-color-3')
+    ]
+    const pictransparency = select('#pictransparency')
+
+    const root = document.querySelector(':root')
+    params.forEach(p=>{
+        let v = getComputedStyle(root).getPropertyValue('--'+p.id())
+        if (v[0]!='#') v=+v
+        p.value(v)
+        p.input(updateparam)
+    })
+    function updateparam(){
+        let v = this.value()
+        if (v[0]!='#') v=+v
+        root.style.setProperty('--'+this.id(),v)
+    }
+
+    pictransparency.value(pict)
+    pictransparency.changed(updatetransparency)
+    function updatetransparency() {
+        pict = +this.value()
+        print(picc1)
+        picc1[3] = pict
+        picc2[3] = pict
+        picc3[3] = pict
+    }
+    piccolors.forEach(p=>{
+        let cnum = +p.id().slice(-1)
+        let c
+        if (cnum==1) c = picc1
+        else if (cnum==2) c = picc2
+        else c = picc3
+        c = c.slice(0,3)
+        c = color(c).toString('#rrggbb')
+        p.value(c)
+        p.input(updatecolor)
+    })
+    function updatecolor(){
+        let c = color(this.value()),
+            cnum = +this.id().slice(-1)
+        c = c.levels
+        c[3] = pict
+        if (cnum==1) picc1 = c
+        else if (cnum==2) picc2 = c
+        else picc3 = c
+    }
+}
 function setdimensions(newcanvas = 0, canvas = cv) {
     oldwidth = windowWidth
     smallscreen = windowWidth < layoutswitchw
@@ -169,7 +251,7 @@ function setdimensions(newcanvas = 0, canvas = cv) {
     cr = picw / 3
     cx = width / 2
     cy = smallscreen
-        ? (windowHeight - ppwrapper.height) * .9
+        ? (windowHeight - ppwrapper.height)*.9 + backadoptbuttons.height + margin*2
         : windowHeight * .6 - cvtopy
     cy = constrain(cy, cr * 3, height - cr * 2)
 
@@ -179,7 +261,9 @@ function setdimensions(newcanvas = 0, canvas = cv) {
     const infos = selectAll('.info')
     if (smallscreen) {
         ppwrapper.addClass('hidden').style('top', 'auto')
-        backbutton.style('bottom', params.height - 1 + 'px')
+        // backbutton.style('bottom', params.height - margin - backbutton.height + 'px')
+        backadoptbuttons.style('bottom', params.height - margin - backbutton.height + 'px')
+        adoptbutton.addClass('hidden')
         infos.forEach(el => el.position(0, 0, 'absolute')
             .style('transform', 'translate(-10%,-100%)'))
     }
@@ -279,7 +363,7 @@ class Dog {
             else this[k] = d[k]
         })
         this.age = year() - d.birthyear
-        this.puppy = this.age < puppymaxage
+        this.puppy = this.age <= puppymaxage
         this.senior = this.age >= seniorminage
         this.aptfriendly = this.size == 'XS' || this.size == 'S'
         this.story = d.story
@@ -364,10 +448,10 @@ class Dog {
         }
         if (mouseX || mouseY) ma = atan2(dy, dx)
 
-        const displayw = this.age < 1 ? headw * .6 : this.headw
+        const displayw = this.puppy ? headw * .6 : this.headw
         push()
         translate(this.x, this.y)
-        if (this.age < puppymaxage) {
+        if (this.puppy) {
             tint(...puppytintc)
             const hw = this.headw
             image(this.head, 0, 0, hw, hw)
@@ -441,7 +525,8 @@ class Dog {
 function showprofile() {
     mode = 'profile'
     clear()
-    backbutton.removeClass('hidden')
+    // backbutton.removeClass('hidden')
+    backadoptbuttons.removeClass('hidden')
     dogunderlay.addClass('hidden')
     dogoverlay.addClass('hidden')
     if (smallscreen) {
@@ -452,10 +537,12 @@ function showprofile() {
         select('#intro').addClass('disabled')
         navlinks.addClass('hidden')
         ppwrapper.removeClass('hidden')
-        backbutton.addClass('aligntop')
+        // backbutton.addClass('aligntop')
+        backadoptbuttons.addClass('aligntop')
+        adoptbutton.removeClass('hidden')
     } else {
         legendwrapper.addClass('pop')
-        legend.html('🔄 Move mouse to turn carrousel.')
+        legend.html('☝︎☞☟☜ Move mouse to turn carrousel.')
         legendicon.style('display', 'none')
     }
     params.addClass('hidden')
@@ -515,7 +602,8 @@ function setinteractivity() {
         params.removeClass('hidden')
         params.elt.scrollTo(0, 0)
         navlinks.addClass('hidden')
-        backbutton.removeClass('hidden')
+        // backbutton.removeClass('hidden')
+        backadoptbuttons.removeClass('hidden')
         dogprofile.addClass('hidden')
         if (!getItem('firstvisit')) {
             paramsbutton.removeClass('flash')
@@ -586,16 +674,19 @@ function switchtolistview() {
         select('#intro').removeClass('disabled')
         navlinks.removeClass('hidden')
         ppwrapper.addClass('hidden')
-        backbutton.removeClass('aligntop')
+        // backbutton.removeClass('aligntop')
+        backadoptbuttons.removeClass('aligntop')
+        adoptbutton.addClass('hidden')
         if (mode == 'profile') {
             scrollTo(0, lastscrolly)
             my = displayHeight * .45 - cvtopy + lastscrolly
         }
     } else {
         legendwrapper.removeClass('pop')
-        legend.html('are puppies, adult size in blue.')
+        legend.html('are puppies, adult size in gray.')
         legendicon.style('display', 'flex')
     }
-    backbutton.addClass('hidden')
+    // backbutton.addClass('hidden')
+    backadoptbuttons.addClass('hidden')
     mode = 'list'
 }
