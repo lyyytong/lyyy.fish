@@ -262,18 +262,19 @@ main {
 }
 
 #color-selectors {
-    font-size: var(--fontsizesmall);
     letter-spacing: .05em;
     position: fixed;
-    left: var(--margin);
-    bottom: var(--margin);
-    padding: var(--marginbig);
+    left: 0;
+    bottom: 0;
+    padding: var(--marginbig) var(--margin);
     z-index: 999;
     background: var(--bgcolor);
     border: 2px solid red;
     display: flex;
     flex-wrap: wrap;
     gap: var(--marginbig);
+    max-width: 100vw;
+    line-height: 1.8;
 }
 #color-selectors > div > div {
     display: flex;
@@ -288,16 +289,17 @@ main {
 }
 #color-selectors input[type="number"] {
     text-align: center;
+    border-bottom: .5px solid var(--textcolor);
 }
 #color-selectors .close {
     position: absolute;
-    right: 0;
-    top: -2px;
-    transform: translateX(100%);
+    right: 3px;
+    top: 0;
+    transform: translateY(-100%);
     background: radial-gradient(#ee6d6d,red);
     color: black;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -328,6 +330,7 @@ main {
     transform: translateY(100%);
     content: 'edit colors';
     color: firebrick;
+    background: radial-gradient(var(--bgcolor),transparent);
     font-size: 16px;
     white-space: nowrap;
 }
@@ -711,6 +714,17 @@ nav .left-col.hidden,
 }
 
 @media (min-width: 900px) {
+    #color-selectors {
+        font-size: var(--fontsizesmall);
+        max-width: auto;
+        padding: var(--marginxl);
+        gap: var(--marginxl);
+    }
+    #color-selectors .close {
+        right: 0;
+        top: -2px;
+        transform: translateX(100%);
+    }
     nav {
         flex-direction: row;
         position: sticky;
