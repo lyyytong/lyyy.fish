@@ -1,5 +1,5 @@
 let lastupdate = 'Thursday June 6th 2024'
-let puppytintc = [0, 0, 255, 180],
+let puppytintc = [10, 10, 255, 180],
     picc1 = [200, 0, 0, 100],
     picc2 = [0, 180, 0, 100],
     picc3 = [20, 40, 255, 120]
@@ -179,13 +179,14 @@ function setdimensions(newcanvas = 0, canvas = cv) {
     const infos = selectAll('.info')
     if (smallscreen) {
         ppwrapper.addClass('hidden').style('top', 'auto')
-        backbutton.style('bottom', params.height - 1 + 'px')
+        backbutton.style('bottom', select('#params').height - 1 + 'px')
         infos.forEach(el => el.position(0, 0, 'absolute')
             .style('transform', 'translate(-10%,-100%)'))
     }
     else {
         ppwrapper.removeClass('hidden')
             .style('top', cv.elt.getBoundingClientRect().y + 'px')
+        backbutton.style('bottom', 'auto')
         infos.forEach(el => el.position('50%', 0, 'absolute')
             .style('transform', 'translate(-50%,-100%)'))
     }
@@ -205,7 +206,7 @@ function setdimensions(newcanvas = 0, canvas = cv) {
 function draw() {
     // loading pictures
     if (pcount!=ptotal) {
-        if (frameCount%100==0 && loadingp < 70) {
+        if (frameCount%120==0 && loadingp < 70) {
             loadingp += random(5, 9)
             progress.style('width', loadingp + '%')
         }
@@ -279,7 +280,7 @@ class Dog {
             else this[k] = d[k]
         })
         this.age = year() - d.birthyear
-        this.puppy = this.age < puppymaxage
+        this.puppy = this.age <= puppymaxage
         this.senior = this.age >= seniorminage
         this.aptfriendly = this.size == 'XS' || this.size == 'S'
         this.story = d.story
@@ -364,10 +365,10 @@ class Dog {
         }
         if (mouseX || mouseY) ma = atan2(dy, dx)
 
-        const displayw = this.age < 1 ? headw * .6 : this.headw
+        const displayw = this.puppy ? headw * .6 : this.headw
         push()
         translate(this.x, this.y)
-        if (this.age < puppymaxage) {
+        if (this.puppy) {
             tint(...puppytintc)
             const hw = this.headw
             image(this.head, 0, 0, hw, hw)
@@ -444,10 +445,10 @@ function showprofile() {
     backbutton.removeClass('hidden')
     dogunderlay.addClass('hidden')
     dogoverlay.addClass('hidden')
+    dogprofile.elt.scrollTo(0, 0)
     if (smallscreen) {
         lastscrolly = window.scrollY
         scrollTo(0, 0)
-        dogprofile.elt.scrollTo(0, 0)
         select('#dogs').addClass('no-scroll')
         select('#intro').addClass('disabled')
         navlinks.addClass('hidden')
@@ -455,8 +456,9 @@ function showprofile() {
         backbutton.addClass('aligntop')
     } else {
         legendwrapper.addClass('pop')
-        legend.html('🔄 Move mouse to turn carrousel.')
+        legend.html('☝︎☞☟☜ Move mouse to turn carrousel.')
         legendicon.style('display', 'none')
+        select('body').style('overflow-y','hidden')
     }
     params.addClass('hidden')
     dogprofile.removeClass('hidden')
@@ -597,5 +599,6 @@ function switchtolistview() {
         legendicon.style('display', 'flex')
     }
     backbutton.addClass('hidden')
+    select('body').style('overflow-y','auto')
     mode = 'list'
 }

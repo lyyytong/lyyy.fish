@@ -289,7 +289,7 @@ function setdimensions(newcanvas = 0, canvas = cv) {
 function draw() {
     // loading pictures
     if (pcount!=ptotal) {
-        if (frameCount%100==0 && loadingp < 70) {
+        if (frameCount%120==0 && loadingp < 70) {
             loadingp += random(5, 9)
             progress.style('width', loadingp + '%')
         }
