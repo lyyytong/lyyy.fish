@@ -598,13 +598,9 @@ nav .left-col.hidden,
         opacity: 1 !important;
         transition: all 100ms ease;
     }
-
-    #pp #params .info-button::after {
-        content: '💬';
-    }
 }
 
-@media (hover:hover) and (min-width: 900px) {
+@media (hover:hover) and (min-width: 1024.5px) {
     nav .links>* {
         opacity: var(--fainttextopacity);
     }
@@ -617,7 +613,7 @@ nav .left-col.hidden,
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024.5px) {
     nav {
         flex-direction: row;
         position: sticky;
@@ -750,6 +746,10 @@ nav .left-col.hidden,
         padding: 2.5ch 2.8ch 2.5ch 3ch;
     }
 
+    #pp #params .info-button::after {
+        content: '💬';
+    }
+
     #pp #dog-profile {
         max-width: 38ch;
         height: calc(100vh - var(--margin) - 7.5ch);
@@ -783,7 +783,7 @@ nav .left-col.hidden,
     }
 
     .loading {
-        width: var(--canvaswidth);
+        /* width: var(--canvaswidth); */
         bottom: 50%;
         transform: translateY(50%);
     }

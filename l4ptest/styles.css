@@ -344,7 +344,6 @@ main {
     font-size: var(--fontsizebig);
     line-height: var(--lineheightsmall);
     font-weight: var(--fontweightthin);
-    max-width: 32ch;
 }
 
 #intro.disabled {
@@ -713,7 +712,7 @@ nav .left-col.hidden,
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024.5px) {
     #color-selectors {
         font-size: var(--fontsizesmall);
         max-width: auto;
@@ -854,7 +853,7 @@ nav .left-col.hidden,
     }
 
     .loading {
-        width: var(--canvaswidth);
+        /* width: var(--canvaswidth); */
         bottom: 50%;
         transform: translateY(50%);
     }

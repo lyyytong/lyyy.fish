@@ -11,7 +11,7 @@ let sortby = 'age',
 let picn = 3,
     picrepn = 6,
     picspeed = 2,
-    layoutswitchw = 900,
+    layoutswitchw = 1024.5,
     widescreencanvasratio = .68,
     easing = .1
 let puppymaxage = 1,
@@ -76,11 +76,9 @@ let dogs = [],
     legendwrapper,
     legend,
     legendicon,
-    // progress,
     loading,
     filters = []
-let data = []
-let rawdata
+let data = [], rawdata
 let mode = 'list', // 'list' or 'profile'
     firstdraw = 1,
     transitioning = 0,
@@ -96,7 +94,7 @@ let mode = 'list', // 'list' or 'profile'
 let loadinginterval = setInterval(updateprogress,1000), 
     progress = document.querySelector('.loading .progress')
 function updateprogress(){
-    loadingp += Math.random()*5
+    loadingp += Math.random()*3
     progress.style.width = `${loadingp}%`
 }
 
@@ -139,6 +137,16 @@ function setup() {
     imageMode(CENTER)
     angleMode(DEGREES)
 
+    progress.style.width = `100%`
+    if (!smallscreen) ppwrapper.addClass('hidden')
+    setTimeout(()=>{
+        select('#dogs').removeClass('hidden')
+        loading.addClass('hidden')
+        if (!smallscreen) ppwrapper.removeClass('hidden')
+    },200)
+    paramsbutton.removeClass('disabled')
+    if (!getItem('firstvisit')) paramsbutton.addClass('flash')
+
     setinteractivity()
 
     data.forEach((d, i) => dogs.push(new Dog(d, i)))
@@ -153,7 +161,9 @@ function setup() {
 function setdimensions(newcanvas = 0, canvas = cv) {
     oldwidth = windowWidth
     smallscreen = windowWidth < layoutswitchw
-    colnum = smallscreen ? 3 : map(windowWidth, layoutswitchw, 2500, 4, 6, true)
+    colnum = smallscreen 
+        ? map(windowWidth, 300, layoutswitchw, 3, 4, true)
+        : map(windowWidth, layoutswitchw, 2500, 4, 6, true)
     colnum = round(colnum)
     const cw = smallscreen ? windowWidth : windowWidth * widescreencanvasratio
     headw = cw / colnum
@@ -209,15 +219,6 @@ function draw() {
     if (firstdraw) {
         dogs.forEach(dog => dog.updatepos())
         firstdraw = 0
-        if (!loading.hasClass('hidden')) {
-            if (smallscreen) progress.style.width = `100%`
-            setTimeout(()=>{
-                select('#dogs').removeClass('hidden')
-                loading.addClass('hidden')
-            },200)
-            paramsbutton.removeClass('disabled')
-            if (!getItem('firstvisit')) paramsbutton.addClass('flash')
-        }
     }
     clear()
     if (mode == 'list') dogs.forEach(dog => dog.turnshead())
