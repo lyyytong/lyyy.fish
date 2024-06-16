@@ -76,11 +76,11 @@ let dogs = [],
     legendwrapper,
     legend,
     legendicon,
-    progress,
+    // progress,
     loading,
     filters = []
-let data,
-    rawdata
+let data = []
+let rawdata
 let mode = 'list', // 'list' or 'profile'
     firstdraw = 1,
     transitioning = 0,
@@ -91,33 +91,35 @@ let mode = 'list', // 'list' or 'profile'
     mx, my, // touch devices: ref points for turning heads
     cx, cy, tcy, cr,
     lastscrolly,
-    loadingp = 0,
-    pcount = 0
+    loadingp = 0
+
+let loadinginterval = setInterval(updateprogress,1000), 
+    progress = document.querySelector('.loading .progress')
+function updateprogress(){
+    loadingp += Math.random()*5
+    progress.style.width = `${loadingp}%`
+}
 
 function preload() {
-    rawdata = loadTable('../data/dogs-for-adoption/list.csv', 'csv', 'header')
+    rawdata = loadTable('../data/dogs-for-adoption/list.csv', 'csv', 'header', updatedata)
+    function updatedata(){
+        const numkeys = rawdata.columns.filter(k => !catkeys.includes(k))
+        rawdata.rows.forEach(d => {
+            let o = d.obj,
+                dn = o.name
+            numkeys.forEach(k => o[k] = +o[k])
+            o.head = loadImage(`../images/dogs-for-adoptions/${dn}/Head.png`)
+            o.pics = []
+            for (let i = 1; i <= picn; i++) {
+                const p = loadImage(`../images/dogs-for-adoptions/${dn}/${i}.png`)
+                o.pics.push(p)
+            }
+            data.push(o)
+        })
+    }
 }
 function setup() {
-    const numkeys = rawdata.columns.filter(k => !catkeys.includes(k))
-    data = []
-    rawdata.rows.forEach(d => {
-        let o = d.obj
-        numkeys.forEach(k => o[k] = +o[k])
-        data.push(o)
-    })
-
-    ptotal = data.length * (picn + 1)    
-    data.forEach(d => {
-        const dn = d.name
-        d.head = loadImage(`../images/dogs-for-adoptions/${dn}/Head.png`, () => { pcount++ })
-        d.pics = []
-        for (let i = 1; i <= picn; i++)
-            loadImage(`../images/dogs-for-adoptions/${dn}/${i}.png`, img => {
-                d.pics.push(img)
-                pcount++
-            })
-    })
-
+    clearInterval(loadinginterval)
     const dwrapper = select('#available-dogs')
     cv = select('.dog-heads', dwrapper)
     dogunderlay = select('.dog-underlay', dwrapper)
@@ -132,7 +134,6 @@ function setup() {
     legend = select('p', legendwrapper)
     legendicon = select('.blur-bg', legendwrapper)
     loading = select('.loading')
-    progress = select('.progress', loading)
     setdimensions(newcanvas = 1)
 
     imageMode(CENTER)
@@ -169,7 +170,7 @@ function setdimensions(newcanvas = 0, canvas = cv) {
     cr = picw / 3
     cx = width / 2
     cy = smallscreen
-        ? (windowHeight - ppwrapper.height) * .9
+        ? (windowHeight - ppwrapper.height) * .5 + picw/2
         : windowHeight * .6 - cvtopy
     cy = constrain(cy, cr * 3, height - cr * 2)
 
@@ -204,26 +205,19 @@ function setdimensions(newcanvas = 0, canvas = cv) {
 }
 
 function draw() {
-    // loading pictures
-    if (pcount!=ptotal) {
-        if (frameCount%120==0 && loadingp < 70) {
-            loadingp += random(5, 9)
-            progress.style('width', loadingp + '%')
-        }
-        return
-    } else if (!loading.hasClass('hidden')) {
-        if (smallscreen) progress.style('width','100%')
-        setTimeout(()=>{
-            select('#dogs').removeClass('hidden')
-            loading.addClass('hidden')
-        },200)
-        paramsbutton.removeClass('disabled')
-        if (!getItem('firstvisit')) paramsbutton.addClass('flash')
-    }
     // pictures loaded, draw dogs
     if (firstdraw) {
         dogs.forEach(dog => dog.updatepos())
         firstdraw = 0
+        if (!loading.hasClass('hidden')) {
+            if (smallscreen) progress.style.width = `100%`
+            setTimeout(()=>{
+                select('#dogs').removeClass('hidden')
+                loading.addClass('hidden')
+            },200)
+            paramsbutton.removeClass('disabled')
+            if (!getItem('firstvisit')) paramsbutton.addClass('flash')
+        }
     }
     clear()
     if (mode == 'list') dogs.forEach(dog => dog.turnshead())
