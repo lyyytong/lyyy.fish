@@ -104,12 +104,15 @@ function preload() {
         const numkeys = rawdata.columns.filter(k => !catkeys.includes(k))
         rawdata.rows.forEach(d => {
             let o = d.obj,
-                dn = o.name
+                dn = o.name,
+                picsize = displayWidth <= 430 ? 'Small': 'Big',
+                headfile = displayWidth <= 430 ? 'HeadSmall' : 'HeadBig'
             numkeys.forEach(k => o[k] = +o[k])
-            o.head = loadImage(`../images/dogs-for-adoptions/${dn}/Head.png`)
+            o.headfile = headfile
+            o.head = loadImage(`../images/dogs-for-adoptions/${dn}/${headfile}.png`)
             o.pics = []
             for (let i = 1; i <= picn; i++) {
-                const p = loadImage(`../images/dogs-for-adoptions/${dn}/${i}.png`)
+                const p = loadImage(`../images/dogs-for-adoptions/${dn}/${i+picsize}.png`)
                 o.pics.push(p)
             }
             data.push(o)
@@ -163,7 +166,7 @@ function setdimensions(newcanvas = 0, canvas = cv) {
     smallscreen = windowWidth < layoutswitchw
     colnum = smallscreen 
         ? map(windowWidth, 300, layoutswitchw, 3, 4, true)
-        : map(windowWidth, layoutswitchw, 2500, 4, 6, true)
+        : map(windowWidth, layoutswitchw, 3000, 4, 8, true)
     colnum = round(colnum)
     const cw = smallscreen ? windowWidth : windowWidth * widescreencanvasratio
     headw = cw / colnum
@@ -285,7 +288,7 @@ class Dog {
             .parent(dogunderlay)
             .class('underlay')
             .value(this.name)
-            .style('background-image', `url("../images/dogs-for-adoptions/${this.name}/Head.png")`)
+            .style('background-image', `url("../images/dogs-for-adoptions/${this.name}/${this.headfile}.png")`)
         this.overlaydiv = createDiv()
             .parent(dogoverlay)
             .class('overlay')
@@ -439,10 +442,10 @@ function showprofile() {
     backbutton.removeClass('hidden')
     dogunderlay.addClass('hidden')
     dogoverlay.addClass('hidden')
+    dogprofile.elt.scrollTo(0, 0)
     if (smallscreen) {
         lastscrolly = window.scrollY
         scrollTo(0, 0)
-        dogprofile.elt.scrollTo(0, 0)
         select('#dogs').addClass('no-scroll')
         select('#intro').addClass('disabled')
         navlinks.addClass('hidden')
@@ -452,6 +455,7 @@ function showprofile() {
         legendwrapper.addClass('pop')
         legend.html('🔄 Move mouse to turn carrousel.')
         legendicon.style('display', 'none')
+        select('body').style('overflow-y','hidden')
     }
     params.addClass('hidden')
     dogprofile.removeClass('hidden')
@@ -592,5 +596,6 @@ function switchtolistview() {
         legendicon.style('display', 'flex')
     }
     backbutton.addClass('hidden')
+    select('body').style('overflow-y','auto')
     mode = 'list'
 }

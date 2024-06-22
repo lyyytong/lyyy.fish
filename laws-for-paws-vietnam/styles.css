@@ -733,7 +733,8 @@ nav .left-col.hidden,
     }
 
     #pp #dog-profile {
-        height: auto;
+        /* height: auto; */
+        height: calc(100vh - var(--margin) - 7.5ch);
         max-width: 38ch;
         display: flex;
         flex-direction: column;
@@ -755,11 +756,6 @@ nav .left-col.hidden,
     #pp #params .filter>div {
         display: flex;
         gap: 2ch;
-    }
-    #pp #dog-profile {
-        height: calc(100vh - var(--margin)*7.5);
-        justify-content: center;
-        padding-bottom: var(--margin);
     }
 }
 
