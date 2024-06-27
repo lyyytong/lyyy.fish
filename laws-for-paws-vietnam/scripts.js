@@ -1,4 +1,4 @@
-let lastupdate = 'Thursday June 6th 2024'
+let lastupdate = 'Saturday June 22nd 2024'
 let puppytintc = [0, 0, 255, 180],
     picc1 = [200, 0, 0, 100],
     picc2 = [0, 180, 0, 100],
