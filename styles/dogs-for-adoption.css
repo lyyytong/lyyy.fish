@@ -413,7 +413,7 @@ nav .puppy-legend p,
     position: absolute;
     top: 0;
     left: 0;
-    box-shadow: -3px 0px 90px 40px var(--highlightcolordark);
+    box-shadow: -3px 0px 90px 40px var(--bgcolor);
     z-index: -1;
 }
 

@@ -36,8 +36,8 @@ const dtexts = {
     //     3: '👽 A character! Needs patience to build trust'
     // },
     patience: {
-        1: 'Very friendly, bonds with humans quickly',
-        2: 'Takes time warming up to new people',
+        1: 'Very friendly, forms new bonds quickly',
+        2: 'Approachable, takes a bit to warm up',
         3: 'A character! Needs patience to build trust'
     },
     'specialneeds': {
@@ -250,7 +250,7 @@ function setdimensions(newcanvas = 0, canvas = cv) {
     smallscreen = windowWidth < layoutswitchw
     colnum = smallscreen 
         ? map(windowWidth, 300, layoutswitchw, 3, 4, true)
-        : map(windowWidth, layoutswitchw, 3000, 4, 8, true)
+        : map(windowWidth, layoutswitchw, 3000, 4, 7, true)
     colnum = round(colnum)
     const cw = smallscreen ? windowWidth : windowWidth * widescreencanvasratio
     headw = cw / colnum
