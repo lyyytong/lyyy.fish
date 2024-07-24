@@ -30,7 +30,8 @@
     --paragraph-max-width: 420px;
     --column-width: 380px;
     --annotation-width: 230px;
-    --graph-height: clamp(500px, 95lvh, 700px);
+    /* --graph-height: clamp(500px, 95lvh, 700px); */
+    --graph-height: clamp(500px, 180vw, 700px);
 
     --graph-width-1-col: clamp(280px, calc(100vw - var(--margin) * 2), var(--paragraph-max-width));
     --graph-width-2-cols: clamp(280px, calc(100vw - var(--margin) * 2), var(--column-width));
@@ -51,7 +52,7 @@
     --graph2-p-bottom: 75px;
     --graph2-p-left: var(--gap);
     --graph2-inner-width: calc(100% - var(--graph2-p-left) - var(--graph2-p-right));
-    --graph2-inner-height: calc(var(--graph-height)*.95 - var(--graph2-p-top) - var(--graph2-p-bottom))
+    --graph2-inner-height: calc(var(--graph-height)*.9 - var(--graph2-p-top) - var(--graph2-p-bottom))
 }
 
 html {
@@ -554,6 +555,9 @@ footer .content {
 }
 
 @media screen and (min-width: 1000px) {
+    :root {
+        --graph2-inner-height: calc(var(--graph-height) - var(--graph2-p-top) - var(--graph2-p-bottom))
+    }
     body {
         padding-top: 0;
         margin-left: var(--gap);
