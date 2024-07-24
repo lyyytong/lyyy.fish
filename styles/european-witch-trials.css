@@ -564,7 +564,7 @@ footer .content {
         max-width: var(--column-width);
     }
     figure img {
-        width: 150%;
+        width: 130%;
     }
     main {
         gap: 0;
