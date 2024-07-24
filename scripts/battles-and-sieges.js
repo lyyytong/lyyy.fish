@@ -398,7 +398,7 @@ async function setup() {
                 .style('top', ctaSmallY + margin + 'px')
                 .classed('big', false).classed('small', true)
                 .classed('hidden', false)
-            cta.html('Again<span class="icon">↺</span>')
+            cta.html('Again')
             bars.style('pointer-events', 'all')
             selectCenturyBtn.style('pointer-events', 'all')
         }, showCtaDelay)
@@ -564,6 +564,8 @@ window.addEventListener('resize',() => {
     minR = d3.min([window.innerWidth * .4, 300])
     maxR = d3.min([window.innerWidth *.7, 600])
     circleRScale.range([minR,maxR])
+    const ctaSmallY = randomOutcome.node().getBoundingClientRect().bottom
+    ctaWrapper.style('top', ctaSmallY + margin + 'px')
 })
 
 function strToObj(string){

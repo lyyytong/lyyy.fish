@@ -212,24 +212,16 @@ li::before {
     opacity: .4;
     transition: all 100ms ease;
     cursor: pointer;
-    scale: .95;
-    border: none;
+    border: var(--buttonBorder) solid transparent;
 }
 #cta.small .option.selected {
     border: var(--buttonBorder) solid var(--mainColor2);
     opacity: 1;
     transition: all 100ms ease;
-    scale: 1;
-}
-
-#cta .icon {
-    padding-bottom: 2px;
-    padding-left: 3px;
-    font-size: .8em;
 }
 
 #menu,
-#select-century {
+#lelect-century {
     display: flex;
     align-items: center;
 }
@@ -298,7 +290,7 @@ li::before {
 
 #notes .content {
     padding: calc(var(--margin)*2) var(--margin);
-    height: calc(100vh - var(--margin)*4);
+    height: 100vh;
     width: 100vw;
     max-width: 650px;
     overflow-y: scroll;
@@ -495,10 +487,12 @@ li::before {
 }
 
 @media (min-width: 700px) {
+    #cta.small {
+        justify-content: start;
+    }
     #notes .content {
         padding: calc(var(--margin)*3);
         padding-bottom: calc(var(--margin)*2);
-        height: 100vh;
     }
     #notes .content h1 {
         margin-top: calc(var(--margin)*4);
