@@ -290,7 +290,7 @@ li::before {
 
 #notes .content {
     padding: calc(var(--margin)*2) var(--margin);
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     max-width: 650px;
     overflow-y: scroll;

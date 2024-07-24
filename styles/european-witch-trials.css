@@ -30,7 +30,7 @@
     --paragraph-max-width: 420px;
     --column-width: 380px;
     --annotation-width: 230px;
-    --graph-height: clamp(500px, 95vh, 700px);
+    --graph-height: clamp(500px, 95svh, 700px);
 
     --graph-width-1-col: clamp(280px, calc(100vw - var(--margin) * 2), var(--paragraph-max-width));
     --graph-width-2-cols: clamp(280px, calc(100vw - var(--margin) * 2), var(--column-width));
