@@ -93,10 +93,41 @@ let mode = 'list', // 'list' or 'profile'
     loadingp = 0
 
 let loadinginterval = setInterval(updateprogress,1000), 
-    progress = document.querySelector('.loading .progress')
+    progress = document.querySelector('.loading .progress'),
+    randomfact = document.querySelector('.loading .progress .text'),
+    facts = [
+        "a dog nose print is unique, like our fingerprint...",
+        "a dog's nose is at least 40x better than ours...",
+        "puppies and senior dogs dream more often...",
+        "the sound of human yawning can trigger one in dogs...",
+        "dogs can see blue and yellow...",
+        "all puppies are born deaf...",
+        "all Dalmatians are born white...",
+        "a German Shepherd was nominated for an Oscar...",
+        "Basenji dogs don't bark, they yodel...",
+        "one Beatles song has a frequency only dogs can hear...",
+        "three dogs survived the Titanic sinking...",
+        "the Ewoks in Star Wars were based on a dog...",
+        "30% of Dalmatians are deaf in one ear...",
+        "dogs have three eyelids...",
+        "Greyhounds can beat cheetahs in long-distance race...",
+        "dogs can recognize up to 250 words...",
+        "two dogs in 1960 survived 27 hours in outer space...",
+        "dogs have circadian rhythm that helps them tell time...",
+        "dogs use earth's magnetic field like an internal GPS...",
+        "Xylitol in candies is deadly to dogs...",
+        "most artificial sweeteners taste bitter to dogs...",
+        "dog whiskers are illegal to cut off in some countries...",
+        "slightly more dogs are right-pawed...",
+        "dogs sweat through their paws...",
+        "dogs have 18 muscles controlling their ears..."
+    ]
 function updateprogress(){
     loadingp += Math.random()*3
     progress.style.width = `${loadingp}%`
+    let ri = Math.random()
+    ri = Math.floor(ri*facts.length)
+    randomfact.innerHTML = facts[ri]
 }
 
 function preload() {
