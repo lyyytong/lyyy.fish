@@ -144,7 +144,7 @@ let loadinginterval = setInterval(updateprogress,2500),
     factnum = facts.length,
     shown = []
 function updateprogress(){
-    loadingp += Math.random()*3
+    loadingp += Math.random()*4
     progress.style.width = `${loadingp}%`
     let ri = Math.random()
     ri = Math.floor(ri*facts.length)
