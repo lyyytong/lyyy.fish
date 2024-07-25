@@ -37,7 +37,7 @@ const dtexts = {
     // },
     patience: {
         1: 'Very friendly, forms new bonds quickly',
-        2: 'Approachable, takes a bit to warm up',
+        2: 'Approachable, takes some time to warm up',
         3: 'A character! Needs patience to build trust'
     },
     'specialneeds': {
@@ -100,11 +100,67 @@ let mode = 'list', // 'list' or 'profile'
     loadingp = 0,
     pcount = 0
 
-let loadinginterval = setInterval(updateprogress,1000), 
-    progress = document.querySelector('.loading .progress')
+let loadinginterval = setInterval(updateprogress,2500), 
+    progress = document.querySelector('.loading .progress'),
+    randomfact = document.querySelector('.loading .progress .text'),
+    facts = [
+        "A dog nose print is unique,<br>like our fingerprints...",
+        "Puppies and senior dogs dream<br>more often than adult dogs...",
+        "The sound of human yawning<br>can trigger one in dogs...",
+        "Dogs are not color-blind,<br> they can see blue and yellow...",
+        "All puppies are born deaf...",
+        "All dalmatians are born white<br>and develop spots later...",
+        "The german shepherd, Rin Tin Tin,<br>was nominated for an Oscar...",
+        "Basenji dogs don't bark,<br>they yodel...",
+        "The Beatles song 'A Day in the Life'<br>has a frequency only dogs can hear...",
+        "Three dogs survived the Titanic sinking,<br>all from first class cabin...",
+        "The Ewoks in Star Wars<br>were based on a dog...",
+        "30% of dalmatians are deaf in one ear...",
+        "Dogs have three eyelids,<br>one is normaly hidden...",
+        "Dogs can recognize up to 250 words...",
+        "Two dogs in 1960, Belka and Strelka,<br>survived 27 hours in space...",
+        "Dogs have circadian rhythm<br>that helps them tell time...",
+        "Dogs can use earth's magnetic field<br>like an internal GPS...",
+        "Xylitol, a sweetener in candies,<br>is deadly to dogs...",
+        "Most artificial sweeteners<br>taste bitter to dogs...",
+        "Slightly more dogs are right-pawed<br>than left-pawed...",
+        "Dogs sweat through their paws,<br>their armpits don't work like ours...",
+        "Dogs have 18 muscles<br>controlling their ears...",
+        "*bork bork*",
+        "Dogs sniff bums to gather info,<br>like we check each other's ID...",
+        'Some of my best leading<br>men have been dogs.<br>—Elizabeth Taylor',
+        'The better I get to know men,<br>the more I find myself loving dogs.<br>—Charles de Gaulle',
+        "What counts is the size<br>of the fight in the dog.<br>—Dwight D. Eisenhower",
+        'To his dog, every man is Napoleon.<br>—Aldous Huxley',
+        "The dog is a gentleman.<br>I hope to go to his heaven,<br>not man's. —Mark Twain",
+        'Whoever saw a sad dog in a happy family?<br>—Arthur Conan Doyle',
+        "I'm suspicious of people<br>who don't like dogs.<br>—Bill Murray",
+        "There's one other reason for<br>dressing well, namely that dogs<br>respect it. —Emerson",
+        'Songwriting is a bitch.<br>And then it has puppies.<br>—Steven Tyler',
+        'A lot of shelter dogs are mutts<br>like me. —Barack Obama',
+        'If you want a friend<br>in Washinton, get a dog.<br>—Harry S. Truman',
+        'Who let the dogs out?<br>—Baha Men',
+        'Martha, my dear, you have<br>always been my inspiration.<br>—Beatles, to their sheep dog',
+        'I love my dog, na, na, na, na.<br>—Cat Stevens',
+        'His legs were way too long,<br>and he was awkward as could be.<br>—Dolly Parton, Cracker Jack',
+        '(languid howl by backing vocal dog)<br>—Pink Floyd, Seamus',
+        "Ah caught you smiling at me,<br>that's the way it should be.<br>—Led Zeppelin, about a dog",
+        'I wanna be your dog.<br>—The Stooges',
+        "You'se a flea and I'm the big dogg.<br>—Snoop Dogg",
+        "I really missed my dog, it's odd<br>'cause I don't have a dog. —Bono",
+        "Are you gonna eat that?<br>—Dog in year 2065",
+    ],
+    factnum = facts.length,
+    shown = []
 function updateprogress(){
     loadingp += Math.random()*3
     progress.style.width = `${loadingp}%`
+    let ri = Math.random()
+    ri = Math.floor(ri*facts.length)
+    randomfact.innerHTML = facts[ri]
+    shown.push(facts[ri])
+    facts.splice(ri,1)
+    if (shown.length==factnum) facts = [...shown]
 }
 
 
