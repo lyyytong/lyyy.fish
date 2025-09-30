@@ -7,6 +7,10 @@ const parts=['back','leg','arm','torso','head'], // in drawing order
     limbs=['arm','leg'],
     mutationRateAppearance=.05,
     mutationRateOther=.01,
+    themeColor1='#d2d2c8',
+    themeColor2='#8f8f97',
+    themeColor3='#80808d',
+    themeColor4='#2b2b36',
     bgColor=[210,210,200],
     hyphaColorShadow=[250,25],
     hyphaColorExploring=[210,250,0,50],
@@ -40,10 +44,12 @@ const parts=['back','leg','arm','torso','head'], // in drawing order
     quadtreeCellsize=30,
     mythViewRadius=150,
     hyphaViewRadius=50,
-    notAppearanceGeneIndex=parts.length*2
+    notAppearanceGeneIndex=parts.length*2,
+    theme=document.querySelector('meta[name="theme-color"]')
 const {Engine,Composite,Bodies,Body,Constraint,Vertices}=Matter
 const V=p5.Vector
 let smallScreen,
+    mythMass,
     initMythCount,maxMyths,maxHyphae,
     maxMushrooms,mushroomMinCap,mushroomMaxCap,mushroomMinHeight,mushroomMaxHeight,mushroomAvgHeight,
     mushroomCapFill=[],
@@ -66,7 +72,8 @@ let smallScreen,
     selectorIndex=0,
     runningSimulation=0,
     sound=1,
-    oldWidth, dpr
+    oldWidth,
+    darkTheme=0
 function preload(){
     data=loadJSON('../data/myths-i-feed.json',data=>{
         progenitors=data.progenitors
@@ -98,10 +105,6 @@ function setup(){
     polySynth2=new p5.PolySynth()
 
     myceliumCanvas=createGraphics(width,height,select('canvas#mycelium-canvas').elt)
-    // myceliumCanvas.elt.width=myceliumCanvas.width*dpr
-    // myceliumCanvas.elt.height=myceliumCanvas.height*dpr
-    // const mctx=myceliumCanvas.elt.getContext('2d')
-    // mctx.scale(dpr,dpr)
     myceliumCanvas.background(bgColor)
     myceliumCanvas.ellipseMode(RADIUS)
     myceliumCanvas.rectMode(RADIUS)
@@ -160,11 +163,11 @@ function setup(){
     setupElements()
 }
 function setDimensions(){
-    dpr=window.devicePixelRatio||1
     smallScreen=windowWidth<505
     oldWidth=windowWidth
     initMythCount=round(map(windowWidth,300,1920,3,5,true))
     maxMyths=round(map(windowWidth,300,1920,15,25))
+    mythMass=map(windowWidth,300,800,1.8,1,true)
     maxHyphae=round(map(windowWidth,300,1920,100,300,true))
     maxMushrooms=round(map(windowWidth,300,1920,60,120,true))
     maxDroppings=round(map(windowWidth,300,1920,50,150,true))
@@ -280,6 +283,7 @@ function setupElements(){
             navAddNow.addClass('hidden')
             navClearAll.addClass('hidden')
             runningSimulation=0
+            setThemeColor()
         } else {
             if (body.hasClass('dark')) nav.addClass('light-texts')
             intro.addClass('hidden')
@@ -287,6 +291,7 @@ function setupElements(){
             controls.removeClass('hidden')
             userStartAudio()
             runningSimulation=1
+            setThemeColor()
         }
     })
     select('#intro .close.button').mouseClicked(()=>{
@@ -297,6 +302,7 @@ function setupElements(){
         if (body.hasClass('dark')) nav.addClass('light-texts')
         runningSimulation=1
         userStartAudio()
+        setThemeColor()
         if (!getItem('visited')){
             storeItem('visited',true)
             const delay=smallScreen?0:10000
@@ -335,6 +341,7 @@ function setupElements(){
                 redraw()
             }
             runningSimulation=0
+            setThemeColor()
         } else {
             selector.addClass('hidden')
             controls.removeClass('hidden')
@@ -346,6 +353,7 @@ function setupElements(){
             modeSoundDesktop.removeClass('hidden')
             userStartAudio()
             runningSimulation=1
+            setThemeColor()
         }
     })
     const leftX=width*.1,
@@ -450,6 +458,7 @@ function setupElements(){
         toAdd=0
         headX=leftHeadX
         headY=topHeadY
+        setThemeColor()
     })
     select('#selector .notes .close').mouseClicked(()=>{
         select('#selector .notes').hide()
@@ -489,9 +498,11 @@ function setupElements(){
     navModes.forEach(e=>{
         e.mouseClicked(()=>{
             body.toggleClass('dark')
-            e.html(body.hasClass('dark')?'Night':'Day')
+            darkTheme=body.hasClass('dark')
+            e.html(darkTheme?'Night':'Day')
             if (!controls.hasClass('hidden')) // controls shown = intro & myths selector closed
                 nav.toggleClass('light-texts')
+            setThemeColor()
         })
     })
     navSounds.forEach(e=>{
@@ -500,6 +511,12 @@ function setupElements(){
             else {sound=1; e.removeClass('off')}
         })
     })
+    function setThemeColor(){
+        if (darkTheme&&(!intro.hasClass('hidden')||!selector.hasClass('hidden'))) theme.setAttribute('content',themeColor3)
+        else if (darkTheme) theme.setAttribute('content',themeColor4)
+        else if (!darkTheme&&!selector.hasClass('hidden')) theme.setAttribute('content',themeColor2)
+        else theme.setAttribute('content',themeColor1)
+    }
 }
 function draw(){
     if (runningSimulation) {
@@ -769,7 +786,7 @@ class Myth {
     }
     physicsBodies(){
         let properties={
-            mass:1,
+            mass:mythMass,
             restitution:1,
             frictionAir:.02,
             slop:3, // margin (px) around body allowed to sink into another

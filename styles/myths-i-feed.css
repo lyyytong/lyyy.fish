@@ -11,13 +11,15 @@
     --fontWeightMedium:420;
     --fontWeightThin: 410;
     --lineHeight: 1.5;
+    --letterSpacing:-.005em;
     --letterSpacingSmall:-.03em;
-    --wordSpacing: -.12em;
+    --wordSpacing: -.1em;
     --wordSpacingMedium: -.15em;
     --wordSpacingSmall: -.2em;
     --bgColor:#d2d2c8;
     --bgColor2:#d2d2c8df;
-    --bgColor3:#2a2a35;
+    /* --bgColor3:#2a2a35; */
+    --bgColor3:#80808d;
     --bgColor4: #898994e5;
     --bgColor5: #898994c2;
     --textColor: #252525;
@@ -49,6 +51,7 @@ body {
     font-size: var(--fontSize);
     font-weight: var(--fontWeight);
     line-height: var(--lineHeight);
+    letter-spacing: var(--letterSpacing);
     word-spacing: var(--wordSpacing);
     background: var(--bgColor);
     color: var(--textColor);
@@ -167,12 +170,8 @@ p {
 #selector .wheel {
     position: relative;
     display: inline-block;
-    width: 30ch;
-    height: 30ch;
-    right: calc(var(--margin) * -1 - 11.5ch);
-    border-radius: 100%;
     z-index:900;
-    transition: all 150ms ease;
+    transition: all 100ms ease;
 }
 #selector .buttons .button {
     position: absolute;
@@ -182,28 +181,10 @@ p {
     align-items: center;
     justify-content: center;
     border-radius: 100%;
-    right: calc(var(--marginBig) + var(--margin));
-    width: 35px;
-    height: 32px;
-    box-shadow: 0 0 9px 10px var(--textColor),
-        0 0 17px 18px #7260e4;
-    z-index:999;
-}
-#selector .buttons .button.top {
-    top:calc(50% - 10ch);
-}
-#selector .buttons .button.bottom {
-    bottom:calc(50% - 10ch);
+    z-index:1000;
 }
 #selector .buttons .button:is(.top,.bottom){
     font-size: 2em;
-}
-#selector .buttons .button.pin {
-    padding: .2ch;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index:1000;
-    line-height:1;
 }
 #selector .myth-wrapper {
     position: absolute;
@@ -211,22 +192,17 @@ p {
     top:50%;
     transform-origin: right;
     padding: .2ch 5ch .2ch .7ch;
-    background: red;
 }
 #selector .myth-wrapper.selected {
-    background:linear-gradient(to right,#dd00dd,red);
     z-index:999;
 }
 #selector .myth-wrapper .myth-name {
-    color: salmon;
     text-transform: lowercase;
     white-space: nowrap;
 }
 #selector .myth-wrapper.selected .myth-name {
-    color:honeydew;
-    /* margin-right: 9ch; */
     margin-right: clamp(9ch,8vw,30ch);
-    transition: margin-right 50ms ease 100ms;
+    transition: margin-right 50ms ease 50ms;
 }
 #selector #profile {
     pointer-events: none;
@@ -297,7 +273,6 @@ p {
     border-radius: 100%;
     font-size: 2em;
     font-weight: var(--fontWeightThin);
-    box-shadow: 0 0 2px 1px var(--textColor);
     animation: appear 70ms ease;
 }
 #selector .notes {
@@ -349,12 +324,12 @@ p {
 @media (max-width:505px){
     :root {
         --fontSizeBig: 1.3em;
-        --fontWeight:500;
-        --fontWeightMedium: 500;
-        --fontWeightThin: 450;
+        --fontWeight:480;
+        --fontWeightMedium: 480;
+        --fontWeightThin: 430;
+        --letterSpacing:-.008em;
     }
     body.dark {
-        background: var(--bgColor3);
         filter: invert(100%);
     }
     .dark :is(nav,#intro,#myths-canvas,#limbo-canvas,#selector,#controls){
@@ -391,7 +366,7 @@ p {
         color: var(--textColor);
     }
     nav .button.off {
-        text-decoration: line-through 1px solid var(--textColor);
+        text-decoration: line-through;
     }
     nav.light-texts .button {
         color: var(--textColor2);
@@ -403,7 +378,7 @@ p {
         text-align: end;
     }
     nav .myths.pop {
-        background:#e31e1e;
+        background:#d03333;
         color: honeydew;
     }
     nav .add-new {
@@ -454,12 +429,13 @@ p {
         margin: 0 2px;
     }
     #intro {
-        background: linear-gradient(to bottom,var(--bgColor2),#ff1c1cdb);
+        background: linear-gradient(to bottom,var(--bgColor2),#d13800db);
     }
     #intro #about {
         text-align: left;
         padding: var(--margin);
         padding-right: 2ch;
+        padding-top: 5ch;
         height: 100%;
         width: 100vw;
         display: flex;
@@ -470,12 +446,11 @@ p {
     }
     #intro #about .close.button {
         position: absolute;
-        /* text-align: end; */
         bottom: calc(var(--marginBig)*2);
         right:0;
-        width: 10ch;
+        width: 12ch;
         border-bottom: 1px solid var(--textColor);
-        font-size: 1.3em;
+        font-size: 1.1em;
         font-weight: var(--fontWeightThin);
     }
     #selector {
@@ -483,21 +458,35 @@ p {
     }
     #selector .wheel {
         top: 5vh;
-    }
-    #selector .wheel .myth-name {
-        font-size: 1.1em;
+        left:calc(var(--margin) *-1 - 2.5ch);
     }
     #selector .buttons .button {
-        right: var(--marginBig);
+        width: 50px;
+        height: 50px;
+        right: var(--margin);
     }
     #selector .buttons .button.top {
-        top:calc(50% + 5vh - 10ch);
+        top:calc(50% + 5vh - 9ch);
     }
     #selector .buttons .button.bottom {
-        bottom:calc(50% - 5vh - 10ch);
+        bottom:calc(50% - 5vh - 9ch);
     }
     #selector .buttons .button.pin {
         top: calc(50% + 5vh);
+        transform: translateY(-50%);
+    }
+    #selector .myth-wrapper{
+        background: #abc085;
+    }
+    #selector .myth-wrapper.selected {
+        background:linear-gradient(to right,#c2c88c,#abc085);
+    }
+    #selector .myth-wrapper .myth-name {
+        opacity: .2;
+    }
+    #selector .myth-wrapper.selected .myth-name {
+        opacity: 1;
+        font-size: 1.1em;
     }
     #selector #profile {
         right:auto;
@@ -537,7 +526,7 @@ p {
         text-transform: uppercase;
     }
 }
-@media (min-width: 505px){
+@media (min-width:505px){
     .dark :is(#mycelium-canvas,#mushroom-canvas){
         filter:invert(100%);
     }
@@ -568,7 +557,8 @@ p {
         width:auto;
     }
     nav .mode-sound.desktop .button.off {
-        text-decoration: line-through 1px solid honeydew;
+        text-decoration: line-through;
+        text-decoration-color: honeydew;
     }
     nav .button {
         opacity: .3;
@@ -717,6 +707,48 @@ p {
         background:radial-gradient(#7e78a1de,#8d8f71de);
         background-size: 5px;
         box-shadow: inset 0 0 var(--marginBig) calc(var(--marginBig)*.75) #8284d0;
+    }
+    #selector .wheel {
+        width: 30ch;
+        height: 30ch;
+        left:12ch;
+    }
+    #selector .buttons .button{
+        position: absolute;
+        background: var(--textColor);
+        color: honeydew;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        right: calc(var(--marginBig) + var(--margin));
+        width: 35px;
+        height: 32px;
+        box-shadow: 0 0 9px 10px var(--textColor),
+            0 0 17px 18px #7260e4;
+        z-index:999;
+    }
+    #selector .buttons .button.top {
+        top:calc(50% - 10ch);
+    }
+    #selector .buttons .button.bottom {
+        bottom:calc(50% - 10ch);
+    }
+    #selector .buttons .button.pin {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #selector .myth-wrapper{
+        background: red;
+    }
+    #selector .myth-wrapper.selected {
+        background:linear-gradient(to right,#dd00dd,red);
+    }
+    #selector .myth-wrapper .myth-name {
+        color: salmon;
+    }
+    #selector .myth-wrapper.selected .myth-name {
+        color:honeydew;
     }
     #controls {
         flex-direction: column;
