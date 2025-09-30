@@ -482,7 +482,8 @@ p {
         background:linear-gradient(to right,#cdcc89,#abc085);
     }
     #selector .myth-wrapper .myth-name {
-        color: var(--bgColor4);
+        /* color: var(--bgColor4); */
+        color: #8b9c6c;
     }
     #selector .myth-wrapper.selected .myth-name {
         color: var(--textColor);
