@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ly Tong">
+    <meta name="description" content="A simulation of evolving stories.">
+    <meta name="theme-color" content="#d2d2c8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../styles/myths-i-feed.css">
+    <title>The Myths I Feed</title>
+</head>
+<body>
+    <nav>
+        <div class="one big-texts">
+            <div class="button home"><a href="../index.html">Home</a></div>
+            <div class="button about selected">About</div>
+            <div class="button mode mobile">Day</div>
+            <div class="button sound mobile">Sound</div>
+        </div>
+        <div class="two">
+            <div class="mode-sound desktop big-texts hidden">
+                <div class="button mode desktop">Day</div>
+                <div class="button sound desktop">Sound</div>
+            </div>
+            <div class="button myths big-texts">+Myths</div>
+            <div class="add-new hidden">
+                <div class="add-tally">
+                    <div class="now">
+                        <p>alive</p>
+                        <div class="separator"></div>
+                        <p class="count">4</p>
+                        <p class="max"></p>
+                    </div>
+                    <div class="adding">
+                        <p>adding</p>
+                        <div class="separator"></div>
+                        <p class="count">0</p>
+                        <p class="max">16</p>
+                    </div>
+                </div>
+                <div class="button add-now big-texts">Add now</div>
+                <div class="button clear-all big-texts">Clear all</div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        </div>
+        <section id="canvas-wrapper">
+            <canvas id="mycelium-canvas"></canvas>
+            <canvas id="mushroom-canvas"></canvas>
+            <canvas id="limbo-canvas"></canvas>
+            <canvas id="myths-canvas"></canvas>
+        </section>
+        <section id="intro" class="medium-texts">
+            <div id="about" class="">
+                <p>
+                    This is a simulation of how stories evolve.
+                </p>
+                <p>
+                    Creatures representing the folklore of my childhood, the stereotypes of my everyday life
+                    eat, breed, mutate, forming hordes of adsurdities.
+                </p>
+                <p>
+                    It's my coming to terms with the realization that impressions and beliefs control me more than I do them,
+                    that they are nonlinear, obscure and opportunistic. My head is a petri dish of hindsight, cultivation
+                    only partly up to me.
+                </p>
+                <p>
+                    Hypha-like threads swarm and sprout mushrooms, fed on by restless myths, which relieve themselves when full
+                    and die & decompose if starved, both producing waste that nourishes the mycelium-like network. Round it goes, as life
+                    passes from one form to another.
+                </p>
+                <p>
+                    No two simulations are the same.
+                </p>
+                <div class="button close">OK</div>
+            </div>
+        </section>
+        <section id="selector" class="hidden">
+            <div class="wheel big-texts"></div>
+            <div class="buttons">
+                <div class="button top big-texts">→</div>
+                <div class="button bottom big-texts">→</div>
+                <div class="button pin big-texts">pin</div>
+            </div>
+            <div id="profile">
+                <div class="desc-wrapper"></div>
+                <canvas id="profile-canvas"></canvas>
+            </div>
+            <div class="notes">
+                <p>
+                    Max <span class="max">20</span> myths allowed per simulation,
+                    this time you can add <span class="add-max">16</span> more
+                </p>
+                <p>
+                    Once added they can't be individually removed & will go at their own time
+                </p>
+                <p>
+                    Pin & drag their head where you want them to appear
+                </p>
+                <p>
+                    <span class="close button">Hide this note</span>
+                </p>
+            </div>
+        </section>
+        <section id="controls" class="big-texts hidden">
+            <div class="random button">+Random</div>
+            <div class="scramble button">Scramble</div>
+            <div class="erase button">Erase All</div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
+    <script src="../scripts/myths-i-feed.js"></script>
+</body>
+</html>

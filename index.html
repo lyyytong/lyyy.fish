@@ -1,34 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hi, this is my home for dataviz and coding experiments, using mainly d3.js and p5.js. Currently interested in non-profit work.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🫠</text></svg>">
-    <link rel="stylesheet" href="styles/style.css">
-    <title>lyyy.fish</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height">
+    <meta name="theme-color" content="#0c0c0c">
+    <meta name="msapplication-navbutton-color" content="#0c0c0c">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0c0c0c">
+    <meta name="author" content="Ly Tong">
+    <meta name="description" content="Hi, this is my home for dataviz and front-end experiements.">
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Ly Tong</title>
 </head>
+
 <body>
-    <nav>
-        <div id="name"><a href="https://www.instagram.com/lyyy.fish/" target="_blank" rel="noopener noreferrer">@lyyy.fish</a></div>
-        <div id="menu">
-            <div id="about-bg"></div>
-            <div id="about-container">
-                <div id="about-details">
-                    This is my home for dataviz and coding experiments, using mainly d3.js and p5.js.
-                    <br>My background is in creative strategy.
-                    <br>Say hi 👉🏿 lyyytong@gmail.com.
-                </div>
-                <div id="about-back">back</div>
-            </div>
-            <div id="about">about</div>
-        </div>
-    </nav>
     <main>
-        <div id="articles"></div>
+        <section id="sketches">
+            <canvas id="sketch"></canvas>
+            <canvas id="sketch2"></canvas>
+        </section>
+        <section id="intro">
+            <div id="about" class="content open">
+                <h1 class="button">About</h1>
+                <div class="text-container">
+                    <p>
+                        This is my home for creative coding & dataviz experiments.
+                        Each project is a dataset, event, phenomenon or concept I was exploring.
+                        I learned to code in 2021 and have been blissfully lost in endless sketching ever since.
+                        Currently based in Vietnam and Uruguay, exploring anything
+                    </p>
+                    <p>
+                        chaotic, organic,
+                    </p>
+                    <p>
+                        complex systems,
+                    </p>
+                    <p>
+                        lazy, funny,
+                    </p>
+                    <p>
+                        dogs.
+                    </p>
+                    <p>
+                        If you have ideas, feedback, questions, cool things to send, reach me at
+                    </p>
+                    <p class="contact"><span>e.</span><a href="mailto:lyyytong@gmail.com">lyyytong@gmail.com</a></p>
+                    <p class="contact"><span>ig.</span><a href="http://" target="_blank" rel="noopener noreferrer">lyyy.fish</a></p>
+                </div>
+            </div>
+            <div id="projects" class="content open">
+                <h1 class="button">Projects</h1>
+                <div class="text-container">
+                    <p class="link"><a href="pages/myths-i-feed.html">The myths I feed</a><span class="year">2025</span></p>
+                    <p class="link"><a href="pages/dogs-for-adoption.html">Dogs for adoption</a><span class="year">2024</span></p>
+                    <p class="link"><a href="pages/transgender-rights.html">Transgender rights</a><span class="year">2024</span></p>
+                    <!-- <p class="link"><a href="pages/facebook-connectedness.html">Facebook connectedness</a><span class="year">2024</span></p> -->
+                    <p class="link"><a href="pages/moiré-bodies.html">Moiré bodies</a><span class="year">2023</span></p>
+                    <p class="link"><a href="pages/autonomous-eaters.html">Autonomous eaters</a><span class="year">2023</span></p>
+                    <p class="link"><a href="pages/european-witch-trials.html">European witch trials</a><span class="year">2023</span></p>
+                    <p class="link"><a href="pages/ascii-music.html">ASCII music</a><span class="year">2023</span></p>
+                    <p class="link"><a href="pages/canned-fish-flavors.html">Canned fish flavors</a><span class="year">2023</span></p>
+                    <p class="link"><a href="pages/battles-and-sieges.html">Battles and sieges</a><span class="year">2023</span></p>
+                    <p class="link"><a href="pages/disease-outbreaks.html">Disease outbreaks</a><span class="year">2023</span></p>
+                    <p class="link"><a href="pages/underground-railroad.html">Underground railroad</a><span class="year">2022</span></p>
+                </div>
+            </div>
+            <div id="resources" class="content open">
+                <h1 class="button">Resources</h1>
+                <div class="text-container">
+                    <p class="link"><a href="https://p5js.org/" target="_blank" rel="noopener noreferrer">P5.js</a><swpan class="separator"></span><a href="https://d3js.org/" target="_blank" rel="noopener noreferrer">D3.js</a><span class="separator"></span><a href="https://brm.io/matter-js/" target="_blank" rel="noopener noreferrer">Matter.js</a></p>
+                    <p class="link"><a href="https://automatetheboringstuff.com/" target="_blank" rel="noopener noreferrer">Automate the boring stuff with Python</a><span class="author">Al Sweigart</span></p>
+                    <p class="link"><a href="https://eloquentjavascript.net/" target="_blank" rel="noopener noreferrer">Eloquent Javascript</a><span class="author">Marijn Haverbeke</span></p>
+                    <p class="link"><a href="https://natureofcode.com/" target="_blank" rel="noopener noreferrer">Nature of code</a><span class="author">Daniel Shiffman</span></p>
+                    <p class="link"><a href="https://www.newline.co/fullstack-d3" target="_blank" rel="noopener noreferrer">Data visualization with D3</a><span class="author">Amelia Wattenberger</span></p>
+                    <p class="link"><a href="https://www.data-is-plural.com/" target="_blank" rel="noopener noreferrer">Data is plural</a><span class="author">Jeremy Singer-Vine</span></p>
+                    <p class="link"><a href="https://www.amazon.com/Visual-Display-Quantitative-Information/dp/0961392142/ref=tmm_hrd_swatch_0" target="_blank" rel="noopener noreferrer">Visual display of quantitative information</a><span class="author">Edward Tufte</span></p>
+                    <p class="link"><a href="https://www.amazon.com/Complexity-Guided-Tour-Melanie-Mitchell/dp/0199798109" target="_blank" rel="noopener noreferrer">Complexity: a guided tour</a><span class="author">Melanie Mitchell</span></p>
+                </div>
+            </div>
+        </section>
+        <section id="progress">
+            <p class="pct">Scribbling... 00%</h1>
+            <p class="redraw button hidden">Redraw</p>
+            <p class="note">Drawing with random flowfields, hoping for random little loops.</p>
+            <p class="note">Long press to show pens.</p>
+        </section>
     </main>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="scripts/draw-articles.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+    <script src="scripts/sketch.js"></script>
 </body>
+
 </html>

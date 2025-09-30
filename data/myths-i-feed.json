@@ -1,0 +1,158 @@
+{
+    "progenitors":[
+        {
+            "name":"cau-ba",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":0},
+            "type":"urban",
+            "title":"Cậu ba",
+            "desc":"Casual tank top and shorts mask his inner turmoils. Feelings only come out at midnight karaoke. Who hurt him??? Refuses to cut that long hair growing from the big mole on his cheek."
+        },
+        {
+            "name":"she-hustler",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":0},
+            "type":"urban",
+            "title":"She-hustler",
+            "desc":"Runs a business by day, reads palms and tarot by night. Fluent in numerology, ChatGPT and exchange rates. Deep down a bit tired of the grind but boredom is worse. Has plants and cats to feed."
+        },
+        {
+            "name":"hoc-sinh-gioi",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":0},
+            "type":"urban",
+            "title":"Học sinh giỏi",
+            "desc":"Has early on mastered the arts of long-form debate and political commentary on social media. Wants a raise, doesn't know if this year's performance review is next year."
+        },
+        {
+            "name":"bro-director",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":0},
+            "type":"urban",
+            "title":"Bro-director",
+            "desc":"Dreamer, motivator. Knows what he wants, wants people to delight him with what what he wants actually looks like. When he dies and goes to heaven, dad is a cult auteur and mom is Uniqlo."
+        },
+        {
+            "name":"gym-man",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":0},
+            "type":"urban",
+            "title":"Gym-man",
+            "desc":"Consumed by forms, shaped like an upside down triangle at his zenith. Hesitant to lift actual heavy objects for fear of developing a herniated disc. Favorite sayings include 'top or vers?'"
+        },
+        {
+            "name":"banana",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":0},
+            "type":"urban",
+            "title":"Banana",
+            "desc":"Asian on the ouside, alabaster on the inside. Born and raised in Vietnam but speaks English with friends. Dreams in memes, thinks social security is great but taxes not so much."
+        },
+        {
+            "name":"northern-auntie",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":0},
+            "type":"urban",
+            "title":"Cô nhà thủ đô",
+            "desc":"Northern auntie who only eats northern food. This chicken doesn't taste free-range. This nước mắm shouldn't be sweet. Makes fun of regional accents but has trouble distinguishing d, r and gi. Wears floral PJs to the bank."
+        },
+        {
+            "name":"ngua-sat",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":0},
+            "type":"folklore",
+            "title":"Ngựa sắt",
+            "desc":"Sidekick to little boy who had to grow up too fast, not due to absent parents but because the whole village needed him fighting off invaders yesterday. He did and rode his fire-spitting iron horse skyward into early retirement."
+        },
+        {
+            "name":"rong",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":0},
+            "type":"folklore",
+            "title":"Rồng",
+            "desc":"Apex legendary pokemon despite the body proportion of an exaggerated Dachshund. Those named after it or born in its year are said to be strong, regal. My cousin Long born in 1988 has not been caught without skin-whitening filters for years."
+        },
+        {
+            "name":"rua",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":1},
+            "type":"folklore",
+            "title":"Cụ rùa",
+            "desc":"Sacred great-grandpa turtle in Hoan Kiem lake who lent a magical sword to Le Loi against Ming rulers. Now cụ sometimes surfaces from polluted water to breathe, looking a bit weak and slightly cross-eyed."
+        },
+        {
+            "name":"chim-lac",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":1},
+            "type":"folklore",
+            "title":"Chim lạc",
+            "desc":"Mythical bird synonymous with Vietnamese pride. I learned of it in the same breath as such historical fact that our first Hung king was born of a dragon father and fairy mother. Myths beget history where I'm from."
+        },
+        {
+            "name":"ty-huu",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":1},
+            "type":"folklore",
+            "title":"Tỳ hưu",
+            "desc":"Fearsome winged lion who eats precious metals. Children climbing its statues are said to suffer life-long curses. Amazing at generational wealth as it has no anus: money it eats stays. No wonder it's angry."
+        },
+        {
+            "name":"ca-chep",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":1},
+            "back":{"count":1},
+            "type":"folklore",
+            "title":"Cá chép",
+            "desc":"Tragic love triangle ended in the death of all three. Now household gods, they ride on a carp every year to deliver year-end reports. Nobody knows what the carp did to have to endure this threesome awkwardness for eternity."
+        },
+        {
+            "name":"ho-ly",
+            "head":{"count":1},
+            "torso":{"count":1},
+            "arm":{"count":2},
+            "leg":{"count":2},
+            "back":{"count":1},
+            "type":"folklore",
+            "title":"Hồ ly",
+            "desc":"Thousand-year-old fox in the form of that neighbor I had who everyone said had rampant extramarital coitus. Turned out she was just tanned, childless, wore tank tops a lot and lived in the 2000s in Hanoi."
+        }
+    ]
+}
