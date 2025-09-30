@@ -66,7 +66,7 @@ let smallScreen,
     selectorIndex=0,
     runningSimulation=0,
     sound=1,
-    oldWidth
+    oldWidth, dpr
 function preload(){
     data=loadJSON('../data/myths-i-feed.json',data=>{
         progenitors=data.progenitors
@@ -98,6 +98,10 @@ function setup(){
     polySynth2=new p5.PolySynth()
 
     myceliumCanvas=createGraphics(width,height,select('canvas#mycelium-canvas').elt)
+    // myceliumCanvas.elt.width=myceliumCanvas.width*dpr
+    // myceliumCanvas.elt.height=myceliumCanvas.height*dpr
+    // const mctx=myceliumCanvas.elt.getContext('2d')
+    // mctx.scale(dpr,dpr)
     myceliumCanvas.background(bgColor)
     myceliumCanvas.ellipseMode(RADIUS)
     myceliumCanvas.rectMode(RADIUS)
@@ -156,6 +160,7 @@ function setup(){
     setupElements()
 }
 function setDimensions(){
+    dpr=window.devicePixelRatio||1
     smallScreen=windowWidth<505
     oldWidth=windowWidth
     initMythCount=round(map(windowWidth,300,1920,3,5,true))
@@ -169,8 +174,6 @@ function setDimensions(){
     chainLinkHeight=round(chainLinkWidth*1.3)
     chainLinkHalfH=chainLinkHeight/2
     chainLinkHalfW=chainLinkWidth/2
-    bodySizeRatio=map(windowWidth,300,1920,.7,1,true)
-    profileBodyRatio=map(windowWidth,300,1920,1,1.4,true)
     mushroomMinCap=smallScreen?4:6
     mushroomMaxCap=smallScreen?12:15
     minFruitingDensity=smallScreen?10:15
@@ -180,7 +183,8 @@ function setDimensions(){
     eatingRadius=smallScreen?20:40
     profileMargin=smallScreen?10:80
     profileHeadRatio=map(windowWidth,505,1920,.7,1.3,true)
-    profileBodyRatio=map(windowWidth,1440,1920,1.3,1.5,true)
+    profileBodyRatio=map(windowWidth,505,1920,1.15,1.5,true)
+    bodySizeRatio=map(windowWidth,300,1920,.6,1,true)
     centerScreen=createVector(windowWidth/2,windowHeight/2)
 }
 function setupElements(){

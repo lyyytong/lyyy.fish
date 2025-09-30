@@ -4,9 +4,9 @@
 }
 :root {
     --font: 'iA Writer Quattro';
-    --fontSize: clamp(11px,1vw,13px);
+    --fontSize: clamp(12px,.9vw,14px);
     --fontSizeMedium: 1.15em;
-    --fontSizeBig: 1.6em;
+    --fontSizeBig: 1.5em;
     --fontWeight: 500;
     --fontWeightMedium:420;
     --fontWeightThin: 410;
@@ -132,6 +132,7 @@ p {
 }
 #canvas-wrapper :is(#mycelium-canvas,#mushroom-canvas,#limbo-canvas) {
     display: block !important;
+    image-rendering: pixelated;
     position: fixed;
     z-index: -1;
     top: 0;
@@ -347,11 +348,7 @@ p {
 
 @media (max-width:505px){
     :root {
-        --fontSizeBig: 1.4em;
-        --wordSpacing: -.1em;
-        --wordSpacingMedium: -.12em;
-        --wordSpacingSmall: -.15em;
-        --letterSpacingSmall: -.015em;
+        --fontSizeBig: 1.3em;
         --fontWeight:500;
         --fontWeightMedium: 500;
         --fontWeightThin: 450;
@@ -457,7 +454,7 @@ p {
         margin: 0 2px;
     }
     #intro {
-        background: linear-gradient(to bottom,var(--bgColor2),#ff0d0ddb);
+        background: linear-gradient(to bottom,var(--bgColor2),#ff1c1cdb);
     }
     #intro #about {
         text-align: left;
@@ -473,18 +470,22 @@ p {
     }
     #intro #about .close.button {
         position: absolute;
-        text-align: center;
-        bottom: var(--margin);
-        width:calc(100% - var(--margin) * 2);
+        /* text-align: end; */
+        bottom: calc(var(--marginBig)*2);
+        right:0;
+        width: 10ch;
         border-bottom: 1px solid var(--textColor);
-        font-size: 1.2em;
-        font-weight: calc(var(--fontWeightThin) + 10);
+        font-size: 1.3em;
+        font-weight: var(--fontWeightThin);
     }
     #selector {
-        background: linear-gradient(to bottom, var(--bgColor4),#4e8c53e8);
+        background: linear-gradient(to bottom, var(--bgColor4),#7a768be8);
     }
     #selector .wheel {
         top: 5vh;
+    }
+    #selector .wheel .myth-name {
+        font-size: 1.1em;
     }
     #selector .buttons .button {
         right: var(--marginBig);
@@ -502,11 +503,11 @@ p {
         right:auto;
         left:0;
         transform: none;
-        width:52ch;
+        width:85vw;
         min-width:300px;
     }
     #selector #profile .desc-wrapper {
-        width: 52ch;
+        width: 85vw;
         left:50%;
         bottom:calc(var(--margin) + 20ch);
         transform:translate(-50%,100%);
@@ -514,7 +515,7 @@ p {
     #selector #profile .myth-desc {
         color: var(--textColor);
         font-weight: var(--fontWeight);
-        padding: 3ch;
+        padding: 3ch 2ch;
     }
     #selector .myth-head .delete.button {
         display: none;
