@@ -479,13 +479,13 @@ p {
         background: #abc085;
     }
     #selector .myth-wrapper.selected {
-        background:linear-gradient(to right,#c2c88c,#abc085);
+        background:linear-gradient(to right,#cdcc89,#abc085);
     }
     #selector .myth-wrapper .myth-name {
-        opacity: .2;
+        color: var(--bgColor4);
     }
     #selector .myth-wrapper.selected .myth-name {
-        opacity: 1;
+        color: var(--textColor);
         font-size: 1.1em;
     }
     #selector #profile {
