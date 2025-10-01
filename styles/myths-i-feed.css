@@ -339,7 +339,7 @@ p {
         z-index: 999;
     }
     .dark #intro {
-        background: linear-gradient(to bottom, var(--bgColor4),#1ba492db);
+        background: linear-gradient(to bottom, var(--bgColor4),#1ba492e8);
     }
     .dark #controls {
         color: var(--textColor2);
@@ -429,7 +429,7 @@ p {
         margin: 0 2px;
     }
     #intro {
-        background: linear-gradient(to bottom,var(--bgColor2),#d13800db);
+        background: linear-gradient(to bottom,var(--bgColor2),#d13800e8);
     }
     #intro #about {
         text-align: left;
@@ -476,18 +476,16 @@ p {
         transform: translateY(-50%);
     }
     #selector .myth-wrapper{
-        background: #abc085;
+        background: #d7e28f;
     }
     #selector .myth-wrapper.selected {
-        background:linear-gradient(to right,#cdcc89,#abc085);
+        background:linear-gradient(to right,#bde676,#d7e28f);
     }
     #selector .myth-wrapper .myth-name {
-        /* color: var(--bgColor4); */
-        color: #8b9c6c;
+        color: #afb77d;
     }
     #selector .myth-wrapper.selected .myth-name {
-        color: var(--textColor);
-        font-size: 1.1em;
+        color: #2d2f1f;
     }
     #selector #profile {
         right:auto;

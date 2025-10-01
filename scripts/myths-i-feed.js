@@ -70,7 +70,7 @@ let smallScreen,
     profileBodyRatio,profileHeadRatio,
     selectorAngle=0,
     selectorIndex=0,
-    runningSimulation=0,
+    runningSimulation,
     sound=1,
     oldWidth,
     darkTheme=0
@@ -88,6 +88,7 @@ function preload(){
 }
 function setup(){
     setDimensions()
+    runningSimulation=smallScreen?1:0
     for (let i=0; i<mushroomCapLayers; i++){
         let r=mushroomCapColor[0]-i*12,
             g=mushroomCapColor[1]-i*12,
@@ -167,7 +168,7 @@ function setDimensions(){
     oldWidth=windowWidth
     initMythCount=round(map(windowWidth,300,1920,3,5,true))
     maxMyths=round(map(windowWidth,300,1920,15,25))
-    mythMass=map(windowWidth,300,800,1.8,1,true)
+    mythMass=round(map(windowWidth,300,800,1.8,1,true),1)
     maxHyphae=round(map(windowWidth,300,1920,100,300,true))
     maxMushrooms=round(map(windowWidth,300,1920,60,120,true))
     maxDroppings=round(map(windowWidth,300,1920,50,150,true))
