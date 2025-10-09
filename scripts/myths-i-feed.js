@@ -31,7 +31,8 @@ const parts=['back','leg','arm','torso','head'], // in drawing order
     chainColor=[165,165,175,200],
     mythLifespan=1000,
     mythWeaknessThreshold=mythLifespan*.1,
-    mythLifeLossSpeed=.25,
+    // mythLifeLossSpeed=.25,
+    mythLifeLossSpeed=.3,
     mythLifeLossFromBreedingRatio=.75,
     mushroomLifespan=20,
     mushroomLifeLossSpeed=.02,
@@ -530,21 +531,19 @@ function draw(){
         // } else if (keyIsDown(83)){
         //     brain.dreads[0].dropWings()
         // }
-        for (let i=0; i<1; i++){
-            Engine.update(brain.engine)
-            clear()
-            limboCanvas.clear()
-            if (frameCount%60<20) myceliumCanvas.background(...bgColor,5)
-            brain.updateQuadTrees()
-            brain.updateMyths()
-            if (!brain.fullOf('myths')) brain.breedMyths()
-            brain.updateMycelium()
-            if (!brain.fullOf('hyphae')) brain.growNetwork()
-            brain.updateMushrooms()
-            if (!brain.fullOf('mushrooms')&&frameCount>300) brain.sproutMushrooms()
-            brain.updateDroppings()
-            // brain.updateDreads()
-        }
+        Engine.update(brain.engine)
+        clear()
+        limboCanvas.clear()
+        if (frameCount%60<20) myceliumCanvas.background(...bgColor,5)
+        brain.updateQuadTrees()
+        brain.updateMyths()
+        if (!brain.fullOf('myths')) brain.breedMyths()
+        brain.updateMycelium()
+        if (!brain.fullOf('hyphae')) brain.growNetwork()
+        brain.updateMushrooms()
+        if (!brain.fullOf('mushrooms')&&frameCount>300) brain.sproutMushrooms()
+        brain.updateDroppings()
+        // brain.updateDreads()
     } else if (!selector.hasClass('hidden')){
         Engine.update(profileEngine)
         profileCanvas.clear()
@@ -668,6 +667,7 @@ class Brain {
             const partner=myth.seekMate()
             if (!partner) continue
             const child=myth.mateWith(partner)
+            child.mutate()
             child.phenotype()
             child.addToWorld(brain.engine)
             newMyths.push(child)
@@ -1270,17 +1270,6 @@ class Myth {
             const p=random(1)
             if (p<proba) gene=this.dna[i]
             else gene=partner.dna[i]
-            const p2=random(1)
-            if (i<notAppearanceGeneIndex&&p2<=mutationRateAppearance) { // is appearance gene
-                if (i%2==0){ // allow mutation for number of body parts only
-                    const partIndex=i/2,
-                        min=minParts[partIndex],
-                        max=maxParts[partIndex]
-                    gene=round(random(min,max))
-                }
-            } else if (i>=notAppearanceGeneIndex&&p2<=mutationRateOther){
-                gene=random(1)
-            }
             newDNA.push(gene)
         }
         let childPosition=V.sub(centerScreen,this.position)
@@ -1290,6 +1279,21 @@ class Myth {
         this.timeBetweenMating=timeBetweenMating
         this.life*=(1-mythLifeLossFromBreedingRatio)
         return child
+    }
+    mutate(){
+        for (let i=0; i<this.dna.length; i++){
+            const p=random(1)
+            if (i<notAppearanceGeneIndex&&p<=mutationRateAppearance) { // is appearance gene
+                if (i%2==0){ // allow mutation for number of body parts only
+                    const partIndex=i/2,
+                        min=minParts[partIndex],
+                        max=maxParts[partIndex]
+                    this.dna[i]=round(random(min,max))
+                }
+            } else if (i>=notAppearanceGeneIndex&&p<=mutationRateOther){
+                this.dna[i]=random(1)
+            }
+        }
     }
     geneExpressed(part){
         return this.anatomy[part].count>0

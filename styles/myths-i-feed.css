@@ -294,7 +294,7 @@ p {
     bottom:0;
     transform: translateY(calc(100% + .55ch));
 }
-#controls {
+#controls { 
     position: fixed;
     bottom: 0;
     left:0;
