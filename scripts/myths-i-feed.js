@@ -239,15 +239,15 @@ function setupElements(){
         if (i!=selectorIndex) mythDesc.addClass('hidden')
     })
     topButton.mouseClicked(()=>{
-        selectorAngle+=delta
-        selectorIndex--
-        if (selectorIndex<0) selectorIndex=progenitors.length-1
-        updateWheel()
-    })
-    bottomButton.mouseClicked(()=>{
         selectorAngle-=delta
         selectorIndex++
         if (selectorIndex>progenitors.length-1) selectorIndex=0
+        updateWheel()
+    })
+    bottomButton.mouseClicked(()=>{
+        selectorAngle+=delta
+        selectorIndex--
+        if (selectorIndex<0) selectorIndex=progenitors.length-1
         updateWheel()
     })
     function updateWheel(){

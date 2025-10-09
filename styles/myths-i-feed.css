@@ -18,7 +18,6 @@
     --wordSpacingSmall: -.2em;
     --bgColor:#d2d2c8;
     --bgColor2:#d2d2c8df;
-    /* --bgColor3:#2a2a35; */
     --bgColor3:#80808d;
     --bgColor4: #898994e5;
     --bgColor5: #898994c2;
@@ -70,6 +69,7 @@ nav {
     position: fixed;
     display: flex;
     line-height:1;
+    /* display: none!important; */
 }
 nav .button {
     background: var(--textColor);
@@ -186,6 +186,18 @@ p {
 #selector .buttons .button:is(.top,.bottom){
     font-size: 2em;
 }
+#selector .myth-wrapper{
+    background: red;
+}
+#selector .myth-wrapper.selected {
+    background: linear-gradient(to right,fuchsia, red);
+}
+#selector .myth-wrapper .myth-name {
+    color: salmon;
+}
+#selector .myth-wrapper.selected .myth-name {
+    color: honeydew;
+}
 #selector .myth-wrapper {
     position: absolute;
     right:50%;
@@ -300,6 +312,7 @@ p {
     left:0;
     width: 100vw;
     display: flex;
+    /* display: none!important; */
 }
 .button {
     line-height:1;
@@ -429,7 +442,7 @@ p {
         margin: 0 2px;
     }
     #intro {
-        background: linear-gradient(to bottom,var(--bgColor2),#d13800e8);
+        background: linear-gradient(to bottom,var(--bgColor2),#ff6127e8);
     }
     #intro #about {
         text-align: left;
@@ -461,9 +474,13 @@ p {
         left:calc(var(--margin) *-1 - 2.5ch);
     }
     #selector .buttons .button {
-        width: 50px;
-        height: 50px;
-        right: var(--margin);
+        color: #e0e8e0;
+        font-weight: 400 !important;
+        width: 32px;
+        height: 32px;
+        right: var(--marginBig);
+        box-shadow: 0 0 8px 9px var(--textColor),
+            0 0 15px 16px #7260e4;
     }
     #selector .buttons .button.top {
         top:calc(50% + 5vh - 9ch);
@@ -472,20 +489,9 @@ p {
         bottom:calc(50% - 5vh - 9ch);
     }
     #selector .buttons .button.pin {
+        padding-right: .1ch;
         top: calc(50% + 5vh);
         transform: translateY(-50%);
-    }
-    #selector .myth-wrapper{
-        background: #d7e28f;
-    }
-    #selector .myth-wrapper.selected {
-        background:linear-gradient(to right,#bde676,#d7e28f);
-    }
-    #selector .myth-wrapper .myth-name {
-        color: #afb77d;
-    }
-    #selector .myth-wrapper.selected .myth-name {
-        color: #2d2f1f;
     }
     #selector #profile {
         right:auto;
@@ -713,13 +719,6 @@ p {
         left:12ch;
     }
     #selector .buttons .button{
-        position: absolute;
-        background: var(--textColor);
-        color: honeydew;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 100%;
         right: calc(var(--marginBig) + var(--margin));
         width: 35px;
         height: 32px;
@@ -736,18 +735,6 @@ p {
     #selector .buttons .button.pin {
         top: 50%;
         transform: translateY(-50%);
-    }
-    #selector .myth-wrapper{
-        background: red;
-    }
-    #selector .myth-wrapper.selected {
-        background:linear-gradient(to right,#dd00dd,red);
-    }
-    #selector .myth-wrapper .myth-name {
-        color: salmon;
-    }
-    #selector .myth-wrapper.selected .myth-name {
-        color:honeydew;
     }
     #controls {
         flex-direction: column;
