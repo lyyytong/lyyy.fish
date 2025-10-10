@@ -69,7 +69,6 @@ nav {
     position: fixed;
     display: flex;
     line-height:1;
-    /* display: none!important; */
 }
 nav .button {
     background: var(--textColor);
@@ -312,7 +311,6 @@ p {
     left:0;
     width: 100vw;
     display: flex;
-    /* display: none!important; */
 }
 .button {
     line-height:1;

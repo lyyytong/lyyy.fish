@@ -20,7 +20,6 @@ const parts=['back','leg','arm','torso','head'], // in drawing order
     mushroomCapStroke=[230,250,190,80], // cap stroke
     mushroomLostCapColor=[197,99,99],
     mushroomEatenSymbol='⨯',
-    // mushroomBurstSymbols=['𝕬','𝕭','𝕮','𝕯','𝕰','𝕱','𝕲','𝕳','𝕴','𝕵','𝕶','𝕷','𝕸','𝕹','𝕺','𝕻','𝕼','𝕽','𝕾','𝕿','𝖀','𝖁','𝖂','𝖃','𝖄','𝖅'],
     mushroomBurstSymbols=['𝕬','𝕭','𝕮','𝕯','𝕰','𝕱','𝕲'],
     pitches=['A','B','C','D','E','F','G'],
     mushroomCapLayers=6,
@@ -31,9 +30,8 @@ const parts=['back','leg','arm','torso','head'], // in drawing order
     chainColor=[165,165,175,200],
     mythLifespan=1000,
     mythWeaknessThreshold=mythLifespan*.1,
-    // mythLifeLossSpeed=.25,
     mythLifeLossSpeed=.3,
-    mythLifeLossFromBreedingRatio=.75,
+    mythLifeAfterBreedingRatio=.05,
     mushroomLifespan=20,
     mushroomLifeLossSpeed=.02,
     hyphaLifespan=10,
@@ -43,7 +41,6 @@ const parts=['back','leg','arm','torso','head'], // in drawing order
     timeBetweenMating=2000,
     gravity=.00000001,
     quadtreeCellsize=30,
-    mythViewRadius=150,
     hyphaViewRadius=50,
     notAppearanceGeneIndex=parts.length*2,
     theme=document.querySelector('meta[name="theme-color"]')
@@ -51,7 +48,7 @@ const {Engine,Composite,Bodies,Body,Constraint,Vertices}=Matter
 const V=p5.Vector
 let smallScreen,
     mythMass,
-    initMythCount,maxMyths,maxHyphae,
+    initMythCount,maxMyths,mythViewRadius,maxHyphae,
     maxMushrooms,mushroomMinCap,mushroomMaxCap,mushroomMinHeight,mushroomMaxHeight,mushroomAvgHeight,
     mushroomCapFill=[],
     maxDroppings,droppingMaxRadius,
@@ -169,6 +166,7 @@ function setDimensions(){
     oldWidth=windowWidth
     initMythCount=round(map(windowWidth,300,1920,3,5,true))
     maxMyths=round(map(windowWidth,300,1920,15,25))
+    mythViewRadius=round(map(windowWidth,300,1920,100,200))
     mythMass=round(map(windowWidth,300,800,1.8,1,true),1)
     maxHyphae=round(map(windowWidth,300,1920,100,300,true))
     maxMushrooms=round(map(windowWidth,300,1920,60,120,true))
@@ -934,8 +932,7 @@ class Myth {
         this.avoidCrowdMaxForce=map(this.dna[notAppearanceGeneIndex+2],0,1,.04,.1,true)
         this.swingSpeed=map(this.dna[notAppearanceGeneIndex+3],0,1,.015,.045,true)
         this.swingMultiplier=map(this.dna[notAppearanceGeneIndex+4],0,1,.005,.01,true)
-        this.timeBetweenMating=timeBetweenMating*map(this.dna[+5],0,1,.2,1)
-        
+        this.timeBetweenMating=timeBetweenMating*map(this.dna[notAppearanceGeneIndex+5],0,1,.2,1)
         this.physicsBodies()
 
         // attach anchor to head (pull anchor when directing head toward food)
@@ -1247,9 +1244,9 @@ class Myth {
     // }
     seekMate(){
         if (this.timeBetweenMating>0||!this.neighbors) return
-        const matingProba=map(this.life,0,mythLifespan,0,.95,true)**2
+        const matingProba=map(this.life,0,mythLifespan,0,.95,true)**3
         if (random(1)>matingProba) return
-        let potentialMates=this.neighbors.filter(n=>n.type=='myth'&&n!=this&&n.isFit)
+        let potentialMates=this.neighbors.filter(n=>n.type=='myth'&&n!=this&n.isFit)
         potentialMates.sort((a,b)=>{
             let aV=V.sub(a.position,this.position),
                 aDSq=aV.magSq(),
@@ -1276,8 +1273,8 @@ class Myth {
         childPosition.mult(.3).add(this.position)
         let child=new Myth(childPosition.x,childPosition.y)
         child.dna=newDNA
+        this.life*=mythLifeAfterBreedingRatio
         this.timeBetweenMating=timeBetweenMating
-        this.life*=(1-mythLifeLossFromBreedingRatio)
         return child
     }
     mutate(){
