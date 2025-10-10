@@ -929,10 +929,10 @@ class Myth {
         this.life=mythLifespan*map(this.dna[notAppearanceGeneIndex],0,1,.8,1.2,true)
         this.lifeAtBirth=this.life
         this.seekFoodMaxSpeed=map(this.dna[notAppearanceGeneIndex+1],0,1,5,10,true)
-        this.avoidCrowdMaxForce=map(this.dna[notAppearanceGeneIndex+2],0,1,.04,.1,true)
+        this.avoidCrowdMaxForce=map(this.dna[notAppearanceGeneIndex+2],0,1,.02,.1,true)
         this.swingSpeed=map(this.dna[notAppearanceGeneIndex+3],0,1,.015,.045,true)
-        this.swingMultiplier=map(this.dna[notAppearanceGeneIndex+4],0,1,.005,.01,true)
-        this.timeBetweenMating=timeBetweenMating*map(this.dna[notAppearanceGeneIndex+5],0,1,.2,1)
+        this.swingMultiplier=map(this.dna[notAppearanceGeneIndex+4],0,1,.004,.008,true)
+        this.timeBetweenMating=timeBetweenMating*map(this.dna[notAppearanceGeneIndex+5],0,1,.4,1)
         this.physicsBodies()
 
         // attach anchor to head (pull anchor when directing head toward food)
@@ -1079,16 +1079,17 @@ class Myth {
         this.neighbors=brain.worldQuadTree.getNeighborsInRange(this.fieldOfView)
     }
     wiggle(){
-        const p=random(1),
-            speed=frameCount*this.swingSpeed
-        if (p>.5) return
-        const arms=this.getBodies('arm'),
+        const p=random(1)
+        if (p>.3) return
+        const speed=frameCount*this.swingSpeed,
+            arms=this.getBodies('arm'),
             armForce={
                 x:0,
                 y:sineTable.lookup(speed)*this.swingMultiplier
             }
-        for (let arm of arms)
+        for (let arm of arms){
             Body.applyForce(arm,this.position,armForce)
+        }
         if (p>.1) return
         const legs=this.getBodies('leg'),
             legForce=sineTable.lookup(speed*3)*this.swingMultiplier*10
@@ -1144,8 +1145,7 @@ class Myth {
         if (!mushrooms.length) return
         let shortestSq=Infinity
         // anchor's main job is to pull creature toward food,
-        // hence calculating and setting the anchor's velocity
-        // directly at each frame
+        // calculating and setting the anchor's velocity directly at each frame
         this.newAnchorVelocity=null
         if (mushrooms.length>=30){
             // target closest cluster of food
@@ -1176,7 +1176,6 @@ class Myth {
                 this.newAnchorVelocity=v
             }
         }
-        if (!this.newAnchorVelocity) return mushrooms
         return mushrooms
     }
     eat(mushrooms){
@@ -1244,7 +1243,7 @@ class Myth {
     // }
     seekMate(){
         if (this.timeBetweenMating>0||!this.neighbors) return
-        const matingProba=map(this.life,0,mythLifespan,0,.95,true)**3
+        const matingProba=map(this.life,0,mythLifespan,0,.95,true)**2
         if (random(1)>matingProba) return
         let potentialMates=this.neighbors.filter(n=>n.type=='myth'&&n!=this&n.isFit)
         potentialMates.sort((a,b)=>{
