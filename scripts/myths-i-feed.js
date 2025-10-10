@@ -45,7 +45,7 @@ const parts=['back','leg','arm','torso','head'], // in drawing order
     notAppearanceGeneIndex=parts.length*2,
     theme=document.querySelector('meta[name="theme-color"]')
 const {Engine,Composite,Bodies,Body,Constraint,Vertices}=Matter
-const V=p5.Vector
+const V=p5.Vector,C=Matter.Collision
 let smallScreen,
     mythMass,
     initMythCount,maxMyths,mythViewRadius,maxHyphae,
@@ -936,17 +936,17 @@ class Myth {
         this.physicsBodies()
 
         // attach anchor to head (pull anchor when directing head toward food)
-        const middleHead=this.heads[floor(this.headCount/2)]
+        this.middleHead=this.heads[floor(this.headCount/2)]
         this.anchor=Bodies.circle(
-            middleHead.position.x,
-            middleHead.position.y-this.anatomy.head.height/2,
+            this.middleHead.position.x,
+            this.middleHead.position.y-this.anatomy.head.height/2,
             1,
             {label:'anchor',mass:1}
         )
         this.bodies.push(this.anchor)
         const anchorConstraint=Constraint.create({
             bodyA:this.anchor,
-            bodyB:middleHead,
+            bodyB:this.middleHead,
             pointB:{x:0,y:-this.anatomy.head.height/2},
             label:'anchor-constraint',
             stiffness:.1,
@@ -1064,6 +1064,14 @@ class Myth {
             this.lastDitch=random()<movementProba
         }
         if (this.newAnchorVelocity){
+            const vP5=createVector(
+                    this.torso.position.x-this.anchor.position.x,
+                    this.torso.position.y-this.anchor.position.y
+                ),
+                a=this.newAnchorVelocity.angleBetween(vP5)
+            if (abs(a)<.5) { // if steering in direction of torso, turn sideways first
+                this.newAnchorVelocity.rotate(PI/2)
+            }
             this.newAnchorVelocity.limit(this.seekFoodMaxSpeed)
             Body.setVelocity(this.anchor,this.newAnchorVelocity)
         }

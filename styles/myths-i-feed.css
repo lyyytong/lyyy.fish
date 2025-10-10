@@ -120,6 +120,7 @@ a,a:active {
 }
 canvas {
     pointer-events: none;
+    image-rendering: pixelated;
 }
 p {
     text-wrap:balance;
@@ -134,7 +135,6 @@ p {
 }
 #canvas-wrapper :is(#mycelium-canvas,#mushroom-canvas,#limbo-canvas) {
     display: block !important;
-    image-rendering: pixelated;
     position: fixed;
     z-index: -1;
     top: 0;
