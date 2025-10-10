@@ -331,6 +331,12 @@ p {
 .hidden {
     display:none !important;
 }
+body.dark {
+    background:#2b2b36;
+}
+.dark :is(#mycelium-canvas,#mushroom-canvas){
+    filter:invert(100%);
+}
 
 @media (max-width:505px){
     :root {
@@ -339,15 +345,6 @@ p {
         --fontWeightMedium: 480;
         --fontWeightThin: 430;
         --letterSpacing:-.008em;
-    }
-    body.dark {
-        filter: invert(100%);
-    }
-    .dark :is(nav,#intro,#myths-canvas,#limbo-canvas,#selector,#controls){
-        filter: invert(100%);
-    }
-    .dark :is(.desc-wrapper){
-        z-index: 999;
     }
     .dark #intro {
         background: linear-gradient(to bottom, var(--bgColor4),#1ba492e8);
@@ -530,9 +527,6 @@ p {
     }
 }
 @media (min-width:505px){
-    .dark :is(#mycelium-canvas,#mushroom-canvas){
-        filter:invert(100%);
-    }
     .dark :is(nav,#controls) .button {
         opacity: .5;
     }

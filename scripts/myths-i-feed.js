@@ -45,7 +45,7 @@ const parts=['back','leg','arm','torso','head'], // in drawing order
     notAppearanceGeneIndex=parts.length*2,
     theme=document.querySelector('meta[name="theme-color"]')
 const {Engine,Composite,Bodies,Body,Constraint,Vertices}=Matter
-const V=p5.Vector,C=Matter.Collision
+const V=p5.Vector
 let smallScreen,
     mythMass,
     initMythCount,maxMyths,mythViewRadius,maxHyphae,
@@ -553,6 +553,7 @@ function windowResized(){
     setDimensions()
     resizeCanvas(windowWidth,windowHeight)
     myceliumCanvas.resizeCanvas(width,height)
+    myceliumCanvas.background(bgColor)
     mushroomCanvas.resizeCanvas(width,height)
     limboCanvas.resizeCanvas(width,height)
     const profileWidth=+select('#profile').style('width').split('px')[0]
@@ -936,17 +937,17 @@ class Myth {
         this.physicsBodies()
 
         // attach anchor to head (pull anchor when directing head toward food)
-        this.middleHead=this.heads[floor(this.headCount/2)]
+        const middleHead=this.heads[floor(this.headCount/2)]
         this.anchor=Bodies.circle(
-            this.middleHead.position.x,
-            this.middleHead.position.y-this.anatomy.head.height/2,
+            middleHead.position.x,
+            middleHead.position.y-this.anatomy.head.height/2,
             1,
             {label:'anchor',mass:1}
         )
         this.bodies.push(this.anchor)
         const anchorConstraint=Constraint.create({
             bodyA:this.anchor,
-            bodyB:this.middleHead,
+            bodyB:middleHead,
             pointB:{x:0,y:-this.anatomy.head.height/2},
             label:'anchor-constraint',
             stiffness:.1,
