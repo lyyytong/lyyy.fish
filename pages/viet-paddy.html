@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="author" content="Ly Tong">
+	<meta name="description" content="Vietnamese rice paddy data">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" content="#e2e0db">
+	<link rel="stylesheet" href="../styles/viet-paddy.css" />
+	<title>Viet Paddy</title>
+</head>
+
+<body>
+	<header>
+		<nav>
+			<a href="../index.html">lyyy.fish</a>
+			<button id="open-sidebar"></button>
+			<section id="sidebar">
+				<div id="links">
+					<a href="#notes">Notes</a>
+					<a href="#tools">Tools</a>
+					<a href="#data-sources">Data</a>
+				</div>
+				<div id="metrics">
+					<p class="label small">Choose metric</p>
+					<div class="wrapper">
+						<button metric="production" class="selected">Production (thousand tons)</button>
+						<button metric="area">Area (thousand hectares)</button>
+						<button metric="yield">Yield (quintal/hectare)</button>
+					</div>
+				</div>
+				<div id="simulation">
+					<p class="label small">Simulation</p>
+					<div class="wrapper add-pest">
+						<button mode="add-pest-auto" class="selected">Auto add pests<sup class="tiny">1</sup></button>
+						<button mode="add-pest-100">+100</button>
+						<button mode="add-pest-all">All</button>
+					</div>
+					<div class="wrapper add-pest-control">
+						<button mode="pest-control-auto" class="selected">Auto pest control<sup
+								class="tiny">2</sup></button>
+						<button mode="pest-control-handheld">Handheld</button>
+						<button mode="pest-control-solar">Sun</button>
+					</div>
+					<div class="wrapper pest-count small">
+						<p>Pests</p>
+						<div class="separator"></div>
+						<p class="count">0</p>
+						<p class="max">0</p>
+					</div>
+					<div class="wrapper pest-control-count small">
+						<p>Pest controllers</p>
+						<div class="separator"></div>
+						<p class="count">0</p>
+						<p class="max">0</p>
+					</div>
+					<div class="wrapper small pest-note">
+						<p class="note-number">1.</p>
+						<p>Add new pests every 8-10 seconds</p>
+					</div>
+					<div class="wrapper small pest-control-note">
+						<p class="note-number">2.</p>
+						<p>Add pest control near damaged worms</p>
+					</div>
+				</div>
+				<div id="summary"></div>
+			</section>
+			<div id="back-layer"></div>
+		</nav>
+	</header>
+	<main>
+		<section id="legends">
+			<h1>Vietnam's <span class="metric">rice production</span> per harvest season, year <select
+					id="year"></select></h1>
+			<p class="unit">Thousand tons</p>
+			<div class="seasons">
+				<button season="spring" class="spring selected">Spring</button>
+				<button season="autumn" class="autumn selected">Autumn</button>
+				<button season="winter" class="winter selected">Winter</button>
+			</div>
+		</section>
+		<section id="tooltip">
+			<p class="spring">Spring</p>
+			<p class="autumn">Autumn</p>
+			<p class="winter">Winter</p>
+		</section>
+		<section id="canvas">
+			<canvas class="front"></canvas>
+			<canvas class="back"></canvas>
+		</section>
+		<section id="graph"></section>
+		<section id="writing" class="small">
+			<div id="notes">
+				<h2>Notes</h2>
+				<ul>
+					<li>
+						This project includes data from 1995 to 2023.
+					</li>
+					<li>
+						The above provinces and their grouping into
+						regions apply up until July 2025, after which administrative reforms reduced Vietnam's
+						provincial units from 63 down to 34.
+					</li>
+					<li>
+						Harvest seasons for each region was taken from the <a
+							href="https://www.nso.gov.vn/default/2024/05/cac-bao-cao-phan-tich-va-du-bao-thong-ke-nam-2023/"
+							target="_blank" rel="noopener noreferrer">Statistical analyses and forecasting reports of
+							2023</a> (National Statistics Office, 2024, p. 252-253), and assumed unchanged from 1995
+						to 2023.
+					</li>
+					<li>
+						My worm chart is a pretty wonky chart. 'Gravity' from the physics engine stretch the
+						worms' length when they start to get a bit long and heavy. I included a brief period of length
+						adjustment whenever a new chart is drawn (let 'gravity' work while slowly removing the worms'
+						body segments until they're close to the right length), before the worms can wake up and join
+						simulation. It's not super exact like a static bar chart, but I'm happy enough with showing just
+						a general sense of proportion.
+					</li>
+				</ul>
+			</div>
+			<div id="tools">
+				<h2>Tools</h2>
+				<ul>
+					<li>
+						Pandas (Python) for editing and merging different datasets in to one csv file.
+					</li>
+					<li>
+						P5.js and Matter.js (Javascript), HTML, CSS, Github Page for the viz.
+					</li>
+				</ul>
+			</div>
+			<div id="data-sources">
+				<h2>Data</h2>
+				<ul>
+					<li>
+						National Statistics Office. <a
+							href="https://www.nso.gov.vn/en/px-web/?pxid=E0616&theme=Agriculture%2C%20Forestry%20and%20Fishing"
+							target="_blank" rel="noopener noreferrer">Planted
+							area of spring paddy by province</a>. 2025.
+					</li>
+					<li>
+						--. <a
+							href="https://www.nso.gov.vn/en/px-web/?pxid=E0618&theme=Agriculture%2C%20Forestry%20and%20Fishing"
+							target="_blank" rel="noopener noreferrer">Production
+							of spring paddy by province</a>. 2025.
+					</li>
+					<li>
+						--. <a
+							href="https://www.nso.gov.vn/en/px-web/?pxid=E0617&theme=Agriculture%2C%20Forestry%20and%20Fishing"
+							target="_blank" rel="noopener noreferrer">Yield
+							of spring paddy by province</a>. 2025.
+					</li>
+					<li>
+						--. <a
+							href="https://www.nso.gov.vn/en/px-web/?pxid=E0619&theme=Agriculture%2C%20Forestry%20and%20Fishing"
+							target="_blank" rel="noopener noreferrer">Planted area of autumn paddy by
+							province</a>.
+						2025.
+					</li>
+					<li>
+						--. <a
+							href="https://www.nso.gov.vn/en/px-web/?pxid=E0621&theme=Agriculture%2C%20Forestry%20and%20Fishing"
+							target="_blank" rel="noopener noreferrer">Production of autumn paddy by
+							province</a>.
+						2025.
+					</li>
+					<li>
+						--. <a
+							href="https://www.nso.gov.vn/en/px-web/?pxid=E0620&theme=Agriculture%2C%20Forestry%20and%20Fishing"
+							target="_blank" rel="noopener noreferrer">Yield of autumn paddy by province</a>.
+						2025.
+					</li>
+					<li>
+						--. <a
+							href="https://www.nso.gov.vn/en/px-web/?pxid=E0622&theme=Agriculture%2C%20Forestry%20and%20Fishing"
+							target="_blank" rel="noopener noreferrer">Planted area of winter paddy by
+							province</a>.
+						2025.
+					</li>
+					<li>
+						--. <a
+							href="https://www.nso.gov.vn/en/px-web/?pxid=E0624&theme=Agriculture%2C%20Forestry%20and%20Fishing"
+							target="_blank" rel="noopener noreferrer">Production of winter paddy by
+							province</a>.
+						2025.
+					</li>
+					<li>
+						--. <a
+							href="https://www.nso.gov.vn/en/px-web/?pxid=E0623&theme=Agriculture%2C%20Forestry%20and%20Fishing"
+							target="_blank" rel="noopener noreferrer">Yield of winter paddy by province</a>.
+						2025.
+					</li>
+				</ul>
+			</div>
+			<div class="sounds"></div>
+			<div class="notes"></div>
+		</section>
+		<div id="p5_loading"></div>
+	</main>
+	<script src="../scripts/p5.min.js"></script>
+	<script src="../scripts/matter.min.js"></script>
+	<script src="../scripts/viet-paddy.js"></script>
+</body>
+
+</html>
