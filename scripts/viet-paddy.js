@@ -329,7 +329,7 @@ function initDOM() {
 		|| window.matchMedia('(any-pointer:fine)').matches // any mouse/trackpad connected
 	oldWidth = windowWidth
 	oldHeight = mouseControl ? windowHeight : displayHeight
-	if (screenSize == 'phone') pestControlSolar = true
+	// if (screenSize == 'phone') pestControlSolar = true
 
 	if (!yearSelect) {
 		yearSelect = select('select#year')
